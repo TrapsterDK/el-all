@@ -1,0 +1,57 @@
+SPI COM
+https://circuitdigest.com/microcontroller-projects/pic16f877a-spi-communication-tutorial
+
+https://www.sparkfun.com/datasheets/Components/nRF24L01_prelim_prod_spec_1_2.pdf
+
+https://ww1.microchip.com/downloads/en/devicedoc/39582b.pdf
+
+https://learn.sde.dk/pluginfile.php/995728/mod_resource/content/1/nRFL01_tutorial.pdf
+
+VCC
+recommend 3.3V
+
+GND
+
+CE input
+Transmitter low except when transimtting
+Recoever high to monitor, low to not monitor
+
+CSN=SS
+High except when recivening data on the SPI bus or sending SPI commands
+Low throught entire transaction
+
+SCK=SCK
+
+MOSI=SDO/SPI data out
+microcontroller send data to radio
+
+MISO=SDI/SPI data in
+radio send data to microcontroller
+
+IRQ input
+ACTIVE-LOW
+High normally, low when interrupt is asserted
+The Data Ready interrupt is set by a new packet arrival event. The procedure for handling this
+interrupt should be: 1) read payload via SPI, 2) clear RX_DR interrupt, 3) read FIFO_STATUS to
+check if there are more payloads available in RX FIFO, 4) if there are more data in RX FIFO, repeat
+from 1). 
+
+SPI max 8-10Mbps
+
+On recieve
+CE is high, set to low to disable reciver
+execute R_RX_PAYLOAD
+send command byte (0x61)
+send dummy bytes for how many you want to read
+24L01 will delete the payload you read from FIFO
+read all payloads in FIFO can contain 3
+CE to high
+
+To transmit, INFO can load 3 packets into TX_FIFO like RX_FIFO can contain 3, this will transmit them all
+Send command (0xA0)
+send the payload, must match reciever payload length
+toggle CE to high for at least 10 us
+if sent TX_DS interrupt will occur
+if max retries happen MAX_RT will occour
+
+FLUSH_TX and FLUSH_RX can flush registers
