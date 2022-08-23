@@ -1,10 +1,12 @@
 SPI COM
 https://circuitdigest.com/microcontroller-projects/pic16f877a-spi-communication-tutorial
+https://microcontrollerslab.com/spi-communication-pic-microcontroller/
 
-https://www.sparkfun.com/datasheets/Components/nRF24L01_prelim_prod_spec_1_2.pdf
-
+PIC
 https://ww1.microchip.com/downloads/en/devicedoc/39582b.pdf
 
+NRF24L01
+https://www.sparkfun.com/datasheets/Components/nRF24L01_prelim_prod_spec_1_2.pdf
 https://learn.sde.dk/pluginfile.php/995728/mod_resource/content/1/nRFL01_tutorial.pdf
 
 VCC
@@ -12,9 +14,9 @@ recommend 3.3V
 
 GND
 
-CE input
+CE=binary input
 Transmitter low except when transimtting
-Recoever high to monitor, low to not monitor
+Reciever high to monitor, low to not monitor
 
 CSN=SS
 High except when recivening data on the SPI bus or sending SPI commands
@@ -28,7 +30,7 @@ microcontroller send data to radio
 MISO=SDI/SPI data in
 radio send data to microcontroller
 
-IRQ input
+IRQ=binary input
 ACTIVE-LOW
 High normally, low when interrupt is asserted
 The Data Ready interrupt is set by a new packet arrival event. The procedure for handling this
@@ -36,7 +38,11 @@ interrupt should be: 1) read payload via SPI, 2) clear RX_DR interrupt, 3) read 
 check if there are more payloads available in RX FIFO, 4) if there are more data in RX FIFO, repeat
 from 1). 
 
-SPI max 8-10Mbps
+SPI 
+setup as 8bit data transfer
+setup spi port as master
+max 8-10Mbps
+PIC is 200 ns instruction cycle, so no need to worry about SPI related timings as they are mostly below 50 nss
 
 On recieve
 CE is high, set to low to disable reciver
@@ -55,3 +61,65 @@ if sent TX_DS interrupt will occur
 if max retries happen MAX_RT will occour
 
 FLUSH_TX and FLUSH_RX can flush registers
+
+registers
+
+register 00 is config
+PWR_UP bit set to do anything with device
+PRIM_RX set is reciever, cleared is transmitter
+CRC hash to check if data is corrupted, is auto in shockburst
+
+register 01 EN_AA
+allows to enable auto acknowedgement for each pipe/connection, 
+recieve adress must bbeb the same as transmit adress if this feature is used
+will assert MAX_RT interrupt if not actknowledged
+
+register 02 EN_RXADDR
+to enable any pipe write 1
+
+register 03 SETUP_AW
+MUST set adress 3-5 adress bytes, match both reciever and transmitter, the bigger adress fewer wrong packets
+
+register 04 SETUP_RETR
+alllows to change time delay and attemps after failed EN_AA
+
+register 05 RF_CH
+allows to choose frequency
+frequency allowed in denmark 2400mhz to 2500mhz 
+nrf24l01 frequency 2400mhz to 2525mhz
+100/(125/128)=102.4, meaning that frequency choice 101 and under should be allowed
+
+register 06 RF_SETUP
+PLL_LOCK and LNA_HCURR should not be changed
+RF_DR allows to change speed 1mbps or 2mbps
+RF_PWR changes power used, recommended highest value
+
+register 07 STATUS
+used when IRQ goes low
+RX_DR data ready, write bit to 1 to clear
+TX_DS data sent, write bit to 1 to clear
+MAX_RT max retry, write bit to 1 to clear
+TX_FULL gives if TX_FIFO is full
+RX_P_NO gives data pipe for the recieved payload
+
+register 08 OBSERVE_TX
+PLOS_CNT counter of lost packets max 15, reset by changin RF_CH/frequency
+ARC_CNT no idea
+
+register 09 cd
+monitor if there is anything on any RF channel, not usefull
+
+register 0(A-F) RX_ADDR_P(0-5)
+does something
+
+register 10 TX_ADDR
+transmit adress used for PTX device ony
+
+register 11-16 PX_PW_P(0-5)
+number of bytes in RX payload 1-32
+
+register 17 FIFO_STATUS
+TX_REUSE resend on repeat
+TX_FULL, TX_EMPTY, RX_FULL, RX_EMPTY makes senses
+
+9 more bytes send on enhanced shockburst
