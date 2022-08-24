@@ -14,13 +14,13 @@ recommend 3.3V
 
 GND
 
-CE=binary input
-Transmitter low except when transimtting
-Reciever high to monitor, low to not monitor
+CE=binary output
+Transmitter: low except when transimtting
+Reciever: high to monitor, low to not monitor
 
 CSN=SS
 High except when recivening data on the SPI bus or sending SPI commands
-Low throught entire transaction
+Low through entire transaction
 
 SCK=SCK
 
@@ -43,6 +43,7 @@ setup as 8bit data transfer
 setup spi port as master
 max 8-10Mbps
 PIC is 200 ns instruction cycle, so no need to worry about SPI related timings as they are mostly below 50 nss
+LSByte
 
 On recieve
 CE is high, set to low to disable reciver
@@ -123,3 +124,41 @@ TX_REUSE resend on repeat
 TX_FULL, TX_EMPTY, RX_FULL, RX_EMPTY makes senses
 
 9 more bytes send on enhanced shockburst
+
+PIC
+page 73 about SPI MSSP
+
+SPI documentation
+MSSP Master Synchronous Serial Port
+Supports
+Master mode
+Multi-master Mode
+Slave Mode
+
+Status register
+SSPSTAT
+
+Controll register
+SSPCON SSPCON2
+
+registers differ on wheather it is operated in SPI or I2C mode, we want SPI mode
+
+SPI mode support 8 bit sync transmitted and recieved, which we need
+SDO Serial Data Out
+SDI Serial Data In
+SCL Serial Clock
+SS Slave select
+
+
+MSSP has 4 rgister for SPI mode
+MSSP Control register (SSPCON)
+MSSP Status register (SSPSTAT)
+Serial recive/transmit buffer register (SSPBUF)
+MSSP Shift Register (SSPSR)
+
+SMP
+clear in Slave mode
+
+BF recieve only
+1 Recieve complete
+0 not complete
