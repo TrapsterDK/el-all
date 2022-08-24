@@ -30,12 +30,10 @@ void SPI_reset(){
     SSPCONbits.SSPEN = 0; //SSPEN enable serial ports
 }
 
-void SPI_write(char write){
+void SPI_write(uint8_t write){
     SSPBUF = write;
-    
-    if(SSPCONbits.WCOL){//clear if write was a write collision
-        SSPCONbits.WCOL = 0; 
-    }
+   
+    while(!SSPSTATbits.BF);
 }
 
 uint8_t SPI_data_ready(){
@@ -46,7 +44,7 @@ void SPI_wait_data_ready(){
     while(!SSPSTATbits.BF);
 }
 
-char SPI_read(){
+uint8_t SPI_read(){
     return SSPBUF;
 }
 

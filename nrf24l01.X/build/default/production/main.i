@@ -1903,12 +1903,10 @@ void SPI_reset(){
     SSPCONbits.SSPEN = 0;
 }
 
-void SPI_write(char write){
+void SPI_write(uint8_t write){
     SSPBUF = write;
 
-    if(SSPCONbits.WCOL){
-        SSPCONbits.WCOL = 0;
-    }
+    while(!SSPSTATbits.BF);
 }
 
 uint8_t SPI_data_ready(){
@@ -1919,25 +1917,117 @@ void SPI_wait_data_ready(){
     while(!SSPSTATbits.BF);
 }
 
-char SPI_read(){
+uint8_t SPI_read(){
     return SSPBUF;
 }
 # 20 "main.c" 2
-# 30 "main.c"
-void radio_start(){
-    RA5 = 1;
+# 61 "main.c"
+void radio_spi_command_array(uint8_t command, uint8_t *args, uint8_t size){
+    RC2 = 0;
+
+    SPI_write(command);
+
+    for(int8_t i = 0; i<size; i++){
+        SPI_write(args[i]);
+    }
+
+    RC2 = 1;
 }
 
-void radio_input(){
+void radio_spi_command_single(uint8_t command, uint8_t arg){
+    RC2 = 0;
 
+    SPI_write(command);
+
+    SPI_write(arg);
+
+    RC2 = 1;
 }
 
+void radio_reciever_start(){
+    TRISC0 = 1;
+    TRISC1 = 0;
+    TRISC2 = 0;
+    RC1 = 1;
+    RC2 = 1;
+    SPI_init_master();
+
+
+    radio_spi_command_single((0b00000000 & 0x00), 0b00000111);
+
+    radio_spi_command_single((0b00000000 & 0x02), 0b00000001);
+
+    radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
+}
+
+void radio_transmitter_start(){
+    TRISC0 = 1;
+    TRISC1 = 0;
+    TRISC2 = 0;
+    RC1 = 0;
+    RC2 = 1;
+    SPI_init_master();
+
+
+    radio_spi_command_single((0b00000000 & 0x00), 0b00000110);
+
+    radio_spi_command_array((0b00000000 & 0x10), (uint8_t *)"myadr", 5);
+    radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
+}
+
+
+void radio_transmit_single(uint8_t *transmission, uint8_t size){
+    radio_spi_command_array((0b00000000 & 0b10100000), transmission, size);
+    RC1 = 1;
+    _delay((unsigned long)((11)*(10000000/4000000.0)));
+    RC1 = 0;
+}
+
+uint8_t radio_has_recieved_packet(){
+    if(RC0){
+        radio_spi_command_single((0b00100000 & 0x07), 0b00000000);
+        uint8_t status = SPI_read();
+
+        uint8_t RX_DR = status & 0b01000000;
+        if(RX_DR){
+            radio_spi_command_single((0b00000000 & 0x07), 0b01000000);
+
+            return 1;
+        }
+    }
+    return 0;
+}
+
+uint8_t radio_get_packets(){
+    radio_spi_command_single(0b01100001, 0b00000000);
+    uint8_t packet = SPI_read();
+    return packet;
+
+}
+# 155 "main.c"
 void main()
 {
-    radio_start();
+    radio_reciever_start();
+    TRISB = 0b11111111;
+    TRISC7 = 1;
 
     while(1)
     {
+        if(radio_has_recieved_packet()){
+            RC7 = 1;
+            _delay((unsigned long)((2000)*(10000000/4000.0)));
+            RC7 = 0;
 
+            {
+                PORTB = radio_get_packets();
+            }
+        }
+    }
+
+    radio_transmitter_start();
+
+    while(1){
+        radio_transmit_single((uint8_t *)0b10101010, 1);
+        _delay((unsigned long)((3000)*(10000000/4000.0)));
     }
 }
