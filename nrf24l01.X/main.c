@@ -55,8 +55,8 @@
 #define RF24_RX_PW_P0       0x11 //0x11-0x16 p0-05
 #define RF24_FIFO_STATUS    0x17
 
-#define RF24_WRITE_REGISTER(register_) (RF24_W_REGISTER & register_)
-#define RF24_READ_REGISTER(register_) (RF24_R_REGISTER & register_)
+#define RF24_WRITE_REGISTER(register_) (RF24_W_REGISTER | register_)
+#define RF24_READ_REGISTER(register_) (RF24_R_REGISTER | register_)
 
 void radio_spi_command_array(uint8_t command, uint8_t *args, uint8_t size){
     CSN = 0;
