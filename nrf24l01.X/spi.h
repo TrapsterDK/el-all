@@ -13,7 +13,7 @@ void SPI_init_slave(){
     //SSPSTAT = 0b00000000; //p74 SMP and CKE no idea
     TRISC5 = 0; //p77
     TRISC3 = 0; //p77
-    TRISC4 = 1; //p77 SS use
+    //TRISC4 = 1; //p77 SS Slave select not used, let auto handle
 }
 
 void SPI_init_master(){
@@ -21,8 +21,7 @@ void SPI_init_master(){
     //SSPSTAT = 0b00000000; //74 SMP and CKE no idea
     TRISC5 = 0; //p77
     TRISC3 = 1; //p77
-    TRISC4 = 1; //p77 SS use
-    
+    //TRISC4 = 1; //p77 SS Slave select not used, let auto handle
 }
 
 //resets SPO mode to enable reconfigure
@@ -31,6 +30,7 @@ void SPI_reset(){
 }
 
 void SPI_write(uint8_t write){
+    SSPSTATbits.BF = 0;
     SSPBUF = write;
    
     while(!SSPSTATbits.BF);
