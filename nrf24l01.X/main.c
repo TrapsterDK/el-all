@@ -170,7 +170,7 @@ void main()
                 PORTB = radio_get_packets();
             }
         }
-    }
+    } 
     */
     radio_transmitter_start();
     

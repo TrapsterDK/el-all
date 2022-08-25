@@ -8,25 +8,25 @@
 #ifndef SPI_H
 #define	SPI_H
 
+#ifdef	__cplusplus
+extern "C" {
+#endif
+
+//maybe use SSPIF for transmission reception
+//this library does not handle SS, CS, SSN or CSN
+
 void SPI_init_slave(){
     SSPCONbits.SSPEN = 1; //p75 SSPEN enable serial ports
     //SSPSTAT = 0b00000000; //p74 SMP and CKE no idea
     TRISC5 = 0; //p77
-    TRISC3 = 0; //p77
-    //TRISC4 = 1; //p77 SS Slave select not used, let auto handle
+    TRISC3 = 1; //p77
 }
 
 void SPI_init_master(){
     SSPCONbits.SSPEN = 1; //75 SSPEN enable serial ports
     //SSPSTAT = 0b00000000; //74 SMP and CKE no idea
     TRISC5 = 0; //p77
-    TRISC3 = 1; //p77
-    //TRISC4 = 1; //p77 SS Slave select not used, let auto handle
-}
-
-//resets SPO mode to enable reconfigure
-void SPI_reset(){
-    SSPCONbits.SSPEN = 0; //SSPEN enable serial ports
+    TRISC3 = 0; //p77
 }
 
 void SPI_write(uint8_t write){
@@ -37,7 +37,7 @@ void SPI_write(uint8_t write){
 }
 
 uint8_t SPI_data_ready(){
-    return SSPSTATbits.BF; //check bit 8
+    return SSPSTATbits.BF;
 }
 
 void SPI_wait_data_ready(){
@@ -47,6 +47,10 @@ void SPI_wait_data_ready(){
 uint8_t SPI_read(){
     return SSPBUF;
 }
+
+#ifdef	__cplusplus
+}
+#endif
 
 #endif	/* SPI_H */
 

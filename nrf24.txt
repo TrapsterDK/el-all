@@ -162,3 +162,6 @@ clear in Slave mode
 BF recieve only
 1 Recieve complete
 0 not complete
+
+Note: When using the SSP module in SPI Slave mode and SS enabled, the A/D converter must be set to one of
+the following modes, where PCFG3:PCFG0 = 0100, 0101, 011x, 1101, 1110, 1111.
