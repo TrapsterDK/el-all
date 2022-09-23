@@ -1859,11 +1859,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 2 3
-# 13 "lcd.c" 2
+# 12 "lcd.c" 2
+
 # 1 "./lcd.h" 1
 # 17 "./lcd.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdbool.h" 1 3
-# 18 "./lcd.h" 2
+# 17 "./lcd.h" 2
 # 81 "./lcd.h"
 _Bool LCD_Init ( );
 
@@ -1881,7 +1882,8 @@ void LCD_Write ( unsigned char c );
 
 
 void LCD_Out ( char a );
-# 14 "lcd.c" 2
+# 13 "lcd.c" 2
+
 
 void LCD_Out ( char c ) {
     if(c & 1)
