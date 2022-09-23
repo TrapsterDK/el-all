@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=nrf24l01.X
+PROJECTNAME=nrf24l01_test.X
 
 # Active Configuration
 DEFAULTCONF=default

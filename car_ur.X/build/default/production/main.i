@@ -1877,157 +1877,179 @@ extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 2 3
 # 17 "main.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 1 3
 
 
-# 1 "./spi.h" 1
-# 11 "./spi.h"
-void SPI_init_slave(){
-    SSPCONbits.SSPEN = 1;
 
-    TRISC5 = 0;
-    TRISC3 = 0;
-    TRISC4 = 1;
-}
-
-void SPI_init_master(){
-    SSPCONbits.SSPEN = 1;
-
-    TRISC5 = 0;
-    TRISC3 = 1;
-    TRISC4 = 1;
-
-}
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\__size_t.h" 1 3
 
 
-void SPI_reset(){
-    SSPCONbits.SSPEN = 0;
-}
 
-void SPI_write(uint8_t write){
-    SSPBUF = write;
+typedef unsigned size_t;
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
 
-    while(!SSPSTATbits.BF);
-}
-
-uint8_t SPI_data_ready(){
-    return SSPSTATbits.BF;
-}
-
-void SPI_wait_data_ready(){
-    while(!SSPSTATbits.BF);
-}
-
-uint8_t SPI_read(){
-    return SSPBUF;
-}
-# 20 "main.c" 2
-# 61 "main.c"
-void radio_spi_command_array(uint8_t command, uint8_t *args, uint8_t size){
-    RC2 = 0;
-
-    SPI_write(command);
-
-    for(int8_t i = 0; i<size; i++){
-        SPI_write(args[i]);
-    }
-
-    RC2 = 1;
-}
-
-void radio_spi_command_single(uint8_t command, uint8_t arg){
-    RC2 = 0;
-
-    SPI_write(command);
-
-    SPI_write(arg);
-
-    RC2 = 1;
-}
-
-void radio_reciever_start(){
-    TRISC0 = 1;
-    TRISC1 = 0;
-    TRISC2 = 0;
-    RC1 = 1;
-    RC2 = 1;
-    SPI_init_master();
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\__null.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
 
 
-    radio_spi_command_single((0b00000000 & 0x00), 0b00000111);
-
-    radio_spi_command_single((0b00000000 & 0x02), 0b00000001);
-
-    radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
-}
-
-void radio_transmitter_start(){
-    TRISC0 = 1;
-    TRISC1 = 0;
-    TRISC2 = 0;
-    RC1 = 0;
-    RC2 = 1;
-    SPI_init_master();
 
 
-    radio_spi_command_single((0b00000000 & 0x00), 0b00000110);
-
-    radio_spi_command_array((0b00000000 & 0x10), (uint8_t *)"myadr", 5);
-    radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
-}
 
 
-void radio_transmit_single(uint8_t *transmission, uint8_t size){
-    radio_spi_command_array((0b00000000 & 0b10100000), transmission, size);
-    RC1 = 1;
-    _delay((unsigned long)((11)*(10000000/4000000.0)));
-    RC1 = 0;
-}
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdarg.h" 1 3
 
-uint8_t radio_has_recieved_packet(){
-    if(RC0){
-        radio_spi_command_single((0b00100000 & 0x07), 0b00000000);
-        uint8_t status = SPI_read();
 
-        uint8_t RX_DR = status & 0b01000000;
-        if(RX_DR){
-            radio_spi_command_single((0b00000000 & 0x07), 0b01000000);
 
-            return 1;
-        }
-    }
-    return 0;
-}
 
-uint8_t radio_get_packets(){
-    radio_spi_command_single(0b01100001, 0b00000000);
-    uint8_t packet = SPI_read();
-    return packet;
 
-}
-# 155 "main.c"
-void main()
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
 {
-    radio_reciever_start();
-    TRISB = 0b11111111;
-    TRISC7 = 1;
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 8 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 18 "main.c" 2
+
+# 1 "./lcd.h" 1
+# 17 "./lcd.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdbool.h" 1 3
+# 18 "./lcd.h" 2
+# 81 "./lcd.h"
+_Bool LCD_Init ( );
+
+
+void LCD_putc ( char a );
+
+
+void LCD_puts ( char *a );
+
+
+void LCD_putrs ( const char *a );
+
+
+void LCD_Write ( unsigned char c );
+
+
+void LCD_Out ( char a );
+# 19 "main.c" 2
+
+
+
+void main(void) {
+
+    TRISD = 0x00;
+    TRISE = 0x00;
+    CMCON = 0b00000111;
+    ADCON1 = 0x4E;
+    LCD_Init();
+
+
+    TRISB = 0b00010000;
+    T1CON = 0x10;
+    int a;
+    char txt[4];
 
     while(1)
     {
-        if(radio_has_recieved_packet()){
-            RC7 = 1;
-            _delay((unsigned long)((2000)*(10000000/4000.0)));
-            RC7 = 0;
+        TMR1H = 0;
+        TMR1L = 0;
 
-            {
-                PORTB = radio_get_packets();
-            }
+        RB0 = 1;
+        _delay((unsigned long)((10)*(10000000/4000000.0)));
+        RB0 = 0;
+
+        while(!RB4);
+        T1CONbits.TMR1ON = 1;
+        while(RB4);
+        T1CONbits.TMR1ON = 0;
+
+        a = (TMR1L | (TMR1H<<8));
+        a = a/58.82;
+        a = a + 1;
+        if(a>=2 && a<=400)
+        {
+            sprintf(txt, "%03d", a);
+            do { LCD_Write( (0x01 & 0xF0) >> 4 ); LCD_Write( 0x01 & 0x0F); } while ( 0 );
+            do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 1 & 0xF0) >> 4 ); LCD_Write( 0x80 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 1 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 1 & 0xF0) >> 4 ); LCD_Write( 0x94 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 1 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 1 & 0x0F); } while ( 0 ); } } while ( 0 );
+            LCD_putrs("Distance = ");
+            do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 12 & 0xF0) >> 4 ); LCD_Write( 0x80 + 12 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 12 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 12 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 12 & 0xF0) >> 4 ); LCD_Write( 0x94 + 12 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 12 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 12 & 0x0F); } while ( 0 ); } } while ( 0 );
+            LCD_putrs(txt);
+            do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 15 & 0xF0) >> 4 ); LCD_Write( 0x80 + 15 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 15 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 15 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 15 & 0xF0) >> 4 ); LCD_Write( 0x94 + 15 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 15 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 15 & 0x0F); } while ( 0 ); } } while ( 0 );
+            LCD_putrs("cm");
         }
+        else
+        {
+            do { LCD_Write( (0x01 & 0xF0) >> 4 ); LCD_Write( 0x01 & 0x0F); } while ( 0 );
+            do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 1 & 0xF0) >> 4 ); LCD_Write( 0x80 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 1 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 1 & 0xF0) >> 4 ); LCD_Write( 0x94 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 1 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 1 & 0x0F); } while ( 0 ); } } while ( 0 );
+            LCD_putrs("Out of Range");
+        }
+        _delay((unsigned long)((400)*(10000000/4000.0)));
     }
-
-    radio_transmitter_start();
-
-    while(1){
-        radio_transmit_single((uint8_t *)0b10101010, 1);
-        _delay((unsigned long)((3000)*(10000000/4000.0)));
-    }
+# 82 "main.c"
 }

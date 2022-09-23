@@ -1,101 +1,66 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"822 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 822:     struct {
-[s S32 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S32 . SSPM CKP SSPEN SSPOV WCOL ]
-"829
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 829:     struct {
-[s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S33 . SSPM0 SSPM1 SSPM2 SSPM3 ]
-"821
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 821: typedef union {
-[u S31 `S32 1 `S33 1 ]
-[n S31 . . . ]
-"836
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 836: extern volatile SSPCONbits_t SSPCONbits __attribute__((address(0x014)));
-[v _SSPCONbits `VS31 ~T0 @X0 0 e@20 ]
-"2979
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2979: extern volatile __bit TRISC5 __attribute__((address(0x43D)));
-[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
-"2973
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2973: extern volatile __bit TRISC3 __attribute__((address(0x43B)));
-[v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
-"2976
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2976: extern volatile __bit TRISC4 __attribute__((address(0x43C)));
-[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
-"809
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 809: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
-"1837
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1837:     struct {
-[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S73 . BF UA R_nW S P D_nA CKE SMP ]
-"1847
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1847:     struct {
-[s S74 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S74 . . R . D ]
-"1853
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1853:     struct {
-[s S75 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S75 . . I2C_READ I2C_START I2C_STOP I2C_DATA ]
-"1860
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1860:     struct {
-[s S76 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S76 . . nW . nA ]
-"1866
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1866:     struct {
-[s S77 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S77 . . nWRITE . nADDRESS ]
-"1872
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1872:     struct {
-[s S78 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S78 . . R_W . D_A ]
-"1878
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1878:     struct {
-[s S79 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S79 . . READ_WRITE . DATA_ADDRESS ]
-"1836
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1836: typedef union {
-[u S72 `S73 1 `S74 1 `S75 1 `S76 1 `S77 1 `S78 1 `S79 1 ]
-[n S72 . . . . . . . . ]
-"1885
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1885: extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0x094)));
-[v _SSPSTATbits `VS72 ~T0 @X0 0 e@148 ]
-"2715
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2715: extern volatile __bit RC2 __attribute__((address(0x3A)));
-[v _RC2 `Vb ~T0 @X0 0 e@58 ]
-"2964
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2964: extern volatile __bit TRISC0 __attribute__((address(0x438)));
-[v _TRISC0 `Vb ~T0 @X0 0 e@1080 ]
-"2967
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2967: extern volatile __bit TRISC1 __attribute__((address(0x439)));
-[v _TRISC1 `Vb ~T0 @X0 0 e@1081 ]
-"2970
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2970: extern volatile __bit TRISC2 __attribute__((address(0x43A)));
-[v _TRISC2 `Vb ~T0 @X0 0 e@1082 ]
-"2712
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2712: extern volatile __bit RC1 __attribute__((address(0x39)));
-[v _RC1 `Vb ~T0 @X0 0 e@57 ]
+[p mainexit ]
+"1500 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1500: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"1562
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1562: extern volatile unsigned char TRISE __attribute__((address(0x089)));
+[v _TRISE `Vuc ~T0 @X0 0 e@137 ]
+"2230
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2230: extern volatile unsigned char ADCON1 __attribute__((address(0x09F)));
+[v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
+"81 ./lcd.h
+[; ;./lcd.h: 81: _Bool LCD_Init ( );
+[v _LCD_Init `(a ~T0 @X0 0 e? ]
+"1376 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1376: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"656
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 656: extern volatile unsigned char T1CON __attribute__((address(0x010)));
+[v _T1CON `Vuc ~T0 @X0 0 e@16 ]
+"649
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 649: extern volatile unsigned char TMR1H __attribute__((address(0x00F)));
+[v _TMR1H `Vuc ~T0 @X0 0 e@15 ]
+"642
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 642: extern volatile unsigned char TMR1L __attribute__((address(0x00E)));
+[v _TMR1L `Vuc ~T0 @X0 0 e@14 ]
+"2694
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2694: extern volatile __bit RB5 __attribute__((address(0x35)));
+[v _RB5 `Vb ~T0 @X0 0 e@53 ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:\Program Files\Microchip\xc8\v2.40\pic\include\builtins.h
 [v __delay `JF36 ~T0 @X0 0 e ]
 [p i __delay ]
-"2709 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2709: extern volatile __bit RC0 __attribute__((address(0x38)));
-[v _RC0 `Vb ~T0 @X0 0 e@56 ]
-[p mainexit ]
-"1376
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1376: extern volatile unsigned char TRISB __attribute__((address(0x086)));
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"2985
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2985: extern volatile __bit TRISC7 __attribute__((address(0x43F)));
-[v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
-"2730
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2730: extern volatile __bit RC7 __attribute__((address(0x3F)));
-[v _RC7 `Vb ~T0 @X0 0 e@63 ]
-"217
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 217: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"2691 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2691: extern volatile __bit RB4 __attribute__((address(0x34)));
+[v _RB4 `Vb ~T0 @X0 0 e@52 ]
+"662
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 662:     struct {
+[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
+[n S25 . TMR1ON TMR1CS nT1SYNC T1OSCEN T1CKPS ]
+"669
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 669:     struct {
+[s S26 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . . T1SYNC . T1CKPS0 T1CKPS1 ]
+"676
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 676:     struct {
+[s S27 :2 `uc 1 :1 `uc 1 ]
+[n S27 . . T1INSYNC ]
+"661
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 661: typedef union {
+[u S24 `S25 1 `S26 1 `S27 1 ]
+[n S24 . . . . ]
+"681
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 681: extern volatile T1CONbits_t T1CONbits __attribute__((address(0x010)));
+[v _T1CONbits `VS24 ~T0 @X0 0 e@16 ]
+"194 C:\Program Files\Microchip\xc8\v2.40\pic\include\c90\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"93 ./lcd.h
+[; ;./lcd.h: 93: void LCD_Write ( unsigned char c );
+[v _LCD_Write `(v ~T0 @X0 0 ef1`uc ]
+"90
+[; ;./lcd.h: 90: void LCD_putrs ( const char *a );
+[v _LCD_putrs `(v ~T0 @X0 0 ef1`*Cuc ]
 "8 main.c
 [p x FOSC  =  HS         ]
 "9
@@ -292,440 +257,361 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2364
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2364: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"11 ./spi.h
-[; ;./spi.h: 11: void SPI_init_slave(){
-[v _SPI_init_slave `(v ~T0 @X0 1 ef ]
-{
-[e :U _SPI_init_slave ]
-[f ]
-"12
-[; ;./spi.h: 12:     SSPCONbits.SSPEN = 1;
-[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
-"14
-[; ;./spi.h: 14:     TRISC5 = 0;
-[e = _TRISC5 -> -> 0 `i `b ]
-"15
-[; ;./spi.h: 15:     TRISC3 = 0;
-[e = _TRISC3 -> -> 0 `i `b ]
-"16
-[; ;./spi.h: 16:     TRISC4 = 1;
-[e = _TRISC4 -> -> 1 `i `b ]
-"17
-[; ;./spi.h: 17: }
-[e :UE 95 ]
-}
-"19
-[; ;./spi.h: 19: void SPI_init_master(){
-[v _SPI_init_master `(v ~T0 @X0 1 ef ]
-{
-[e :U _SPI_init_master ]
-[f ]
-"20
-[; ;./spi.h: 20:     SSPCONbits.SSPEN = 1;
-[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
-"22
-[; ;./spi.h: 22:     TRISC5 = 0;
-[e = _TRISC5 -> -> 0 `i `b ]
-"23
-[; ;./spi.h: 23:     TRISC3 = 1;
-[e = _TRISC3 -> -> 1 `i `b ]
-"24
-[; ;./spi.h: 24:     TRISC4 = 1;
-[e = _TRISC4 -> -> 1 `i `b ]
-"26
-[; ;./spi.h: 26: }
-[e :UE 96 ]
-}
-"29
-[; ;./spi.h: 29: void SPI_reset(){
-[v _SPI_reset `(v ~T0 @X0 1 ef ]
-{
-[e :U _SPI_reset ]
-[f ]
-"30
-[; ;./spi.h: 30:     SSPCONbits.SSPEN = 0;
-[e = . . _SSPCONbits 0 2 -> -> 0 `i `uc ]
-"31
-[; ;./spi.h: 31: }
-[e :UE 97 ]
-}
-"33
-[; ;./spi.h: 33: void SPI_write(uint8_t write){
-[v _SPI_write `(v ~T0 @X0 1 ef1`uc ]
-{
-[e :U _SPI_write ]
-[v _write `uc ~T0 @X0 1 r1 ]
-[f ]
-"34
-[; ;./spi.h: 34:     SSPBUF = write;
-[e = _SSPBUF _write ]
-"36
-[; ;./spi.h: 36:     while(!SSPSTATbits.BF);
-[e $U 99  ]
-[e :U 100 ]
-[e :U 99 ]
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 100  ]
-[e :U 101 ]
-"37
-[; ;./spi.h: 37: }
-[e :UE 98 ]
-}
-"39
-[; ;./spi.h: 39: uint8_t SPI_data_ready(){
-[v _SPI_data_ready `(uc ~T0 @X0 1 ef ]
-{
-[e :U _SPI_data_ready ]
-[f ]
-"40
-[; ;./spi.h: 40:     return SSPSTATbits.BF;
-[e ) . . _SSPSTATbits 0 0 ]
-[e $UE 102  ]
-"41
-[; ;./spi.h: 41: }
-[e :UE 102 ]
-}
-"43
-[; ;./spi.h: 43: void SPI_wait_data_ready(){
-[v _SPI_wait_data_ready `(v ~T0 @X0 1 ef ]
-{
-[e :U _SPI_wait_data_ready ]
-[f ]
-"44
-[; ;./spi.h: 44:     while(!SSPSTATbits.BF);
-[e $U 104  ]
-[e :U 105 ]
-[e :U 104 ]
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 105  ]
-[e :U 106 ]
-"45
-[; ;./spi.h: 45: }
-[e :UE 103 ]
-}
-"47
-[; ;./spi.h: 47: uint8_t SPI_read(){
-[v _SPI_read `(uc ~T0 @X0 1 ef ]
-{
-[e :U _SPI_read ]
-[f ]
-"48
-[; ;./spi.h: 48:     return SSPBUF;
-[e ) _SSPBUF ]
-[e $UE 107  ]
-"49
-[; ;./spi.h: 49: }
-[e :UE 107 ]
-}
-"61 main.c
-[; ;main.c: 61: void radio_spi_command_array(uint8_t command, uint8_t *args, uint8_t size){
-[v _radio_spi_command_array `(v ~T0 @X0 1 ef3`uc`*uc`uc ]
-{
-[e :U _radio_spi_command_array ]
-[v _command `uc ~T0 @X0 1 r1 ]
-[v _args `*uc ~T0 @X0 1 r2 ]
-[v _size `uc ~T0 @X0 1 r3 ]
-[f ]
-"62
-[; ;main.c: 62:     RC2 = 0;
-[e = _RC2 -> -> 0 `i `b ]
-"64
-[; ;main.c: 64:     SPI_write(command);
-[e ( _SPI_write (1 _command ]
-"66
-[; ;main.c: 66:     for(int8_t i = 0; i<size; i++){
-{
-[v _i `c ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `c ]
-[e $U 112  ]
-[e :U 109 ]
-{
-"67
-[; ;main.c: 67:         SPI_write(args[i]);
-[e ( _SPI_write (1 *U + _args * -> _i `x -> -> # *U _args `i `x ]
-"68
-[; ;main.c: 68:     }
-}
-[e ++ _i -> -> 1 `i `c ]
-[e :U 112 ]
-[e $ < -> _i `i -> _size `i 109  ]
-[e :U 110 ]
-}
-"70
-[; ;main.c: 70:     RC2 = 1;
-[e = _RC2 -> -> 1 `i `b ]
-"71
-[; ;main.c: 71: }
-[e :UE 108 ]
-}
-"73
-[; ;main.c: 73: void radio_spi_command_single(uint8_t command, uint8_t arg){
-[v _radio_spi_command_single `(v ~T0 @X0 1 ef2`uc`uc ]
-{
-[e :U _radio_spi_command_single ]
-[v _command `uc ~T0 @X0 1 r1 ]
-[v _arg `uc ~T0 @X0 1 r2 ]
-[f ]
-"74
-[; ;main.c: 74:     RC2 = 0;
-[e = _RC2 -> -> 0 `i `b ]
-"76
-[; ;main.c: 76:     SPI_write(command);
-[e ( _SPI_write (1 _command ]
-"78
-[; ;main.c: 78:     SPI_write(arg);
-[e ( _SPI_write (1 _arg ]
-"80
-[; ;main.c: 80:     RC2 = 1;
-[e = _RC2 -> -> 1 `i `b ]
-"81
-[; ;main.c: 81: }
-[e :UE 113 ]
-}
-"83
-[; ;main.c: 83: void radio_reciever_start(){
-[v _radio_reciever_start `(v ~T0 @X0 1 ef ]
-{
-[e :U _radio_reciever_start ]
-[f ]
-"84
-[; ;main.c: 84:     TRISC0 = 1;
-[e = _TRISC0 -> -> 1 `i `b ]
-"85
-[; ;main.c: 85:     TRISC1 = 0;
-[e = _TRISC1 -> -> 0 `i `b ]
-"86
-[; ;main.c: 86:     TRISC2 = 0;
-[e = _TRISC2 -> -> 0 `i `b ]
-"87
-[; ;main.c: 87:     RC1 = 1;
-[e = _RC1 -> -> 1 `i `b ]
-"88
-[; ;main.c: 88:     RC2 = 1;
-[e = _RC2 -> -> 1 `i `b ]
-"89
-[; ;main.c: 89:     SPI_init_master();
-[e ( _SPI_init_master ..  ]
-"92
-[; ;main.c: 92:     radio_spi_command_single((0b00000000 & 0x00), 0b00000111);
-[e ( _radio_spi_command_single (2 , -> & -> 0 `i -> 0 `i `uc -> -> 7 `i `uc ]
-"94
-[; ;main.c: 94:     radio_spi_command_single((0b00000000 & 0x02), 0b00000001);
-[e ( _radio_spi_command_single (2 , -> & -> 0 `i -> 2 `i `uc -> -> 1 `i `uc ]
-"96
-[; ;main.c: 96:     radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
-[e ( _radio_spi_command_array (3 , , -> & -> 0 `i -> 10 `i `uc -> :s 1C `*uc -> -> 5 `i `uc ]
-"97
-[; ;main.c: 97: }
-[e :UE 114 ]
-}
-"99
-[; ;main.c: 99: void radio_transmitter_start(){
-[v _radio_transmitter_start `(v ~T0 @X0 1 ef ]
-{
-[e :U _radio_transmitter_start ]
-[f ]
-"100
-[; ;main.c: 100:     TRISC0 = 1;
-[e = _TRISC0 -> -> 1 `i `b ]
-"101
-[; ;main.c: 101:     TRISC1 = 0;
-[e = _TRISC1 -> -> 0 `i `b ]
-"102
-[; ;main.c: 102:     TRISC2 = 0;
-[e = _TRISC2 -> -> 0 `i `b ]
-"103
-[; ;main.c: 103:     RC1 = 0;
-[e = _RC1 -> -> 0 `i `b ]
-"104
-[; ;main.c: 104:     RC2 = 1;
-[e = _RC2 -> -> 1 `i `b ]
-"105
-[; ;main.c: 105:     SPI_init_master();
-[e ( _SPI_init_master ..  ]
-"108
-[; ;main.c: 108:     radio_spi_command_single((0b00000000 & 0x00), 0b00000110);
-[e ( _radio_spi_command_single (2 , -> & -> 0 `i -> 0 `i `uc -> -> 6 `i `uc ]
-"110
-[; ;main.c: 110:     radio_spi_command_array((0b00000000 & 0x10), (uint8_t *)"myadr", 5);
-[e ( _radio_spi_command_array (3 , , -> & -> 0 `i -> 16 `i `uc -> :s 2C `*uc -> -> 5 `i `uc ]
-"111
-[; ;main.c: 111:     radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
-[e ( _radio_spi_command_array (3 , , -> & -> 0 `i -> 10 `i `uc -> :s 3C `*uc -> -> 5 `i `uc ]
-"112
-[; ;main.c: 112: }
-[e :UE 115 ]
-}
-"115
-[; ;main.c: 115: void radio_transmit_single(uint8_t *transmission, uint8_t size){
-[v _radio_transmit_single `(v ~T0 @X0 1 ef2`*uc`uc ]
-{
-[e :U _radio_transmit_single ]
-[v _transmission `*uc ~T0 @X0 1 r1 ]
-[v _size `uc ~T0 @X0 1 r2 ]
-[f ]
-"116
-[; ;main.c: 116:     radio_spi_command_array((0b00000000 & 0b10100000), transmission, size);
-[e ( _radio_spi_command_array (3 , , -> & -> 0 `i -> 160 `i `uc _transmission _size ]
-"117
-[; ;main.c: 117:     RC1 = 1;
-[e = _RC1 -> -> 1 `i `b ]
-"118
-[; ;main.c: 118:     _delay((unsigned long)((11)*(10000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 11 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
-"119
-[; ;main.c: 119:     RC1 = 0;
-[e = _RC1 -> -> 0 `i `b ]
-"120
-[; ;main.c: 120: }
-[e :UE 116 ]
-}
-"122
-[; ;main.c: 122: uint8_t radio_has_recieved_packet(){
-[v _radio_has_recieved_packet `(uc ~T0 @X0 1 ef ]
-{
-[e :U _radio_has_recieved_packet ]
-[f ]
-"123
-[; ;main.c: 123:     if(RC0){
-[e $ ! _RC0 118  ]
-{
-"124
-[; ;main.c: 124:         radio_spi_command_single((0b00100000 & 0x07), 0b00000000);
-[e ( _radio_spi_command_single (2 , -> & -> 32 `i -> 7 `i `uc -> -> 0 `i `uc ]
-"125
-[; ;main.c: 125:         uint8_t status = SPI_read();
-[v _status `uc ~T0 @X0 1 a ]
-[e = _status ( _SPI_read ..  ]
-"127
-[; ;main.c: 127:         uint8_t RX_DR = status & 0b01000000;
-[v _RX_DR `uc ~T0 @X0 1 a ]
-[e = _RX_DR -> & -> _status `i -> 64 `i `uc ]
-"128
-[; ;main.c: 128:         if(RX_DR){
-[e $ ! != -> _RX_DR `i -> 0 `i 119  ]
-{
-"129
-[; ;main.c: 129:             radio_spi_command_single((0b00000000 & 0x07), 0b01000000);
-[e ( _radio_spi_command_single (2 , -> & -> 0 `i -> 7 `i `uc -> -> 64 `i `uc ]
-"131
-[; ;main.c: 131:             return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 117  ]
-"132
-[; ;main.c: 132:         }
-}
-[e :U 119 ]
-"133
-[; ;main.c: 133:     }
-}
-[e :U 118 ]
-"134
-[; ;main.c: 134:     return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 117  ]
-"135
-[; ;main.c: 135: }
-[e :UE 117 ]
-}
-"137
-[; ;main.c: 137: uint8_t radio_get_packets(){
-[v _radio_get_packets `(uc ~T0 @X0 1 ef ]
-{
-[e :U _radio_get_packets ]
-[f ]
-"138
-[; ;main.c: 138:     radio_spi_command_single(0b01100001, 0b00000000);
-[e ( _radio_spi_command_single (2 , -> -> 97 `i `uc -> -> 0 `i `uc ]
-"139
-[; ;main.c: 139:     uint8_t packet = SPI_read();
-[v _packet `uc ~T0 @X0 1 a ]
-[e = _packet ( _SPI_read ..  ]
-"140
-[; ;main.c: 140:     return packet;
-[e ) _packet ]
-[e $UE 120  ]
-"142
-[; ;main.c: 142: }
-[e :UE 120 ]
-}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"155
-[; ;main.c: 155: void main()
+"22 main.c
+[; ;main.c: 22: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
-"156
-[; ;main.c: 156: {
 {
 [e :U _main ]
 [f ]
-"157
-[; ;main.c: 157:     radio_reciever_start();
-[e ( _radio_reciever_start ..  ]
-"158
-[; ;main.c: 158:     TRISB = 0b11111111;
-[e = _TRISB -> -> 255 `i `uc ]
-"159
-[; ;main.c: 159:     TRISC7 = 1;
-[e = _TRISC7 -> -> 1 `i `b ]
-"161
-[; ;main.c: 161:     while(1)
-[e :U 123 ]
-"162
-[; ;main.c: 162:     {
+"24
+[; ;main.c: 24:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
+"25
+[; ;main.c: 25:     TRISE = 0x00;
+[e = _TRISE -> -> 0 `i `uc ]
+"26
+[; ;main.c: 26:     ADCON1 = 0x4E;
+[e = _ADCON1 -> -> 78 `i `uc ]
+"27
+[; ;main.c: 27:     LCD_Init();
+[e ( _LCD_Init ..  ]
+"30
+[; ;main.c: 30:     TRISB = 0b00010000;
+[e = _TRISB -> -> 16 `i `uc ]
+"31
+[; ;main.c: 31:     T1CON = 0x10;
+[e = _T1CON -> -> 16 `i `uc ]
+"32
+[; ;main.c: 32:     int a;
+[v _a `i ~T0 @X0 1 a ]
+"33
+[; ;main.c: 33:     char txt[4];
+[v _txt `uc ~T0 @X0 -> 4 `i a ]
+"35
+[; ;main.c: 35:     while(1)
+[e :U 98 ]
+"36
+[; ;main.c: 36:     {
 {
-"163
-[; ;main.c: 163:         if(radio_has_recieved_packet()){
-[e $ ! != -> ( _radio_has_recieved_packet ..  `i -> 0 `i 125  ]
+"37
+[; ;main.c: 37:         TMR1H = 0;
+[e = _TMR1H -> -> 0 `i `uc ]
+"38
+[; ;main.c: 38:         TMR1L = 0;
+[e = _TMR1L -> -> 0 `i `uc ]
+"40
+[; ;main.c: 40:         RB5 = 1;
+[e = _RB5 -> -> 1 `i `b ]
+"41
+[; ;main.c: 41:         _delay((unsigned long)((10)*(10000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000000.0 `ul ]
+"42
+[; ;main.c: 42:         RB5 = 0;
+[e = _RB5 -> -> 0 `i `b ]
+"44
+[; ;main.c: 44:         while(!RB4);
+[e $U 100  ]
+[e :U 101 ]
+[e :U 100 ]
+[e $ ! _RB4 101  ]
+[e :U 102 ]
+"45
+[; ;main.c: 45:         T1CONbits.TMR1ON = 1;
+[e = . . _T1CONbits 0 0 -> -> 1 `i `uc ]
+"46
+[; ;main.c: 46:         while(RB4);
+[e $U 103  ]
+[e :U 104 ]
+[e :U 103 ]
+[e $ _RB4 104  ]
+[e :U 105 ]
+"47
+[; ;main.c: 47:         T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
+"49
+[; ;main.c: 49:         a = (TMR1L | (TMR1H<<8));
+[e = _a | -> _TMR1L `i << -> _TMR1H `i -> 8 `i ]
+"50
+[; ;main.c: 50:         a = a/58.82;
+[e = _a -> / -> _a `d .58.82 `i ]
+"51
+[; ;main.c: 51:         a = a + 1;
+[e = _a + _a -> 1 `i ]
+"52
+[; ;main.c: 52:         if(a>=2 && a<=400)
+[e $ ! && >= _a -> 2 `i <= _a -> 400 `i 106  ]
+"53
+[; ;main.c: 53:         {
 {
-"164
-[; ;main.c: 164:             RC7 = 1;
-[e = _RC7 -> -> 1 `i `b ]
-"165
-[; ;main.c: 165:             _delay((unsigned long)((2000)*(10000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"166
-[; ;main.c: 166:             RC7 = 0;
-[e = _RC7 -> -> 0 `i `b ]
-"168
-[; ;main.c: 168:             {
+"54
+[; ;main.c: 54:             sprintf(txt, "%03d", a);
+[e ( _sprintf (1 , (. , &U _txt :s 1C _a ]
+"55
+[; ;main.c: 55:             do { LCD_Write( (0x01 & 0xF0) >> 4 ); LCD_Write( 0x01 & 0x0F); } while ( 0 );
+[e :U 109 ]
 {
-"169
-[; ;main.c: 169:                 PORTB = radio_get_packets();
-[e = _PORTB ( _radio_get_packets ..  ]
-"170
-[; ;main.c: 170:             }
+[e ( _LCD_Write (1 -> >> & -> 1 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & -> 1 `i -> 15 `i `uc ]
 }
-"171
-[; ;main.c: 171:         }
+[e :U 108 ]
+"56
+[; ;main.c: 56:             do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 0 & 0xF0) >> 4 ); LCD_Write( 0x80 + 0 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 0 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 0 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 0 & 0xF0) >> 4 ); LCD_Write( 0x94 + 0 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 0 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 0 & 0x0F); } while ( 0 ); } } while ( 0 );
+[e :U 112 ]
+{
+[e $ ! == -> 1 `i -> 0 `i 113  ]
+{
+[e :U 116 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 128 `i -> 0 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 128 `i -> 0 `i -> 15 `i `uc ]
+}
+[e :U 115 ]
+}
+[e $U 117  ]
+[e :U 113 ]
+[e $ ! == -> 1 `i -> 1 `i 118  ]
+{
+[e :U 121 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 192 `i -> 0 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 192 `i -> 0 `i -> 15 `i `uc ]
+}
+[e :U 120 ]
+}
+[e $U 122  ]
+[e :U 118 ]
+[e $ ! == -> 1 `i -> 2 `i 123  ]
+{
+[e :U 126 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 148 `i -> 0 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 148 `i -> 0 `i -> 15 `i `uc ]
 }
 [e :U 125 ]
-"172
-[; ;main.c: 172:     }
 }
-[e :U 122 ]
-[e $U 123  ]
-[e :U 124 ]
-"174
-[; ;main.c: 174:     radio_transmitter_start();
-[e ( _radio_transmitter_start ..  ]
-"176
-[; ;main.c: 176:     while(1){
-[e :U 127 ]
-{
-"177
-[; ;main.c: 177:         radio_transmit_single((uint8_t *)0b10101010, 1);
-[e ( _radio_transmit_single (2 , -> -> 170 `i `*uc -> -> 1 `i `uc ]
-"178
-[; ;main.c: 178:         _delay((unsigned long)((3000)*(10000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"179
-[; ;main.c: 179:     }
-}
-[e :U 126 ]
 [e $U 127  ]
-[e :U 128 ]
-"180
-[; ;main.c: 180: }
-[e :UE 121 ]
+[e :U 123 ]
+[e $ ! == -> 1 `i -> 3 `i 128  ]
+{
+[e :U 131 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 212 `i -> 0 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 212 `i -> 0 `i -> 15 `i `uc ]
 }
-[a 1C 109 121 97 100 114 0 ]
-[a 2C 109 121 97 100 114 0 ]
-[a 3C 109 121 97 100 114 0 ]
+[e :U 130 ]
+}
+[e :U 128 ]
+[e :U 127 ]
+[e :U 122 ]
+[e :U 117 ]
+}
+[e :U 111 ]
+"57
+[; ;main.c: 57:             LCD_putrs("Distance = ");
+[e ( _LCD_putrs (1 :s 2C ]
+"58
+[; ;main.c: 58:             do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 11 & 0xF0) >> 4 ); LCD_Write( 0x80 + 11 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 11 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 11 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 11 & 0xF0) >> 4 ); LCD_Write( 0x94 + 11 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 11 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 11 & 0x0F); } while ( 0 ); } } while ( 0 );
+[e :U 134 ]
+{
+[e $ ! == -> 1 `i -> 0 `i 135  ]
+{
+[e :U 138 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 128 `i -> 11 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 128 `i -> 11 `i -> 15 `i `uc ]
+}
+[e :U 137 ]
+}
+[e $U 139  ]
+[e :U 135 ]
+[e $ ! == -> 1 `i -> 1 `i 140  ]
+{
+[e :U 143 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 192 `i -> 11 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 192 `i -> 11 `i -> 15 `i `uc ]
+}
+[e :U 142 ]
+}
+[e $U 144  ]
+[e :U 140 ]
+[e $ ! == -> 1 `i -> 2 `i 145  ]
+{
+[e :U 148 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 148 `i -> 11 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 148 `i -> 11 `i -> 15 `i `uc ]
+}
+[e :U 147 ]
+}
+[e $U 149  ]
+[e :U 145 ]
+[e $ ! == -> 1 `i -> 3 `i 150  ]
+{
+[e :U 153 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 212 `i -> 11 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 212 `i -> 11 `i -> 15 `i `uc ]
+}
+[e :U 152 ]
+}
+[e :U 150 ]
+[e :U 149 ]
+[e :U 144 ]
+[e :U 139 ]
+}
+[e :U 133 ]
+"59
+[; ;main.c: 59:             LCD_putrs(txt);
+[e ( _LCD_putrs (1 -> &U _txt `*Cuc ]
+"60
+[; ;main.c: 60:             do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 14 & 0xF0) >> 4 ); LCD_Write( 0x80 + 14 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 14 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 14 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 14 & 0xF0) >> 4 ); LCD_Write( 0x94 + 14 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 14 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 14 & 0x0F); } while ( 0 ); } } while ( 0 );
+[e :U 156 ]
+{
+[e $ ! == -> 1 `i -> 0 `i 157  ]
+{
+[e :U 160 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 128 `i -> 14 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 128 `i -> 14 `i -> 15 `i `uc ]
+}
+[e :U 159 ]
+}
+[e $U 161  ]
+[e :U 157 ]
+[e $ ! == -> 1 `i -> 1 `i 162  ]
+{
+[e :U 165 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 192 `i -> 14 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 192 `i -> 14 `i -> 15 `i `uc ]
+}
+[e :U 164 ]
+}
+[e $U 166  ]
+[e :U 162 ]
+[e $ ! == -> 1 `i -> 2 `i 167  ]
+{
+[e :U 170 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 148 `i -> 14 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 148 `i -> 14 `i -> 15 `i `uc ]
+}
+[e :U 169 ]
+}
+[e $U 171  ]
+[e :U 167 ]
+[e $ ! == -> 1 `i -> 3 `i 172  ]
+{
+[e :U 175 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 212 `i -> 14 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 212 `i -> 14 `i -> 15 `i `uc ]
+}
+[e :U 174 ]
+}
+[e :U 172 ]
+[e :U 171 ]
+[e :U 166 ]
+[e :U 161 ]
+}
+[e :U 155 ]
+"61
+[; ;main.c: 61:             LCD_putrs("cm");
+[e ( _LCD_putrs (1 :s 3C ]
+"62
+[; ;main.c: 62:         }
+}
+[e $U 176  ]
+"63
+[; ;main.c: 63:         else
+[e :U 106 ]
+"64
+[; ;main.c: 64:         {
+{
+"65
+[; ;main.c: 65:             do { LCD_Write( (0x01 & 0xF0) >> 4 ); LCD_Write( 0x01 & 0x0F); } while ( 0 );
+[e :U 179 ]
+{
+[e ( _LCD_Write (1 -> >> & -> 1 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & -> 1 `i -> 15 `i `uc ]
+}
+[e :U 178 ]
+"66
+[; ;main.c: 66:             do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 1 & 0xF0) >> 4 ); LCD_Write( 0x80 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 1 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 1 & 0xF0) >> 4 ); LCD_Write( 0x94 + 1 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 1 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 1 & 0x0F); } while ( 0 ); } } while ( 0 );
+[e :U 182 ]
+{
+[e $ ! == -> 1 `i -> 0 `i 183  ]
+{
+[e :U 186 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 128 `i -> 1 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 128 `i -> 1 `i -> 15 `i `uc ]
+}
+[e :U 185 ]
+}
+[e $U 187  ]
+[e :U 183 ]
+[e $ ! == -> 1 `i -> 1 `i 188  ]
+{
+[e :U 191 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 192 `i -> 1 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 192 `i -> 1 `i -> 15 `i `uc ]
+}
+[e :U 190 ]
+}
+[e $U 192  ]
+[e :U 188 ]
+[e $ ! == -> 1 `i -> 2 `i 193  ]
+{
+[e :U 196 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 148 `i -> 1 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 148 `i -> 1 `i -> 15 `i `uc ]
+}
+[e :U 195 ]
+}
+[e $U 197  ]
+[e :U 193 ]
+[e $ ! == -> 1 `i -> 3 `i 198  ]
+{
+[e :U 201 ]
+{
+[e ( _LCD_Write (1 -> >> & + -> 212 `i -> 1 `i -> 240 `i -> 4 `i `uc ]
+[e ( _LCD_Write (1 -> & + -> 212 `i -> 1 `i -> 15 `i `uc ]
+}
+[e :U 200 ]
+}
+[e :U 198 ]
+[e :U 197 ]
+[e :U 192 ]
+[e :U 187 ]
+}
+[e :U 181 ]
+"67
+[; ;main.c: 67:             LCD_putrs("Out of Range");
+[e ( _LCD_putrs (1 :s 4C ]
+"68
+[; ;main.c: 68:         }
+}
+[e :U 176 ]
+"69
+[; ;main.c: 69:         _delay((unsigned long)((400)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"70
+[; ;main.c: 70:     }
+}
+[e :U 97 ]
+[e $U 98  ]
+[e :U 99 ]
+"71
+[; ;main.c: 71: }
+[e :UE 96 ]
+}
+[p f _sprintf 8421508 ]
+[a 3C 99 109 0 ]
+[a 4C 79 117 116 32 111 102 32 82 97 110 103 101 0 ]
+[a 1C 37 48 51 100 0 ]
+[a 2C 68 105 115 116 97 110 99 101 32 61 32 0 ]

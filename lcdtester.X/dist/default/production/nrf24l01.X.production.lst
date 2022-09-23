@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Wed Aug 24 22:07:23 2022
+                                                                                               Mon Sep 05 13:12:50 2022
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	16F877A
@@ -10,1289 +10,656 @@ Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1
      4                           	psect	strings,global,class=STRING,delta=2,noexec
      5                           	psect	cinit,global,class=CODE,merge=1,delta=2
      6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
-     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
-     8                           	psect	maintext,global,class=CODE,split=1,delta=2
-     9                           	psect	text1,local,class=CODE,merge=1,delta=2
-    10                           	psect	text2,local,class=CODE,merge=1,delta=2
-    11                           	psect	text3,local,class=CODE,merge=1,delta=2
-    12                           	psect	text4,local,class=CODE,merge=1,delta=2
-    13                           	psect	text5,local,class=CODE,merge=1,delta=2
-    14                           	psect	text6,local,class=CODE,merge=1,delta=2
-    15                           	psect	text7,local,class=CODE,merge=1,delta=2
-    16                           	psect	text8,local,class=CODE,merge=1,delta=2
-    17                           	psect	text9,local,class=CODE,merge=1,delta=2
-    18                           	psect	text10,local,class=CODE,merge=1,delta=2
-    19                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
-    20                           	dabs	1,0x7E,2
-    21     0000                     
-    22                           ; Version 2.40
-    23                           ; Generated 04/07/2022 GMT
-    24                           ; 
-    25                           ; Copyright © 2022, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    26                           ; All rights reserved.
-    27                           ; 
-    28                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	text2,local,class=CODE,merge=1,delta=2
+    10                           	psect	text3,local,class=CODE,merge=1,delta=2
+    11                           	psect	text4,local,class=CODE,merge=1,delta=2
+    12                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    13                           	dabs	1,0x7E,2
+    14     0000                     
+    15                           ; Version 2.40
+    16                           ; Generated 04/07/2022 GMT
+    17                           ; 
+    18                           ; Copyright © 2022, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    19                           ; All rights reserved.
+    20                           ; 
+    21                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    29                           ; 
-    30                           ; Redistribution and use in source and binary forms, with or without modification, are
-    31                           ; permitted provided that the following conditions are met:
-    32                           ; 
-    33                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    22                           ; 
+    23                           ; Redistribution and use in source and binary forms, with or without modification, are
+    24                           ; permitted provided that the following conditions are met:
+    25                           ; 
+    26                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    34                           ;        conditions and the following disclaimer.
-    35                           ; 
-    36                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    27                           ;        conditions and the following disclaimer.
+    28                           ; 
+    29                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    37                           ;        of conditions and the following disclaimer in the documentation and/or other
-    38                           ;        materials provided with the distribution. Publication is not required when
-    39                           ;        this file is used in an embedded application.
-    40                           ; 
-    41                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    30                           ;        of conditions and the following disclaimer in the documentation and/or other
+    31                           ;        materials provided with the distribution. Publication is not required when
+    32                           ;        this file is used in an embedded application.
+    33                           ; 
+    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    42                           ;        software without specific prior written permission.
-    43                           ; 
-    44                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    45                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    35                           ;        software without specific prior written permission.
+    36                           ; 
+    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    46                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    47                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    48                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    49                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    50                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    51                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    52                           ; 
-    53                           ; 
-    54                           ; Code-generator required, PIC16F877A Definitions
-    55                           ; 
-    56                           ; SFR Addresses
-    57     0000                     	;# 
-    58     0001                     	;# 
-    59     0002                     	;# 
-    60     0003                     	;# 
-    61     0004                     	;# 
-    62     0005                     	;# 
-    63     0006                     	;# 
-    64     0007                     	;# 
-    65     0008                     	;# 
-    66     0009                     	;# 
-    67     000A                     	;# 
-    68     000B                     	;# 
-    69     000C                     	;# 
-    70     000D                     	;# 
-    71     000E                     	;# 
-    72     000E                     	;# 
-    73     000F                     	;# 
-    74     0010                     	;# 
-    75     0011                     	;# 
-    76     0012                     	;# 
-    77     0013                     	;# 
-    78     0014                     	;# 
-    79     0015                     	;# 
-    80     0015                     	;# 
-    81     0016                     	;# 
-    82     0017                     	;# 
-    83     0018                     	;# 
-    84     0019                     	;# 
-    85     001A                     	;# 
-    86     001B                     	;# 
-    87     001B                     	;# 
-    88     001C                     	;# 
-    89     001D                     	;# 
-    90     001E                     	;# 
-    91     001F                     	;# 
-    92     0081                     	;# 
-    93     0085                     	;# 
-    94     0086                     	;# 
-    95     0087                     	;# 
-    96     0088                     	;# 
-    97     0089                     	;# 
-    98     008C                     	;# 
-    99     008D                     	;# 
-   100     008E                     	;# 
-   101     0091                     	;# 
-   102     0092                     	;# 
-   103     0093                     	;# 
-   104     0094                     	;# 
-   105     0098                     	;# 
-   106     0099                     	;# 
-   107     009C                     	;# 
-   108     009D                     	;# 
-   109     009E                     	;# 
-   110     009F                     	;# 
-   111     010C                     	;# 
-   112     010D                     	;# 
-   113     010E                     	;# 
-   114     010F                     	;# 
-   115     018C                     	;# 
-   116     018D                     	;# 
-   117     0000                     	;# 
-   118     0001                     	;# 
-   119     0002                     	;# 
-   120     0003                     	;# 
-   121     0004                     	;# 
-   122     0005                     	;# 
-   123     0006                     	;# 
-   124     0007                     	;# 
-   125     0008                     	;# 
-   126     0009                     	;# 
-   127     000A                     	;# 
-   128     000B                     	;# 
-   129     000C                     	;# 
-   130     000D                     	;# 
-   131     000E                     	;# 
-   132     000E                     	;# 
-   133     000F                     	;# 
-   134     0010                     	;# 
-   135     0011                     	;# 
-   136     0012                     	;# 
-   137     0013                     	;# 
-   138     0014                     	;# 
-   139     0015                     	;# 
-   140     0015                     	;# 
-   141     0016                     	;# 
-   142     0017                     	;# 
-   143     0018                     	;# 
-   144     0019                     	;# 
-   145     001A                     	;# 
-   146     001B                     	;# 
-   147     001B                     	;# 
-   148     001C                     	;# 
-   149     001D                     	;# 
-   150     001E                     	;# 
-   151     001F                     	;# 
-   152     0081                     	;# 
-   153     0085                     	;# 
-   154     0086                     	;# 
-   155     0087                     	;# 
-   156     0088                     	;# 
-   157     0089                     	;# 
-   158     008C                     	;# 
-   159     008D                     	;# 
-   160     008E                     	;# 
-   161     0091                     	;# 
-   162     0092                     	;# 
-   163     0093                     	;# 
-   164     0094                     	;# 
-   165     0098                     	;# 
-   166     0099                     	;# 
-   167     009C                     	;# 
-   168     009D                     	;# 
-   169     009E                     	;# 
-   170     009F                     	;# 
-   171     010C                     	;# 
-   172     010D                     	;# 
-   173     010E                     	;# 
-   174     010F                     	;# 
-   175     018C                     	;# 
-   176     018D                     	;# 
-   177     0006                     _PORTB	set	6
-   178     0013                     _SSPBUF	set	19
-   179     0014                     _SSPCONbits	set	20
-   180     003F                     _RC7	set	63
-   181     0038                     _RC0	set	56
-   182     0039                     _RC1	set	57
-   183     003A                     _RC2	set	58
-   184     0086                     _TRISB	set	134
-   185     0094                     _SSPSTATbits	set	148
-   186     043F                     _TRISC7	set	1087
-   187     043A                     _TRISC2	set	1082
-   188     0439                     _TRISC1	set	1081
-   189     0438                     _TRISC0	set	1080
-   190     043C                     _TRISC4	set	1084
-   191     043B                     _TRISC3	set	1083
-   192     043D                     _TRISC5	set	1085
-   193                           
-   194                           	psect	strings
-   195     0003                     __pstrings:
-   196     0003                     stringtab:
-   197     0003                     __stringtab:
-   198                           
-   199                           ;	String table - string pointers are 1 byte each
-   200     0003  1BFF               	btfsc	btemp+1,7
-   201     0004  280D               	ljmp	stringcode
-   202     0005  1383               	bcf	3,7
-   203     0006  187F               	btfsc	btemp+1,0
-   204     0007  1783               	bsf	3,7
-   205     0008  0800               	movf	0,w
-   206     0009  0A84               	incf	4,f
-   207     000A  1903               	skipnz
-   208     000B  0AFF               	incf	btemp+1,f
-   209     000C  0008               	return
-   210     000D                     stringcode:
-   211     000D                     stringdir:
-   212     000D  3000               	movlw	high stringdir
-   213     000E  008A               	movwf	10
-   214     000F  0804               	movf	4,w
-   215     0010  0A84               	incf	4,f
-   216     0011  0782               	addwf	2,f
-   217     0012                     __stringbase:
-   218     0012  3400               	retlw	0
-   219     0013                     __end_of__stringtab:
-   220     0013                     STR_1:
-   221     0013  346D               	retlw	109	;'m'
-   222     0014  3479               	retlw	121	;'y'
-   223     0015  3461               	retlw	97	;'a'
-   224     0016  3464               	retlw	100	;'d'
-   225     0017  3472               	retlw	114	;'r'
-   226     0018  3400               	retlw	0
-   227     0013                     
-   228                           	psect	cinit
-   229     07FC                     start_initialization:	
-   230                           ; #config settings
-   231                           
-   232     07FC                     __initialization:
-   233     07FC                     end_of_initialization:	
-   234                           ;End of C runtime variable initialization code
+    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    45                           ; 
+    46                           ; 
+    47                           ; Code-generator required, PIC16F877A Definitions
+    48                           ; 
+    49                           ; SFR Addresses
+    50     0000                     	;# 
+    51     0001                     	;# 
+    52     0002                     	;# 
+    53     0003                     	;# 
+    54     0004                     	;# 
+    55     0005                     	;# 
+    56     0006                     	;# 
+    57     0007                     	;# 
+    58     0008                     	;# 
+    59     0009                     	;# 
+    60     000A                     	;# 
+    61     000B                     	;# 
+    62     000C                     	;# 
+    63     000D                     	;# 
+    64     000E                     	;# 
+    65     000E                     	;# 
+    66     000F                     	;# 
+    67     0010                     	;# 
+    68     0011                     	;# 
+    69     0012                     	;# 
+    70     0013                     	;# 
+    71     0014                     	;# 
+    72     0015                     	;# 
+    73     0015                     	;# 
+    74     0016                     	;# 
+    75     0017                     	;# 
+    76     0018                     	;# 
+    77     0019                     	;# 
+    78     001A                     	;# 
+    79     001B                     	;# 
+    80     001B                     	;# 
+    81     001C                     	;# 
+    82     001D                     	;# 
+    83     001E                     	;# 
+    84     001F                     	;# 
+    85     0081                     	;# 
+    86     0085                     	;# 
+    87     0086                     	;# 
+    88     0087                     	;# 
+    89     0088                     	;# 
+    90     0089                     	;# 
+    91     008C                     	;# 
+    92     008D                     	;# 
+    93     008E                     	;# 
+    94     0091                     	;# 
+    95     0092                     	;# 
+    96     0093                     	;# 
+    97     0094                     	;# 
+    98     0098                     	;# 
+    99     0099                     	;# 
+   100     009C                     	;# 
+   101     009D                     	;# 
+   102     009E                     	;# 
+   103     009F                     	;# 
+   104     010C                     	;# 
+   105     010D                     	;# 
+   106     010E                     	;# 
+   107     010F                     	;# 
+   108     018C                     	;# 
+   109     018D                     	;# 
+   110     0000                     	;# 
+   111     0001                     	;# 
+   112     0002                     	;# 
+   113     0003                     	;# 
+   114     0004                     	;# 
+   115     0005                     	;# 
+   116     0006                     	;# 
+   117     0007                     	;# 
+   118     0008                     	;# 
+   119     0009                     	;# 
+   120     000A                     	;# 
+   121     000B                     	;# 
+   122     000C                     	;# 
+   123     000D                     	;# 
+   124     000E                     	;# 
+   125     000E                     	;# 
+   126     000F                     	;# 
+   127     0010                     	;# 
+   128     0011                     	;# 
+   129     0012                     	;# 
+   130     0013                     	;# 
+   131     0014                     	;# 
+   132     0015                     	;# 
+   133     0015                     	;# 
+   134     0016                     	;# 
+   135     0017                     	;# 
+   136     0018                     	;# 
+   137     0019                     	;# 
+   138     001A                     	;# 
+   139     001B                     	;# 
+   140     001B                     	;# 
+   141     001C                     	;# 
+   142     001D                     	;# 
+   143     001E                     	;# 
+   144     001F                     	;# 
+   145     0081                     	;# 
+   146     0085                     	;# 
+   147     0086                     	;# 
+   148     0087                     	;# 
+   149     0088                     	;# 
+   150     0089                     	;# 
+   151     008C                     	;# 
+   152     008D                     	;# 
+   153     008E                     	;# 
+   154     0091                     	;# 
+   155     0092                     	;# 
+   156     0093                     	;# 
+   157     0094                     	;# 
+   158     0098                     	;# 
+   159     0099                     	;# 
+   160     009C                     	;# 
+   161     009D                     	;# 
+   162     009E                     	;# 
+   163     009F                     	;# 
+   164     010C                     	;# 
+   165     010D                     	;# 
+   166     010E                     	;# 
+   167     010F                     	;# 
+   168     018C                     	;# 
+   169     018D                     	;# 
+   170     0006                     _PORTB	set	6
+   171     0013                     _SSPBUF	set	19
+   172     0014                     _SSPCON	set	20
+   173     0038                     _RC0	set	56
+   174     0039                     _RC1	set	57
+   175     003A                     _RC2	set	58
+   176     0086                     _TRISB	set	134
+   177     0094                     _SSPSTATbits	set	148
+   178     043A                     _TRISC2	set	1082
+   179     0439                     _TRISC1	set	1081
+   180     0438                     _TRISC0	set	1080
+   181     043B                     _TRISC3	set	1083
+   182     043D                     _TRISC5	set	1085
+   183                           
+   184                           	psect	strings
+   185     0003                     __pstrings:
+   186     0003                     stringtab:
+   187     0003                     __stringtab:
+   188                           
+   189                           ;	String table - string pointers are 1 byte each
+   190     0003  1BFF               	btfsc	btemp+1,7
+   191     0004  280D               	ljmp	stringcode
+   192     0005  1383               	bcf	3,7
+   193     0006  187F               	btfsc	btemp+1,0
+   194     0007  1783               	bsf	3,7
+   195     0008  0800               	movf	0,w
+   196     0009  0A84               	incf	4,f
+   197     000A  1903               	skipnz
+   198     000B  0AFF               	incf	btemp+1,f
+   199     000C  0008               	return
+   200     000D                     stringcode:
+   201     000D                     stringdir:
+   202     000D  3000               	movlw	high stringdir
+   203     000E  008A               	movwf	10
+   204     000F  0804               	movf	4,w
+   205     0010  0A84               	incf	4,f
+   206     0011  0782               	addwf	2,f
+   207     0012                     __stringbase:
+   208     0012  3400               	retlw	0
+   209     0013                     __end_of__stringtab:
+   210     0013                     STR_1:
+   211     0013  346D               	retlw	109	;'m'
+   212     0014  3479               	retlw	121	;'y'
+   213     0015  3461               	retlw	97	;'a'
+   214     0016  3464               	retlw	100	;'d'
+   215     0017  3472               	retlw	114	;'r'
+   216     0018  3400               	retlw	0
+   217     0013                     
+   218                           	psect	cinit
+   219     07FC                     start_initialization:	
+   220                           ; #config settings
+   221                           
+   222     07FC                     __initialization:
+   223     07FC                     end_of_initialization:	
+   224                           ;End of C runtime variable initialization code
+   225                           
+   226     07FC                     __end_of__initialization:
+   227     07FC  0183               	clrf	3
+   228     07FD  120A  118A  2FB0   	ljmp	_main	;jump to C main() function
+   229                           
+   230                           	psect	cstackCOMMON
+   231     0070                     __pcstackCOMMON:
+   232     0070                     ?_SPI_init_master:
+   233     0070                     ??_SPI_init_master:	
+   234                           ; 1 bytes @ 0x0
    235                           
-   236     07FC                     __end_of__initialization:
-   237     07FC  0183               	clrf	3
-   238     07FD  120A  118A  2F88   	ljmp	_main	;jump to C main() function
-   239                           
-   240                           	psect	cstackCOMMON
-   241     0070                     __pcstackCOMMON:
-   242     0070                     ?_SPI_init_master:
-   243     0070                     ??_SPI_init_master:	
-   244                           ; 1 bytes @ 0x0
-   245                           
-   246     0070                     ?_SPI_write:	
-   247                           ; 1 bytes @ 0x0
-   248                           
-   249     0070                     ??_SPI_write:	
-   250                           ; 1 bytes @ 0x0
-   251                           
-   252     0070                     ?_SPI_read:	
-   253                           ; 1 bytes @ 0x0
-   254                           
-   255     0070                     ??_SPI_read:	
-   256                           ; 1 bytes @ 0x0
-   257                           
-   258     0070                     ?_radio_reciever_start:	
-   259                           ; 1 bytes @ 0x0
+   236     0070                     ?_SPI_write:	
+   237                           ; 1 bytes @ 0x0
+   238                           
+   239     0070                     ??_SPI_write:	
+   240                           ; 1 bytes @ 0x0
+   241                           
+   242     0070                     ?_SPI_data_ready:	
+   243                           ; 1 bytes @ 0x0
+   244                           
+   245     0070                     ??_SPI_data_ready:	
+   246                           ; 1 bytes @ 0x0
+   247                           
+   248     0070                     ?_SPI_read:	
+   249                           ; 1 bytes @ 0x0
+   250                           
+   251     0070                     ??_SPI_read:	
+   252                           ; 1 bytes @ 0x0
+   253                           
+   254     0070                     ?_main:	
+   255                           ; 1 bytes @ 0x0
+   256                           
+   257     0070                     SPI_write@write:	
+   258                           ; 1 bytes @ 0x0
+   259                           
    260                           
-   261     0070                     ?_radio_transmitter_start:	
-   262                           ; 1 bytes @ 0x0
-   263                           
-   264     0070                     ?_radio_has_recieved_packet:	
-   265                           ; 1 bytes @ 0x0
-   266                           
-   267     0070                     ?_radio_get_packets:	
-   268                           ; 1 bytes @ 0x0
-   269                           
-   270     0070                     ?_main:	
-   271                           ; 1 bytes @ 0x0
-   272                           
-   273     0070                     SPI_write@write:	
-   274                           ; 1 bytes @ 0x0
-   275                           
-   276                           
-   277                           ; 1 bytes @ 0x0
-   278     0070                     	ds	1
-   279     0071                     ?_radio_spi_command_array:
-   280     0071                     ?_radio_spi_command_single:	
-   281                           ; 1 bytes @ 0x1
-   282                           
-   283     0071                     radio_spi_command_single@arg:	
-   284                           ; 1 bytes @ 0x1
-   285                           
-   286     0071                     radio_spi_command_array@args:	
-   287                           ; 1 bytes @ 0x1
-   288                           
-   289                           
-   290                           ; 2 bytes @ 0x1
-   291     0071                     	ds	1
-   292     0072                     ??_radio_spi_command_single:
-   293     0072                     radio_spi_command_single@command:	
-   294                           ; 1 bytes @ 0x2
-   295                           
-   296                           
-   297                           ; 1 bytes @ 0x2
-   298     0072                     	ds	1
-   299     0073                     ??_radio_has_recieved_packet:
-   300     0073                     ??_radio_get_packets:	
-   301                           ; 1 bytes @ 0x3
-   302                           
-   303     0073                     radio_spi_command_array@size:	
-   304                           ; 1 bytes @ 0x3
-   305                           
-   306     0073                     radio_has_recieved_packet@status:	
-   307                           ; 1 bytes @ 0x3
-   308                           
-   309     0073                     radio_get_packets@packet:	
-   310                           ; 1 bytes @ 0x3
+   261                           ; 1 bytes @ 0x0
+   262     0070                     	ds	1
+   263     0071                     ??_main:
+   264                           
+   265                           ; 1 bytes @ 0x1
+   266     0071                     	ds	3
+   267                           
+   268                           	psect	maintext
+   269     07B0                     __pmaintext:	
+   270 ;;
+   271 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   272 ;;
+   273 ;; *************** function _main *****************
+   274 ;; Defined at:
+   275 ;;		line 185 in file "main.c"
+   276 ;; Parameters:    Size  Location     Type
+   277 ;;		None
+   278 ;; Auto vars:     Size  Location     Type
+   279 ;;		None
+   280 ;; Return value:  Size  Location     Type
+   281 ;;                  1    wreg      void 
+   282 ;; Registers used:
+   283 ;;		wreg, status,2, status,0, pclath, cstack
+   284 ;; Tracked objects:
+   285 ;;		On entry : B00/0
+   286 ;;		On exit  : 0/0
+   287 ;;		Unchanged: 0/0
+   288 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   289 ;;      Params:         0       0       0       0       0
+   290 ;;      Locals:         0       0       0       0       0
+   291 ;;      Temps:          3       0       0       0       0
+   292 ;;      Totals:         3       0       0       0       0
+   293 ;;Total ram usage:        3 bytes
+   294 ;; Hardware stack levels required when called: 1
+   295 ;; This function calls:
+   296 ;;		_SPI_data_ready
+   297 ;;		_SPI_init_master
+   298 ;;		_SPI_read
+   299 ;;		_SPI_write
+   300 ;; This function is called by:
+   301 ;;		Startup code after reset
+   302 ;; This function uses a non-reentrant model
+   303 ;;
+   304                           
+   305     07B0                     _main:	
+   306                           ;psect for function _main
+   307                           
+   308     07B0                     l818:	
+   309                           ;incstack = 0
+   310                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    311                           
    312                           
-   313                           ; 1 bytes @ 0x3
-   314     0073                     	ds	1
-   315     0074                     ??_radio_spi_command_array:
-   316     0074                     radio_has_recieved_packet@RX_DR:	
-   317                           ; 1 bytes @ 0x4
+   313                           ;main.c: 187:     TRISB = 0b00000000;
+   314     07B0  1683               	bsf	3,5	;RP0=1, select bank1
+   315     07B1  1303               	bcf	3,6	;RP1=0, select bank1
+   316     07B2  0186               	clrf	6	;volatile
+   317     07B3                     l820:
    318                           
-   319                           
-   320                           ; 1 bytes @ 0x4
-   321     0074                     	ds	3
-   322     0077                     radio_spi_command_array@command:
-   323                           
-   324                           ; 1 bytes @ 0x7
-   325     0077                     	ds	1
-   326     0078                     radio_spi_command_array@i:
-   327                           
-   328                           ; 1 bytes @ 0x8
-   329     0078                     	ds	1
-   330     0079                     ??_radio_reciever_start:
-   331     0079                     ??_radio_transmitter_start:	
-   332                           ; 1 bytes @ 0x9
+   319                           ;main.c: 190:     SPI_init_master();
+   320     07B3  120A  118A  279B  120A  118A  	fcall	_SPI_init_master
+   321     07B8                     l822:
+   322                           
+   323                           ;main.c: 198:         PORTB = 0b10101010;
+   324     07B8  30AA               	movlw	170
+   325     07B9  1283               	bcf	3,5	;RP0=0, select bank0
+   326     07BA  1303               	bcf	3,6	;RP1=0, select bank0
+   327     07BB  0086               	movwf	6	;volatile
+   328     07BC                     l824:
+   329                           
+   330                           ;main.c: 199:         RC2 = 0;
+   331     07BC  1107               	bcf	7,2	;volatile
+   332     07BD                     l826:
    333                           
-   334     0079                     ?_radio_transmit_single:	
-   335                           ; 1 bytes @ 0x9
-   336                           
-   337     0079                     radio_transmit_single@transmission:	
-   338                           ; 1 bytes @ 0x9
-   339                           
-   340                           
-   341                           ; 2 bytes @ 0x9
-   342     0079                     	ds	2
-   343     007B                     radio_transmit_single@size:
-   344                           
-   345                           ; 1 bytes @ 0xB
-   346     007B                     	ds	1
-   347     007C                     ??_radio_transmit_single:
-   348                           
-   349                           ; 1 bytes @ 0xC
-   350     007C                     	ds	1
-   351                           
-   352                           	psect	cstackBANK0
-   353     0020                     __pcstackBANK0:
-   354     0020                     ??_main:
+   334                           ;main.c: 201:         SPI_write(0b00000001);
+   335     07BD  3001               	movlw	1
+   336     07BE  120A  118A  27A4  120A  118A  	fcall	_SPI_write
+   337     07C3                     l828:
+   338                           
+   339                           ;main.c: 203:         _delay((unsigned long)((1000)*(10000000/4000.0)));
+   340     07C3  300D               	movlw	13
+   341     07C4  00F3               	movwf	??_main+2
+   342     07C5  30AF               	movlw	175
+   343     07C6  00F2               	movwf	??_main+1
+   344     07C7  30B6               	movlw	182
+   345     07C8  00F1               	movwf	??_main
+   346     07C9                     u107:
+   347     07C9  0BF1               	decfsz	??_main,f
+   348     07CA  2FC9               	goto	u107
+   349     07CB  0BF2               	decfsz	??_main+1,f
+   350     07CC  2FC9               	goto	u107
+   351     07CD  0BF3               	decfsz	??_main+2,f
+   352     07CE  2FC9               	goto	u107
+   353     07CF  0000               	nop
+   354     07D0                     l830:
    355                           
-   356                           ; 1 bytes @ 0x0
-   357     0020                     	ds	3
-   358                           
-   359                           	psect	maintext
-   360     0788                     __pmaintext:	
-   361 ;;
-   362 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
-   363 ;;
-   364 ;; *************** function _main *****************
-   365 ;; Defined at:
-   366 ;;		line 155 in file "main.c"
-   367 ;; Parameters:    Size  Location     Type
-   368 ;;		None
-   369 ;; Auto vars:     Size  Location     Type
-   370 ;;		None
-   371 ;; Return value:  Size  Location     Type
-   372 ;;                  1    wreg      void 
-   373 ;; Registers used:
-   374 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   375 ;; Tracked objects:
-   376 ;;		On entry : B00/0
-   377 ;;		On exit  : 0/0
-   378 ;;		Unchanged: 0/0
-   379 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   380 ;;      Params:         0       0       0       0       0
-   381 ;;      Locals:         0       0       0       0       0
-   382 ;;      Temps:          0       3       0       0       0
-   383 ;;      Totals:         0       3       0       0       0
-   384 ;;Total ram usage:        3 bytes
-   385 ;; Hardware stack levels required when called: 3
-   386 ;; This function calls:
-   387 ;;		_radio_get_packets
-   388 ;;		_radio_has_recieved_packet
-   389 ;;		_radio_reciever_start
-   390 ;;		_radio_transmit_single
-   391 ;;		_radio_transmitter_start
-   392 ;; This function is called by:
-   393 ;;		Startup code after reset
-   394 ;; This function uses a non-reentrant model
-   395 ;;
-   396                           
-   397     0788                     _main:	
-   398                           ;psect for function _main
-   399                           
-   400     0788                     l877:	
-   401                           ;incstack = 0
-   402                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   356                           ;main.c: 204:         SPI_write(0b00000000);
+   357     07D0  3000               	movlw	0
+   358     07D1  120A  118A  27A4  120A  118A  	fcall	_SPI_write
+   359     07D6                     l832:
+   360                           
+   361                           ;main.c: 206:         RC2 = 1;
+   362     07D6  1283               	bcf	3,5	;RP0=0, select bank0
+   363     07D7  1303               	bcf	3,6	;RP1=0, select bank0
+   364     07D8  1507               	bsf	7,2	;volatile
+   365     07D9                     l834:
+   366                           
+   367                           ;main.c: 207:         if(SPI_data_ready()){
+   368     07D9  120A  118A  2796  120A  118A  	fcall	_SPI_data_ready
+   369     07DE  3A00               	xorlw	0
+   370     07DF  1903               	skipnz
+   371     07E0  2FE2               	goto	u71
+   372     07E1  2FE3               	goto	u70
+   373     07E2                     u71:
+   374     07E2  2FEB               	goto	l838
+   375     07E3                     u70:
+   376     07E3                     l836:
+   377                           
+   378                           ;main.c: 208:             PORTB = SPI_read();
+   379     07E3  120A  118A  2792  120A  118A  	fcall	_SPI_read
+   380     07E8  1283               	bcf	3,5	;RP0=0, select bank0
+   381     07E9  1303               	bcf	3,6	;RP1=0, select bank0
+   382     07EA  0086               	movwf	6	;volatile
+   383     07EB                     l838:
+   384                           
+   385                           ;main.c: 210:         _delay((unsigned long)((1000)*(10000000/4000.0)));
+   386     07EB  300D               	movlw	13
+   387     07EC  00F3               	movwf	??_main+2
+   388     07ED  30AF               	movlw	175
+   389     07EE  00F2               	movwf	??_main+1
+   390     07EF  30B6               	movlw	182
+   391     07F0  00F1               	movwf	??_main
+   392     07F1                     u117:
+   393     07F1  0BF1               	decfsz	??_main,f
+   394     07F2  2FF1               	goto	u117
+   395     07F3  0BF2               	decfsz	??_main+1,f
+   396     07F4  2FF1               	goto	u117
+   397     07F5  0BF3               	decfsz	??_main+2,f
+   398     07F6  2FF1               	goto	u117
+   399     07F7  0000               	nop
+   400     07F8  2FB8               	goto	l822
+   401     07F9  120A  118A  2800   	ljmp	start
+   402     07FC                     __end_of_main:
    403                           
-   404                           
-   405                           ;main.c: 157:     radio_reciever_start();
-   406     0788  120A  118A  272E  120A  118A  	fcall	_radio_reciever_start
-   407     078D                     l879:
-   408                           
-   409                           ;main.c: 158:     TRISB = 0b11111111;
-   410     078D  30FF               	movlw	255
-   411     078E  1683               	bsf	3,5	;RP0=1, select bank1
-   412     078F  1303               	bcf	3,6	;RP1=0, select bank1
-   413     0790  0086               	movwf	6	;volatile
-   414     0791                     l881:
-   415                           
-   416                           ;main.c: 159:     TRISC7 = 1;
-   417     0791  1787               	bsf	7,7	;volatile
-   418     0792                     l883:
-   419                           
-   420                           ;main.c: 162:     {;main.c: 163:         if(radio_has_recieved_packet()){
-   421     0792  120A  118A  2707  120A  118A  	fcall	_radio_has_recieved_packet
-   422     0797  3A00               	xorlw	0
-   423     0798  1903               	skipnz
-   424     0799  2F9B               	goto	u101
-   425     079A  2F9C               	goto	u100
-   426     079B                     u101:
-   427     079B  2F92               	goto	l883
-   428     079C                     u100:
-   429     079C                     l885:
-   430                           
-   431                           ;main.c: 164:             RC7 = 1;
-   432     079C  1283               	bcf	3,5	;RP0=0, select bank0
-   433     079D  1303               	bcf	3,6	;RP1=0, select bank0
-   434     079E  1787               	bsf	7,7	;volatile
-   435     079F                     l887:
+   404                           	psect	text1
+   405     07A4                     __ptext1:	
+   406 ;; *************** function _SPI_write *****************
+   407 ;; Defined at:
+   408 ;;		line 31 in file "./spi.h"
+   409 ;; Parameters:    Size  Location     Type
+   410 ;;  write           1    wreg     unsigned char 
+   411 ;; Auto vars:     Size  Location     Type
+   412 ;;  write           1    0[COMMON] unsigned char 
+   413 ;; Return value:  Size  Location     Type
+   414 ;;                  1    wreg      void 
+   415 ;; Registers used:
+   416 ;;		wreg
+   417 ;; Tracked objects:
+   418 ;;		On entry : 0/0
+   419 ;;		On exit  : 0/0
+   420 ;;		Unchanged: 0/0
+   421 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   422 ;;      Params:         0       0       0       0       0
+   423 ;;      Locals:         1       0       0       0       0
+   424 ;;      Temps:          0       0       0       0       0
+   425 ;;      Totals:         1       0       0       0       0
+   426 ;;Total ram usage:        1 bytes
+   427 ;; Hardware stack levels used: 1
+   428 ;; This function calls:
+   429 ;;		Nothing
+   430 ;; This function is called by:
+   431 ;;		_main
+   432 ;;		_radio_spi_command_array
+   433 ;;		_radio_spi_command_single
+   434 ;; This function uses a non-reentrant model
+   435 ;;
    436                           
-   437                           ;main.c: 165:             _delay((unsigned long)((2000)*(10000000/4000.0)));
-   438     079F  301A               	movlw	26
-   439     07A0  1283               	bcf	3,5	;RP0=0, select bank0
-   440     07A1  1303               	bcf	3,6	;RP1=0, select bank0
-   441     07A2  00A2               	movwf	??_main+2
-   442     07A3  305E               	movlw	94
-   443     07A4  00A1               	movwf	??_main+1
-   444     07A5  306D               	movlw	109
-   445     07A6  00A0               	movwf	??_main
-   446     07A7                     u117:
-   447     07A7  0BA0               	decfsz	??_main,f
-   448     07A8  2FA7               	goto	u117
-   449     07A9  0BA1               	decfsz	??_main+1,f
-   450     07AA  2FA7               	goto	u117
-   451     07AB  0BA2               	decfsz	??_main+2,f
-   452     07AC  2FA7               	goto	u117
-   453     07AD  2FAE               	nop2
-   454     07AE                     l889:
-   455                           
-   456                           ;main.c: 166:             RC7 = 0;
-   457     07AE  1283               	bcf	3,5	;RP0=0, select bank0
-   458     07AF  1303               	bcf	3,6	;RP1=0, select bank0
-   459     07B0  1387               	bcf	7,7	;volatile
-   460     07B1                     l891:
-   461                           
-   462                           ;main.c: 168:             {;main.c: 169:                 PORTB = radio_get_packets();
-   463     07B1  120A  118A  26CC  120A  118A  	fcall	_radio_get_packets
-   464     07B6  1283               	bcf	3,5	;RP0=0, select bank0
-   465     07B7  1303               	bcf	3,6	;RP1=0, select bank0
-   466     07B8  0086               	movwf	6	;volatile
-   467     07B9  2F92               	goto	l883
-   468     07BA  120A  118A  2800   	ljmp	start
-   469     07BD                     __end_of_main:
-   470                           
-   471                           	psect	text1
-   472     0759                     __ptext1:	
-   473 ;; *************** function _radio_transmitter_start *****************
-   474 ;; Defined at:
-   475 ;;		line 99 in file "main.c"
-   476 ;; Parameters:    Size  Location     Type
-   477 ;;		None
-   478 ;; Auto vars:     Size  Location     Type
-   479 ;;		None
-   480 ;; Return value:  Size  Location     Type
-   481 ;;                  1    wreg      void 
-   482 ;; Registers used:
-   483 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   484 ;; Tracked objects:
-   485 ;;		On entry : 0/0
-   486 ;;		On exit  : 0/0
-   487 ;;		Unchanged: 0/0
-   488 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   489 ;;      Params:         0       0       0       0       0
-   490 ;;      Locals:         0       0       0       0       0
-   491 ;;      Temps:          0       0       0       0       0
-   492 ;;      Totals:         0       0       0       0       0
-   493 ;;Total ram usage:        0 bytes
-   494 ;; Hardware stack levels used: 1
-   495 ;; Hardware stack levels required when called: 2
-   496 ;; This function calls:
-   497 ;;		_SPI_init_master
-   498 ;;		_radio_spi_command_array
-   499 ;;		_radio_spi_command_single
-   500 ;; This function is called by:
-   501 ;;		_main
-   502 ;; This function uses a non-reentrant model
-   503 ;;
-   504                           
-   505     0759                     _radio_transmitter_start:	
-   506                           ;psect for function _radio_transmitter_start
+   437     07A4                     _SPI_write:	
+   438                           ;psect for function _SPI_write
+   439                           
+   440                           
+   441                           ;incstack = 0
+   442                           ; Regs used in _SPI_write: [wreg]
+   443                           ;SPI_write@write stored from wreg
+   444     07A4  00F0               	movwf	SPI_write@write
+   445     07A5                     l716:
+   446                           
+   447                           ;./spi.h: 32:     SSPBUF = write;
+   448     07A5  0870               	movf	SPI_write@write,w
+   449     07A6  1283               	bcf	3,5	;RP0=0, select bank0
+   450     07A7  1303               	bcf	3,6	;RP1=0, select bank0
+   451     07A8  0093               	movwf	19	;volatile
+   452     07A9                     l37:	
+   453                           ;./spi.h: 34:     while(!SSPSTATbits.BF);
+   454                           
+   455     07A9  1683               	bsf	3,5	;RP0=1, select bank1
+   456     07AA  1303               	bcf	3,6	;RP1=0, select bank1
+   457     07AB  1C14               	btfss	20,0	;volatile
+   458     07AC  2FAE               	goto	u21
+   459     07AD  2FAF               	goto	u20
+   460     07AE                     u21:
+   461     07AE  2FA9               	goto	l37
+   462     07AF                     u20:
+   463     07AF                     l40:
+   464     07AF  0008               	return
+   465     07B0                     __end_of_SPI_write:
+   466                           
+   467                           	psect	text2
+   468     0792                     __ptext2:	
+   469 ;; *************** function _SPI_read *****************
+   470 ;; Defined at:
+   471 ;;		line 45 in file "./spi.h"
+   472 ;; Parameters:    Size  Location     Type
+   473 ;;		None
+   474 ;; Auto vars:     Size  Location     Type
+   475 ;;		None
+   476 ;; Return value:  Size  Location     Type
+   477 ;;                  1    wreg      unsigned char 
+   478 ;; Registers used:
+   479 ;;		wreg
+   480 ;; Tracked objects:
+   481 ;;		On entry : 0/0
+   482 ;;		On exit  : 0/0
+   483 ;;		Unchanged: 0/0
+   484 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   485 ;;      Params:         0       0       0       0       0
+   486 ;;      Locals:         0       0       0       0       0
+   487 ;;      Temps:          0       0       0       0       0
+   488 ;;      Totals:         0       0       0       0       0
+   489 ;;Total ram usage:        0 bytes
+   490 ;; Hardware stack levels used: 1
+   491 ;; This function calls:
+   492 ;;		Nothing
+   493 ;; This function is called by:
+   494 ;;		_main
+   495 ;;		_radio_has_recieved_packet
+   496 ;;		_radio_get_packets
+   497 ;; This function uses a non-reentrant model
+   498 ;;
+   499                           
+   500     0792                     _SPI_read:	
+   501                           ;psect for function _SPI_read
+   502                           
+   503     0792                     l722:	
+   504                           ;incstack = 0
+   505                           ; Regs used in _SPI_read: [wreg]
+   506                           
    507                           
-   508     0759                     l831:	
-   509                           ;incstack = 0
-   510                           ; Regs used in _radio_transmitter_start: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cs
-      +                          tack]
-   511                           
-   512                           
-   513                           ;main.c: 100:     TRISC0 = 1;
-   514     0759  1683               	bsf	3,5	;RP0=1, select bank1
-   515     075A  1303               	bcf	3,6	;RP1=0, select bank1
-   516     075B  1407               	bsf	7,0	;volatile
-   517                           
-   518                           ;main.c: 101:     TRISC1 = 0;
-   519     075C  1087               	bcf	7,1	;volatile
-   520                           
-   521                           ;main.c: 102:     TRISC2 = 0;
-   522     075D  1107               	bcf	7,2	;volatile
-   523                           
-   524                           ;main.c: 103:     RC1 = 0;
-   525     075E  1283               	bcf	3,5	;RP0=0, select bank0
-   526     075F  1303               	bcf	3,6	;RP1=0, select bank0
-   527     0760  1087               	bcf	7,1	;volatile
-   528                           
-   529                           ;main.c: 104:     RC2 = 1;
-   530     0761  1507               	bsf	7,2	;volatile
-   531     0762                     l833:
-   532                           
-   533                           ;main.c: 105:     SPI_init_master();
-   534     0762  120A  118A  26B7  120A  118A  	fcall	_SPI_init_master
-   535     0767                     l835:
-   536                           
-   537                           ;main.c: 108:     radio_spi_command_single((0b00000000 & 0x00), 0b00000110);
-   538     0767  3006               	movlw	6
-   539     0768  00F1               	movwf	radio_spi_command_single@arg
-   540     0769  3000               	movlw	0
-   541     076A  120A  118A  26DB  120A  118A  	fcall	_radio_spi_command_single
-   542     076F                     l837:
-   543                           
-   544                           ;main.c: 110:     radio_spi_command_array((0b00000000 & 0x10), (uint8_t *)"myadr", 5);
-   545     076F  3001               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
-   546     0770  00F1               	movwf	radio_spi_command_array@args
-   547     0771  3080               	movlw	128
-   548     0772  00F2               	movwf	radio_spi_command_array@args+1
-   549     0773  3005               	movlw	5
-   550     0774  00F3               	movwf	radio_spi_command_array@size
-   551     0775  3000               	movlw	0
-   552     0776  120A  118A  27BD  120A  118A  	fcall	_radio_spi_command_array
-   553     077B                     l839:
-   554                           
-   555                           ;main.c: 111:     radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
-   556     077B  3001               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
-   557     077C  00F1               	movwf	radio_spi_command_array@args
-   558     077D  3080               	movlw	128
-   559     077E  00F2               	movwf	radio_spi_command_array@args+1
-   560     077F  3005               	movlw	5
-   561     0780  00F3               	movwf	radio_spi_command_array@size
-   562     0781  3000               	movlw	0
-   563     0782  120A  118A  27BD  120A  118A  	fcall	_radio_spi_command_array
-   564     0787                     l76:
-   565     0787  0008               	return
-   566     0788                     __end_of_radio_transmitter_start:
-   567                           
-   568                           	psect	text2
-   569     06EF                     __ptext2:	
-   570 ;; *************** function _radio_transmit_single *****************
-   571 ;; Defined at:
-   572 ;;		line 115 in file "main.c"
-   573 ;; Parameters:    Size  Location     Type
-   574 ;;  transmission    2    9[COMMON] PTR unsigned char 
-   575 ;;		 -> RAM(512), 
-   576 ;;  size            1   11[COMMON] unsigned char 
-   577 ;; Auto vars:     Size  Location     Type
-   578 ;;		None
-   579 ;; Return value:  Size  Location     Type
-   580 ;;                  1    wreg      void 
-   581 ;; Registers used:
-   582 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   583 ;; Tracked objects:
-   584 ;;		On entry : 0/0
-   585 ;;		On exit  : 0/0
-   586 ;;		Unchanged: 0/0
-   587 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   588 ;;      Params:         3       0       0       0       0
-   589 ;;      Locals:         0       0       0       0       0
-   590 ;;      Temps:          1       0       0       0       0
-   591 ;;      Totals:         4       0       0       0       0
-   592 ;;Total ram usage:        4 bytes
-   593 ;; Hardware stack levels used: 1
-   594 ;; Hardware stack levels required when called: 2
-   595 ;; This function calls:
-   596 ;;		_radio_spi_command_array
-   597 ;; This function is called by:
-   598 ;;		_main
-   599 ;; This function uses a non-reentrant model
-   600 ;;
-   601                           
-   602     06EF                     _radio_transmit_single:	
-   603                           ;psect for function _radio_transmit_single
-   604                           
-   605     06EF                     l841:	
-   606                           ;incstack = 0
-   607                           ; Regs used in _radio_transmit_single: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+csta
-      +                          ck]
-   608                           
+   508                           ;./spi.h: 46:     return SSPBUF;
+   509     0792  1283               	bcf	3,5	;RP0=0, select bank0
+   510     0793  1303               	bcf	3,6	;RP1=0, select bank0
+   511     0794  0813               	movf	19,w	;volatile
+   512     0795                     l52:
+   513     0795  0008               	return
+   514     0796                     __end_of_SPI_read:
+   515                           
+   516                           	psect	text3
+   517     079B                     __ptext3:	
+   518 ;; *************** function _SPI_init_master *****************
+   519 ;; Defined at:
+   520 ;;		line 25 in file "./spi.h"
+   521 ;; Parameters:    Size  Location     Type
+   522 ;;		None
+   523 ;; Auto vars:     Size  Location     Type
+   524 ;;		None
+   525 ;; Return value:  Size  Location     Type
+   526 ;;                  1    wreg      void 
+   527 ;; Registers used:
+   528 ;;		wreg
+   529 ;; Tracked objects:
+   530 ;;		On entry : 0/0
+   531 ;;		On exit  : 0/0
+   532 ;;		Unchanged: 0/0
+   533 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   534 ;;      Params:         0       0       0       0       0
+   535 ;;      Locals:         0       0       0       0       0
+   536 ;;      Temps:          0       0       0       0       0
+   537 ;;      Totals:         0       0       0       0       0
+   538 ;;Total ram usage:        0 bytes
+   539 ;; Hardware stack levels used: 1
+   540 ;; This function calls:
+   541 ;;		Nothing
+   542 ;; This function is called by:
+   543 ;;		_main
+   544 ;;		_radio_reciever_start
+   545 ;;		_radio_transmitter_start
+   546 ;; This function uses a non-reentrant model
+   547 ;;
+   548                           
+   549     079B                     _SPI_init_master:	
+   550                           ;psect for function _SPI_init_master
+   551                           
+   552     079B                     l710:	
+   553                           ;incstack = 0
+   554                           ; Regs used in _SPI_init_master: [wreg]
+   555                           
+   556                           
+   557                           ;./spi.h: 26:     SSPCON = 0b00100000;
+   558     079B  3020               	movlw	32
+   559     079C  1283               	bcf	3,5	;RP0=0, select bank0
+   560     079D  1303               	bcf	3,6	;RP1=0, select bank0
+   561     079E  0094               	movwf	20	;volatile
+   562     079F                     l712:
+   563                           
+   564                           ;./spi.h: 27:     TRISC5 = 0;
+   565     079F  1683               	bsf	3,5	;RP0=1, select bank1
+   566     07A0  1303               	bcf	3,6	;RP1=0, select bank1
+   567     07A1  1287               	bcf	7,5	;volatile
+   568     07A2                     l714:
+   569                           
+   570                           ;./spi.h: 28:     TRISC3 = 0;
+   571     07A2  1187               	bcf	7,3	;volatile
+   572     07A3                     l34:
+   573     07A3  0008               	return
+   574     07A4                     __end_of_SPI_init_master:
+   575                           
+   576                           	psect	text4
+   577     0796                     __ptext4:	
+   578 ;; *************** function _SPI_data_ready *****************
+   579 ;; Defined at:
+   580 ;;		line 37 in file "./spi.h"
+   581 ;; Parameters:    Size  Location     Type
+   582 ;;		None
+   583 ;; Auto vars:     Size  Location     Type
+   584 ;;		None
+   585 ;; Return value:  Size  Location     Type
+   586 ;;                  1    wreg      unsigned char 
+   587 ;; Registers used:
+   588 ;;		wreg, status,2, status,0
+   589 ;; Tracked objects:
+   590 ;;		On entry : 0/0
+   591 ;;		On exit  : 0/0
+   592 ;;		Unchanged: 0/0
+   593 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   594 ;;      Params:         0       0       0       0       0
+   595 ;;      Locals:         0       0       0       0       0
+   596 ;;      Temps:          0       0       0       0       0
+   597 ;;      Totals:         0       0       0       0       0
+   598 ;;Total ram usage:        0 bytes
+   599 ;; Hardware stack levels used: 1
+   600 ;; This function calls:
+   601 ;;		Nothing
+   602 ;; This function is called by:
+   603 ;;		_main
+   604 ;; This function uses a non-reentrant model
+   605 ;;
+   606                           
+   607     0796                     _SPI_data_ready:	
+   608                           ;psect for function _SPI_data_ready
    609                           
-   610                           ;main.c: 116:     radio_spi_command_array((0b00000000 & 0b10100000), transmission, size)
-      +                          ;
-   611     06EF  0879               	movf	radio_transmit_single@transmission,w
-   612     06F0  00F1               	movwf	radio_spi_command_array@args
-   613     06F1  087A               	movf	radio_transmit_single@transmission+1,w
-   614     06F2  00F2               	movwf	radio_spi_command_array@args+1
-   615     06F3  087B               	movf	radio_transmit_single@size,w
-   616     06F4  00F3               	movwf	radio_spi_command_array@size
-   617     06F5  3000               	movlw	0
-   618     06F6  120A  118A  27BD  120A  118A  	fcall	_radio_spi_command_array
-   619     06FB                     l843:
-   620                           
-   621                           ;main.c: 117:     RC1 = 1;
-   622     06FB  1283               	bcf	3,5	;RP0=0, select bank0
-   623     06FC  1303               	bcf	3,6	;RP1=0, select bank0
-   624     06FD  1487               	bsf	7,1	;volatile
-   625     06FE                     l845:
-   626                           
-   627                           ;main.c: 118:     _delay((unsigned long)((11)*(10000000/4000000.0)));
-   628     06FE  3008               	movlw	8
-   629     06FF  00FC               	movwf	??_radio_transmit_single
-   630     0700                     u127:
-   631     0700  0BFC               	decfsz	??_radio_transmit_single,f
-   632     0701  2F00               	goto	u127
-   633     0702  2F03               	nop2
-   634     0703                     l847:
-   635                           
-   636                           ;main.c: 119:     RC1 = 0;
-   637     0703  1283               	bcf	3,5	;RP0=0, select bank0
-   638     0704  1303               	bcf	3,6	;RP1=0, select bank0
-   639     0705  1087               	bcf	7,1	;volatile
-   640     0706                     l79:
-   641     0706  0008               	return
-   642     0707                     __end_of_radio_transmit_single:
-   643                           
-   644                           	psect	text3
-   645     072E                     __ptext3:	
-   646 ;; *************** function _radio_reciever_start *****************
-   647 ;; Defined at:
-   648 ;;		line 83 in file "main.c"
-   649 ;; Parameters:    Size  Location     Type
-   650 ;;		None
-   651 ;; Auto vars:     Size  Location     Type
-   652 ;;		None
-   653 ;; Return value:  Size  Location     Type
-   654 ;;                  1    wreg      void 
-   655 ;; Registers used:
-   656 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   657 ;; Tracked objects:
-   658 ;;		On entry : 0/0
-   659 ;;		On exit  : 0/0
-   660 ;;		Unchanged: 0/0
-   661 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   662 ;;      Params:         0       0       0       0       0
-   663 ;;      Locals:         0       0       0       0       0
-   664 ;;      Temps:          0       0       0       0       0
-   665 ;;      Totals:         0       0       0       0       0
-   666 ;;Total ram usage:        0 bytes
-   667 ;; Hardware stack levels used: 1
-   668 ;; Hardware stack levels required when called: 2
-   669 ;; This function calls:
-   670 ;;		_SPI_init_master
-   671 ;;		_radio_spi_command_array
-   672 ;;		_radio_spi_command_single
-   673 ;; This function is called by:
-   674 ;;		_main
-   675 ;; This function uses a non-reentrant model
-   676 ;;
-   677                           
-   678     072E                     _radio_reciever_start:	
-   679                           ;psect for function _radio_reciever_start
-   680                           
-   681     072E                     l821:	
-   682                           ;incstack = 0
-   683                           ; Regs used in _radio_reciever_start: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstac
-      +                          k]
-   684                           
-   685                           
-   686                           ;main.c: 84:     TRISC0 = 1;
-   687     072E  1683               	bsf	3,5	;RP0=1, select bank1
-   688     072F  1303               	bcf	3,6	;RP1=0, select bank1
-   689     0730  1407               	bsf	7,0	;volatile
-   690                           
-   691                           ;main.c: 85:     TRISC1 = 0;
-   692     0731  1087               	bcf	7,1	;volatile
-   693                           
-   694                           ;main.c: 86:     TRISC2 = 0;
-   695     0732  1107               	bcf	7,2	;volatile
-   696                           
-   697                           ;main.c: 87:     RC1 = 1;
-   698     0733  1283               	bcf	3,5	;RP0=0, select bank0
-   699     0734  1303               	bcf	3,6	;RP1=0, select bank0
-   700     0735  1487               	bsf	7,1	;volatile
-   701                           
-   702                           ;main.c: 88:     RC2 = 1;
-   703     0736  1507               	bsf	7,2	;volatile
-   704     0737                     l823:
-   705                           
-   706                           ;main.c: 89:     SPI_init_master();
-   707     0737  120A  118A  26B7  120A  118A  	fcall	_SPI_init_master
-   708     073C                     l825:
-   709                           
-   710                           ;main.c: 92:     radio_spi_command_single((0b00000000 & 0x00), 0b00000111);
-   711     073C  3007               	movlw	7
-   712     073D  00F1               	movwf	radio_spi_command_single@arg
-   713     073E  3000               	movlw	0
-   714     073F  120A  118A  26DB  120A  118A  	fcall	_radio_spi_command_single
-   715     0744                     l827:
-   716                           
-   717                           ;main.c: 94:     radio_spi_command_single((0b00000000 & 0x02), 0b00000001);
-   718     0744  01F1               	clrf	radio_spi_command_single@arg
-   719     0745  0AF1               	incf	radio_spi_command_single@arg,f
-   720     0746  3000               	movlw	0
-   721     0747  120A  118A  26DB  120A  118A  	fcall	_radio_spi_command_single
-   722     074C                     l829:
-   723                           
-   724                           ;main.c: 96:     radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
-   725     074C  3001               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
-   726     074D  00F1               	movwf	radio_spi_command_array@args
-   727     074E  3080               	movlw	128
-   728     074F  00F2               	movwf	radio_spi_command_array@args+1
-   729     0750  3005               	movlw	5
-   730     0751  00F3               	movwf	radio_spi_command_array@size
-   731     0752  3000               	movlw	0
-   732     0753  120A  118A  27BD  120A  118A  	fcall	_radio_spi_command_array
-   733     0758                     l73:
-   734     0758  0008               	return
-   735     0759                     __end_of_radio_reciever_start:
-   736                           
-   737                           	psect	text4
-   738     07BD                     __ptext4:	
-   739 ;; *************** function _radio_spi_command_array *****************
-   740 ;; Defined at:
-   741 ;;		line 61 in file "main.c"
-   742 ;; Parameters:    Size  Location     Type
-   743 ;;  command         1    wreg     unsigned char 
-   744 ;;  args            2    1[COMMON] PTR unsigned char 
-   745 ;;		 -> RAM(512), STR_3(6), STR_2(6), STR_1(6), 
-   746 ;;  size            1    3[COMMON] unsigned char 
-   747 ;; Auto vars:     Size  Location     Type
-   748 ;;  command         1    7[COMMON] unsigned char 
-   749 ;;  i               1    8[COMMON] char 
-   750 ;; Return value:  Size  Location     Type
-   751 ;;                  1    wreg      void 
-   752 ;; Registers used:
-   753 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
-   754 ;; Tracked objects:
-   755 ;;		On entry : 0/0
-   756 ;;		On exit  : 0/0
-   757 ;;		Unchanged: 0/0
-   758 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   759 ;;      Params:         3       0       0       0       0
-   760 ;;      Locals:         2       0       0       0       0
-   761 ;;      Temps:          3       0       0       0       0
-   762 ;;      Totals:         8       0       0       0       0
-   763 ;;Total ram usage:        8 bytes
-   764 ;; Hardware stack levels used: 1
-   765 ;; Hardware stack levels required when called: 1
-   766 ;; This function calls:
-   767 ;;		_SPI_write
-   768 ;; This function is called by:
-   769 ;;		_radio_reciever_start
-   770 ;;		_radio_transmitter_start
-   771 ;;		_radio_transmit_single
-   772 ;; This function uses a non-reentrant model
-   773 ;;
-   774                           
-   775     07BD                     _radio_spi_command_array:	
-   776                           ;psect for function _radio_spi_command_array
-   777                           
-   778                           
-   779                           ;incstack = 0
-   780                           ; Regs used in _radio_spi_command_array: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cs
-      +                          tack]
-   781                           ;radio_spi_command_array@command stored from wreg
-   782     07BD  00F7               	movwf	radio_spi_command_array@command
-   783     07BE                     l803:
-   784                           
-   785                           ;main.c: 62:     RC2 = 0;
-   786     07BE  1283               	bcf	3,5	;RP0=0, select bank0
-   787     07BF  1303               	bcf	3,6	;RP1=0, select bank0
-   788     07C0  1107               	bcf	7,2	;volatile
-   789     07C1                     l805:
-   790                           
-   791                           ;main.c: 64:     SPI_write(command);
-   792     07C1  0877               	movf	radio_spi_command_array@command,w
-   793     07C2  120A  118A  26C0  120A  118A  	fcall	_SPI_write
-   794     07C7                     l807:
-   795                           
-   796                           ;main.c: 66:     for(int8_t i = 0; i<size; i++){
-   797     07C7  01F8               	clrf	radio_spi_command_array@i
-   798     07C8  2FE6               	goto	l813
-   799     07C9                     l809:
-   800                           
-   801                           ;main.c: 67:         SPI_write(args[i]);
-   802     07C9  0878               	movf	radio_spi_command_array@i,w
-   803     07CA  00F4               	movwf	??_radio_spi_command_array
-   804     07CB  01F5               	clrf	??_radio_spi_command_array+1
-   805     07CC  1BF4               	btfsc	??_radio_spi_command_array,7
-   806     07CD  03F5               	decf	??_radio_spi_command_array+1,f
-   807     07CE  0874               	movf	??_radio_spi_command_array,w
-   808     07CF  0771               	addwf	radio_spi_command_array@args,w
-   809     07D0  0084               	movwf	4
-   810     07D1  0875               	movf	??_radio_spi_command_array+1,w
-   811     07D2  1803               	skipnc
-   812     07D3  0A75               	incf	??_radio_spi_command_array+1,w
-   813     07D4  0772               	addwf	radio_spi_command_array@args+1,w
-   814     07D5  1283               	bcf	3,5	;RP0=0, select bank0
-   815     07D6  1303               	bcf	3,6	;RP1=0, select bank0
-   816     07D7  00FF               	movwf	btemp+1
-   817     07D8  120A  118A  2003  120A  118A  	fcall	stringtab
-   818     07DD  120A  118A  26C0  120A  118A  	fcall	_SPI_write
-   819     07E2                     l811:
-   820                           
-   821                           ;main.c: 68:     }
-   822     07E2  3001               	movlw	1
-   823     07E3  00F4               	movwf	??_radio_spi_command_array
-   824     07E4  0874               	movf	??_radio_spi_command_array,w
-   825     07E5  07F8               	addwf	radio_spi_command_array@i,f
-   826     07E6                     l813:
-   827     07E6  0878               	movf	radio_spi_command_array@i,w
-   828     07E7  00F4               	movwf	??_radio_spi_command_array
-   829     07E8  01F5               	clrf	??_radio_spi_command_array+1
-   830     07E9  1BF4               	btfsc	??_radio_spi_command_array,7
-   831     07EA  03F5               	decf	??_radio_spi_command_array+1,f
-   832     07EB  0875               	movf	??_radio_spi_command_array+1,w
-   833     07EC  3A80               	xorlw	128
-   834     07ED  00F6               	movwf	??_radio_spi_command_array+2
-   835     07EE  3080               	movlw	128
-   836     07EF  0276               	subwf	??_radio_spi_command_array+2,w
-   837     07F0  1D03               	skipz
-   838     07F1  2FF4               	goto	u75
-   839     07F2  0873               	movf	radio_spi_command_array@size,w
-   840     07F3  0274               	subwf	??_radio_spi_command_array,w
-   841     07F4                     u75:
-   842     07F4  1C03               	skipc
-   843     07F5  2FF7               	goto	u71
-   844     07F6  2FF8               	goto	u70
-   845     07F7                     u71:
-   846     07F7  2FC9               	goto	l809
-   847     07F8                     u70:
-   848     07F8                     l66:
-   849                           
-   850                           ;main.c: 70:     RC2 = 1;
-   851     07F8  1283               	bcf	3,5	;RP0=0, select bank0
-   852     07F9  1303               	bcf	3,6	;RP1=0, select bank0
-   853     07FA  1507               	bsf	7,2	;volatile
-   854     07FB                     l67:
-   855     07FB  0008               	return
-   856     07FC                     __end_of_radio_spi_command_array:
-   857                           
-   858                           	psect	text5
-   859     06B7                     __ptext5:	
-   860 ;; *************** function _SPI_init_master *****************
-   861 ;; Defined at:
-   862 ;;		line 19 in file "./spi.h"
-   863 ;; Parameters:    Size  Location     Type
-   864 ;;		None
-   865 ;; Auto vars:     Size  Location     Type
-   866 ;;		None
-   867 ;; Return value:  Size  Location     Type
-   868 ;;                  1    wreg      void 
-   869 ;; Registers used:
-   870 ;;		None
-   871 ;; Tracked objects:
-   872 ;;		On entry : 0/0
-   873 ;;		On exit  : 0/0
-   874 ;;		Unchanged: 0/0
-   875 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   876 ;;      Params:         0       0       0       0       0
-   877 ;;      Locals:         0       0       0       0       0
-   878 ;;      Temps:          0       0       0       0       0
-   879 ;;      Totals:         0       0       0       0       0
-   880 ;;Total ram usage:        0 bytes
-   881 ;; Hardware stack levels used: 1
-   882 ;; This function calls:
-   883 ;;		Nothing
-   884 ;; This function is called by:
-   885 ;;		_radio_reciever_start
-   886 ;;		_radio_transmitter_start
-   887 ;; This function uses a non-reentrant model
-   888 ;;
-   889                           
-   890     06B7                     _SPI_init_master:	
-   891                           ;psect for function _SPI_init_master
-   892                           
-   893     06B7                     l693:	
-   894                           ;incstack = 0
-   895                           ; Regs used in _SPI_init_master: []
-   896                           
-   897                           
-   898                           ;./spi.h: 20:     SSPCONbits.SSPEN = 1;
-   899     06B7  1283               	bcf	3,5	;RP0=0, select bank0
-   900     06B8  1303               	bcf	3,6	;RP1=0, select bank0
-   901     06B9  1694               	bsf	20,5	;volatile
-   902                           
-   903                           ;./spi.h: 22:     TRISC5 = 0;
-   904     06BA  1683               	bsf	3,5	;RP0=1, select bank1
-   905     06BB  1303               	bcf	3,6	;RP1=0, select bank1
-   906     06BC  1287               	bcf	7,5	;volatile
-   907                           
-   908                           ;./spi.h: 23:     TRISC3 = 1;
-   909     06BD  1587               	bsf	7,3	;volatile
-   910                           
-   911                           ;./spi.h: 24:     TRISC4 = 1;
-   912     06BE  1607               	bsf	7,4	;volatile
-   913     06BF                     l40:
-   914     06BF  0008               	return
-   915     06C0                     __end_of_SPI_init_master:
-   916                           
-   917                           	psect	text6
-   918     0707                     __ptext6:	
-   919 ;; *************** function _radio_has_recieved_packet *****************
-   920 ;; Defined at:
-   921 ;;		line 122 in file "main.c"
-   922 ;; Parameters:    Size  Location     Type
-   923 ;;		None
-   924 ;; Auto vars:     Size  Location     Type
-   925 ;;  RX_DR           1    4[COMMON] unsigned char 
-   926 ;;  status          1    3[COMMON] unsigned char 
-   927 ;; Return value:  Size  Location     Type
-   928 ;;                  1    wreg      unsigned char 
-   929 ;; Registers used:
-   930 ;;		wreg, status,2, status,0, pclath, cstack
-   931 ;; Tracked objects:
-   932 ;;		On entry : 0/0
-   933 ;;		On exit  : 0/0
-   934 ;;		Unchanged: 0/0
-   935 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   936 ;;      Params:         0       0       0       0       0
-   937 ;;      Locals:         2       0       0       0       0
-   938 ;;      Temps:          0       0       0       0       0
-   939 ;;      Totals:         2       0       0       0       0
-   940 ;;Total ram usage:        2 bytes
-   941 ;; Hardware stack levels used: 1
-   942 ;; Hardware stack levels required when called: 2
-   943 ;; This function calls:
-   944 ;;		_SPI_read
-   945 ;;		_radio_spi_command_single
-   946 ;; This function is called by:
-   947 ;;		_main
-   948 ;; This function uses a non-reentrant model
-   949 ;;
-   950                           
-   951     0707                     _radio_has_recieved_packet:	
-   952                           ;psect for function _radio_has_recieved_packet
-   953                           
-   954     0707                     l849:	
-   955                           ;incstack = 0
-   956                           ; Regs used in _radio_has_recieved_packet: [wreg+status,2+status,0+pclath+cstack]
-   957                           
-   958                           
-   959                           ;main.c: 123:     if(RC0){
-   960     0707  1283               	bcf	3,5	;RP0=0, select bank0
-   961     0708  1303               	bcf	3,6	;RP1=0, select bank0
-   962     0709  1C07               	btfss	7,0	;volatile
-   963     070A  2F0C               	goto	u81
-   964     070B  2F0D               	goto	u80
-   965     070C                     u81:
-   966     070C  2F2C               	goto	l865
-   967     070D                     u80:
-   968     070D                     l851:
-   969                           
-   970                           ;main.c: 124:         radio_spi_command_single((0b00100000 & 0x07), 0b00000000);
-   971     070D  01F1               	clrf	radio_spi_command_single@arg
-   972     070E  3000               	movlw	0
-   973     070F  120A  118A  26DB  120A  118A  	fcall	_radio_spi_command_single
-   974     0714                     l853:
-   975                           
-   976                           ;main.c: 125:         uint8_t status = SPI_read();
-   977     0714  120A  118A  26B3  120A  118A  	fcall	_SPI_read
-   978     0719  00F3               	movwf	radio_has_recieved_packet@status
-   979     071A                     l855:
-   980                           
-   981                           ;main.c: 127:         uint8_t RX_DR = status & 0b01000000;
-   982     071A  0873               	movf	radio_has_recieved_packet@status,w
-   983     071B  3940               	andlw	64
-   984     071C  00F4               	movwf	radio_has_recieved_packet@RX_DR
-   985     071D                     l857:
-   986                           
-   987                           ;main.c: 128:         if(RX_DR){
-   988     071D  0874               	movf	radio_has_recieved_packet@RX_DR,w
-   989     071E  1903               	btfsc	3,2
-   990     071F  2F21               	goto	u91
-   991     0720  2F22               	goto	u90
-   992     0721                     u91:
-   993     0721  2F2C               	goto	l865
-   994     0722                     u90:
-   995     0722                     l859:
-   996                           
-   997                           ;main.c: 129:             radio_spi_command_single((0b00000000 & 0x07), 0b01000000);
-   998     0722  3040               	movlw	64
-   999     0723  00F1               	movwf	radio_spi_command_single@arg
-  1000     0724  3000               	movlw	0
-  1001     0725  120A  118A  26DB  120A  118A  	fcall	_radio_spi_command_single
-  1002     072A                     l861:
-  1003                           
-  1004                           ;main.c: 131:             return 1;
-  1005     072A  3001               	movlw	1
-  1006     072B  2F2D               	goto	l84
-  1007     072C                     l865:
-  1008                           
-  1009                           ;main.c: 134:     return 0;
-  1010     072C  3000               	movlw	0
-  1011     072D                     l84:
-  1012     072D  0008               	return
-  1013     072E                     __end_of_radio_has_recieved_packet:
-  1014                           
-  1015                           	psect	text7
-  1016     06CC                     __ptext7:	
-  1017 ;; *************** function _radio_get_packets *****************
-  1018 ;; Defined at:
-  1019 ;;		line 137 in file "main.c"
-  1020 ;; Parameters:    Size  Location     Type
-  1021 ;;		None
-  1022 ;; Auto vars:     Size  Location     Type
-  1023 ;;  packet          1    3[COMMON] unsigned char 
-  1024 ;; Return value:  Size  Location     Type
-  1025 ;;                  1    wreg      unsigned char 
-  1026 ;; Registers used:
-  1027 ;;		wreg, status,2, status,0, pclath, cstack
-  1028 ;; Tracked objects:
-  1029 ;;		On entry : 0/0
-  1030 ;;		On exit  : 0/0
-  1031 ;;		Unchanged: 0/0
-  1032 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1033 ;;      Params:         0       0       0       0       0
-  1034 ;;      Locals:         1       0       0       0       0
-  1035 ;;      Temps:          0       0       0       0       0
-  1036 ;;      Totals:         1       0       0       0       0
-  1037 ;;Total ram usage:        1 bytes
-  1038 ;; Hardware stack levels used: 1
-  1039 ;; Hardware stack levels required when called: 2
-  1040 ;; This function calls:
-  1041 ;;		_SPI_read
-  1042 ;;		_radio_spi_command_single
-  1043 ;; This function is called by:
-  1044 ;;		_main
-  1045 ;; This function uses a non-reentrant model
-  1046 ;;
-  1047                           
-  1048     06CC                     _radio_get_packets:	
-  1049                           ;psect for function _radio_get_packets
-  1050                           
-  1051     06CC                     l869:	
-  1052                           ;incstack = 0
-  1053                           ; Regs used in _radio_get_packets: [wreg+status,2+status,0+pclath+cstack]
-  1054                           
-  1055                           
-  1056                           ;main.c: 138:     radio_spi_command_single(0b01100001, 0b00000000);
-  1057     06CC  01F1               	clrf	radio_spi_command_single@arg
-  1058     06CD  3061               	movlw	97
-  1059     06CE  120A  118A  26DB  120A  118A  	fcall	_radio_spi_command_single
-  1060     06D3                     l871:
-  1061                           
-  1062                           ;main.c: 139:     uint8_t packet = SPI_read();
-  1063     06D3  120A  118A  26B3  120A  118A  	fcall	_SPI_read
-  1064     06D8  00F3               	movwf	radio_get_packets@packet
-  1065     06D9                     l873:
-  1066                           
-  1067                           ;main.c: 140:     return packet;
-  1068     06D9  0873               	movf	radio_get_packets@packet,w
-  1069     06DA                     l87:
-  1070     06DA  0008               	return
-  1071     06DB                     __end_of_radio_get_packets:
-  1072                           
-  1073                           	psect	text8
-  1074     06DB                     __ptext8:	
-  1075 ;; *************** function _radio_spi_command_single *****************
-  1076 ;; Defined at:
-  1077 ;;		line 73 in file "main.c"
-  1078 ;; Parameters:    Size  Location     Type
-  1079 ;;  command         1    wreg     unsigned char 
-  1080 ;;  arg             1    1[COMMON] unsigned char 
-  1081 ;; Auto vars:     Size  Location     Type
-  1082 ;;  command         1    2[COMMON] unsigned char 
-  1083 ;; Return value:  Size  Location     Type
-  1084 ;;                  1    wreg      void 
-  1085 ;; Registers used:
-  1086 ;;		wreg, status,2, status,0, pclath, cstack
-  1087 ;; Tracked objects:
-  1088 ;;		On entry : 0/0
-  1089 ;;		On exit  : 0/0
-  1090 ;;		Unchanged: 0/0
-  1091 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1092 ;;      Params:         1       0       0       0       0
-  1093 ;;      Locals:         1       0       0       0       0
-  1094 ;;      Temps:          0       0       0       0       0
-  1095 ;;      Totals:         2       0       0       0       0
-  1096 ;;Total ram usage:        2 bytes
-  1097 ;; Hardware stack levels used: 1
-  1098 ;; Hardware stack levels required when called: 1
-  1099 ;; This function calls:
-  1100 ;;		_SPI_write
-  1101 ;; This function is called by:
-  1102 ;;		_radio_reciever_start
-  1103 ;;		_radio_transmitter_start
-  1104 ;;		_radio_has_recieved_packet
-  1105 ;;		_radio_get_packets
-  1106 ;; This function uses a non-reentrant model
-  1107 ;;
-  1108                           
-  1109     06DB                     _radio_spi_command_single:	
-  1110                           ;psect for function _radio_spi_command_single
-  1111                           
-  1112                           
-  1113                           ;incstack = 0
-  1114                           ; Regs used in _radio_spi_command_single: [wreg+status,2+status,0+pclath+cstack]
-  1115                           ;radio_spi_command_single@command stored from wreg
-  1116     06DB  00F2               	movwf	radio_spi_command_single@command
-  1117     06DC                     l815:
-  1118                           
-  1119                           ;main.c: 74:     RC2 = 0;
-  1120     06DC  1283               	bcf	3,5	;RP0=0, select bank0
-  1121     06DD  1303               	bcf	3,6	;RP1=0, select bank0
-  1122     06DE  1107               	bcf	7,2	;volatile
-  1123     06DF                     l817:
-  1124                           
-  1125                           ;main.c: 76:     SPI_write(command);
-  1126     06DF  0872               	movf	radio_spi_command_single@command,w
-  1127     06E0  120A  118A  26C0  120A  118A  	fcall	_SPI_write
-  1128                           
-  1129                           ;main.c: 78:     SPI_write(arg);
-  1130     06E5  0871               	movf	radio_spi_command_single@arg,w
-  1131     06E6  120A  118A  26C0  120A  118A  	fcall	_SPI_write
-  1132     06EB                     l819:
-  1133                           
-  1134                           ;main.c: 80:     RC2 = 1;
-  1135     06EB  1283               	bcf	3,5	;RP0=0, select bank0
-  1136     06EC  1303               	bcf	3,6	;RP1=0, select bank0
-  1137     06ED  1507               	bsf	7,2	;volatile
-  1138     06EE                     l70:
-  1139     06EE  0008               	return
-  1140     06EF                     __end_of_radio_spi_command_single:
-  1141                           
-  1142                           	psect	text9
-  1143     06C0                     __ptext9:	
-  1144 ;; *************** function _SPI_write *****************
-  1145 ;; Defined at:
-  1146 ;;		line 33 in file "./spi.h"
-  1147 ;; Parameters:    Size  Location     Type
-  1148 ;;  write           1    wreg     unsigned char 
-  1149 ;; Auto vars:     Size  Location     Type
-  1150 ;;  write           1    0[COMMON] unsigned char 
-  1151 ;; Return value:  Size  Location     Type
-  1152 ;;                  1    wreg      void 
-  1153 ;; Registers used:
-  1154 ;;		wreg
-  1155 ;; Tracked objects:
-  1156 ;;		On entry : 0/0
-  1157 ;;		On exit  : 0/0
-  1158 ;;		Unchanged: 0/0
-  1159 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1160 ;;      Params:         0       0       0       0       0
-  1161 ;;      Locals:         1       0       0       0       0
-  1162 ;;      Temps:          0       0       0       0       0
-  1163 ;;      Totals:         1       0       0       0       0
-  1164 ;;Total ram usage:        1 bytes
-  1165 ;; Hardware stack levels used: 1
-  1166 ;; This function calls:
-  1167 ;;		Nothing
-  1168 ;; This function is called by:
-  1169 ;;		_radio_spi_command_array
-  1170 ;;		_radio_spi_command_single
-  1171 ;; This function uses a non-reentrant model
-  1172 ;;
-  1173                           
-  1174     06C0                     _SPI_write:	
-  1175                           ;psect for function _SPI_write
-  1176                           
-  1177                           
-  1178                           ;incstack = 0
-  1179                           ; Regs used in _SPI_write: [wreg]
-  1180                           ;SPI_write@write stored from wreg
-  1181     06C0  00F0               	movwf	SPI_write@write
-  1182     06C1                     l691:
-  1183                           
-  1184                           ;./spi.h: 34:     SSPBUF = write;
-  1185     06C1  0870               	movf	SPI_write@write,w
-  1186     06C2  1283               	bcf	3,5	;RP0=0, select bank0
-  1187     06C3  1303               	bcf	3,6	;RP1=0, select bank0
-  1188     06C4  0093               	movwf	19	;volatile
-  1189     06C5                     l46:	
-  1190                           ;./spi.h: 36:     while(!SSPSTATbits.BF);
-  1191                           
-  1192     06C5  1683               	bsf	3,5	;RP0=1, select bank1
-  1193     06C6  1303               	bcf	3,6	;RP1=0, select bank1
-  1194     06C7  1C14               	btfss	20,0	;volatile
-  1195     06C8  2ECA               	goto	u11
-  1196     06C9  2ECB               	goto	u10
-  1197     06CA                     u11:
-  1198     06CA  2EC5               	goto	l46
-  1199     06CB                     u10:
-  1200     06CB                     l49:
-  1201     06CB  0008               	return
-  1202     06CC                     __end_of_SPI_write:
-  1203                           
-  1204                           	psect	text10
-  1205     06B3                     __ptext10:	
-  1206 ;; *************** function _SPI_read *****************
-  1207 ;; Defined at:
-  1208 ;;		line 47 in file "./spi.h"
-  1209 ;; Parameters:    Size  Location     Type
-  1210 ;;		None
-  1211 ;; Auto vars:     Size  Location     Type
-  1212 ;;		None
-  1213 ;; Return value:  Size  Location     Type
-  1214 ;;                  1    wreg      unsigned char 
-  1215 ;; Registers used:
-  1216 ;;		wreg
-  1217 ;; Tracked objects:
-  1218 ;;		On entry : 0/0
-  1219 ;;		On exit  : 0/0
-  1220 ;;		Unchanged: 0/0
-  1221 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1222 ;;      Params:         0       0       0       0       0
-  1223 ;;      Locals:         0       0       0       0       0
-  1224 ;;      Temps:          0       0       0       0       0
-  1225 ;;      Totals:         0       0       0       0       0
-  1226 ;;Total ram usage:        0 bytes
-  1227 ;; Hardware stack levels used: 1
-  1228 ;; This function calls:
-  1229 ;;		Nothing
-  1230 ;; This function is called by:
-  1231 ;;		_radio_has_recieved_packet
-  1232 ;;		_radio_get_packets
-  1233 ;; This function uses a non-reentrant model
-  1234 ;;
-  1235                           
-  1236     06B3                     _SPI_read:	
-  1237                           ;psect for function _SPI_read
-  1238                           
-  1239     06B3                     l695:	
-  1240                           ;incstack = 0
-  1241                           ; Regs used in _SPI_read: [wreg]
-  1242                           
-  1243                           
-  1244                           ;./spi.h: 48:     return SSPBUF;
-  1245     06B3  1283               	bcf	3,5	;RP0=0, select bank0
-  1246     06B4  1303               	bcf	3,6	;RP1=0, select bank0
-  1247     06B5  0813               	movf	19,w	;volatile
-  1248     06B6                     l61:
-  1249     06B6  0008               	return
-  1250     06B7                     __end_of_SPI_read:
-  1251     007E                     btemp	set	126	;btemp
-  1252     007E                     wtemp0	set	126
-  1253                           
-  1254                           	psect	config
-  1255                           
-  1256                           ;Config register CONFIG @ 0x2007
-  1257                           ;	Oscillator Selection bits
-  1258                           ;	FOSC = HS, HS oscillator
-  1259                           ;	Watchdog Timer Enable bit
-  1260                           ;	WDTE = OFF, WDT disabled
-  1261                           ;	Power-up Timer Enable bit
-  1262                           ;	PWRTE = OFF, PWRT disabled
-  1263                           ;	Brown-out Reset Enable bit
-  1264                           ;	BOREN = OFF, BOR disabled
-  1265                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
-  1266                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-  1267                           ;	Data EEPROM Memory Code Protection bit
-  1268                           ;	CPD = OFF, Data EEPROM code protection off
-  1269                           ;	Flash Program Memory Write Enable bits
-  1270                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
-  1271                           ;	In-Circuit Debugger Mode bit
-  1272                           ;	DEBUG = 0x1, unprogrammed default
-  1273                           ;	Flash Program Memory Code Protection bit
-  1274                           ;	CP = OFF, Code protection off
-  1275     2007                     	org	8199
-  1276     2007  3F3A               	dw	16186
+   610     0796                     l718:	
+   611                           ;incstack = 0
+   612                           ; Regs used in _SPI_data_ready: [wreg+status,2+status,0]
+   613                           
+   614                           
+   615                           ;./spi.h: 38:     return SSPSTATbits.BF;
+   616     0796  1683               	bsf	3,5	;RP0=1, select bank1
+   617     0797  1303               	bcf	3,6	;RP1=0, select bank1
+   618     0798  0814               	movf	20,w	;volatile
+   619     0799  3901               	andlw	1
+   620     079A                     l43:
+   621     079A  0008               	return
+   622     079B                     __end_of_SPI_data_ready:
+   623     007E                     btemp	set	126	;btemp
+   624     007E                     wtemp0	set	126
+   625                           
+   626                           	psect	config
+   627                           
+   628                           ;Config register CONFIG @ 0x2007
+   629                           ;	Oscillator Selection bits
+   630                           ;	FOSC = HS, HS oscillator
+   631                           ;	Watchdog Timer Enable bit
+   632                           ;	WDTE = OFF, WDT disabled
+   633                           ;	Power-up Timer Enable bit
+   634                           ;	PWRTE = OFF, PWRT disabled
+   635                           ;	Brown-out Reset Enable bit
+   636                           ;	BOREN = OFF, BOR disabled
+   637                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+   638                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   639                           ;	Data EEPROM Memory Code Protection bit
+   640                           ;	CPD = OFF, Data EEPROM code protection off
+   641                           ;	Flash Program Memory Write Enable bits
+   642                           ;	WRT = OFF, Write protection off; all program memory may be written to by EECON control
+   643                           ;	In-Circuit Debugger Mode bit
+   644                           ;	DEBUG = 0x1, unprogrammed default
+   645                           ;	Flash Program Memory Code Protection bit
+   646                           ;	CP = OFF, Code protection off
+   647     2007                     	org	8199
+   648     2007  3F3A               	dw	16186
 
 Data Sizes:
     Strings     6
@@ -1304,31 +671,19 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14     13      13
-    BANK0            80      3       3
+    COMMON           14      4       4
+    BANK0            80      0       0
     BANK1            80      0       0
     BANK3            96      0       0
     BANK2            96      0       0
 
 Pointer List with Targets:
 
-    radio_transmit_single@transmission	PTR unsigned char  size(2) Largest target is 512
-		 -> RAM(DATA[512]), 
-
-    radio_spi_command_array@args	PTR unsigned char  size(2) Largest target is 512
-		 -> RAM(DATA[512]), STR_3(CODE[6]), STR_2(CODE[6]), STR_1(CODE[6]), 
-
+    None.
 
 Critical Paths under _main in COMMON
 
-    _main->_radio_transmit_single
-    _radio_transmitter_start->_radio_spi_command_array
-    _radio_transmit_single->_radio_spi_command_array
-    _radio_reciever_start->_radio_spi_command_array
-    _radio_spi_command_array->_SPI_write
-    _radio_has_recieved_packet->_radio_spi_command_single
-    _radio_get_packets->_radio_spi_command_single
-    _radio_spi_command_single->_SPI_write
+    _main->_SPI_write
 
 Critical Paths under _main in BANK0
 
@@ -1351,77 +706,32 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 3     3      0    4530
-                                              0 BANK0      3     3      0
-                  _radio_get_packets
-          _radio_has_recieved_packet
-               _radio_reciever_start
-              _radio_transmit_single
-            _radio_transmitter_start
- ---------------------------------------------------------------------------------
- (1) _radio_transmitter_start                              0     0      0    1250
+ (0) _main                                                 3     3      0      15
+                                              1 COMMON     3     3      0
+                     _SPI_data_ready
                     _SPI_init_master
-            _radio_spi_command_array
-           _radio_spi_command_single
- ---------------------------------------------------------------------------------
- (1) _radio_transmit_single                                4     1      3     931
-                                              9 COMMON     4     1      3
-            _radio_spi_command_array
- ---------------------------------------------------------------------------------
- (1) _radio_reciever_start                                 0     0      0    1250
-                    _SPI_init_master
-            _radio_spi_command_array
-           _radio_spi_command_single
- ---------------------------------------------------------------------------------
- (2) _radio_spi_command_array                              8     5      3     735
-                                              1 COMMON     8     5      3
+                           _SPI_read
                           _SPI_write
  ---------------------------------------------------------------------------------
- (2) _SPI_init_master                                      0     0      0       0
- ---------------------------------------------------------------------------------
- (1) _radio_has_recieved_packet                            2     2      0     561
-                                              3 COMMON     2     2      0
-                           _SPI_read
-           _radio_spi_command_single
- ---------------------------------------------------------------------------------
- (1) _radio_get_packets                                    1     1      0     538
-                                              3 COMMON     1     1      0
-                           _SPI_read
-           _radio_spi_command_single
- ---------------------------------------------------------------------------------
- (2) _radio_spi_command_single                             2     1      1     515
-                                              1 COMMON     2     1      1
-                          _SPI_write
- ---------------------------------------------------------------------------------
- (3) _SPI_write                                            1     1      0      15
+ (1) _SPI_write                                            1     1      0      15
                                               0 COMMON     1     1      0
  ---------------------------------------------------------------------------------
- (2) _SPI_read                                             0     0      0       0
+ (1) _SPI_read                                             0     0      0       0
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 3
+ (1) _SPI_init_master                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _SPI_data_ready                                       0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
 
  _main (ROOT)
-   _radio_get_packets
-     _SPI_read
-     _radio_spi_command_single
-       _SPI_write
-   _radio_has_recieved_packet
-     _SPI_read
-     _radio_spi_command_single
-   _radio_reciever_start
-     _SPI_init_master
-     _radio_spi_command_array
-       _SPI_write
-     _radio_spi_command_single
-   _radio_transmit_single
-     _radio_spi_command_array
-   _radio_transmitter_start
-     _SPI_init_master
-     _radio_spi_command_array
-     _radio_spi_command_single
+   _SPI_data_ready
+   _SPI_init_master
+   _SPI_read
+   _SPI_write
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -1429,7 +739,7 @@ BITCOMMON            E      0       0       0        0.0%
 EEDATA             100      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMMON               E      D       D       1       92.9%
+COMMON               E      4       4       1       28.6%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR1              0      0       0       2        0.0%
@@ -1439,7 +749,7 @@ ABS                  0      0       0       3        0.0%
 BITBANK0            50      0       0       4        0.0%
 BITSFR3              0      0       0       4        0.0%
 SFR3                 0      0       0       4        0.0%
-BANK0               50      3       3       5        3.8%
+BANK0               50      0       0       5        0.0%
 BITSFR2              0      0       0       5        0.0%
 SFR2                 0      0       0       5        0.0%
 BITBANK1            50      0       0       6        0.0%
@@ -1452,95 +762,35 @@ DATA                 0      0       0      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Wed Aug 24 22:07:23 2022
+Symbol Table                                                                                   Mon Sep 05 13:12:50 2022
 
-                                pc 0002                        _SSPSTATbits 0094  
-                               l40 06BF                                 l61 06B6  
-                               l46 06C5                                 l70 06EE  
-                               l49 06CB                                 l73 0758  
-                               l66 07F8                                 l67 07FB  
-                               l84 072D                                 l76 0787  
-                               l87 06DA                                 l79 0706  
-                               u10 06CB                                 u11 06CA  
-                               u70 07F8                                 u71 07F7  
-                               u80 070D                                 u81 070C  
-                               u90 0722                                 u91 0721  
-                               u75 07F4                                 fsr 0004  
-                              l811 07E2                                l803 07BE  
-                              l813 07E6                                l805 07C1  
-                              l821 072E                                l815 06DC  
-                              l807 07C7                                l823 0737  
-                              l831 0759                                l817 06DF  
-                              l809 07C9                                l825 073C  
-                              l841 06EF                                l833 0762  
-                              l691 06C1                                l819 06EB  
-                              l851 070D                                l827 0744  
-                              l843 06FB                                l835 0767  
-                              l861 072A                                l853 0714  
-                              l693 06B7                                l829 074C  
-                              l845 06FE                                l837 076F  
-                              l695 06B3                                l871 06D3  
-                              l855 071A                                l847 0703  
-                              l839 077B                                l873 06D9  
-                              l857 071D                                l865 072C  
-                              l849 0707                                l881 0791  
-                              l859 0722                                l891 07B1  
-                              l883 0792                                l869 06CC  
-                              l885 079C                                l877 0788  
-                              l887 079F                                l879 078D  
-                              l889 07AE                                _RC0 0038  
-                              _RC1 0039                                _RC2 003A  
-                              u100 079C                                u101 079B  
-                              _RC7 003F                                u117 07A7  
-                              u127 0700                                fsr0 0004  
-                              indf 0000                               STR_1 0013  
-                             STR_2 0013                               STR_3 0013  
-          ??_radio_transmit_single 007C                               _main 0788  
-                             btemp 007E                               start 0000  
-__end_of_radio_has_recieved_packet 072E                              ?_main 0070  
-                            _PORTB 0006                              _TRISB 0086  
-                            pclath 000A                   __end_of_SPI_read 06B7  
-                            status 0003                              wtemp0 007E  
-         ?_radio_spi_command_array 0071                    __initialization 07FC  
-                     __end_of_main 07BD                             ??_main 0020  
-                           _TRISC0 0438                             _TRISC1 0439  
-                           _TRISC2 043A                             _TRISC3 043B  
-                           _TRISC4 043C                             _TRISC5 043D  
-                           _TRISC7 043F                             _SSPBUF 0013  
-   radio_spi_command_array@command 0077     radio_has_recieved_packet@RX_DR 0074  
-        radio_transmit_single@size 007B                  __end_of_SPI_write 06CC  
-         _radio_spi_command_single 06DB            __end_of__initialization 07FC  
-         ?_radio_transmitter_start 0070                     __pcstackCOMMON 0070  
-                        ?_SPI_read 0070                  ??_SPI_init_master 0070  
-    __end_of_radio_transmit_single 0707                         __pmaintext 0788  
-                   SPI_write@write 0070            radio_get_packets@packet 0073  
-                       ??_SPI_read 0070                         __stringtab 0003  
-     __end_of_radio_reciever_start 0759        radio_spi_command_array@args 0071  
-      radio_spi_command_array@size 0073         ?_radio_has_recieved_packet 0070  
-                          __ptext1 0759                            __ptext2 06EF  
-                          __ptext3 072E                            __ptext4 07BD  
-                          __ptext5 06B7                            __ptext6 0707  
-                          __ptext7 06CC                            __ptext8 06DB  
-                          __ptext9 06C0                  _radio_get_packets 06CC  
-             end_of_initialization 07FC                 ?_radio_get_packets 0070  
-  radio_has_recieved_packet@status 0073                ??_radio_get_packets 0073  
-        __end_of_radio_get_packets 06DB         ??_radio_spi_command_single 0072  
-                        _SPI_write 06C0        radio_spi_command_single@arg 0071  
-radio_transmit_single@transmission 0079                    _SPI_init_master 06B7  
-              start_initialization 07FC               _radio_reciever_start 072E  
-                       ?_SPI_write 0070           radio_spi_command_array@i 0078  
-          _radio_spi_command_array 07BD                          ___latbits 0002  
-                    __pcstackBANK0 0020              ?_radio_reciever_start 0070  
-          __end_of_SPI_init_master 06C0              _radio_transmit_single 06EF  
-      ??_radio_has_recieved_packet 0073                          __pstrings 0003  
- __end_of_radio_spi_command_single 06EF                        ??_SPI_write 0070  
-          _radio_transmitter_start 0759          ??_radio_spi_command_array 0074  
-  radio_spi_command_single@command 0072                        __stringbase 0012  
-                         _SPI_read 06B3             ??_radio_reciever_start 0079  
-        _radio_has_recieved_packet 0707                   ?_SPI_init_master 0070  
-           ?_radio_transmit_single 0079                 __end_of__stringtab 0013  
-                         __ptext10 06B3    __end_of_radio_spi_command_array 07FC  
-        ?_radio_spi_command_single 0071          ??_radio_transmitter_start 0079  
-                        stringcode 000D    __end_of_radio_transmitter_start 0788  
-                         stringdir 000D                           stringtab 0003  
-                       _SSPCONbits 0014  
+                      pc 0002              _SSPSTATbits 0094                       l40 07AF  
+                     l34 07A3                       l43 079A                       l52 0795  
+                     l37 07A9                       u20 07AF                       u21 07AE  
+                     u70 07E3                       u71 07E2                       fsr 0004  
+                    l710 079B                      l712 079F                      l714 07A2  
+                    l722 0792                      l716 07A5                      l820 07B3  
+                    l718 0796                      l830 07D0                      l822 07B8  
+                    l832 07D6                      l824 07BC                      l834 07D9  
+                    l826 07BD                      l818 07B0                      l836 07E3  
+                    l828 07C3                      l838 07EB                      _RC0 0038  
+                    _RC1 0039                      _RC2 003A                      u107 07C9  
+                    u117 07F1                      indf 0000                     STR_1 0013  
+                   _main 07B0                     btemp 007E                     start 0000  
+                  ?_main 0070                    _PORTB 0006                    _TRISB 0086  
+                  pclath 000A         __end_of_SPI_read 0796                    status 0003  
+                  wtemp0 007E          __initialization 07FC             __end_of_main 07FC  
+                 ??_main 0071           _SPI_data_ready 0796                   _TRISC0 0438  
+                 _TRISC1 0439                   _TRISC2 043A                   _TRISC3 043B  
+                 _TRISC5 043D                   _SSPCON 0014                   _SSPBUF 0013  
+      __end_of_SPI_write 07B0   __end_of_SPI_data_ready 079B  __end_of__initialization 07FC  
+         __pcstackCOMMON 0070                ?_SPI_read 0070        ??_SPI_init_master 0070  
+        ?_SPI_data_ready 0070               __pmaintext 07B0           SPI_write@write 0070  
+             ??_SPI_read 0070               __stringtab 0003                  __ptext1 07A4  
+                __ptext2 0792                  __ptext3 079B                  __ptext4 0796  
+   end_of_initialization 07FC                _SPI_write 07A4          _SPI_init_master 079B  
+       ??_SPI_data_ready 0070      start_initialization 07FC               ?_SPI_write 0070  
+              ___latbits 0002  __end_of_SPI_init_master 07A4                __pstrings 0003  
+            ??_SPI_write 0070              __stringbase 0012                 _SPI_read 0792  
+       ?_SPI_init_master 0070       __end_of__stringtab 0013                stringcode 000D  
+               stringdir 000D                 stringtab 0003  

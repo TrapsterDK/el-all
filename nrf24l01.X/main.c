@@ -23,16 +23,16 @@
 #define CE RC1
 #define CSN RC2
 #define SCK RC3
-#define MOSI RC4
-#define MISO RC5
+#define MISO RC4
+#define MOSI RC5
 
 #define IRQ_TRIS TRISC0     //input
 #define CE_TRIS TRISC1      //output
 #define CSN_TRIS TRISC2     //output
 // trisc 3, 4, 5 setup by spi.h
 
-#define RF24_W_REGISTER     0b00000000
-#define RF24_R_REGISTER     0b00100000
+#define RF24_R_REGISTER     0b00000000
+#define RF24_W_REGISTER     0b00100000
 #define RF24_R_RX_PAYLOAD   0b01100001
 #define RF24_W_TX_PAYLOAD   0b10100000
 #define RF24_FLUSH_TX       0b11100001
@@ -120,7 +120,7 @@ void radio_transmit_single(uint8_t *transmission, uint8_t size){
 }
 
 uint8_t radio_has_recieved_packet(){
-    if(IRQ){
+    if(!IRQ){
         radio_spi_command_single(RF24_READ_REGISTER(RF24_STATUS), 0b00000000);
         uint8_t status = SPI_read();
         //bit 6 for RX_DR
@@ -152,30 +152,114 @@ void radio_transmit_array(uint8_t *transmission, uint8_t size){
 }
 */
 
-void main()
-{  
-    /*
+void rtest(){
     radio_reciever_start();
-    TRISB = 0b11111111;
-    TRISC7 = 1;
+    TRISB = 0b00000000;
+    PORTB = 0b10000000;
     
     while(1)
     {
+        //RB5 = IRQ;
         if(radio_has_recieved_packet()){
-            RC7 = 1;
-            __delay_ms(2000);
-            RC7 = 0;
-            
-            {
-                PORTB = radio_get_packets();
-            }
+            PORTB = radio_get_packets();
         }
-    } 
-    */
+    }
+}
+
+void ttest(){
+    TRISB = 0b00000000;
+    PORTB = 0b01111111;
+    
     radio_transmitter_start();
     
     while(1){
-        radio_transmit_single((uint8_t *)0b10101010, 1);
-        __delay_ms(3000);
+        PORTB = 0b00001111;
+        radio_transmit_single((uint8_t *)0b00001111, 1);
+        __delay_ms(500);
+        PORTB = 0b11110000;
+        radio_transmit_single((uint8_t *)0b11110000, 1);
+        __delay_ms(500);
     }
+}
+
+void main()
+{
+    TRISB = 0b00000000;
+    //radio_transmitter_start();
+    
+    SPI_init_master();
+    IRQ_TRIS = 1;
+    CE_TRIS = 0;
+    CSN_TRIS = 0;
+    CE = 0; //do not listen
+    CSN = 1;
+    
+    while(1){
+        PORTB = 0b10101010;
+        CSN = 0;
+
+        SPI_write(0b00000001);
+        
+        __delay_ms(1000);
+        SPI_write(0b00000000);
+
+        CSN = 1;
+        /*
+        if(SPI_data_ready()){
+            PORTB = SPI_read();
+        }*/
+        
+            PORTB = SPI_read();
+        __delay_ms(1000);
+    }
+    
+    //ttest();
+    //rtest();
+    
+    
+    /*
+    while(1){
+        TRISB = 0b00000000;
+
+        SPI_init_master();
+
+        __delay_ms(100);
+
+        IRQ_TRIS = 1;
+        CE_TRIS = 0;
+        CSN_TRIS = 0;
+
+        CE = 0; //do not listen
+        CSN = 1;
+
+        __delay_ms(100);
+
+        CSN = 0;
+
+        SPI_write((char)0b00100000);
+
+        __delay_ms(100);
+
+        SPI_write((char)0b00000010);
+
+        CSN = 1;
+
+        __delay_ms(100);
+
+        CSN = 0;
+
+        SPI_write((char)0x00);
+
+        __delay_ms(100);
+
+        SPI_write((char)0b00000000);
+
+        CSN = 1;
+
+        __delay_ms(100);
+
+        PORTB = (uint8_t)SPI_read();
+        __delay_ms(4000);
+    }
+    */
 }

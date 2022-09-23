@@ -1,28 +1,13 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"822 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 822:     struct {
-[s S32 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S32 . SSPM CKP SSPEN SSPOV WCOL ]
-"829
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 829:     struct {
-[s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S33 . SSPM0 SSPM1 SSPM2 SSPM3 ]
-"821
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 821: typedef union {
-[u S31 `S32 1 `S33 1 ]
-[n S31 . . . ]
-"836
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 836: extern volatile SSPCONbits_t SSPCONbits __attribute__((address(0x014)));
-[v _SSPCONbits `VS31 ~T0 @X0 0 e@20 ]
+"816 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 816: extern volatile unsigned char SSPCON __attribute__((address(0x014)));
+[v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
 "2979
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2979: extern volatile __bit TRISC5 __attribute__((address(0x43D)));
 [v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
 "2973
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2973: extern volatile __bit TRISC3 __attribute__((address(0x43B)));
 [v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
-"2976
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2976: extern volatile __bit TRISC4 __attribute__((address(0x43C)));
-[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
 "809
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 809: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
 [v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
@@ -83,19 +68,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2709 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2709: extern volatile __bit RC0 __attribute__((address(0x38)));
 [v _RC0 `Vb ~T0 @X0 0 e@56 ]
-[p mainexit ]
 "1376
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 1376: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"2985
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2985: extern volatile __bit TRISC7 __attribute__((address(0x43F)));
-[v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
-"2730
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2730: extern volatile __bit RC7 __attribute__((address(0x3F)));
-[v _RC7 `Vb ~T0 @X0 0 e@63 ]
 "217
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 217: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+[p mainexit ]
 "8 main.c
 [p x FOSC  =  HS         ]
 "9
@@ -292,128 +271,109 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2364
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f877a.h: 2364: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"11 ./spi.h
-[; ;./spi.h: 11: void SPI_init_slave(){
+"19 ./spi.h
+[; ;./spi.h: 19: void SPI_init_slave(){
 [v _SPI_init_slave `(v ~T0 @X0 1 ef ]
 {
 [e :U _SPI_init_slave ]
 [f ]
-"12
-[; ;./spi.h: 12:     SSPCONbits.SSPEN = 1;
-[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
-"14
-[; ;./spi.h: 14:     TRISC5 = 0;
+"20
+[; ;./spi.h: 20:     SSPCON = 0b00100101;
+[e = _SSPCON -> -> 37 `i `uc ]
+"21
+[; ;./spi.h: 21:     TRISC5 = 0;
 [e = _TRISC5 -> -> 0 `i `b ]
-"15
-[; ;./spi.h: 15:     TRISC3 = 0;
-[e = _TRISC3 -> -> 0 `i `b ]
-"16
-[; ;./spi.h: 16:     TRISC4 = 1;
-[e = _TRISC4 -> -> 1 `i `b ]
-"17
-[; ;./spi.h: 17: }
+"22
+[; ;./spi.h: 22:     TRISC3 = 1;
+[e = _TRISC3 -> -> 1 `i `b ]
+"23
+[; ;./spi.h: 23: }
 [e :UE 95 ]
 }
-"19
-[; ;./spi.h: 19: void SPI_init_master(){
+"25
+[; ;./spi.h: 25: void SPI_init_master(){
 [v _SPI_init_master `(v ~T0 @X0 1 ef ]
 {
 [e :U _SPI_init_master ]
 [f ]
-"20
-[; ;./spi.h: 20:     SSPCONbits.SSPEN = 1;
-[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
-"22
-[; ;./spi.h: 22:     TRISC5 = 0;
-[e = _TRISC5 -> -> 0 `i `b ]
-"23
-[; ;./spi.h: 23:     TRISC3 = 1;
-[e = _TRISC3 -> -> 1 `i `b ]
-"24
-[; ;./spi.h: 24:     TRISC4 = 1;
-[e = _TRISC4 -> -> 1 `i `b ]
 "26
-[; ;./spi.h: 26: }
+[; ;./spi.h: 26:     SSPCON = 0b00100010;
+[e = _SSPCON -> -> 34 `i `uc ]
+"27
+[; ;./spi.h: 27:     TRISC5 = 0;
+[e = _TRISC5 -> -> 0 `i `b ]
+"28
+[; ;./spi.h: 28:     TRISC3 = 0;
+[e = _TRISC3 -> -> 0 `i `b ]
+"29
+[; ;./spi.h: 29: }
 [e :UE 96 ]
 }
-"29
-[; ;./spi.h: 29: void SPI_reset(){
-[v _SPI_reset `(v ~T0 @X0 1 ef ]
-{
-[e :U _SPI_reset ]
-[f ]
-"30
-[; ;./spi.h: 30:     SSPCONbits.SSPEN = 0;
-[e = . . _SSPCONbits 0 2 -> -> 0 `i `uc ]
 "31
-[; ;./spi.h: 31: }
-[e :UE 97 ]
-}
-"33
-[; ;./spi.h: 33: void SPI_write(uint8_t write){
+[; ;./spi.h: 31: void SPI_write(uint8_t write){
 [v _SPI_write `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _SPI_write ]
 [v _write `uc ~T0 @X0 1 r1 ]
 [f ]
-"34
-[; ;./spi.h: 34:     SSPBUF = write;
+"32
+[; ;./spi.h: 32:     SSPBUF = write;
 [e = _SSPBUF _write ]
-"36
-[; ;./spi.h: 36:     while(!SSPSTATbits.BF);
-[e $U 99  ]
-[e :U 100 ]
+"34
+[; ;./spi.h: 34:     while(!SSPSTATbits.BF);
+[e $U 98  ]
 [e :U 99 ]
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 100  ]
-[e :U 101 ]
-"37
-[; ;./spi.h: 37: }
-[e :UE 98 ]
+[e :U 98 ]
+[e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 99  ]
+[e :U 100 ]
+"35
+[; ;./spi.h: 35: }
+[e :UE 97 ]
 }
-"39
-[; ;./spi.h: 39: uint8_t SPI_data_ready(){
+"37
+[; ;./spi.h: 37: uint8_t SPI_data_ready(){
 [v _SPI_data_ready `(uc ~T0 @X0 1 ef ]
 {
 [e :U _SPI_data_ready ]
 [f ]
-"40
-[; ;./spi.h: 40:     return SSPSTATbits.BF;
+"38
+[; ;./spi.h: 38:     return SSPSTATbits.BF;
 [e ) . . _SSPSTATbits 0 0 ]
-[e $UE 102  ]
-"41
-[; ;./spi.h: 41: }
-[e :UE 102 ]
+[e $UE 101  ]
+"39
+[; ;./spi.h: 39: }
+[e :UE 101 ]
 }
-"43
-[; ;./spi.h: 43: void SPI_wait_data_ready(){
+"41
+[; ;./spi.h: 41: void SPI_wait_data_ready(){
 [v _SPI_wait_data_ready `(v ~T0 @X0 1 ef ]
 {
 [e :U _SPI_wait_data_ready ]
 [f ]
-"44
-[; ;./spi.h: 44:     while(!SSPSTATbits.BF);
-[e $U 104  ]
-[e :U 105 ]
+"42
+[; ;./spi.h: 42:     while(!SSPSTATbits.BF);
+[e $U 103  ]
 [e :U 104 ]
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 105  ]
-[e :U 106 ]
-"45
-[; ;./spi.h: 45: }
-[e :UE 103 ]
+[e :U 103 ]
+[e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 104  ]
+[e :U 105 ]
+"43
+[; ;./spi.h: 43: }
+[e :UE 102 ]
 }
-"47
-[; ;./spi.h: 47: uint8_t SPI_read(){
+"45
+[; ;./spi.h: 45: uint8_t SPI_read(){
 [v _SPI_read `(uc ~T0 @X0 1 ef ]
 {
 [e :U _SPI_read ]
 [f ]
-"48
-[; ;./spi.h: 48:     return SSPBUF;
+"46
+[; ;./spi.h: 46:     return SSPBUF;
 [e ) _SSPBUF ]
-[e $UE 107  ]
-"49
-[; ;./spi.h: 49: }
-[e :UE 107 ]
+[e $UE 106  ]
+"47
+[; ;./spi.h: 47: }
+[e :UE 106 ]
 }
 "61 main.c
 [; ;main.c: 61: void radio_spi_command_array(uint8_t command, uint8_t *args, uint8_t size){
@@ -435,8 +395,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `c ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `c ]
-[e $U 112  ]
-[e :U 109 ]
+[e $U 111  ]
+[e :U 108 ]
 {
 "67
 [; ;main.c: 67:         SPI_write(args[i]);
@@ -445,16 +405,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 68:     }
 }
 [e ++ _i -> -> 1 `i `c ]
-[e :U 112 ]
-[e $ < -> _i `i -> _size `i 109  ]
-[e :U 110 ]
+[e :U 111 ]
+[e $ < -> _i `i -> _size `i 108  ]
+[e :U 109 ]
 }
 "70
 [; ;main.c: 70:     RC2 = 1;
 [e = _RC2 -> -> 1 `i `b ]
 "71
 [; ;main.c: 71: }
-[e :UE 108 ]
+[e :UE 107 ]
 }
 "73
 [; ;main.c: 73: void radio_spi_command_single(uint8_t command, uint8_t arg){
@@ -478,7 +438,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RC2 -> -> 1 `i `b ]
 "81
 [; ;main.c: 81: }
-[e :UE 113 ]
+[e :UE 112 ]
 }
 "83
 [; ;main.c: 83: void radio_reciever_start(){
@@ -505,17 +465,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 89:     SPI_init_master();
 [e ( _SPI_init_master ..  ]
 "92
-[; ;main.c: 92:     radio_spi_command_single((0b00000000 & 0x00), 0b00000111);
-[e ( _radio_spi_command_single (2 , -> & -> 0 `i -> 0 `i `uc -> -> 7 `i `uc ]
+[; ;main.c: 92:     radio_spi_command_single((0b00100000 | 0x00), 0b00000111);
+[e ( _radio_spi_command_single (2 , -> | -> 32 `i -> 0 `i `uc -> -> 7 `i `uc ]
 "94
-[; ;main.c: 94:     radio_spi_command_single((0b00000000 & 0x02), 0b00000001);
-[e ( _radio_spi_command_single (2 , -> & -> 0 `i -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 94:     radio_spi_command_single((0b00100000 | 0x02), 0b00000001);
+[e ( _radio_spi_command_single (2 , -> | -> 32 `i -> 2 `i `uc -> -> 1 `i `uc ]
 "96
-[; ;main.c: 96:     radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
-[e ( _radio_spi_command_array (3 , , -> & -> 0 `i -> 10 `i `uc -> :s 1C `*uc -> -> 5 `i `uc ]
+[; ;main.c: 96:     radio_spi_command_array((0b00100000 | 0x0A), (uint8_t *)"myadr", 5);
+[e ( _radio_spi_command_array (3 , , -> | -> 32 `i -> 10 `i `uc -> :s 1C `*uc -> -> 5 `i `uc ]
 "97
 [; ;main.c: 97: }
-[e :UE 114 ]
+[e :UE 113 ]
 }
 "99
 [; ;main.c: 99: void radio_transmitter_start(){
@@ -542,17 +502,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 105:     SPI_init_master();
 [e ( _SPI_init_master ..  ]
 "108
-[; ;main.c: 108:     radio_spi_command_single((0b00000000 & 0x00), 0b00000110);
-[e ( _radio_spi_command_single (2 , -> & -> 0 `i -> 0 `i `uc -> -> 6 `i `uc ]
+[; ;main.c: 108:     radio_spi_command_single((0b00100000 | 0x00), 0b00000110);
+[e ( _radio_spi_command_single (2 , -> | -> 32 `i -> 0 `i `uc -> -> 6 `i `uc ]
 "110
-[; ;main.c: 110:     radio_spi_command_array((0b00000000 & 0x10), (uint8_t *)"myadr", 5);
-[e ( _radio_spi_command_array (3 , , -> & -> 0 `i -> 16 `i `uc -> :s 2C `*uc -> -> 5 `i `uc ]
+[; ;main.c: 110:     radio_spi_command_array((0b00100000 | 0x10), (uint8_t *)"myadr", 5);
+[e ( _radio_spi_command_array (3 , , -> | -> 32 `i -> 16 `i `uc -> :s 2C `*uc -> -> 5 `i `uc ]
 "111
-[; ;main.c: 111:     radio_spi_command_array((0b00000000 & 0x0A), (uint8_t *)"myadr", 5);
-[e ( _radio_spi_command_array (3 , , -> & -> 0 `i -> 10 `i `uc -> :s 3C `*uc -> -> 5 `i `uc ]
+[; ;main.c: 111:     radio_spi_command_array((0b00100000 | 0x0A), (uint8_t *)"myadr", 5);
+[e ( _radio_spi_command_array (3 , , -> | -> 32 `i -> 10 `i `uc -> :s 3C `*uc -> -> 5 `i `uc ]
 "112
 [; ;main.c: 112: }
-[e :UE 115 ]
+[e :UE 114 ]
 }
 "115
 [; ;main.c: 115: void radio_transmit_single(uint8_t *transmission, uint8_t size){
@@ -563,8 +523,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _size `uc ~T0 @X0 1 r2 ]
 [f ]
 "116
-[; ;main.c: 116:     radio_spi_command_array((0b00000000 & 0b10100000), transmission, size);
-[e ( _radio_spi_command_array (3 , , -> & -> 0 `i -> 160 `i `uc _transmission _size ]
+[; ;main.c: 116:     radio_spi_command_array((0b00100000 | 0b10100000), transmission, size);
+[e ( _radio_spi_command_array (3 , , -> | -> 32 `i -> 160 `i `uc _transmission _size ]
 "117
 [; ;main.c: 117:     RC1 = 1;
 [e = _RC1 -> -> 1 `i `b ]
@@ -576,7 +536,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RC1 -> -> 0 `i `b ]
 "120
 [; ;main.c: 120: }
-[e :UE 116 ]
+[e :UE 115 ]
 }
 "122
 [; ;main.c: 122: uint8_t radio_has_recieved_packet(){
@@ -585,12 +545,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _radio_has_recieved_packet ]
 [f ]
 "123
-[; ;main.c: 123:     if(RC0){
-[e $ ! _RC0 118  ]
+[; ;main.c: 123:     if(!RC0){
+[e $ ! ! _RC0 117  ]
 {
 "124
-[; ;main.c: 124:         radio_spi_command_single((0b00100000 & 0x07), 0b00000000);
-[e ( _radio_spi_command_single (2 , -> & -> 32 `i -> 7 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 124:         radio_spi_command_single((0b00000000 | 0x07), 0b00000000);
+[e ( _radio_spi_command_single (2 , -> | -> 0 `i -> 7 `i `uc -> -> 0 `i `uc ]
 "125
 [; ;main.c: 125:         uint8_t status = SPI_read();
 [v _status `uc ~T0 @X0 1 a ]
@@ -601,30 +561,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RX_DR -> & -> _status `i -> 64 `i `uc ]
 "128
 [; ;main.c: 128:         if(RX_DR){
-[e $ ! != -> _RX_DR `i -> 0 `i 119  ]
+[e $ ! != -> _RX_DR `i -> 0 `i 118  ]
 {
 "129
-[; ;main.c: 129:             radio_spi_command_single((0b00000000 & 0x07), 0b01000000);
-[e ( _radio_spi_command_single (2 , -> & -> 0 `i -> 7 `i `uc -> -> 64 `i `uc ]
+[; ;main.c: 129:             radio_spi_command_single((0b00100000 | 0x07), 0b01000000);
+[e ( _radio_spi_command_single (2 , -> | -> 32 `i -> 7 `i `uc -> -> 64 `i `uc ]
 "131
 [; ;main.c: 131:             return 1;
 [e ) -> -> 1 `i `uc ]
-[e $UE 117  ]
+[e $UE 116  ]
 "132
 [; ;main.c: 132:         }
 }
-[e :U 119 ]
+[e :U 118 ]
 "133
 [; ;main.c: 133:     }
 }
-[e :U 118 ]
+[e :U 117 ]
 "134
 [; ;main.c: 134:     return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 117  ]
+[e $UE 116  ]
 "135
 [; ;main.c: 135: }
-[e :UE 117 ]
+[e :UE 116 ]
 }
 "137
 [; ;main.c: 137: uint8_t radio_get_packets(){
@@ -642,89 +602,167 @@ Version 4.0 HI-TECH Software Intermediate Code
 "140
 [; ;main.c: 140:     return packet;
 [e ) _packet ]
-[e $UE 120  ]
+[e $UE 119  ]
 "142
 [; ;main.c: 142: }
-[e :UE 120 ]
+[e :UE 119 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
 "155
-[; ;main.c: 155: void main()
-[v _main `(v ~T0 @X0 1 ef ]
-"156
-[; ;main.c: 156: {
+[; ;main.c: 155: void rtest(){
+[v _rtest `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _rtest ]
 [f ]
-"157
-[; ;main.c: 157:     radio_reciever_start();
+"156
+[; ;main.c: 156:     radio_reciever_start();
 [e ( _radio_reciever_start ..  ]
+"157
+[; ;main.c: 157:     TRISB = 0b00000000;
+[e = _TRISB -> -> 0 `i `uc ]
 "158
-[; ;main.c: 158:     TRISB = 0b11111111;
-[e = _TRISB -> -> 255 `i `uc ]
-"159
-[; ;main.c: 159:     TRISC7 = 1;
-[e = _TRISC7 -> -> 1 `i `b ]
+[; ;main.c: 158:     PORTB = 0b10000000;
+[e = _PORTB -> -> 128 `i `uc ]
+"160
+[; ;main.c: 160:     while(1)
+[e :U 122 ]
 "161
-[; ;main.c: 161:     while(1)
-[e :U 123 ]
-"162
-[; ;main.c: 162:     {
+[; ;main.c: 161:     {
 {
 "163
 [; ;main.c: 163:         if(radio_has_recieved_packet()){
-[e $ ! != -> ( _radio_has_recieved_packet ..  `i -> 0 `i 125  ]
+[e $ ! != -> ( _radio_has_recieved_packet ..  `i -> 0 `i 124  ]
 {
 "164
-[; ;main.c: 164:             RC7 = 1;
-[e = _RC7 -> -> 1 `i `b ]
-"165
-[; ;main.c: 165:             _delay((unsigned long)((2000)*(10000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"166
-[; ;main.c: 166:             RC7 = 0;
-[e = _RC7 -> -> 0 `i `b ]
-"168
-[; ;main.c: 168:             {
-{
-"169
-[; ;main.c: 169:                 PORTB = radio_get_packets();
+[; ;main.c: 164:             PORTB = radio_get_packets();
 [e = _PORTB ( _radio_get_packets ..  ]
-"170
-[; ;main.c: 170:             }
+"165
+[; ;main.c: 165:         }
 }
-"171
-[; ;main.c: 171:         }
-}
-[e :U 125 ]
-"172
-[; ;main.c: 172:     }
-}
-[e :U 122 ]
-[e $U 123  ]
 [e :U 124 ]
-"174
-[; ;main.c: 174:     radio_transmitter_start();
+"166
+[; ;main.c: 166:     }
+}
+[e :U 121 ]
+[e $U 122  ]
+[e :U 123 ]
+"167
+[; ;main.c: 167: }
+[e :UE 120 ]
+}
+"169
+[; ;main.c: 169: void ttest(){
+[v _ttest `(v ~T0 @X0 1 ef ]
+{
+[e :U _ttest ]
+[f ]
+"170
+[; ;main.c: 170:     TRISB = 0b00000000;
+[e = _TRISB -> -> 0 `i `uc ]
+"171
+[; ;main.c: 171:     PORTB = 0b01111111;
+[e = _PORTB -> -> 127 `i `uc ]
+"173
+[; ;main.c: 173:     radio_transmitter_start();
 [e ( _radio_transmitter_start ..  ]
-"176
-[; ;main.c: 176:     while(1){
+"175
+[; ;main.c: 175:     while(1){
 [e :U 127 ]
 {
+"176
+[; ;main.c: 176:         PORTB = 0b00001111;
+[e = _PORTB -> -> 15 `i `uc ]
 "177
-[; ;main.c: 177:         radio_transmit_single((uint8_t *)0b10101010, 1);
-[e ( _radio_transmit_single (2 , -> -> 170 `i `*uc -> -> 1 `i `uc ]
+[; ;main.c: 177:         radio_transmit_single((uint8_t *)0b00001111, 1);
+[e ( _radio_transmit_single (2 , -> -> 15 `i `*uc -> -> 1 `i `uc ]
 "178
-[; ;main.c: 178:         _delay((unsigned long)((3000)*(10000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+[; ;main.c: 178:         _delay((unsigned long)((500)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 "179
-[; ;main.c: 179:     }
+[; ;main.c: 179:         PORTB = 0b11110000;
+[e = _PORTB -> -> 240 `i `uc ]
+"180
+[; ;main.c: 180:         radio_transmit_single((uint8_t *)0b11110000, 1);
+[e ( _radio_transmit_single (2 , -> -> 240 `i `*uc -> -> 1 `i `uc ]
+"181
+[; ;main.c: 181:         _delay((unsigned long)((500)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"182
+[; ;main.c: 182:     }
 }
 [e :U 126 ]
 [e $U 127  ]
 [e :U 128 ]
-"180
-[; ;main.c: 180: }
-[e :UE 121 ]
+"183
+[; ;main.c: 183: }
+[e :UE 125 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"185
+[; ;main.c: 185: void main()
+[v _main `(v ~T0 @X0 1 ef ]
+"186
+[; ;main.c: 186: {
+{
+[e :U _main ]
+[f ]
+"187
+[; ;main.c: 187:     TRISB = 0b00000000;
+[e = _TRISB -> -> 0 `i `uc ]
+"190
+[; ;main.c: 190:     SPI_init_master();
+[e ( _SPI_init_master ..  ]
+"191
+[; ;main.c: 191:     TRISC0 = 1;
+[e = _TRISC0 -> -> 1 `i `b ]
+"192
+[; ;main.c: 192:     TRISC1 = 0;
+[e = _TRISC1 -> -> 0 `i `b ]
+"193
+[; ;main.c: 193:     TRISC2 = 0;
+[e = _TRISC2 -> -> 0 `i `b ]
+"194
+[; ;main.c: 194:     RC1 = 0;
+[e = _RC1 -> -> 0 `i `b ]
+"195
+[; ;main.c: 195:     RC2 = 1;
+[e = _RC2 -> -> 1 `i `b ]
+"197
+[; ;main.c: 197:     while(1){
+[e :U 131 ]
+{
+"198
+[; ;main.c: 198:         PORTB = 0b10101010;
+[e = _PORTB -> -> 170 `i `uc ]
+"199
+[; ;main.c: 199:         RC2 = 0;
+[e = _RC2 -> -> 0 `i `b ]
+"201
+[; ;main.c: 201:         SPI_write(0b00000001);
+[e ( _SPI_write (1 -> -> 1 `i `uc ]
+"203
+[; ;main.c: 203:         _delay((unsigned long)((1000)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"204
+[; ;main.c: 204:         SPI_write(0b00000000);
+[e ( _SPI_write (1 -> -> 0 `i `uc ]
+"206
+[; ;main.c: 206:         RC2 = 1;
+[e = _RC2 -> -> 1 `i `b ]
+"212
+[; ;main.c: 212:             PORTB = SPI_read();
+[e = _PORTB ( _SPI_read ..  ]
+"213
+[; ;main.c: 213:         _delay((unsigned long)((1000)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"214
+[; ;main.c: 214:     }
+}
+[e :U 130 ]
+[e $U 131  ]
+[e :U 132 ]
+"265
+[; ;main.c: 265: }
+[e :UE 129 ]
 }
 [a 1C 109 121 97 100 114 0 ]
 [a 2C 109 121 97 100 114 0 ]
