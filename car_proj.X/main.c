@@ -22,17 +22,16 @@
 
 #define _XTAL_FREQ 10000000
 
-
-#define MAX(x, y) (((x) > (y)) ? (x) : (y))
-#define MIN(x, y) (((x) < (y)) ? (x) : (y))
-#define CLAMP(x, lower, upper) x = (MIN(upper, MAX(x, lower)))
-
+//timer 0
 #define TMR 178
-
 int antal = 0;
+
+//start time
 int sek = 00;
 int min = 00;
 int tim = 00;
+
+//alarm
 int a_sek = 15;
 int a_min = 00;
 int a_tim = 00;
@@ -43,16 +42,11 @@ bool drive_mode = false;
 int drive_timer = 0;
 
 void update_screen(){
-    //clamp values to make sure no buffer overflow happens
-    CLAMP(sek,0,60);
-    CLAMP(min,0,60);
-    CLAMP(tim,0,24);
-    
-    //buffers
+    //buffers 9 len for [2 digits, semicolon, 2 digits, semicolon, 2 digits, null terminator]
     char a_str[9];
     char str[9]; 
     
-    //insert time using sprintf
+    //insert time using sprintf %02d for 2 digits with leading 0, d meaning integer/digit
     sprintf(str, "%02d:%02d:%02d", tim, min, sek);
     sprintf(a_str, "%02d:%02d:%02d", a_tim, a_min, a_sek);
     
@@ -84,9 +78,10 @@ void update_screen(){
     }
 }
 
-void __interrupt() ISR()         //Her lander programmet når det bliver afbrudt (interrupt))
+void __interrupt() ISR()
 {  
-    if(TMR0IF == 1)                //Hvis det er en TIMER0 interrupt
+    //timer 0 interrupt
+    if(TMR0IF == 1)
     {
         antal++;
         update_timer++;
@@ -111,7 +106,9 @@ void __interrupt() ISR()         //Her lander programmet når det bliver afbrudt 
             
             //check if alarm is triggered and should initialize drive mode
             if (a_sek == sek & a_min == min & a_tim == tim & alarm == true){
-                drive_mode = true; 
+                drive_mode = true;
+
+                // buzzer
                 RB2 = 1;
             }
         }
@@ -128,6 +125,7 @@ void __interrupt() ISR()         //Her lander programmet når det bliver afbrudt 
             RB2 = 0;
         }
         
+        // reset timer 0
         TMR0IF = 0;
         TMR0 = TMR;
     }
@@ -135,10 +133,12 @@ void __interrupt() ISR()         //Her lander programmet når det bliver afbrudt 
 
 int main()
 {
+    //timer registers
     OPTION_REG = 0b10000100;
     INTCON = 0b11100000;
     TMR0 = TMR;
     
+    //lcd registers
     TRISD = 0x00;
     TRISE = 0x00;
     CMCON = 0b00000111;
@@ -146,35 +146,50 @@ int main()
     
     LCD_Init();
     
-    //hc-sr04
+    //RB4 hc-sr04 echo, RB3 hc-sr04 trig, RB2 buzzer
     TRISB = 0b11110011;           //RB4 as Input PIN (ECHO)
-    T1CON = 0x10;                 //Initialize Timer Module
+    //timer 1
+    T1CON = 0x10;
     
+    //RC1 drive forward, RC2 drive backward
     TRISC = 0;
     while(1)
-    {        
+    {
+        // if not driving or driven for at least one second
         if(RC1 == 0 || RC1 && drive_timer == 0){
+            // test if alarm has been triggered
             if(drive_mode){
                 int dist;
+
+                //timer setup
+                TMR1H = 0;
+                TMR1L = 0;
+
+                //hc-sr04 high low transition, 10us
+                RB3 = 1;
+                __delay_us(10);
+                RB3 = 0;
+
+                //wait for echo response
+                while(!RB4);
+                //start timer
+                T1CONbits.TMR1ON = 1;
+                //wait for echo to end  
+                while(RB4);
+                //stop timer    
+                T1CONbits.TMR1ON = 0
+
+                //read timer value
+                dist = (TMR1L | (TMR1H<<8));
+
+                //convert to cm 
+                dist = dist/58.82;
+                dist = dist + 1;
                 
-                TMR1H = 0;                  //Sets the Initial Value of Timer
-                TMR1L = 0;                  //Sets the Initial Value of Timer
-
-                RB3 = 1;               //TRIGGER HIGH
-                __delay_us(10);               //10uS Delay
-                RB3 = 0;               //TRIGGER LOW
-
-                while(!RB4);           //Waiting for Echo
-                T1CONbits.TMR1ON = 1;               //Timer Starts
-                while(RB4);            //Waiting for Echo goes LOW
-                T1CONbits.TMR1ON = 0;               //Timer Stops
-
-                dist = (TMR1L | (TMR1H<<8));   //Reads Timer Value
-                dist = dist/58.82;                //Converts Time to Distance
-                dist = dist + 1;                  //Distance Calibration
-                
-                if(dist>=2 && dist<=300)          //Check whether the result is valid or not
+                // 2 as as noice margin, 300 as max distance while hc-sr04 can measure approx 400cm
+                if(dist>=2 && dist<=300)
                 {   
+                    // drive for 1 second
                     drive_timer = 1000;
                     RC1 = 1;
                 }
@@ -187,6 +202,7 @@ int main()
             }
         }
       
+        //update screen every second done here instead of interupt as it takes 4ms to draw a characther
         if (update_timer >= 1000){
             update_timer = 0;
             update_screen();
