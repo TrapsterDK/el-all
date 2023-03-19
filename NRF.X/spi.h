@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 void SPI_init_master(){
-    SSPCON = 0b00100010; //pg 75/234
+    SSPCON = 0b00100000; //pg 75/234
     SSPSTAT = 0b00000000;
     TRISCbits.TRISC5 = 0; //p77
     TRISCbits.TRISC4 = 1; //p77

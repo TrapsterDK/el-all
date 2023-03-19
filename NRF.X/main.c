@@ -107,28 +107,29 @@ char* char_to_binary_string(char character){
 void send(){
     CSN = 0;
     
-    SPI_write(READ_REGISTER(REGISTER_CONFIG));
+    SPI_write(0b00100000);
     
     //UART_Write_Text((char *)char_to_binary_string((char)SPI_read()));
     
-    __delay_us(20);
+    __delay_ms(20);
     
-    SSPBUF = 0b1001100;
+    SPI_write(0b00001010);
     
-    while(!SSPSTATbits.BF);
-    
-    UART_Write_Text((char *)char_to_binary_string((char)SSPBUF));
 
     CSN = 1;
+    
     __delay_ms(10);
     
     CSN = 0;
     
-    SPI_write(WRITE_REGISTER(REGISTER_CONFIG));
+    SPI_write(READ_REGISTER(REGISTER_STATUS));
     
-    __delay_us(20);
+    __delay_ms(20);
     
     SPI_write(0b00110011);
+    
+    SPI_wait_data_ready();
+    UART_Write_Text((char *)char_to_binary_string((char)SPI_read()));
     
     CSN = 1;
 }
@@ -138,17 +139,18 @@ int main()
     TRISDbits.TRISD2 = 0;
     TRISDbits.TRISD3 = 0;
 
-    CSN = 1;
+    CSN = 1;    
+    CE = 0;
+
     
     OSCCONbits.IRCF = 111;
     
     UART_Init(9600, _XTAL_FREQ);
  
     SPI_init_master();
+    UART_Write_Text("BOOTED\n");
     while(1){
         send();
-        UART_Write_Text("New\n");
-
-        __delay_ms(1000);
+        __delay_ms(500);
     }
 }

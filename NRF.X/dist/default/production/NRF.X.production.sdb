@@ -3,41 +3,45 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"16 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/spi.h
+"16 C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
 [v _SPI_init_master SPI_init_master `(v  1 e 1 0 ]
 "24
 [v _SPI_write SPI_write `(v  1 e 1 0 ]
-"15 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/uart.h
+"34
+[v _SPI_wait_data_ready SPI_wait_data_ready `(v  1 e 1 0 ]
+"38
+[v _SPI_read SPI_read `(uc  1 e 1 0 ]
+"15 C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
 "27
 [v _UART_Write UART_Write `(v  1 e 1 0 ]
 "33
 [v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
-"505 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\doprnt.c
+"505 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeprom.c
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"99 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X\main.c
+"99 C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
 [v _char_to_binary_string char_to_binary_string `(*.4uc  1 e 1 0 ]
 "107
 [v _send send `(v  1 e 1 0 ]
-"138
+"137
 [v _main main `(i  1 e 2 0 ]
-"844 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f887.h
+"843 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
-"851
+"850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-"1134
+"1133
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
-"1141
+"1140
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
 [s S36 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
@@ -48,7 +52,7 @@
 `uc 1 TRISC6 1 0 :1:6 
 `uc 1 TRISC7 1 0 :1:7 
 ]
-"1558
+"1557
 [u S45 . 1 `S36 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES45  1 e 1 @135 ]
 [s S160 . 1 `uc 1 TRISD0 1 0 :1:0 
@@ -60,24 +64,24 @@
 `uc 1 TRISD6 1 0 :1:6 
 `uc 1 TRISD7 1 0 :1:7 
 ]
-"1620
+"1619
 [u S169 . 1 `S160 1 . 1 0 ]
 [v _TRISDbits TRISDbits `VES169  1 e 1 @136 ]
-[s S181 . 1 `uc 1 SCS 1 0 :1:0 
+[s S182 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
-"1883
-[s S187 . 1 `uc 1 . 1 0 :4:0 
+"1882
+[s S188 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S192 . 1 `S181 1 . 1 0 `S187 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES192  1 e 1 @143 ]
-"2178
+[u S193 . 1 `S182 1 . 1 0 `S188 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES193  1 e 1 @143 ]
+"2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
 [s S58 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
@@ -88,7 +92,7 @@
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-"2232
+"2231
 [s S67 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -122,29 +126,31 @@
 ]
 [u S98 . 1 `S58 1 . 1 0 `S67 1 . 1 0 `S72 1 . 1 0 `S78 1 . 1 0 `S83 1 . 1 0 `S88 1 . 1 0 `S93 1 . 1 0 ]
 [v _SSPSTATbits SSPSTATbits `VES98  1 e 1 @148 ]
-"2643
+"2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
-"3700
+"3699
 [v _BRGH BRGH `VEb  1 e 0 @1218 ]
-"3841
+"3840
 [v _CREN CREN `VEb  1 e 0 @196 ]
-"4180
+"4179
 [v _RCIF RCIF `VEb  1 e 0 @101 ]
-"4195
+"4191
+[v _RD2 RD2 `VEb  1 e 0 @66 ]
+"4194
 [v _RD3 RD3 `VEb  1 e 0 @67 ]
-"4264
+"4263
 [v _SPEN SPEN `VEb  1 e 0 @199 ]
-"4318
+"4317
 [v _SYNC SYNC `VEb  1 e 0 @1220 ]
-"4471
+"4470
 [v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
-"4474
+"4473
 [v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
-"4513
+"4512
 [v _TRMT TRMT `VEb  1 e 0 @1217 ]
-"4543
+"4542
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
-"138 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X\main.c
+"137 C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
 "156
@@ -152,7 +158,7 @@
 "107
 [v _send send `(v  1 e 1 0 ]
 {
-"136
+"135
 } 0
 "99
 [v _char_to_binary_string char_to_binary_string `(*.4uc  1 e 1 0 ]
@@ -165,7 +171,7 @@
 [v char_to_binary_string@character character `uc  1 a 1 33 ]
 "105
 } 0
-"505 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\doprnt.c
+"505 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
@@ -180,7 +186,7 @@
 [v sprintf@sp sp `*.4uc  1 a 1 4 ]
 "1567
 } 0
-"33 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/uart.h
+"33 C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
 [v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
 {
 "35
@@ -197,7 +203,7 @@
 [v UART_Write@data data `uc  1 a 1 0 ]
 "31
 } 0
-"24 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/spi.h
+"24 C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
 [v _SPI_write SPI_write `(v  1 e 1 0 ]
 {
 [v SPI_write@write write `uc  1 a 1 wreg ]
@@ -205,14 +211,24 @@
 [v SPI_write@write write `uc  1 a 1 0 ]
 "28
 } 0
-"15 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/uart.h
+"34
+[v _SPI_wait_data_ready SPI_wait_data_ready `(v  1 e 1 0 ]
+{
+"36
+} 0
+"38
+[v _SPI_read SPI_read `(uc  1 e 1 0 ]
+{
+"41
+} 0
+"15 C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
 [v _UART_Init UART_Init `(v  1 e 1 0 ]
 {
 [v UART_Init@baudrate baudrate `DCl  1 p 4 6 ]
 [v UART_Init@_XTAL_FREQ _XTAL_FREQ `l  1 p 4 10 ]
 "25
 } 0
-"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 {
 "10
@@ -225,7 +241,7 @@
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "41
 } 0
-"16 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/spi.h
+"16 C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
 [v _SPI_init_master SPI_init_master `(v  1 e 1 0 ]
 {
 "22
