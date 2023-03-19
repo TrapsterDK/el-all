@@ -13,10 +13,22 @@
 #include "lcd.h"
 
 void LCD_Out ( char c ) {
-    D4 = c & 1;
-    D5 = c & 2;
-    D6 = c & 4;
-    D7 = c & 8;
+    if(c & 1)
+        D4 = 1;
+    else
+       D4 = 0;
+    if(c & 2)
+       D5 = 1;
+    else
+       D5 = 0;
+    if(c & 4)
+       D6 = 1;
+    else
+       D6 = 0;
+    if(c & 8)
+       D7 = 1;
+    else
+       D7 = 0;
 }
 
 void LCD_Write ( unsigned char c ) {

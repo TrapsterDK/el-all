@@ -1,0 +1,108 @@
+\hypertarget{lcd_8h_source}{}\doxysection{lcd.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* }}
+\DoxyCodeLine{2 \textcolor{comment}{ * File: lcd.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 2015 Manolis Agkopian}}
+\DoxyCodeLine{5 \textcolor{comment}{ * See the file LICENSE for copying permission.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * LCD library header file.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef LCD\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define LCD\_H}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifdef  \_\_cplusplus}}
+\DoxyCodeLine{14 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{//ports}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define RS RE1}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define EN RE0}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define D4 RD4 }}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define D5 RD5}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define D6 RD6}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define D7 RD7}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{// Macros that correspond to LCD commands}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define LCD\_Clear() LCD\_Cmd(0x01)}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define LCD\_Decrement\_Cursor() LCD\_Cmd(0x04)}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define LCD\_Increment\_Cursor() LCD\_Cmd(0x05)}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define LCD\_Shift\_Display\_Right() LCD\_Cmd(0x06)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define LCD\_Shift\_Display\_Left() LCD\_Cmd(0x07)}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define LCD\_Shift\_Right() LCD\_Cmd(0x1C)}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define LCD\_Shift\_Left() LCD\_Cmd(0x18)}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{// Sets the LCD cursor position}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define LCD\_Set\_Cursor( x, y )           \(\backslash\)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{do \{                                     \(\backslash\)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{    if ( x == 0 ) \{                      \(\backslash\)}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{        LCD\_Cmd(0x80 + y);               \(\backslash\)}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{    \}                                    \(\backslash\)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{    else if ( x == 1 ) \{                 \(\backslash\)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{        LCD\_Cmd(0xC0 + y);               \(\backslash\)}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{    \}                                    \(\backslash\)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{    else if ( x == 2 ) \{                 \(\backslash\)}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{        LCD\_Cmd(0x94 + y);               \(\backslash\)}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{    \}                                    \(\backslash\)}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{    else if ( x == 3 ) \{                 \(\backslash\)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{        LCD\_Cmd(0xD4 + y);               \(\backslash\)}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{    \}                                    \(\backslash\)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\} while ( false )}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{comment}{// [Internal use only] Sets the display on/off, the cursor on/off and if it will blink or not}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define LCD\_Display( on, cursor, blink ) \(\backslash\)}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{do \{                                     \(\backslash\)}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{    unsigned char cmd = 0x08;            \(\backslash\)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{                                         \(\backslash\)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{    if ( on == true ) \{                  \(\backslash\)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{        cmd |= 1 << 2;                   \(\backslash\)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{    \}                                    \(\backslash\)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{                                         \(\backslash\)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{    if ( cursor == true ) \{              \(\backslash\)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{        cmd |= 1 << 1;                   \(\backslash\)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{    \}                                    \(\backslash\)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{                                         \(\backslash\)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{    if ( blink == true ) \{               \(\backslash\)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{        cmd |= 1;                        \(\backslash\)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{    \}                                    \(\backslash\)}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{                                         \(\backslash\)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{    LCD\_Cmd(cmd);                        \(\backslash\)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\} while ( false )}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{comment}{// [Internal use only] Sends a command to the LCD}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define LCD\_Cmd( c )                     \(\backslash\)}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{do \{                                     \(\backslash\)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{    LCD\_Write( (c \& 0xF0) >> 4 );        \(\backslash\)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{    LCD\_Write( c \& 0x0F);                \(\backslash\)}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\} while ( false )}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{comment}{// Initializes the LCD (See LCD struct)}}
+\DoxyCodeLine{81 \textcolor{keywordtype}{bool} LCD\_Init ( );}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{comment}{// Prints a character on the LCD}}
+\DoxyCodeLine{84 \textcolor{keywordtype}{void} LCD\_putc ( \textcolor{keywordtype}{char} a );}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{comment}{// Prints a string on the LCD that is allocated on the RAM}}
+\DoxyCodeLine{87 \textcolor{keywordtype}{void} LCD\_puts ( \textcolor{keywordtype}{char} *a );}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{comment}{// Prints a string on the LCD that is allocated on the program memory}}
+\DoxyCodeLine{90 \textcolor{keywordtype}{void} LCD\_putrs ( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *a );}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{comment}{// [Internal use only] Write a byte to the LCD}}
+\DoxyCodeLine{93 \textcolor{keywordtype}{void} LCD\_Write ( \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} c );}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{comment}{// [Internal use only] Outputs the data to the LCD Port}}
+\DoxyCodeLine{96 \textcolor{keywordtype}{void} LCD\_Out ( \textcolor{keywordtype}{char} a );}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#ifdef  \_\_cplusplus}}
+\DoxyCodeLine{99 \}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/* LCD\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{103 }
+
+\end{DoxyCode}

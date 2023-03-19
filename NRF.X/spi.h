@@ -13,24 +13,17 @@
 extern "C" {
 #endif
 
-//maybe use SSPIF for transmission reception
-//this library does not handle SS, CS, SSN or CSN
-
-void SPI_init_slave(){
-    SSPCON = 0b00100101; //enable serial port, SPI slave mode disable 
-    TRISC5 = 0; //p77
-    TRISC3 = 1; //p77
-}
-
 void SPI_init_master(){
-    SSPCON = 0b00100000; //enable serial port, SPI master mode, Fosc/4
-    TRISC5 = 0; //p77
-    TRISC3 = 0; //p77
+    SSPCON = 0b00100010; //pg 75/234
+    SSPSTAT = 0b00000000;
+    TRISCbits.TRISC5 = 0; //p77
+    TRISCbits.TRISC4 = 1; //p77
+    TRISCbits.TRISC3 = 0;
 }
 
 void SPI_write(uint8_t write){
     SSPBUF = write;
-   
+    
     while(!SSPSTATbits.BF);
 }
 
@@ -43,6 +36,7 @@ void SPI_wait_data_ready(){
 }
 
 uint8_t SPI_read(){
+    SSPSTATbits.BF = 0;
     return SSPBUF;
 }
 
