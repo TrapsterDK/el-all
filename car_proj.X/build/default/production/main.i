@@ -1880,7 +1880,7 @@ extern __bank0 __bit __timeout;
 # 1 "./lcd.h" 1
 # 17 "./lcd.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdbool.h" 1 3
-# 18 "./lcd.h" 2
+# 17 "./lcd.h" 2
 # 81 "./lcd.h"
 _Bool LCD_Init ( );
 
@@ -2077,218 +2077,117 @@ extern int printf(const char *, ...);
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c90\\stdbool.h" 1 3
 # 21 "main.c" 2
-# 31 "main.c"
+# 32 "main.c"
 int antal = 0;
 int sek = 00;
 int min = 00;
 int tim = 00;
-int a_sek = 05;
+int a_sek = 15;
 int a_min = 00;
 int a_tim = 00;
-char a_str[32];
-char str[32];
-int mode = 0;
-int flag = 0;
-int flag_2 = 0;
-int flag_3 = 0;
-int flag_update = 0;
+
+int update_timer = 0;
 _Bool alarm = 1;
-_Bool tone = 0;
-int hz_delay = 1;
+_Bool drive_mode = 0;
+int drive_timer = 0;
 
-int flag_4 = 0;
-# 103 "main.c"
-void setup2()
-{
-    OPTION_REG = 0b10000100;
-    INTCON = 0b11100000;
-    TMR0 = 178;
-    TRISB = 0b11111111;
-}
+void update_screen(){
 
-void mode3(){
-    tone = 1;
-    if (flag_2 == 0){
-        RC3 = !RC3;
-        flag_2 = hz_delay;
-    }
-    if (RB0 == 1 & flag == 0){
-        flag = 500;
-        a_sek = a_sek + 30;
-        mode = 0;
-    }
-    if (RB1 == 1 & flag == 0){
-        flag = 500;
-        mode = 0;
-    }
-}
-void update(){
-    if (a_sek == sek & a_min == min & a_tim == tim & alarm == 1){
-        mode = 3;
-    }
     sek = ((((60) < ((((sek) > (0)) ? (sek) : (0)))) ? (60) : ((((sek) > (0)) ? (sek) : (0)))));
     min = ((((60) < ((((min) > (0)) ? (min) : (0)))) ? (60) : ((((min) > (0)) ? (min) : (0)))));
     tim = ((((24) < ((((tim) > (0)) ? (tim) : (0)))) ? (24) : ((((tim) > (0)) ? (tim) : (0)))));
-    a_sek = ((((60) < ((((a_sek) > (0)) ? (a_sek) : (0)))) ? (60) : ((((a_sek) > (0)) ? (a_sek) : (0)))));
-    a_min = ((((60) < ((((a_min) > (0)) ? (a_min) : (0)))) ? (60) : ((((a_min) > (0)) ? (a_min) : (0)))));
-    a_tim = ((((24) < ((((a_tim) > (0)) ? (a_tim) : (0)))) ? (24) : ((((a_tim) > (0)) ? (a_tim) : (0)))));
+
+
+    char a_str[9];
+    char str[9];
+
+
+    sprintf(str, "%02d:%02d:%02d", tim, min, sek);
+    sprintf(a_str, "%02d:%02d:%02d", a_tim, a_min, a_sek);
+
 
     do { LCD_Write( (0x01 & 0xF0) >> 4 ); LCD_Write( 0x01 & 0x0F); } while ( 0 );
+
     do { if ( 0 == 0 ) { do { LCD_Write( (0x80 + 0 & 0xF0) >> 4 ); LCD_Write( 0x80 + 0 & 0x0F); } while ( 0 ); } else if ( 0 == 1 ) { do { LCD_Write( (0xC0 + 0 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 0 & 0x0F); } while ( 0 ); } else if ( 0 == 2 ) { do { LCD_Write( (0x94 + 0 & 0xF0) >> 4 ); LCD_Write( 0x94 + 0 & 0x0F); } while ( 0 ); } else if ( 0 == 3 ) { do { LCD_Write( (0xD4 + 0 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 0 & 0x0F); } while ( 0 ); } } while ( 0 );
     LCD_putrs("kl:");
+
     do { if ( 0 == 0 ) { do { LCD_Write( (0x80 + 4 & 0xF0) >> 4 ); LCD_Write( 0x80 + 4 & 0x0F); } while ( 0 ); } else if ( 0 == 1 ) { do { LCD_Write( (0xC0 + 4 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 4 & 0x0F); } while ( 0 ); } else if ( 0 == 2 ) { do { LCD_Write( (0x94 + 4 & 0xF0) >> 4 ); LCD_Write( 0x94 + 4 & 0x0F); } while ( 0 ); } else if ( 0 == 3 ) { do { LCD_Write( (0xD4 + 4 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 4 & 0x0F); } while ( 0 ); } } while ( 0 );
-    sprintf(str, "%02d:%02d:%02d", tim, min, sek);
     LCD_putrs(str);
+
     do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 0 & 0xF0) >> 4 ); LCD_Write( 0x80 + 0 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 0 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 0 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 0 & 0xF0) >> 4 ); LCD_Write( 0x94 + 0 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 0 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 0 & 0x0F); } while ( 0 ); } } while ( 0 );
     LCD_putrs("al:");
+
     do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 4 & 0xF0) >> 4 ); LCD_Write( 0x80 + 4 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 4 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 4 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 4 & 0xF0) >> 4 ); LCD_Write( 0x94 + 4 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 4 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 4 & 0x0F); } while ( 0 ); } } while ( 0 );
-    sprintf(a_str, "%02d:%02d:%02d", a_tim, a_min, a_sek);
     LCD_putrs(a_str);
-    if (tone == 1){
+
+
+    if (drive_mode == 1){
         do { if ( 0 == 0 ) { do { LCD_Write( (0x80 + 15 & 0xF0) >> 4 ); LCD_Write( 0x80 + 15 & 0x0F); } while ( 0 ); } else if ( 0 == 1 ) { do { LCD_Write( (0xC0 + 15 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 15 & 0x0F); } while ( 0 ); } else if ( 0 == 2 ) { do { LCD_Write( (0x94 + 15 & 0xF0) >> 4 ); LCD_Write( 0x94 + 15 & 0x0F); } while ( 0 ); } else if ( 0 == 3 ) { do { LCD_Write( (0xD4 + 15 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 15 & 0x0F); } while ( 0 ); } } while ( 0 );
         LCD_putrs("!");
     }
+
+
     if (alarm == 1){
         do { if ( 1 == 0 ) { do { LCD_Write( (0x80 + 15 & 0xF0) >> 4 ); LCD_Write( 0x80 + 15 & 0x0F); } while ( 0 ); } else if ( 1 == 1 ) { do { LCD_Write( (0xC0 + 15 & 0xF0) >> 4 ); LCD_Write( 0xC0 + 15 & 0x0F); } while ( 0 ); } else if ( 1 == 2 ) { do { LCD_Write( (0x94 + 15 & 0xF0) >> 4 ); LCD_Write( 0x94 + 15 & 0x0F); } while ( 0 ); } else if ( 1 == 3 ) { do { LCD_Write( (0xD4 + 15 & 0xF0) >> 4 ); LCD_Write( 0xD4 + 15 & 0x0F); } while ( 0 ); } } while ( 0 );
         LCD_putrs("A");
-
     }
-
-
-
 }
+
 void __attribute__((picinterrupt(("")))) ISR()
 {
     if(TMR0IF == 1)
     {
         antal++;
-        flag_update++;
+        update_timer++;
+
 
         if(antal >= 1000)
         {
-            sek++;
+
             antal = 0;
-            if (sek == 60){
-                sek = 00;
+            sek++;
+            if (sek >= 60){
+                sek = 0;
                 min++;
-                if (min == 60){
+                if (min >= 60){
+                    min = 0;
                     tim++;
-                    min = 00;
-                    if (tim == 24){
+                    if (tim >= 24){
                         tim = 0;
                     }
                 }
             }
 
 
-        }
-        if (flag != 0){
-            flag--;
-        }
-        if (flag_2 != 0){
-            flag_2--;
-        }
-        if (flag_3 != 0){
-            flag_3--;
-        }
-        if(flag_4 != 0){
-            flag_4--;
+            if (a_sek == sek & a_min == min & a_tim == tim & alarm == 1){
+                drive_mode = 1;
+                RB2 = 1;
+            }
         }
 
-         TMR0IF = 0;
-         TMR0 = 178;
 
+        if(drive_timer != 0){
+            drive_timer--;
+        }
+
+
+
+        if (RB5 == 1){
+            drive_mode = 0;
+            RB2 = 0;
+        }
+
+        TMR0IF = 0;
+        TMR0 = 178;
     }
-
-
-}
-
-void mode1()
-{
-
-
-        if(RB7 == 1 & flag == 0){
-            tim++;
-            flag = 500;
-
-        }
-        if (RB6 == 1 & flag == 0){
-            tim--;
-            flag = 500;
-
-        }
-        if(RB5 == 1 & flag == 0){
-            min++;
-            flag = 500;
-
-        }
-        if (RB4 == 1 & flag == 0){
-            min--;
-            flag = 500;
-
-        }
-        if(RB3 == 1 & flag == 0){
-            sek++;
-            flag = 500;
-
-        }
-        if (RB2 == 1 & flag == 0){
-            sek--;
-            flag = 500;
-
-        }
-        if(RB0 == 1 & flag == 0){
-            mode = 0;
-            flag = 500;
-
-        }
-
-
-
-}
-void mode2(){
-
-        if(RB7 == 1 & flag == 0){
-            a_tim++;
-            flag = 500;
-
-        }
-        if (RB6 == 1 & flag == 0){
-            a_tim--;
-            flag = 500;
-
-        }
-        if(RB5 == 1 & flag == 0){
-            a_min++;
-            flag = 500;
-
-        }
-        if (RB4 == 1 & flag == 0){
-            a_min--;
-            flag = 500;
-
-        }
-        if(RB3 == 1 & flag == 0){
-            a_sek++;
-            flag = 500;
-
-        }
-        if (RB2 == 1 & flag == 0){
-            a_sek--;
-            flag = 500;
-
-        }
-        if(RB0 == 1 & flag == 0){
-            mode = 0;
-            flag = 500;
-
-        }
-
 }
 
 int main()
 {
-    setup2();
+    OPTION_REG = 0b10000100;
+    INTCON = 0b11100000;
+    TMR0 = 178;
+
     TRISD = 0x00;
     TRISE = 0x00;
     CMCON = 0b00000111;
@@ -2297,77 +2196,50 @@ int main()
     LCD_Init();
 
 
-    TRISB = 0b11110111;
+    TRISB = 0b11110011;
     T1CON = 0x10;
-    int a;
 
     TRISC = 0;
     while(1)
     {
-      if (mode == 0)
-        {
+        if(RC1 == 0 || RC1 && drive_timer == 0){
+            if(drive_mode){
+                int dist;
 
-          if(RB0 == 1 & flag == 0){
-              mode = 1;
-              flag = 500;
+                TMR1H = 0;
+                TMR1L = 0;
 
-          }
-          if(RB1 ==1 & flag == 0){
-              mode = 2;
-              flag = 500;
-          }
-          if(RB2 ==1 & flag == 0){
-              flag = 500;
-              alarm = !alarm;
-        }
-      }
-      if (mode == 1){
-          mode1();
-      }
-      if (mode == 2){
-          mode2();
-      }
-      if (mode == 3){
-          mode3();
-      }
+                RB3 = 1;
+                _delay((unsigned long)((10)*(10000000/4000000.0)));
+                RB3 = 0;
 
-      if(tone && flag_4 == 0){
-        TMR1H = 0;
-        TMR1L = 0;
+                while(!RB4);
+                T1CONbits.TMR1ON = 1;
+                while(RB4);
+                T1CONbits.TMR1ON = 0;
 
-        RB3 = 1;
-        _delay((unsigned long)((10)*(10000000/4000000.0)));
-        RB3 = 0;
+                dist = (TMR1L | (TMR1H<<8));
+                dist = dist/58.82;
+                dist = dist + 1;
 
-        while(!RB4);
-        T1CONbits.TMR1ON = 1;
-        while(RB4);
-        T1CONbits.TMR1ON = 0;
-
-        a = (TMR1L | (TMR1H<<8));
-        a = a/58.82;
-        a = a + 1;
-        if(a>=2 && a<=400)
-        {
-            if(a < 200){
-                RC1 = 1;
-            }else{
+                if(dist>=2 && dist<=300)
+                {
+                    drive_timer = 1000;
+                    RC1 = 1;
+                }
+                else{
+                    RC1 = 0;
+                }
+            }
+            else{
                 RC1 = 0;
             }
         }
-      }
 
-      if (flag_update >= 1000){
-          flag_update = 0;
-          update();
-      }
-
-
-
+        if (update_timer >= 1000){
+            update_timer = 0;
+            update_screen();
+        }
     }
     return 0;
-
-
-
-
 }

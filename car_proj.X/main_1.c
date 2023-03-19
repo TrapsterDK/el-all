@@ -22,31 +22,36 @@
 
 #define _XTAL_FREQ 10000000
 
-//timer 0
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
+#define CLAMP(x, lower, upper) x = (MIN(upper, MAX(x, lower)))
+
+//LCD Functions Developed by Circuit Digest.
 #define TMR 178
 int antal = 0;
-
-//start time
 int sek = 00;
 int min = 00;
 int tim = 00;
-
-//alarm
-int a_sek = 15;
+int a_sek = 10;
 int a_min = 00;
 int a_tim = 00;
-
 int update_timer = 0;
 bool alarm = true;
 bool drive_mode = false;
+
 int drive_timer = 0;
 
 void update_screen(){
-    //buffers 9 len for [2 digits, semicolon, 2 digits, semicolon, 2 digits, null terminator]
+    //clamp values to make sure no buffer overflow happens
+    CLAMP(sek,0,60);
+    CLAMP(min,0,60);
+    CLAMP(tim,0,24);
+    
+    //buffers
     char a_str[9];
     char str[9]; 
     
-    //insert time using sprintf %02d for 2 digits with leading 0, d meaning integer/digit
+    //insert time using sprintf
     sprintf(str, "%02d:%02d:%02d", tim, min, sek);
     sprintf(a_str, "%02d:%02d:%02d", a_tim, a_min, a_sek);
     
@@ -77,11 +82,9 @@ void update_screen(){
         LCD_putrs("A");   
     }
 }
-
-void __interrupt() ISR()
+void __interrupt() ISR()         //Her lander programmet når det bliver afbrudt (interrupt))
 {  
-    //timer 0 interrupt
-    if(TMR0IF == 1)
+    if(TMR0IF == 1)                //Hvis det er en TIMER0 interrupt
     {
         antal++;
         update_timer++;
@@ -106,9 +109,7 @@ void __interrupt() ISR()
             
             //check if alarm is triggered and should initialize drive mode
             if (a_sek == sek & a_min == min & a_tim == tim & alarm == true){
-                drive_mode = true;
-
-                // buzzer
+                drive_mode = true; 
                 RB2 = 1;
             }
         }
@@ -125,7 +126,6 @@ void __interrupt() ISR()
             RB2 = 0;
         }
         
-        // reset timer 0
         TMR0IF = 0;
         TMR0 = TMR;
     }
@@ -133,63 +133,50 @@ void __interrupt() ISR()
 
 int main()
 {
-    //timer registers
+    //lcd screen
+    TRISD = 0x00;
+    TRISE = 0x00;
+    
+    //input button, ouput hc-sr04 trigger, ouput busser
+    TRISB = 0b11110011;
+    
+    //drive output
+    TRISC = 0;
+    
     OPTION_REG = 0b10000100;
     INTCON = 0b11100000;
     TMR0 = TMR;
-    
-    //lcd registers
-    TRISD = 0x00;
-    TRISE = 0x00;
     CMCON = 0b00000111;
     ADCON1 = 0x4E;
     
     LCD_Init();
     
-    //RB4 hc-sr04 echo, RB3 hc-sr04 trig, RB2 buzzer
-    TRISB = 0b11110011;           //RB4 as Input PIN (ECHO)
-    //timer 1
+    //hc-sr04
     T1CON = 0x10;
-    
-    //RC1 drive forward, RC2 drive backward
-    TRISC = 0;
+
     while(1)
-    {
-        // if not driving or driven for at least one second
+    {        
         if(RC1 == 0 || RC1 && drive_timer == 0){
-            // test if alarm has been triggered
             if(drive_mode){
-                int dist;
-
-                //timer setup
-                TMR1H = 0;
-                TMR1L = 0;
-
-                //hc-sr04 high low transition, 10us
-                RB3 = 1;
-                __delay_us(10);
-                RB3 = 0;
-
-                //wait for echo response
-                while(!RB4);
-                //start timer
-                T1CONbits.TMR1ON = 1;
-                //wait for echo to end  
-                while(RB4);
-                //stop timer    
-                T1CONbits.TMR1ON = 0
-
-                //read timer value
-                dist = (TMR1L | (TMR1H<<8));
-
-                //convert to cm 
-                dist = dist/58.82;
-                dist = dist + 1;
+                uint8_t dist;
                 
-                // 2 as as noice margin, 300 as max distance while hc-sr04 can measure approx 400cm
-                if(dist>=2 && dist<=300)
-                {   
-                    // drive for 1 second
+                TMR1H = 0;                  //Sets the Initial Value of Timer
+                TMR1L = 0;                  //Sets the Initial Value of Timer
+
+                RB3 = 1;               //TRIGGER HIGH
+                __delay_us(10);               //10uS Delay
+                RB3 = 0;               //TRIGGER LOW
+
+                while(!RB4);           //Waiting for Echo
+                T1CONbits.TMR1ON = 1;               //Timer Starts
+                while(RB4);            //Waiting for Echo goes LOW
+                T1CONbits.TMR1ON = 0;               //Timer Stops
+
+                dist = (TMR1L | (TMR1H<<8));   //Reads Timer Value
+                dist = dist/58.82;                //Converts Time to Distance
+                dist = dist + 1;                  //Distance Calibration
+                if(dist>=2 && dist<=300)          //Check whether the result is valid or not
+                {
                     drive_timer = 1000;
                     RC1 = 1;
                 }
@@ -202,7 +189,6 @@ int main()
             }
         }
       
-        //update screen every second done here instead of interupt as it takes 4ms to draw a characther
         if (update_timer >= 1000){
             update_timer = 0;
             update_screen();
