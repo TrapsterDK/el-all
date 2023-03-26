@@ -31,7 +31,7 @@
   (byte & 0x02 ? '1' : '0'), \
   (byte & 0x01 ? '1' : '0') 
 
-#define _XTAL_FREQ 8000000
+#define _XTAL_FREQ 8000000UL
 
 #define CE RD2
 #define CSN RD3
@@ -96,6 +96,8 @@
 #define READ_REGISTER(regi) (COMMAND_R_REGISTER | regi)
 #define WRITE_REGISTER(regi) (COMMAND_W_REGISTER | regi)
 
+#define DELAY_SPI __delay_us(20);
+
 char* char_to_binary_string(char character){
     static char output[10];
     
@@ -104,53 +106,180 @@ char* char_to_binary_string(char character){
     return output;
 }
 
-void send(){
+uint8_t execute_command(uint8_t reg, uint8_t val)
+{
     CSN = 0;
-    
-    SPI_write(0b00100000);
-    
-    //UART_Write_Text((char *)char_to_binary_string((char)SPI_read()));
-    
-    __delay_ms(20);
-    
-    SPI_write(0b00001010);
-    
-
+    SPI_write(reg);
+    DELAY_SPI
+    char ret = SPI_write(val);
     CSN = 1;
-    
-    __delay_ms(10);
-    
+    return ret;
+}
+
+uint8_t write_command(uint8_t command)
+{
     CSN = 0;
-    
-    SPI_write(READ_REGISTER(REGISTER_STATUS));
-    
-    __delay_ms(20);
-    
-    SPI_write(0b00110011);
-    
-    SPI_wait_data_ready();
-    UART_Write_Text((char *)char_to_binary_string((char)SPI_read()));
-    
+    uint8_t ret = SPI_write(command);
+    CSN = 1;
+    return ret;
+}
+
+void write_register(uint8_t reg, uint8_t val)
+{
+    execute_command(reg | COMMAND_W_REGISTER, val);
+}
+
+uint8_t read_register(uint8_t reg)
+{
+    return execute_command(reg | COMMAND_R_REGISTER, COMMAND_NOP);
+}
+
+void write_address(uint8_t reg, uint8_t* addr, uint8_t num)
+{
+    CSN = 0;
+    SPI_write(reg | COMMAND_W_REGISTER);
+    for (uint8_t i=0; i<num; i++)
+    {
+      DELAY_SPI
+      SPI_write(addr[i]);
+    }
     CSN = 1;
 }
+
+void read_address(uint8_t reg, uint8_t* retaddr, uint8_t num)
+{
+    CSN = 0;
+    SPI_write(reg);
+    for (uint8_t i=0; i<num; i++)
+        retaddr[i] = SPI_write(0);
+    CSN = 1;   
+}
+
+void flush_TXRX()
+{
+  //Clear: data RX ready, data sent TX, Max TX retransmits
+  write_register(STATUS, 0x70);
+  write_command(COMMAND_FLUSH_RX);
+  write_command(COMMAND_FLUSH_TX);
+}
+
+
+uint8_t RXTX_ADDR[3] = { 0xB5, 0x23, 0xA5 };
+
+void rf_setup(){
+    CSN = 1;
+    CE = 0;
+    
+    __delay_ms(2);
+        
+    write_register(REGISTER_CONFIG, 0x0B);         //1 BYTE CRC, POWER UP, PRX
+    write_register(REGISTER_EN_AA, 0x00);          //Disable auto ack
+    write_register(REGISTER_EN_RXADDR, 0x01);      //Enable data pipe 0
+    write_register(REGISTER_SETUP_AW, 0x01);       //3 BYTE address
+    write_register(REGISTER_SETUP_RETR, 0x00);     //Retransmit disabled
+    write_register(REGISTER_RF_CH, 0x01);          //Randomly chosen RF channel
+    write_register(REGISTER_RF_SETUP, 0x26);       //250kbps, 0dBm
+    write_register(REGISTER_PX_PW_P0, 0x01);       //RX payload = 1 BYTE
+   
+    write_address(REGISTER_RX_ADDR_P0, RXTX_ADDR, 3);
+    write_address(REGISTER_TX_ADDR, RXTX_ADDR, 3);
+
+    flush_TXRX();
+    UART_Write_Text("Init\n");
+}
+
+void RX_mode()
+{
+    write_register(REGISTER_CONFIG, 0x0B);         //1 byte CRC, POWER UP, PRX
+    CE = 1;
+}
+
+void TX_mode()
+{
+    CE = 0;
+    write_register(REGISTER_CONFIG, 0x0A);         //1 byte CRC, POWER UP, PTX
+}
+
+void write_tx_payload(uint8_t num, uint8_t* data)
+{
+    write_address(COMMAND_TX_PAYLOAD, data, num);
+
+    CE = 1;
+    __delay_us(11);
+    CE = 0;
+}
+
+uint8_t RXChar()
+{
+    uint8_t data;
+    read_address(COMMAND_RX_PAYLOAD, &data, 1);
+    //Clear status bit
+    write_register(REGISTER_STATUS, 0x40);
+    return data;
+}
+
+void TXChar(uint8_t ch)
+{
+    write_tx_payload(1, &ch);
+
+    //Wait for char to be sent
+    uint8_t stat;
+    do
+    {
+        stat = write_command(COMMAND_NOP);
+    } while ((stat & 0x20) == 0);
+
+    //Clear status bit
+    write_register(STATUS, 0x20);
+}
+
+uint8_t ReadDataAvailable()
+{
+    if (CE == 0)
+        return 0;
+
+    uint8_t stat = write_command(COMMAND_NOP);
+    return (stat & 0x40) != 0;
+}
+
+uint8_t SendChar(char* args)
+{
+    uint8_t charReceived = 0;
+    TXChar(args[0]);
+    TX_mode();
+    UART_Write_Text("SENT\n");
+    return charReceived;
+}
+
+void ReceiveChar()
+{
+    RX_mode();  
+    uint8_t ch = RXChar();
+    UART_Write(ch);
+    UART_Write_Text("R\n");
+}
+
+
 
 int main()
 {   
     TRISDbits.TRISD2 = 0;
     TRISDbits.TRISD3 = 0;
 
-    CSN = 1;    
-    CE = 0;
+    UART_Write_Text("BOOTED\n");
 
-    
     OSCCONbits.IRCF = 111;
     
     UART_Init(9600, _XTAL_FREQ);
  
     SPI_init_master();
-    UART_Write_Text("BOOTED\n");
+    
+    rf_setup();
+    
+    __delay_ms(2);
     while(1){
-        send();
+        SendChar("a");
+        //ReceiveChar();
         __delay_ms(500);
     }
 }
