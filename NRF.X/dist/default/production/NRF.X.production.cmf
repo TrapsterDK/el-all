@@ -11,37 +11,38 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
+$C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 2 2 1
 $dist/default/production\NRF.X.production.o
-cinit CODE 0 7D0 7D0 30 2 1
-text1 CODE 0 668 668 A7 2 1
-text2 CODE 0 70F 70F C1 2 1
-text3 CODE 0 40A 40A 19 2 1
-text4 CODE 0 423 423 1D 2 1
-text5 CODE 0 45E 45E 1E 2 1
-text6 CODE 0 440 440 1E 2 1
-text7 CODE 0 3D0 3D0 D 2 1
-text8 CODE 0 3C4 3C4 C 2 1
-text9 CODE 0 47C 47C 31 2 1
-text10 CODE 0 3DD 3DD E 2 1
-text11 CODE 0 3FA 3FA 10 2 1
-text12 CODE 0 3EB 3EB F 2 1
-text13 CODE 0 4AD 4AD 37 2 1
-text14 CODE 0 3B8 3B8 C 2 1
-text15 CODE 0 4E4 4E4 6B 2 1
-text16 CODE 0 5CB 5CB 9D 2 1
-text17 CODE 0 3AC 3AC C 2 1
-maintext CODE 0 54F 54F 7C 2 1
+cinit CODE 0 7BE 7BE 42 2 1
+text1 CODE 0 4EE 4EE 59 2 1
+text2 CODE 0 6FD 6FD C1 2 1
+text3 CODE 0 416 416 19 2 1
+text4 CODE 0 42F 42F 1D 2 1
+text5 CODE 0 491 491 2C 2 1
+text6 CODE 0 400 400 16 2 1
+text7 CODE 0 3F0 3F0 10 2 1
+text8 CODE 0 46D 46D 24 2 1
+text9 CODE 0 3D4 3D4 D 2 1
+text10 CODE 0 3C8 3C8 C 2 1
+text11 CODE 0 4BD 4BD 31 2 1
+text12 CODE 0 3E1 3E1 F 2 1
+text13 CODE 0 44C 44C 21 2 1
+text14 CODE 0 3BC 3BC C 2 1
+text15 CODE 0 547 547 6B 2 1
+text16 CODE 0 5B2 5B2 9D 2 1
+text17 CODE 0 3B0 3B0 C 2 1
+maintext CODE 0 64F 64F AE 2 1
 cstackCOMMON COMMON 1 70 70 E 1 1
-cstackBANK0 BANK0 1 20 20 1F 1 1
-cstackBANK1 BANK1 1 A0 A0 40 1 1
-cstackBANK3 BANK3 1 190 190 40 1 1
-bssBANK0 BANK0 1 3F 3F A 1 1
-idataBANK1 CODE 0 3A7 3A7 5 2 1
-strings STRING 0 3 3 3E 2 1
-dataBANK1 BANK1 1 E0 E0 5 1 1
+cstackBANK0 BANK0 1 20 20 1D 1 1
+cstackBANK1 BANK1 1 A0 A0 4A 1 1
+bssBANK0 BANK0 1 3D 3D A 1 1
+idataBANK0 CODE 0 3AB 3AB 5 2 1
+idataBANK1 CODE 0 3A8 3A8 3 2 1
+strings STRING 0 3 3 20 2 1
+dataBANK0 BANK0 1 47 47 5 1 1
+dataBANK1 BANK1 1 EA EA 3 1 1
 config CONFIG 4 2007 2007 2 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -49,29 +50,29 @@ config CONFIG 4 2007 2007 2 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 49-6F 1
-RAM E5-EF 1
+RAM 4C-6F 1
+RAM ED-EF 1
 RAM 110-16F 1
-RAM 1D0-1EF 1
-BANK0 49-6F 1
-BANK1 E5-EF 1
+RAM 190-1EF 1
+BANK0 4C-6F 1
+BANK1 ED-EF 1
 BANK2 110-16F 1
-BANK3 1D0-1EF 1
-CONST 41-3A6 2
+BANK3 190-1EF 1
+CONST 23-3A7 2
 CONST 800-1FFF 2
-ENTRY 41-3A6 2
+ENTRY 23-3A7 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
-CODE 41-3A6 2
+CODE 23-3A7 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
-STRCODE 41-3A6 2
+STRCODE 23-3A7 2
 STRCODE 800-1FFF 2
-STRING 41-3A6 2
+STRING 23-3A7 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -87,245 +88,253 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\NRF.X.production.o
-7D0 cinit CODE >590:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7D0 cinit CODE >593:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7D0 cinit CODE >613:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7D1 cinit CODE >614:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7D2 cinit CODE >615:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7D7 cinit CODE >616:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7D8 cinit CODE >617:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7DD cinit CODE >618:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7DE cinit CODE >619:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7E3 cinit CODE >620:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7E4 cinit CODE >621:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7E9 cinit CODE >622:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7EA cinit CODE >623:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7EF cinit CODE >624:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F0 cinit CODE >628:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F1 cinit CODE >629:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F2 cinit CODE >630:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F3 cinit CODE >631:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F4 cinit CODE >632:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F5 cinit CODE >633:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F6 cinit CODE >634:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F7 cinit CODE >635:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F8 cinit CODE >636:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7F9 cinit CODE >637:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7FA cinit CODE >638:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7FB cinit CODE >639:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7FC cinit CODE >645:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7FC cinit CODE >647:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-7FD cinit CODE >648:C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_1.s
-3AC text17 CODE >16:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3AC text17 CODE >18:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3B0 text17 CODE >19:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3B4 text17 CODE >20:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3B5 text17 CODE >21:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3B6 text17 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3B7 text17 CODE >23:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-5CB text16 CODE >5:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5CB text16 CODE >13:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5CE text16 CODE >14:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5D2 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5D7 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5D9 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5DB text16 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5DD text16 CODE >16:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5DF text16 CODE >17:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5DF text16 CODE >18:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5E3 text16 CODE >19:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5E8 text16 CODE >19:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5EA text16 CODE >19:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5EC text16 CODE >19:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5EE text16 CODE >20:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5F2 text16 CODE >22:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5FA text16 CODE >23:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-5FE text16 CODE >23:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-602 text16 CODE >24:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-604 text16 CODE >25:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-605 text16 CODE >26:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-607 text16 CODE >26:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-60E text16 CODE >27:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-612 text16 CODE >25:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-616 text16 CODE >30:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-618 text16 CODE >30:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-61F text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-621 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-625 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-629 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-62D text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-631 text16 CODE >32:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-634 text16 CODE >32:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-638 text16 CODE >32:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-63C text16 CODE >32:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-63F text16 CODE >33:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-640 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-641 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-647 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-649 text16 CODE >36:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-64F text16 CODE >38:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-654 text16 CODE >39:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-659 text16 CODE >39:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-65B text16 CODE >39:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-65D text16 CODE >39:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-65F text16 CODE >40:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-667 text16 CODE >41:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
-4E4 text15 CODE >19:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4E4 text15 CODE >21:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4E7 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4F2 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4F8 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-50B text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-511 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-51E text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-524 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-52A text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-540 text15 CODE >23:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-541 text15 CODE >24:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-544 text15 CODE >25:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-547 text15 CODE >26:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-548 text15 CODE >27:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-54B text15 CODE >28:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-54E text15 CODE >29:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-3B8 text14 CODE >33:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-3B9 text14 CODE >35:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-3B9 text14 CODE >36:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-3BF text14 CODE >37:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-3C3 text14 CODE >38:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4AD text13 CODE >41:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4AD text13 CODE >43:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4B0 text13 CODE >44:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4B5 text13 CODE >44:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4C9 text13 CODE >44:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4D2 text13 CODE >44:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-4E3 text13 CODE >45:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-3EB text12 CODE >26:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3EC text12 CODE >28:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3F0 text12 CODE >29:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3F0 text12 CODE >30:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3F6 text12 CODE >31:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3F9 text12 CODE >32:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-3FA text11 CODE >140:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3FB text11 CODE >142:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3FE text11 CODE >143:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-405 text11 CODE >144:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-408 text11 CODE >145:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-409 text11 CODE >146:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3DD text10 CODE >236:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3DD text10 CODE >238:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3E4 text10 CODE >239:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3EA text10 CODE >240:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-47C text9 CODE >105:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-47D text9 CODE >107:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-480 text9 CODE >109:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-487 text9 CODE >110:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-489 text9 CODE >111:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-4A4 text9 CODE >111:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-4A8 text9 CODE >113:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-4AB text9 CODE >115:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-4AC text9 CODE >116:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3C4 text8 CODE >125:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3C5 text8 CODE >127:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3CF text8 CODE >128:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3D0 text7 CODE >119:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3D1 text7 CODE >121:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-3DC text7 CODE >122:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-440 text6 CODE >261:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-441 text6 CODE >263:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-44B text6 CODE >266:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-451 text6 CODE >267:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-453 text6 CODE >268:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-45D text6 CODE >270:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-45E text5 CODE >204:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-45E text5 CODE >207:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-468 text5 CODE >209:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-46B text5 CODE >211:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-470 text5 CODE >212:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-470 text5 CODE >214:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-471 text5 CODE >215:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-47B text5 CODE >216:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-423 text4 CODE >95:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-424 text4 CODE >97:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-426 text4 CODE >99:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-435 text4 CODE >100:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-43B text4 CODE >100:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-43F text4 CODE >101:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-40A text3 CODE >152:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-40A text3 CODE >154:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-40C text3 CODE >155:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-416 text3 CODE >156:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-41C text3 CODE >157:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-422 text3 CODE >158:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-70F text2 CODE >162:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-712 text2 CODE >165:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-715 text2 CODE >166:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-716 text2 CODE >168:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-721 text2 CODE >170:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-724 text2 CODE >171:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-725 text2 CODE >173:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-730 text2 CODE >177:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-734 text2 CODE >178:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-73E text2 CODE >179:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-741 text2 CODE >180:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-74B text2 CODE >181:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-74F text2 CODE >182:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-759 text2 CODE >183:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-75D text2 CODE >184:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-767 text2 CODE >185:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-76A text2 CODE >186:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-774 text2 CODE >187:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-778 text2 CODE >188:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-782 text2 CODE >189:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-786 text2 CODE >190:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-790 text2 CODE >191:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-794 text2 CODE >192:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-79E text2 CODE >194:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-7AA text2 CODE >195:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-7B4 text2 CODE >197:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-7C0 text2 CODE >198:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-7CA text2 CODE >200:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-7CF text2 CODE >201:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
-668 text1 CODE >505:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-668 text1 CODE >550:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-66A text1 CODE >553:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-66B text1 CODE >555:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-671 text1 CODE >558:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-67A text1 CODE >558:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-67E text1 CODE >559:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-67F text1 CODE >565:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-67F text1 CODE >661:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-680 text1 CODE >760:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-68B text1 CODE >766:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-691 text1 CODE >767:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-696 text1 CODE >804:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6A9 text1 CODE >804:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6AF text1 CODE >804:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6B3 text1 CODE >803:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6BD text1 CODE >803:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6C2 text1 CODE >825:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6CB text1 CODE >835:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6D4 text1 CODE >835:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6D8 text1 CODE >836:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6D9 text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6E8 text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6ED text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6F0 text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6F3 text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-6F6 text1 CODE >553:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-708 text1 CODE >1564:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-70E text1 CODE >1567:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
-54F maintext CODE >50:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-54F maintext CODE >53:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-553 maintext CODE >56:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-56A maintext CODE >59:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-580 maintext CODE >62:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-585 maintext CODE >65:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-58D maintext CODE >71:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-592 maintext CODE >74:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-59D maintext CODE >93:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-5A3 maintext CODE >93:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-5A7 maintext CODE >98:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-5AF maintext CODE >99:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+7BE cinit CODE >569:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7BE cinit CODE >572:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7BE cinit CODE >600:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7BF cinit CODE >601:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7C0 cinit CODE >602:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7C5 cinit CODE >603:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7C6 cinit CODE >604:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7CB cinit CODE >605:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7CC cinit CODE >606:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7D1 cinit CODE >607:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7D2 cinit CODE >611:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7D3 cinit CODE >612:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7D4 cinit CODE >613:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7D9 cinit CODE >614:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7DA cinit CODE >615:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7DF cinit CODE >616:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7E0 cinit CODE >617:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7E5 cinit CODE >618:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7E6 cinit CODE >619:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7EB cinit CODE >620:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7EC cinit CODE >621:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F1 cinit CODE >622:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F2 cinit CODE >626:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F3 cinit CODE >627:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F4 cinit CODE >628:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F5 cinit CODE >629:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F6 cinit CODE >630:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F7 cinit CODE >631:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F8 cinit CODE >632:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7F9 cinit CODE >633:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7FA cinit CODE >634:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7FB cinit CODE >635:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7FC cinit CODE >641:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7FC cinit CODE >643:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+7FD cinit CODE >644:C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_1.s
+3B0 text17 CODE >30:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3B0 text17 CODE >32:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3B4 text17 CODE >33:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3B8 text17 CODE >34:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3B9 text17 CODE >35:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3BA text17 CODE >36:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3BB text17 CODE >37:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+5B2 text16 CODE >5:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5B2 text16 CODE >13:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5B5 text16 CODE >14:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5B9 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5BE text16 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5C0 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5C2 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5C4 text16 CODE >16:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5C6 text16 CODE >17:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5C6 text16 CODE >18:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5CA text16 CODE >19:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5CF text16 CODE >19:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5D1 text16 CODE >19:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5D3 text16 CODE >19:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5D5 text16 CODE >20:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5D9 text16 CODE >22:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5E1 text16 CODE >23:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5E5 text16 CODE >23:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5E9 text16 CODE >24:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5EB text16 CODE >25:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5EC text16 CODE >26:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5EE text16 CODE >26:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5F5 text16 CODE >27:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5F9 text16 CODE >25:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5FD text16 CODE >30:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+5FF text16 CODE >30:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+606 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+608 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+60C text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+610 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+614 text16 CODE >31:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+618 text16 CODE >32:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+61B text16 CODE >32:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+61F text16 CODE >32:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+623 text16 CODE >32:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+626 text16 CODE >33:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+627 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+628 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+62E text16 CODE >35:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+630 text16 CODE >36:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+636 text16 CODE >38:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+63B text16 CODE >39:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+640 text16 CODE >39:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+642 text16 CODE >39:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+644 text16 CODE >39:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+646 text16 CODE >40:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+64E text16 CODE >41:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+547 text15 CODE >19:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+547 text15 CODE >21:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+54A text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+555 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+55B text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+56E text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+574 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+581 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+587 text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+58D text15 CODE >22:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+5A3 text15 CODE >23:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+5A4 text15 CODE >24:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+5A7 text15 CODE >25:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+5AA text15 CODE >26:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+5AB text15 CODE >27:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+5AE text15 CODE >28:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+5B1 text15 CODE >29:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+3BC text14 CODE >33:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+3BD text14 CODE >35:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+3BD text14 CODE >36:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+3C3 text14 CODE >37:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+3C7 text14 CODE >38:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+44C text13 CODE >41:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+44D text13 CODE >43:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+450 text13 CODE >44:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+45D text13 CODE >44:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+46C text13 CODE >45:C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
+3E1 text12 CODE >40:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3E2 text12 CODE >42:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3E6 text12 CODE >43:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3E6 text12 CODE >44:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3EC text12 CODE >45:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+3EF text12 CODE >46:C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+4BD text11 CODE >105:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4BE text11 CODE >107:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4C1 text11 CODE >109:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4C8 text11 CODE >110:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4CA text11 CODE >111:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4E5 text11 CODE >111:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4E9 text11 CODE >113:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4EC text11 CODE >115:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4ED text11 CODE >116:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3C8 text10 CODE >125:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3C9 text10 CODE >127:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3D3 text10 CODE >128:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3D4 text9 CODE >119:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3D5 text9 CODE >121:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3E0 text9 CODE >122:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+46D text8 CODE >219:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+46D text8 CODE >222:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+477 text8 CODE >224:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+47A text8 CODE >226:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+47F text8 CODE >229:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+483 text8 CODE >230:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+48D text8 CODE >232:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+490 text8 CODE >233:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3F0 text7 CODE >140:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3F1 text7 CODE >142:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3F4 text7 CODE >143:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3FB text7 CODE >144:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3FE text7 CODE >145:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+3FF text7 CODE >146:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+400 text6 CODE >131:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+401 text6 CODE >133:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+40B text6 CODE >134:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+40E text6 CODE >135:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+412 text6 CODE >136:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+415 text6 CODE >137:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+491 text5 CODE >243:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+494 text5 CODE >245:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+499 text5 CODE >246:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4A3 text5 CODE >252:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4AC text5 CODE >253:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4B0 text5 CODE >256:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4B2 text5 CODE >257:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4BC text5 CODE >258:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+42F text4 CODE >95:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+430 text4 CODE >97:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+432 text4 CODE >99:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+441 text4 CODE >100:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+447 text4 CODE >100:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+44B text4 CODE >101:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+416 text3 CODE >152:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+416 text3 CODE >154:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+418 text3 CODE >155:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+422 text3 CODE >156:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+428 text3 CODE >157:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+42E text3 CODE >158:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+6FD text2 CODE >162:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+700 text2 CODE >165:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+703 text2 CODE >166:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+704 text2 CODE >168:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+70F text2 CODE >170:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+712 text2 CODE >171:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+713 text2 CODE >173:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+71E text2 CODE >177:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+722 text2 CODE >178:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+72C text2 CODE >179:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+72F text2 CODE >180:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+739 text2 CODE >181:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+73D text2 CODE >182:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+747 text2 CODE >183:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+74B text2 CODE >184:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+755 text2 CODE >185:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+758 text2 CODE >186:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+762 text2 CODE >187:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+766 text2 CODE >188:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+770 text2 CODE >189:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+774 text2 CODE >190:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+77E text2 CODE >191:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+782 text2 CODE >192:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+78C text2 CODE >194:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+798 text2 CODE >195:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+7A2 text2 CODE >197:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+7AE text2 CODE >198:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+7B8 text2 CODE >200:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+7BD text2 CODE >201:C:\Users\marti\Desktop\Programming\el-all\NRF.X/nrf24l01.h
+4EE text1 CODE >505:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+4EF text1 CODE >550:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+4F1 text1 CODE >553:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+4F2 text1 CODE >555:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+4F8 text1 CODE >558:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+501 text1 CODE >559:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+502 text1 CODE >565:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+502 text1 CODE >661:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+503 text1 CODE >825:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+50C text1 CODE >835:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+515 text1 CODE >836:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+516 text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+525 text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+52A text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+52D text1 CODE >848:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+530 text1 CODE >553:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+542 text1 CODE >1564:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+546 text1 CODE >1567:C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c
+64F maintext CODE >50:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+64F maintext CODE >53:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+653 maintext CODE >56:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+66A maintext CODE >59:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+67A maintext CODE >62:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+67F maintext CODE >65:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+687 maintext CODE >69:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+68C maintext CODE >74:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+697 maintext CODE >79:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+69F maintext CODE >80:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6A1 maintext CODE >83:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6AB maintext CODE >84:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6AF maintext CODE >86:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6B9 maintext CODE >87:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6BB maintext CODE >87:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6C4 maintext CODE >87:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6C8 maintext CODE >87:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6CC maintext CODE >88:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6D6 maintext CODE >89:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6E4 maintext CODE >90:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6E8 maintext CODE >90:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6F1 maintext CODE >90:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+6F5 maintext CODE >90:C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -340,17 +349,20 @@ $dist/default/production\NRF.X.production.o
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\NRF.X.production.o
 nrf_setup@payload_size 7C 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
 __LdataBANK1 0 0 ABS 0 dataBANK1 -
 __Hspace_0 800 0 ABS 0 - -
-__Hspace_1 1D0 0 ABS 0 - -
+__Hspace_1 ED 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
 __HidataBANK1 0 0 ABS 0 idataBANK1 -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-main@buffer_216 190 0 BANK3 1 cstackBANK3 dist/default/production\NRF.X.production.o
 _BF 4A0 0 ABS 0 - dist/default/production\NRF.X.production.o
 __L__absolute__ 0 0 ABS 0 __absolute__ -
+main@i E6 0 BANK1 1 cstackBANK1 dist/default/production\NRF.X.production.o
+main@j E8 0 BANK1 1 cstackBANK1 dist/default/production\NRF.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _BRGH 4C2 0 ABS 0 - dist/default/production\NRF.X.production.o
 _CREN C4 0 ABS 0 - dist/default/production\NRF.X.production.o
@@ -359,82 +371,86 @@ _SPEN C7 0 ABS 0 - dist/default/production\NRF.X.production.o
 _SYNC 4C4 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TRMT 4C1 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TXEN 4C5 0 ABS 0 - dist/default/production\NRF.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-_main A9E 0 CODE 0 maintext dist/default/production\NRF.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+_main C9E 0 CODE 0 maintext dist/default/production\NRF.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\NRF.X.production.o
-start 0 0 CODE 0 init C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-nrf_read@len 7B 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
+start 0 0 CODE 0 init C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+nrf_write_payload@data 7D 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
 __LidataBANK1 0 0 ABS 0 idataBANK1 -
-__end_of_SPI_write 7F4 0 CODE 0 text12 dist/default/production\NRF.X.production.o
+__end_of_SPI_write 7E0 0 CODE 0 text12 dist/default/production\NRF.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 UART_init@baudrate 26 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 nrf_write_command@NRF_command 71 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+nrf_send@len 20 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 ___aldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\NRF.X.production.o
-nrf_read@data 7C 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\NRF.X.production.o
 UART_init@_XTAL_FREQ 2A 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
-_SPI_write 7D6 0 CODE 0 text12 dist/default/production\NRF.X.production.o
-_UART_write 770 0 CODE 0 text14 dist/default/production\NRF.X.production.o
+_SPI_write 7C2 0 CODE 0 text12 dist/default/production\NRF.X.production.o
+_UART_write 778 0 CODE 0 text14 dist/default/production\NRF.X.production.o
 ___aldiv@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-char_to_binary_string@output 3F 0 BANK0 1 bssBANK0 dist/default/production\NRF.X.production.o
+char_to_binary_string@output 3D 0 BANK0 1 bssBANK0 dist/default/production\NRF.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of_arrcpy 880 0 CODE 0 text4 dist/default/production\NRF.X.production.o
+__end_of_arrcpy 898 0 CODE 0 text4 dist/default/production\NRF.X.production.o
 nrf_command@i 77 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-__end_of___aldiv CD0 0 CODE 0 text16 dist/default/production\NRF.X.production.o
-__end_of_SPI_init_master 770 0 CODE 0 text17 dist/default/production\NRF.X.production.o
-_nrf_flush_rxtx 814 0 CODE 0 text3 dist/default/production\NRF.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-___stacklo 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-__end_of_UART_write 788 0 CODE 0 text14 dist/default/production\NRF.X.production.o
+__end_of___aldiv C9E 0 CODE 0 text16 dist/default/production\NRF.X.production.o
+__end_of_SPI_init_master 778 0 CODE 0 text17 dist/default/production\NRF.X.production.o
+_nrf_flush_rxtx 82C 0 CODE 0 text3 dist/default/production\NRF.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+___stacklo 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+__end_of_UART_write 790 0 CODE 0 text14 dist/default/production\NRF.X.production.o
+main@send_data E3 0 BANK1 1 cstackBANK1 dist/default/production\NRF.X.production.o
 UART_write@data 70 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-start_initialization FA0 0 CODE 0 cinit dist/default/production\NRF.X.production.o
+nrf_set_tx_mode@config 7B 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
+start_initialization F7C 0 CODE 0 cinit dist/default/production\NRF.X.production.o
 nrf_write_register@len 79 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 nrf_write_register@reg 7A 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-_TRISCbits 87 0 ABS 0 - dist/default/production\NRF.X.production.o
 ___aldiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
-nrf_data_available@status 73 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 arrcpy@i 75 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 nrf_command@data 71 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 __pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\NRF.X.production.o
-__pcstackBANK3 190 0 BANK3 1 cstackBANK3 dist/default/production\NRF.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\NRF.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\NRF.X.production.o
+_TRISC3 43B 0 ABS 0 - dist/default/production\NRF.X.production.o
+_TRISC4 43C 0 ABS 0 - dist/default/production\NRF.X.production.o
+_TRISC5 43D 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TRISC6 43E 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TRISC7 43F 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TRISD2 442 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TRISD3 443 0 ABS 0 - dist/default/production\NRF.X.production.o
-_SPI_init_master 758 0 CODE 0 text17 dist/default/production\NRF.X.production.o
+_SPI_init_master 760 0 CODE 0 text17 dist/default/production\NRF.X.production.o
 nrf_read_register@len 79 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 nrf_read_register@reg 7A 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-__end_of_nrf_flush_rxtx 846 0 CODE 0 text3 dist/default/production\NRF.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
+__end_of_nrf_flush_rxtx 85E 0 CODE 0 text3 dist/default/production\NRF.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-__stringbase 24 0 STRING 0 strings dist/default/production\NRF.X.production.o
+__stringbase 10 0 STRING 0 strings dist/default/production\NRF.X.production.o
 __Hmaintext 0 0 ABS 0 maintext -
-__end_of_sprintf E1E 0 CODE 0 text1 dist/default/production\NRF.X.production.o
+__end_of_sprintf A8E 0 CODE 0 text1 dist/default/production\NRF.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
-__Lcinit FA0 0 CODE 0 cinit -
+__Lcinit F7C 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
+__end_of_nrf_set_tx_mode 922 0 CODE 0 text8 dist/default/production\NRF.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 0 0 CODE 0 init -
@@ -453,49 +469,52 @@ __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 -
-__LcstackBANK3 0 0 ABS 0 cstackBANK3 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__end_of_nrf_setup FA0 0 CODE 0 text2 dist/default/production\NRF.X.production.o
+__end_of_nrf_setup F7C 0 CODE 0 text2 dist/default/production\NRF.X.production.o
 _RD2 42 0 ABS 0 - dist/default/production\NRF.X.production.o
 _RD3 43 0 ABS 0 - dist/default/production\NRF.X.production.o
 __S0 800 0 ABS 0 - -
-__S1 1D0 0 ABS 0 - -
+__S1 ED 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_arrcpy 846 0 CODE 0 text4 dist/default/production\NRF.X.production.o
-_nrf_command 8F8 0 CODE 0 text9 dist/default/production\NRF.X.production.o
+_arrcpy 85E 0 CODE 0 text4 dist/default/production\NRF.X.production.o
+nrf_send@data 22 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
+nrf_send@stat 21 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
+_nrf_command 97A 0 CODE 0 text11 dist/default/production\NRF.X.production.o
 nrf_command@NRF_command 75 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-__end_of_nrf_data_available 7D6 0 CODE 0 text10 dist/default/production\NRF.X.production.o
 nrf_write_register@data 78 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-_nrf_setup E1E 0 CODE 0 text2 dist/default/production\NRF.X.production.o
+_nrf_setup DFA 0 CODE 0 text2 dist/default/production\NRF.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 6 0 STRING 0 strings dist/default/production\NRF.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\marti\AppData\Local\Temp\xcAs880.\driver_tmp_17.o
-__pdataBANK1 E0 0 BANK1 1 dataBANK1 dist/default/production\NRF.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\marti\AppData\Local\Temp\xcBs7gc.1\driver_tmp_17.o
+_nrf_set_tx_mode 8DA 0 CODE 0 text8 dist/default/production\NRF.X.production.o
+__end_of_nrf_write_payload 82C 0 CODE 0 text6 dist/default/production\NRF.X.production.o
+__pdataBANK0 47 0 BANK0 1 dataBANK0 dist/default/production\NRF.X.production.o
+__pdataBANK1 EA 0 BANK1 1 dataBANK1 dist/default/production\NRF.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 nrf_write_command@status 72 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-UART_write_text@text 71 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-_nrf_data_available 7BA 0 CODE 0 text10 dist/default/production\NRF.X.production.o
-__ptext10 7BA 0 CODE 0 text10 dist/default/production\NRF.X.production.o
-__ptext11 7F4 0 CODE 0 text11 dist/default/production\NRF.X.production.o
-__ptext12 7D6 0 CODE 0 text12 dist/default/production\NRF.X.production.o
-__ptext13 95A 0 CODE 0 text13 dist/default/production\NRF.X.production.o
-__ptext14 770 0 CODE 0 text14 dist/default/production\NRF.X.production.o
-__ptext15 9C8 0 CODE 0 text15 dist/default/production\NRF.X.production.o
-__ptext16 B96 0 CODE 0 text16 dist/default/production\NRF.X.production.o
-__ptext17 758 0 CODE 0 text17 dist/default/production\NRF.X.production.o
-___aldiv B96 0 CODE 0 text16 dist/default/production\NRF.X.production.o
-__pmaintext A9E 0 CODE 0 maintext dist/default/production\NRF.X.production.o
+UART_write_text@text 74 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
+__ptext10 790 0 CODE 0 text10 dist/default/production\NRF.X.production.o
+__ptext11 97A 0 CODE 0 text11 dist/default/production\NRF.X.production.o
+__ptext12 7C2 0 CODE 0 text12 dist/default/production\NRF.X.production.o
+__ptext13 898 0 CODE 0 text13 dist/default/production\NRF.X.production.o
+__ptext14 778 0 CODE 0 text14 dist/default/production\NRF.X.production.o
+__ptext15 A8E 0 CODE 0 text15 dist/default/production\NRF.X.production.o
+__ptext16 B64 0 CODE 0 text16 dist/default/production\NRF.X.production.o
+__ptext17 760 0 CODE 0 text17 dist/default/production\NRF.X.production.o
+___aldiv B64 0 CODE 0 text16 dist/default/production\NRF.X.production.o
+__pmaintext C9E 0 CODE 0 maintext dist/default/production\NRF.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 arrcpy@dst 74 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 arrcpy@len 71 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 arrcpy@src 70 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 nrf_command@len 72 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-main@data 3C 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
-__end_of_nrf_read_register 7A0 0 CODE 0 text8 dist/default/production\NRF.X.production.o
-__end_of_nrf_write_register 7BA 0 CODE 0 text7 dist/default/production\NRF.X.production.o
+main@F1424 EA 0 BANK1 1 dataBANK1 dist/default/production\NRF.X.production.o
+main@data E0 0 BANK1 1 cstackBANK1 dist/default/production\NRF.X.production.o
+__end_of_nrf_read_register 7A8 0 CODE 0 text10 dist/default/production\NRF.X.production.o
+__end_of_nrf_write_register 7C2 0 CODE 0 text9 dist/default/production\NRF.X.production.o
 nrf_command@status 76 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-__end_of__stringtab 26 0 STRING 0 strings dist/default/production\NRF.X.production.o
+__end_of__stringtab 12 0 STRING 0 strings dist/default/production\NRF.X.production.o
 main@buffer A0 0 BANK1 1 cstackBANK1 dist/default/production\NRF.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
@@ -504,76 +523,75 @@ __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 -
-__HcstackBANK3 0 0 ABS 0 cstackBANK3 -
 __Lend_init 0 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization FF8 0 CODE 0 cinit dist/default/production\NRF.X.production.o
-_RADIO_ADDR E0 0 BANK1 1 dataBANK1 dist/default/production\NRF.X.production.o
+_RADIO_ADDR 47 0 BANK0 1 dataBANK0 dist/default/production\NRF.X.production.o
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 ?___aldiv 70 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-_nrf_write_register 7A0 0 CODE 0 text7 dist/default/production\NRF.X.production.o
+_nrf_write_register 7A8 0 CODE 0 text9 dist/default/production\NRF.X.production.o
+_nrf_write_payload 800 0 CODE 0 text6 dist/default/production\NRF.X.production.o
 __Hreset_vec 0 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__end_of_UART_init A9E 0 CODE 0 text15 dist/default/production\NRF.X.production.o
-__ptext1 CD0 0 CODE 0 text1 dist/default/production\NRF.X.production.o
-__ptext2 E1E 0 CODE 0 text2 dist/default/production\NRF.X.production.o
-__ptext3 814 0 CODE 0 text3 dist/default/production\NRF.X.production.o
-__ptext4 846 0 CODE 0 text4 dist/default/production\NRF.X.production.o
-__ptext5 8BC 0 CODE 0 text5 dist/default/production\NRF.X.production.o
-__ptext6 880 0 CODE 0 text6 dist/default/production\NRF.X.production.o
-__ptext7 7A0 0 CODE 0 text7 dist/default/production\NRF.X.production.o
-__ptext8 788 0 CODE 0 text8 dist/default/production\NRF.X.production.o
-__ptext9 8F8 0 CODE 0 text9 dist/default/production\NRF.X.production.o
+__end_of_UART_init B64 0 CODE 0 text15 dist/default/production\NRF.X.production.o
+__ptext1 9DC 0 CODE 0 text1 dist/default/production\NRF.X.production.o
+__ptext2 DFA 0 CODE 0 text2 dist/default/production\NRF.X.production.o
+__ptext3 82C 0 CODE 0 text3 dist/default/production\NRF.X.production.o
+__ptext4 85E 0 CODE 0 text4 dist/default/production\NRF.X.production.o
+__ptext5 922 0 CODE 0 text5 dist/default/production\NRF.X.production.o
+__ptext6 800 0 CODE 0 text6 dist/default/production\NRF.X.production.o
+__ptext7 7E0 0 CODE 0 text7 dist/default/production\NRF.X.production.o
+__ptext8 8DA 0 CODE 0 text8 dist/default/production\NRF.X.production.o
+__ptext9 7A8 0 CODE 0 text9 dist/default/production\NRF.X.production.o
 nrf_read_register@data 78 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-__end_of_nrf_write_command 814 0 CODE 0 text11 dist/default/production\NRF.X.production.o
+__end_of_nrf_write_command 800 0 CODE 0 text7 dist/default/production\NRF.X.production.o
 ___aldiv@dividend 74 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-_sprintf CD0 0 CODE 0 text1 dist/default/production\NRF.X.production.o
+_sprintf 9DC 0 CODE 0 text1 dist/default/production\NRF.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-nrf_read@clear 7D 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 sprintf@ap 72 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-sprintf@cp 73 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-sprintf@sp 20 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
+sprintf@sp 74 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 __H__absolute__ 0 0 ABS 0 __absolute__ -
+nrf_send@clear 23 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-_UART_init 9C8 0 CODE 0 text15 dist/default/production\NRF.X.production.o
+nrf_write_payload@len 7B 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
+_UART_init A8E 0 CODE 0 text15 dist/default/production\NRF.X.production.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production\NRF.X.production.o
-nrf_set_rx_mode@config 7B 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-_nrf_read_register 788 0 CODE 0 text8 dist/default/production\NRF.X.production.o
-__end_of_nrf_set_rx_mode 8F8 0 CODE 0 text5 dist/default/production\NRF.X.production.o
-__pidataBANK1 74E 0 CODE 0 idataBANK1 dist/default/production\NRF.X.production.o
+_nrf_read_register 790 0 CODE 0 text10 dist/default/production\NRF.X.production.o
+__pidataBANK0 756 0 CODE 0 idataBANK0 dist/default/production\NRF.X.production.o
+__pidataBANK1 750 0 CODE 0 idataBANK1 dist/default/production\NRF.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
 nrf_flush_rxtx@data 7B 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-__end_of_UART_write_text 9C8 0 CODE 0 text13 dist/default/production\NRF.X.production.o
+__end_of_UART_write_text 8DA 0 CODE 0 text13 dist/default/production\NRF.X.production.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\NRF.X.production.o
 nrf_setup@addr 22 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 nrf_setup@data 23 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
 ___aldiv@counter 20 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
-sprintf@c 75 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-sprintf@f 22 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
-__end_of_main B96 0 CODE 0 maintext dist/default/production\NRF.X.production.o
-__end_of_nrf_command 95A 0 CODE 0 text9 dist/default/production\NRF.X.production.o
+sprintf@c 73 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
+sprintf@f 20 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
+__end_of_main DFA 0 CODE 0 maintext dist/default/production\NRF.X.production.o
+__end_of_nrf_command 9DC 0 CODE 0 text11 dist/default/production\NRF.X.production.o
 ?_sprintf 20 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 _RCREG 1A 0 ABS 0 - dist/default/production\NRF.X.production.o
 _SPBRG 99 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TXREG 19 0 ABS 0 - dist/default/production\NRF.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_nrf_read 880 0 CODE 0 text6 dist/default/production\NRF.X.production.o
+_nrf_send 922 0 CODE 0 text5 dist/default/production\NRF.X.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
 __HdataBANK1 0 0 ABS 0 dataBANK1 -
-__end_of_nrf_read 8BC 0 CODE 0 text6 dist/default/production\NRF.X.production.o
-__initialization FA0 0 CODE 0 cinit dist/default/production\NRF.X.production.o
-__pbssBANK0 3F 0 BANK0 1 bssBANK0 dist/default/production\NRF.X.production.o
-_nrf_set_rx_mode 8BC 0 CODE 0 text5 dist/default/production\NRF.X.production.o
-UART_write_text@i 76 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
+__end_of_nrf_send 97A 0 CODE 0 text5 dist/default/production\NRF.X.production.o
+__initialization F7C 0 CODE 0 cinit dist/default/production\NRF.X.production.o
+__pbssBANK0 3D 0 BANK0 1 bssBANK0 dist/default/production\NRF.X.production.o
+UART_write_text@i 72 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 __pstrings 6 0 STRING 0 strings dist/default/production\NRF.X.production.o
-_nrf_write_command 7F4 0 CODE 0 text11 dist/default/production\NRF.X.production.o
+_nrf_write_command 7E0 0 CODE 0 text7 dist/default/production\NRF.X.production.o
 SPI_write@data 70 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
-_UART_write_text 95A 0 CODE 0 text13 dist/default/production\NRF.X.production.o
+_UART_write_text 898 0 CODE 0 text13 dist/default/production\NRF.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -599,32 +617,32 @@ _UART_write_text 95A 0 CODE 0 text13 dist/default/production\NRF.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7D0 FA0 30 2
-text1 0 668 CD0 A7 2
-text2 0 70F E1E C1 2
-text3 0 40A 814 19 2
-text4 0 423 846 1D 2
-text5 0 45E 8BC 1E 2
-text6 0 440 880 1E 2
-text7 0 3D0 7A0 D 2
-text8 0 3C4 788 C 2
-text9 0 47C 8F8 31 2
-text10 0 3DD 7BA E 2
-text11 0 3FA 7F4 10 2
-text12 0 3EB 7D6 F 2
-text13 0 4AD 95A 37 2
-text14 0 3B8 770 C 2
-text15 0 4E4 9C8 6B 2
-text16 0 5CB B96 9D 2
-text17 0 3AC 758 C 2
-maintext 0 54F A9E 7C 2
+cinit 0 7BE F7C 42 2
+text1 0 4EE 9DC 59 2
+text2 0 6FD DFA C1 2
+text3 0 416 82C 19 2
+text4 0 42F 85E 1D 2
+text5 0 491 922 2C 2
+text6 0 400 800 16 2
+text7 0 3F0 7E0 10 2
+text8 0 46D 8DA 24 2
+text9 0 3D4 7A8 D 2
+text10 0 3C8 790 C 2
+text11 0 4BD 97A 31 2
+text12 0 3E1 7C2 F 2
+text13 0 44C 898 21 2
+text14 0 3BC 778 C 2
+text15 0 547 A8E 6B 2
+text16 0 5B2 B64 9D 2
+text17 0 3B0 760 C 2
+maintext 0 64F C9E AE 2
 cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 29 1
-cstackBANK1 1 A0 A0 45 1
-cstackBANK3 1 190 190 40 1
+cstackBANK0 1 20 20 2C 1
+cstackBANK1 1 A0 A0 4D 1
 reset_vec 0 0 0 3 2
-idataBANK1 0 3A7 74E 5 2
-strings 0 3 6 3E 2
+idataBANK0 0 3AB 756 5 2
+idataBANK1 0 3A8 750 3 2
+strings 0 3 6 20 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

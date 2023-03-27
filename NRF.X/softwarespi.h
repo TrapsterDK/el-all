@@ -12,14 +12,50 @@
 extern "C" {
 #endif
 
+/* USER CONFIGURATION */
+#define MISO C4
+#define MOSI C5
+#define SCK C3
+
+/* MACROS */
+// work around for X ## Y which would normally be concatenated before expansion
+#define UNWRAP_CONCAT(X, Y) X##Y
+
+// macro to get the pin and tris register for a given pin
+#define PIN(PIN) UNWRAP_CONCAT(R, PIN)
+#define TRIS(PIN) UNWRAP_CONCAT(TRIS, PIN)
 
     void SPI_init_master(){
-        // Data transmit on rising edge of clock
-        
+        // Set pins as output
+        TRIS(SCK) = 0;
+        TRIS(MOSI) = 0;
+        TRIS(MISO) = 1;
+
+        // low idle
+        PIN(SCK) = 0;
+        PIN(MOSI) = 0;
     }
 
     uint8_t SPI_write(uint8_t data){
+        uint8_t read = 0;
 
+        // Data transmit on rising edge of clock
+        for (uint8_t i = 0; i < 8; i++) {
+            if (data & 0x80) {
+                PIN(MOSI) = 1;
+            } else {
+                PIN(MOSI) = 0;
+            }
+            PIN(SCK) = 1;
+            PIN(SCK) = 0;
+            data <<= 1;
+            read <<= 1;
+            if (PIN(MISO)) {
+                read |= 1;
+            }
+        }
+
+        return read;
     }
 
 #ifdef	__cplusplus

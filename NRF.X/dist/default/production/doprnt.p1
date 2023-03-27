@@ -86,43 +86,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "664
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 664:    goto alldone;
 [e $U 15  ]
-"754
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 754:   case 's':
-[e :U 16 ]
-"760
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 760:     cp = (*(const char * *)__va_arg((*(const char * **)ap), (const char *)0));
-[e = _cp *U -> ( ___va_arg , (. -> *U -> &U _ap `***Cuc `*v -> -> 0 `i `*Cuc `**Cuc ]
-"766
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 766:    if(!cp)
-[e $ ! ! != _cp -> -> 0 `i `*Cuc 17  ]
-"767
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 767:     cp = "(null)";
-[e = _cp :s 1C ]
-[e :U 17 ]
-"803
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 803:    while(*cp)
-[e $U 18  ]
-[e :U 19 ]
-"804
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 804:     ((*sp++ = (*cp++)));
-[e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x *U ++ _cp * -> -> 1 `i `x -> -> # *U _cp `i `x ]
-[e :U 18 ]
-"803
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 803:    while(*cp)
-[e $ != -> *U _cp `i -> 0 `i 19  ]
-[e :U 20 ]
-"805
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 805:    continue;
-[e $U 8  ]
 "810
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 810:   case 'c':
-[e :U 21 ]
+[e :U 16 ]
 "825
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 825:    c = (char)(*(int *)__va_arg((*(int **)ap), (int)0));
 [e = _c -> *U -> ( ___va_arg , (. -> *U -> &U _ap `**i `*v -> 0 `i `*i `uc ]
 "828
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 828:   default:
-[e :U 22 ]
+[e :U 17 ]
 "835
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 835:    ((*sp++ = (c)));
 [e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x _c ]
@@ -135,9 +107,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 12  ]
 [e :U 13 ]
 [e [\ -> = _c *U ++ _f * -> -> 1 `i `x -> -> # *U _f `i `x `i , $ -> 0 `i 14
- , $ -> -> 115 `ui `i 16
- , $ -> -> 99 `ui `i 21
- 22 ]
+ , $ -> -> 99 `ui `i 16
+ 17 ]
 [e :U 12 ]
 "1448
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 1448:   {
@@ -167,4 +138,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\doprnt.c: 1567: }
 [e :UE 6 ]
 }
-[a 1C 40 110 117 108 108 41 0 ]

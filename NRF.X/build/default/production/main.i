@@ -2790,14 +2790,14 @@ extern int printf(const char *, ...);
 # 18 "main.c" 2
 
 # 1 "./spi.h" 1
-# 16 "./spi.h"
+# 30 "./spi.h"
     void SPI_init_master()
     {
         SSPCON = 0b01100001;
         SSPSTAT = 0b01000000;
-        TRISCbits.TRISC5 = 0;
-        TRISCbits.TRISC4 = 1;
-        TRISCbits.TRISC3 = 0;
+        TRISC4 = 1;
+        TRISC5 = 0;
+        TRISC3 = 0;
     }
 
 
@@ -3022,22 +3022,28 @@ int main()
 
 
 
+    nrf_set_tx_mode();
 
 
-    nrf_set_rx_mode();
 
 
     _delay((unsigned long)((2)*(8000000UL/4000.0)));
     while (1)
     {
-# 93 "main.c"
-        while (!nrf_data_available())
-            ;
 
 
-        uint8_t data[3];
-        nrf_read(data, 3);
-        { char buffer[64]; sprintf(buffer, "Recieved %s\n", data); UART_write_text(buffer); };
-
+        uint8_t data[3] = "AB";
+        for (int i = 0; i < 10; i++)
+        {
+            uint8_t send_data[3];
+            arrcpy(send_data, data, 3);
+            for (int j = 0; j < 3 -1; j++)
+            {
+                send_data[j] += i;
+            }
+            nrf_send(send_data, 3);
+            _delay((unsigned long)((500)*(8000000UL/4000.0)));
+        }
+# 101 "main.c"
     }
 }

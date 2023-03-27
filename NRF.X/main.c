@@ -43,7 +43,7 @@ char *char_to_binary_string(char character)
     return output;
 }
 
-//#define sender
+#define sender
 uint8_t RADIO_ADDR[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
 #define PAYLOAD_SIZE 3
 

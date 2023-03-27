@@ -41,17 +41,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2177
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 2177: extern volatile unsigned char SSPSTAT __attribute__((address(0x094)));
 [v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
-"1546
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1546:     struct {
-[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S57 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1545
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1545: typedef union {
-[u S56 `S57 1 ]
-[n S56 . . ]
-"1557
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1557: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
-[v _TRISCbits `VS56 ~T0 @X0 0 e@135 ]
+"4464
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 4464: extern volatile __bit TRISC4 __attribute__((address(0x43C)));
+[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
+"4467
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 4467: extern volatile __bit TRISC5 __attribute__((address(0x43D)));
+[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
+"4461
+[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 4461: extern volatile __bit TRISC3 __attribute__((address(0x43B)));
+[v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
 "843
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 843: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
 [v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
@@ -490,66 +488,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./uart.h: 67:  }
 [e :UE 150 ]
 }
-"16 ./spi.h
-[; ;./spi.h: 16:     void SPI_init_master()
+"30 ./spi.h
+[; ;./spi.h: 30:     void SPI_init_master()
 [v _SPI_init_master `(v ~T0 @X0 1 ef ]
-"17
-[; ;./spi.h: 17:     {
+"31
+[; ;./spi.h: 31:     {
 {
 [e :U _SPI_init_master ]
 [f ]
-"18
-[; ;./spi.h: 18:         SSPCON = 0b01100001;
+"32
+[; ;./spi.h: 32:         SSPCON = 0b01100001;
 [e = _SSPCON -> -> 97 `i `uc ]
-"19
-[; ;./spi.h: 19:         SSPSTAT = 0b01000000;
+"33
+[; ;./spi.h: 33:         SSPSTAT = 0b01000000;
 [e = _SSPSTAT -> -> 64 `i `uc ]
-"20
-[; ;./spi.h: 20:         TRISCbits.TRISC5 = 0;
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-"21
-[; ;./spi.h: 21:         TRISCbits.TRISC4 = 1;
-[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-"22
-[; ;./spi.h: 22:         TRISCbits.TRISC3 = 0;
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-"23
-[; ;./spi.h: 23:     }
+"34
+[; ;./spi.h: 34:         TRISC4 = 1;
+[e = _TRISC4 -> -> 1 `i `b ]
+"35
+[; ;./spi.h: 35:         TRISC5 = 0;
+[e = _TRISC5 -> -> 0 `i `b ]
+"36
+[; ;./spi.h: 36:         TRISC3 = 0;
+[e = _TRISC3 -> -> 0 `i `b ]
+"37
+[; ;./spi.h: 37:     }
 [e :UE 154 ]
 }
-"26
-[; ;./spi.h: 26:     uint8_t SPI_write(uint8_t data)
+"40
+[; ;./spi.h: 40:     uint8_t SPI_write(uint8_t data)
 [v _SPI_write `(uc ~T0 @X0 1 ef1`uc ]
-"27
-[; ;./spi.h: 27:     {
+"41
+[; ;./spi.h: 41:     {
 {
 [e :U _SPI_write ]
-"26
-[; ;./spi.h: 26:     uint8_t SPI_write(uint8_t data)
+"40
+[; ;./spi.h: 40:     uint8_t SPI_write(uint8_t data)
 [v _data `uc ~T0 @X0 1 r1 ]
-"27
-[; ;./spi.h: 27:     {
+"41
+[; ;./spi.h: 41:     {
 [f ]
-"28
-[; ;./spi.h: 28:         SSPBUF = data;
+"42
+[; ;./spi.h: 42:         SSPBUF = data;
 [e = _SSPBUF _data ]
-"29
-[; ;./spi.h: 29:         while (!BF)
+"43
+[; ;./spi.h: 43:         while (!BF)
 [e $U 156  ]
 [e :U 157 ]
-"30
-[; ;./spi.h: 30:             ;
+"44
+[; ;./spi.h: 44:             ;
 [e :U 156 ]
-"29
-[; ;./spi.h: 29:         while (!BF)
+"43
+[; ;./spi.h: 43:         while (!BF)
 [e $ ! _BF 157  ]
 [e :U 158 ]
-"31
-[; ;./spi.h: 31:         return SSPBUF;
+"45
+[; ;./spi.h: 45:         return SSPBUF;
 [e ) _SSPBUF ]
 [e $UE 155  ]
-"32
-[; ;./spi.h: 32:     }
+"46
+[; ;./spi.h: 46:     }
 [e :UE 155 ]
 }
 "95 ./nrf24l01.h
@@ -1117,9 +1115,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "65
 [; ;main.c: 65:     nrf_setup(RADIO_ADDR, 3);
 [e ( _nrf_setup (2 , &U _RADIO_ADDR -> -> 3 `i `uc ]
-"71
-[; ;main.c: 71:     nrf_set_rx_mode();
-[e ( _nrf_set_rx_mode ..  ]
+"69
+[; ;main.c: 69:     nrf_set_tx_mode();
+[e ( _nrf_set_tx_mode ..  ]
 "74
 [; ;main.c: 74:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
@@ -1129,29 +1127,68 @@ Version 4.0 HI-TECH Software Intermediate Code
 "76
 [; ;main.c: 76:     {
 {
-"93
-[; ;main.c: 93:         while (!nrf_data_available())
-[e $U 190  ]
-[e :U 191 ]
-"94
-[; ;main.c: 94:             ;
-[e :U 190 ]
-"93
-[; ;main.c: 93:         while (!nrf_data_available())
-[e $ ! != -> ( _nrf_data_available ..  `i -> 0 `i 191  ]
-[e :U 192 ]
-"97
-[; ;main.c: 97:         uint8_t data[3];
+[v F1424 `uc ~T0 @X0 -> 3 `i s ]
+[i F1424
+:U ..
+"79
+[; ;main.c: 79:         uint8_t data[3] = "AB";
+-> 65 `c
+-> 66 `c
+-> 0 `c
+..
+]
 [v _data `uc ~T0 @X0 -> 3 `i a ]
-"98
-[; ;main.c: 98:         nrf_read(data, 3);
-[e ( _nrf_read (2 , &U _data -> -> 3 `i `uc ]
-"99
-[; ;main.c: 99:         { char buffer[64]; sprintf(buffer, "Recieved %s\n", data); UART_write_text(buffer); };
+[e = _data F1424 ]
+"80
+[; ;main.c: 80:         for (int i = 0; i < 10; i++)
 {
-[v _buffer `uc ~T0 @X0 -> 64 `i a ]
-[e ( _sprintf (1 , (. , &U _buffer :s 3C &U _data ]
-[e ( _UART_write_text (1 &U _buffer ]
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 10 `i 190  ]
+[e $U 191  ]
+[e :U 190 ]
+"81
+[; ;main.c: 81:         {
+{
+"82
+[; ;main.c: 82:             uint8_t send_data[3];
+[v _send_data `uc ~T0 @X0 -> 3 `i a ]
+"83
+[; ;main.c: 83:             arrcpy(send_data, data, 3);
+[e ( _arrcpy (3 , , &U _send_data &U _data -> -> 3 `i `uc ]
+"84
+[; ;main.c: 84:             for (int j = 0; j < 3 -1; j++)
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j - -> 3 `i -> 1 `i 193  ]
+[e $U 194  ]
+[e :U 193 ]
+"85
+[; ;main.c: 85:             {
+{
+"86
+[; ;main.c: 86:                 send_data[j] += i;
+[e =+ *U + &U _send_data * -> -> _j `ui `ux -> -> # *U &U _send_data `ui `ux -> _i `uc ]
+"87
+[; ;main.c: 87:             }
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j - -> 3 `i -> 1 `i 193  ]
+[e :U 194 ]
+}
+"88
+[; ;main.c: 88:             nrf_send(send_data, 3);
+[e ( _nrf_send (2 , &U _send_data -> -> 3 `i `uc ]
+"89
+[; ;main.c: 89:             _delay((unsigned long)((500)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"90
+[; ;main.c: 90:         }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 10 `i 190  ]
+[e :U 191 ]
 }
 "101
 [; ;main.c: 101:     }
@@ -1163,7 +1200,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 102: }
 [e :UE 186 ]
 }
-[p f _sprintf 9175040 ]
-[a 3C 82 101 99 105 101 118 101 100 32 37 115 10 0 ]
+[p f _sprintf 8912896 ]
 [a 1C 37 99 37 99 37 99 37 99 37 99 37 99 37 99 37 99 10 0 ]
 [a 2C 66 79 79 84 69 68 10 0 ]

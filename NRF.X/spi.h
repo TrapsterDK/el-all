@@ -12,14 +12,28 @@
 extern "C"
 {
 #endif
+
+/* USER CONFIGURATION */
+#define MISO C4
+#define MOSI C5
+#define SCK C3
+
+/* MACROS */
+// work around for X ## Y which would normally be concatenated before expansion
+#define UNWRAP_CONCAT(X, Y) X##Y
+
+// macro to get the pin and tris register for a given pin
+#define PIN(PIN) UNWRAP_CONCAT(R, PIN)
+#define TRIS(PIN) UNWRAP_CONCAT(TRIS, PIN)
+
     // initialize the spi, as master
     void SPI_init_master()
     {
         SSPCON = 0b01100001; // pg 75/234
         SSPSTAT = 0b01000000; // CKE = 1 must be rising edge
-        TRISCbits.TRISC5 = 0; // p77
-        TRISCbits.TRISC4 = 1; // p77
-        TRISCbits.TRISC3 = 0;
+        TRIS(MISO) = 1;
+        TRIS(MOSI) = 0;
+        TRIS(SCK) = 0;
     }
 
     // write a byte to the spi
