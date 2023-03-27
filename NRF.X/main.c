@@ -43,7 +43,7 @@ char *char_to_binary_string(char character)
     return output;
 }
 
-// #define sender
+//#define sender
 uint8_t RADIO_ADDR[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
 #define PAYLOAD_SIZE 3
 
@@ -56,7 +56,7 @@ int main()
     UART_init(9600, _XTAL_FREQ);
 
     // print a message to the uart
-    UART_write_text("BOOTED\n");
+    UART_printf("BOOTED\n");
 
     // start spi
     SPI_init_master();
@@ -76,18 +76,18 @@ int main()
     {
         // send data if sender is defined
 #ifdef sender
-        uint8_t data[PAYLOAD_SIZE];
-        arrcpy(data, "AL", PAYLOAD_SIZE);
-        nrf_send(data, PAYLOAD_SIZE);
-        __delay_ms(500);
-
-        arrcpy(data, "Va", PAYLOAD_SIZE);
-        nrf_send(data, PAYLOAD_SIZE);
-        __delay_ms(500);
-
-        arrcpy(data, "TA", PAYLOAD_SIZE);
-        nrf_send(data, PAYLOAD_SIZE);
-        __delay_ms(500);
+        uint8_t data[PAYLOAD_SIZE] = "AB";
+        for (int i = 0; i < 10; i++)
+        {
+            uint8_t send_data[PAYLOAD_SIZE];
+            arrcpy(send_data, data, PAYLOAD_SIZE);
+            for (int j = 0; j < PAYLOAD_SIZE-1; j++)
+            {
+                send_data[j] += i;
+            }
+            nrf_send(send_data, PAYLOAD_SIZE);
+            __delay_ms(500);
+        }
 #else
         // wait for data if sender is not defined
         while (!nrf_data_available())
@@ -96,7 +96,7 @@ int main()
         // read data
         uint8_t data[PAYLOAD_SIZE];
         nrf_read(data, PAYLOAD_SIZE);
-        UART_printf("RX = %s\n", data);
+        UART_printf("Recieved %s\n", data);
 #endif
     }
 }

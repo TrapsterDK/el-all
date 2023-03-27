@@ -29,13 +29,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1133
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"10 C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdarg.h
-[v ___va_start `(*v ~T0 @X0 0 ef ]
-[p i ___va_start ]
-"56 ./uart.h
-[; ;./uart.h: 56:   vsnprintf(buf, 64, fmt, args);
-[v _vsnprintf `(i ~T0 @X0 0 e? ]
-"4179 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
+"4179
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 4179: extern volatile __bit RCIF __attribute__((address(0x65)));
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
 "1140
@@ -47,9 +41,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2177
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 2177: extern volatile unsigned char SSPSTAT __attribute__((address(0x094)));
 [v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
-"3834
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3834: extern volatile __bit CKE __attribute__((address(0x4A6)));
-[v _CKE `Vb ~T0 @X0 0 e@1190 ]
 "1546
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1546:     struct {
 [s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -393,176 +384,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./uart.h: 29:  }
 [e :UE 139 ]
 }
-"31
-[; ;./uart.h: 31:  void UART_write(char data)
+"33
+[; ;./uart.h: 33:  void UART_write(char data)
 [v _UART_write `(v ~T0 @X0 1 ef1`uc ]
-"32
-[; ;./uart.h: 32:  {
+"34
+[; ;./uart.h: 34:  {
 {
 [e :U _UART_write ]
-"31
-[; ;./uart.h: 31:  void UART_write(char data)
-[v _data `uc ~T0 @X0 1 r1 ]
-"32
-[; ;./uart.h: 32:  {
-[f ]
 "33
-[; ;./uart.h: 33:   while (!TRMT)
+[; ;./uart.h: 33:  void UART_write(char data)
+[v _data `uc ~T0 @X0 1 r1 ]
+"34
+[; ;./uart.h: 34:  {
+[f ]
+"35
+[; ;./uart.h: 35:   while (!TRMT)
 [e $U 141  ]
 [e :U 142 ]
-"34
-[; ;./uart.h: 34:    ;
+"36
+[; ;./uart.h: 36:    ;
 [e :U 141 ]
-"33
-[; ;./uart.h: 33:   while (!TRMT)
+"35
+[; ;./uart.h: 35:   while (!TRMT)
 [e $ ! _TRMT 142  ]
 [e :U 143 ]
-"35
-[; ;./uart.h: 35:   TXREG = data;
+"37
+[; ;./uart.h: 37:   TXREG = data;
 [e = _TXREG -> _data `uc ]
-"36
-[; ;./uart.h: 36:  }
+"38
+[; ;./uart.h: 38:  }
 [e :UE 140 ]
 }
-"38
-[; ;./uart.h: 38:  void UART_write_text(char *text)
+"41
+[; ;./uart.h: 41:  void UART_write_text(char *text)
 [v _UART_write_text `(v ~T0 @X0 1 ef1`*uc ]
-"39
-[; ;./uart.h: 39:  {
+"42
+[; ;./uart.h: 42:  {
 {
 [e :U _UART_write_text ]
-"38
-[; ;./uart.h: 38:  void UART_write_text(char *text)
+"41
+[; ;./uart.h: 41:  void UART_write_text(char *text)
 [v _text `*uc ~T0 @X0 1 r1 ]
-"39
-[; ;./uart.h: 39:  {
+"42
+[; ;./uart.h: 42:  {
 [f ]
-"40
-[; ;./uart.h: 40:   for (int i = 0; text[i] != '\0'; i++)
+"43
+[; ;./uart.h: 43:   for (int i = 0; text[i] != '\0'; i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 148  ]
 [e :U 145 ]
-"41
-[; ;./uart.h: 41:    UART_write(text[i]);
+"44
+[; ;./uart.h: 44:    UART_write(text[i]);
 [e ( _UART_write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
 [e ++ _i -> 1 `i ]
 [e :U 148 ]
 [e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 145  ]
 [e :U 146 ]
 }
-"42
-[; ;./uart.h: 42:  }
+"45
+[; ;./uart.h: 45:  }
 [e :UE 144 ]
 }
-"44
-[; ;./uart.h: 44:  void UART_write_array(char *data, int len)
-[v _UART_write_array `(v ~T0 @X0 1 ef2`*uc`i ]
-"45
-[; ;./uart.h: 45:  {
-{
-[e :U _UART_write_array ]
-"44
-[; ;./uart.h: 44:  void UART_write_array(char *data, int len)
-[v _data `*uc ~T0 @X0 1 r1 ]
-[v _len `i ~T0 @X0 1 r2 ]
-"45
-[; ;./uart.h: 45:  {
-[f ]
-"46
-[; ;./uart.h: 46:   for (int i = 0; i < len; i++)
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 153  ]
-[e :U 150 ]
-"47
-[; ;./uart.h: 47:    UART_write(data[i]);
-[e ( _UART_write (1 *U + _data * -> _i `x -> -> # *U _data `i `x ]
-[e ++ _i -> 1 `i ]
-[e :U 153 ]
-[e $ < _i _len 150  ]
-[e :U 151 ]
-}
-"48
-[; ;./uart.h: 48:  }
-[e :UE 149 ]
-}
-"51
-[; ;./uart.h: 51:  void UART_printf(const char *fmt, ...)
-[v _UART_printf `(v ~T0 @X0 1 ev`*Cuc ]
-"52
-[; ;./uart.h: 52:  {
-{
-[e :U _UART_printf ]
-"51
-[; ;./uart.h: 51:  void UART_printf(const char *fmt, ...)
-[v _fmt `*Cuc ~T0 @X0 1 r0 ]
-"52
-[; ;./uart.h: 52:  {
-[f ]
-"53
-[; ;./uart.h: 53:   char buf[64];
-[v _buf `uc ~T0 @X0 -> 64 `i a ]
-"54
-[; ;./uart.h: 54:   va_list args;
-[v _args `*v ~T0 @X0 -> -> 1 `i `ux a ]
-"55
-[; ;./uart.h: 55:   *args = __va_start();
-[e = *U &U _args ( ___va_start ..  ]
 "56
-[; ;./uart.h: 56:   vsnprintf(buf, 64, fmt, args);
-[e ( _vsnprintf , , , &U _buf -> 64 `i _fmt &U _args ]
-"58
-[; ;./uart.h: 58:   UART_write_text(buf);
-[e ( _UART_write_text (1 &U _buf ]
-"59
-[; ;./uart.h: 59:  }
-[e :UE 154 ]
-}
-"61
-[; ;./uart.h: 61:  char UART_data_ready()
+[; ;./uart.h: 56:  char UART_data_ready()
 [v _UART_data_ready `(uc ~T0 @X0 1 ef ]
-"62
-[; ;./uart.h: 62:  {
+"57
+[; ;./uart.h: 57:  {
 {
 [e :U _UART_data_ready ]
 [f ]
-"63
-[; ;./uart.h: 63:   return RCIF;
+"58
+[; ;./uart.h: 58:   return RCIF;
 [e ) -> _RCIF `uc ]
-[e $UE 155  ]
-"64
-[; ;./uart.h: 64:  }
-[e :UE 155 ]
+[e $UE 149  ]
+"59
+[; ;./uart.h: 59:  }
+[e :UE 149 ]
 }
-"66
-[; ;./uart.h: 66:  char UART_read()
+"62
+[; ;./uart.h: 62:  char UART_read()
 [v _UART_read `(uc ~T0 @X0 1 ef ]
-"67
-[; ;./uart.h: 67:  {
+"63
+[; ;./uart.h: 63:  {
 {
 [e :U _UART_read ]
 [f ]
-"68
-[; ;./uart.h: 68:   while (!RCIF)
-[e $U 157  ]
-[e :U 158 ]
-"69
-[; ;./uart.h: 69:    ;
-[e :U 157 ]
-"68
-[; ;./uart.h: 68:   while (!RCIF)
-[e $ ! _RCIF 158  ]
-[e :U 159 ]
-"70
-[; ;./uart.h: 70:   return RCREG;
+"64
+[; ;./uart.h: 64:   while (!RCIF)
+[e $U 151  ]
+[e :U 152 ]
+"65
+[; ;./uart.h: 65:    ;
+[e :U 151 ]
+"64
+[; ;./uart.h: 64:   while (!RCIF)
+[e $ ! _RCIF 152  ]
+[e :U 153 ]
+"66
+[; ;./uart.h: 66:   return RCREG;
 [e ) -> _RCREG `uc ]
-[e $UE 156  ]
-"71
-[; ;./uart.h: 71:  }
-[e :UE 156 ]
+[e $UE 150  ]
+"67
+[; ;./uart.h: 67:  }
+[e :UE 150 ]
 }
 "16 ./spi.h
 [; ;./spi.h: 16:     void SPI_init_master()
@@ -576,23 +502,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./spi.h: 18:         SSPCON = 0b01100001;
 [e = _SSPCON -> -> 97 `i `uc ]
 "19
-[; ;./spi.h: 19:         SSPSTAT = 0b00000000;
-[e = _SSPSTAT -> -> 0 `i `uc ]
+[; ;./spi.h: 19:         SSPSTAT = 0b01000000;
+[e = _SSPSTAT -> -> 64 `i `uc ]
 "20
-[; ;./spi.h: 20:         CKE = 1;
-[e = _CKE -> -> 1 `i `b ]
-"21
-[; ;./spi.h: 21:         TRISCbits.TRISC5 = 0;
+[; ;./spi.h: 20:         TRISCbits.TRISC5 = 0;
 [e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-"22
-[; ;./spi.h: 22:         TRISCbits.TRISC4 = 1;
+"21
+[; ;./spi.h: 21:         TRISCbits.TRISC4 = 1;
 [e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-"23
-[; ;./spi.h: 23:         TRISCbits.TRISC3 = 0;
+"22
+[; ;./spi.h: 22:         TRISCbits.TRISC3 = 0;
 [e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-"24
-[; ;./spi.h: 24:     }
-[e :UE 160 ]
+"23
+[; ;./spi.h: 23:     }
+[e :UE 154 ]
 }
 "26
 [; ;./spi.h: 26:     uint8_t SPI_write(uint8_t data)
@@ -612,22 +535,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _SSPBUF _data ]
 "29
 [; ;./spi.h: 29:         while (!BF)
-[e $U 162  ]
-[e :U 163 ]
+[e $U 156  ]
+[e :U 157 ]
 "30
 [; ;./spi.h: 30:             ;
-[e :U 162 ]
+[e :U 156 ]
 "29
 [; ;./spi.h: 29:         while (!BF)
-[e $ ! _BF 163  ]
-[e :U 164 ]
+[e $ ! _BF 157  ]
+[e :U 158 ]
 "31
 [; ;./spi.h: 31:         return SSPBUF;
 [e ) _SSPBUF ]
-[e $UE 161  ]
+[e $UE 155  ]
 "32
 [; ;./spi.h: 32:     }
-[e :UE 161 ]
+[e :UE 155 ]
 }
 "95 ./nrf24l01.h
 [; ;./nrf24l01.h: 95:     void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len)
@@ -649,8 +572,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 169  ]
-[e :U 166 ]
+[e $U 163  ]
+[e :U 160 ]
 "98
 [; ;./nrf24l01.h: 98:         {
 {
@@ -661,13 +584,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./nrf24l01.h: 100:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 169 ]
-[e $ < -> _i `i -> _len `i 166  ]
-[e :U 167 ]
+[e :U 163 ]
+[e $ < -> _i `i -> _len `i 160  ]
+[e :U 161 ]
 }
 "101
 [; ;./nrf24l01.h: 101:     }
-[e :UE 165 ]
+[e :UE 159 ]
 }
 "105
 [; ;./nrf24l01.h: 105:     uint8_t nrf_command(uint8_t NRF_command, uint8_t *data, uint8_t len)
@@ -696,15 +619,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 174  ]
-[e :U 171 ]
+[e $U 168  ]
+[e :U 165 ]
 "111
 [; ;./nrf24l01.h: 111:             data[i] = SPI_write(data[i]);
 [e = *U + _data * -> _i `ux -> -> # *U _data `ui `ux ( _SPI_write (1 *U + _data * -> _i `ux -> -> # *U _data `ui `ux ]
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 174 ]
-[e $ < -> _i `i -> _len `i 171  ]
-[e :U 172 ]
+[e :U 168 ]
+[e $ < -> _i `i -> _len `i 165  ]
+[e :U 166 ]
 }
 "113
 [; ;./nrf24l01.h: 113:         RD3 = 1;
@@ -712,10 +635,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "115
 [; ;./nrf24l01.h: 115:         return status;
 [e ) _status ]
-[e $UE 170  ]
+[e $UE 164  ]
 "116
 [; ;./nrf24l01.h: 116:     }
-[e :UE 170 ]
+[e :UE 164 ]
 }
 "119
 [; ;./nrf24l01.h: 119:     uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
@@ -735,10 +658,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121
 [; ;./nrf24l01.h: 121:         return nrf_command(reg | 0b00100000, data, len);
 [e ) ( _nrf_command (3 , , -> | -> _reg `i -> 32 `i `uc _data _len ]
-[e $UE 175  ]
+[e $UE 169  ]
 "122
 [; ;./nrf24l01.h: 122:     }
-[e :UE 175 ]
+[e :UE 169 ]
 }
 "125
 [; ;./nrf24l01.h: 125:     uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
@@ -758,10 +681,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "127
 [; ;./nrf24l01.h: 127:         return nrf_command(reg | 0b00000000, data, len);
 [e ) ( _nrf_command (3 , , -> | -> _reg `i -> 0 `i `uc _data _len ]
-[e $UE 176  ]
+[e $UE 170  ]
 "128
 [; ;./nrf24l01.h: 128:     }
-[e :UE 176 ]
+[e :UE 170 ]
 }
 "131
 [; ;./nrf24l01.h: 131:     uint8_t nrf_write_payload(uint8_t *data, uint8_t len)
@@ -792,7 +715,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RD2 -> -> 0 `i `b ]
 "137
 [; ;./nrf24l01.h: 137:     }
-[e :UE 177 ]
+[e :UE 171 ]
 }
 "140
 [; ;./nrf24l01.h: 140:     uint8_t nrf_write_command(uint8_t NRF_command)
@@ -820,10 +743,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "145
 [; ;./nrf24l01.h: 145:         return status;
 [e ) _status ]
-[e $UE 178  ]
+[e $UE 172  ]
 "146
 [; ;./nrf24l01.h: 146:     }
-[e :UE 178 ]
+[e :UE 172 ]
 }
 "152
 [; ;./nrf24l01.h: 152:     void nrf_flush_rxtx()
@@ -848,7 +771,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _nrf_write_command (1 -> -> 226 `i `uc ]
 "158
 [; ;./nrf24l01.h: 158:     }
-[e :UE 179 ]
+[e :UE 173 ]
 }
 "162
 [; ;./nrf24l01.h: 162:     void nrf_setup(uint8_t *addr, uint8_t payload_size)
@@ -950,7 +873,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _nrf_flush_rxtx ..  ]
 "201
 [; ;./nrf24l01.h: 201:     }
-[e :UE 180 ]
+[e :UE 174 ]
 }
 "204
 [; ;./nrf24l01.h: 204:     void nrf_set_rx_mode()
@@ -971,11 +894,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RD2 -> -> 1 `i `b ]
 "211
 [; ;./nrf24l01.h: 211:         if (config & 0x01)
-[e $ ! != & -> _config `i -> 1 `i -> 0 `i 182  ]
+[e $ ! != & -> _config `i -> 1 `i -> 0 `i 176  ]
 "212
 [; ;./nrf24l01.h: 212:             return;
-[e $UE 181  ]
-[e :U 182 ]
+[e $UE 175  ]
+[e :U 176 ]
 "214
 [; ;./nrf24l01.h: 214:         config |= 0x01;
 [e =| _config -> -> 1 `i `uc ]
@@ -984,7 +907,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _nrf_write_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
 "216
 [; ;./nrf24l01.h: 216:     }
-[e :UE 181 ]
+[e :UE 175 ]
 }
 "219
 [; ;./nrf24l01.h: 219:     void nrf_set_tx_mode()
@@ -1005,11 +928,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RD2 -> -> 0 `i `b ]
 "226
 [; ;./nrf24l01.h: 226:         if (!(config & 0x01))
-[e $ ! ! != & -> _config `i -> 1 `i -> 0 `i 184  ]
+[e $ ! ! != & -> _config `i -> 1 `i -> 0 `i 178  ]
 "227
 [; ;./nrf24l01.h: 227:             return;
-[e $UE 183  ]
-[e :U 184 ]
+[e $UE 177  ]
+[e :U 178 ]
 "229
 [; ;./nrf24l01.h: 229:         config &= ~0x01;
 [e =& _config -> ~ -> 1 `i `uc ]
@@ -1021,7 +944,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _RD2 -> -> 0 `i `b ]
 "233
 [; ;./nrf24l01.h: 233:     }
-[e :UE 183 ]
+[e :UE 177 ]
 }
 "236
 [; ;./nrf24l01.h: 236:     uint8_t nrf_data_available()
@@ -1038,10 +961,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "239
 [; ;./nrf24l01.h: 239:         return (status & 0x40) != 0;
 [e ) -> -> != & -> _status `i -> 64 `i -> 0 `i `i `uc ]
-[e $UE 185  ]
+[e $UE 179  ]
 "240
 [; ;./nrf24l01.h: 240:     }
-[e :UE 185 ]
+[e :UE 179 ]
 }
 "243
 [; ;./nrf24l01.h: 243:     void nrf_send(uint8_t *data, uint8_t len)
@@ -1068,7 +991,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _stat `uc ~T0 @X0 1 a ]
 "250
 [; ;./nrf24l01.h: 250:         do
-[e :U 189 ]
+[e :U 183 ]
 "251
 [; ;./nrf24l01.h: 251:         {
 {
@@ -1078,8 +1001,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "253
 [; ;./nrf24l01.h: 253:         } while ((stat & 0x20) == 0);
 }
-[e $ == & -> _stat `i -> 32 `i -> 0 `i 189  ]
-[e :U 188 ]
+[e $ == & -> _stat `i -> 32 `i -> 0 `i 183  ]
+[e :U 182 ]
 "256
 [; ;./nrf24l01.h: 256:         uint8_t clear = 0x20;
 [v _clear `uc ~T0 @X0 1 a ]
@@ -1089,7 +1012,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _nrf_write_register (3 , , -> -> 7 `i `uc &U _clear -> -> 1 `i `uc ]
 "258
 [; ;./nrf24l01.h: 258:     }
-[e :UE 186 ]
+[e :UE 180 ]
 }
 "261
 [; ;./nrf24l01.h: 261:     uint8_t nrf_read(uint8_t *data, uint8_t len)
@@ -1122,10 +1045,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "269
 [; ;./nrf24l01.h: 269:         return status;
 [e ) _status ]
-[e $UE 190  ]
+[e $UE 184  ]
 "270
 [; ;./nrf24l01.h: 270:     }
-[e :UE 190 ]
+[e :UE 184 ]
 }
 "37 main.c
 [; ;main.c: 37: char *char_to_binary_string(char character)
@@ -1142,17 +1065,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "39
 [; ;main.c: 39:     static char output[10];
-[v F1430 `uc ~T0 @X0 -> 10 `i s output ]
+[v F1420 `uc ~T0 @X0 -> 10 `i s output ]
 "41
 [; ;main.c: 41:     sprintf(output, "%c%c%c%c%c%c%c%c" "\n", (character & 0x80 ? '1' : '0'), (character & 0x40 ? '1' : '0'), (character & 0x20 ? '1' : '0'), (character & 0x10 ? '1' : '0'), (character & 0x08 ? '1' : '0'), (character & 0x04 ? '1' : '0'), (character & 0x02 ? '1' : '0'), (character & 0x01 ? '1' : '0'));
-[e ( _sprintf (1 , , , , , , , , (. , &U F1430 :s 1C ? != & -> _character `i -> 128 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 64 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 32 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 16 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 8 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 4 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 2 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 1 `i -> 0 `i : -> 49 `ui -> 48 `ui ]
+[e ( _sprintf (1 , , , , , , , , (. , &U F1420 :s 1C ? != & -> _character `i -> 128 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 64 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 32 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 16 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 8 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 4 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 2 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 1 `i -> 0 `i : -> 49 `ui -> 48 `ui ]
 "43
 [; ;main.c: 43:     return output;
-[e ) &U F1430 ]
-[e $UE 191  ]
+[e ) &U F1420 ]
+[e $UE 185  ]
 "44
 [; ;main.c: 44: }
-[e :UE 191 ]
+[e :UE 185 ]
 }
 "47
 [; ;main.c: 47: uint8_t RADIO_ADDR[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
@@ -1182,8 +1105,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 56:     UART_init(9600, 8000000UL);
 [e ( _UART_init (2 , -> -> 9600 `i `l -> -> 8000000 `ul `l ]
 "59
-[; ;main.c: 59:     UART_write_text("BOOTED\n");
-[e ( _UART_write_text (1 :s 2C ]
+[; ;main.c: 59:     { char buffer[64]; sprintf(buffer, "BOOTED\n"); UART_write_text(buffer); };
+{
+[v _buffer `uc ~T0 @X0 -> 64 `i a ]
+[e ( _sprintf (1 , &U _buffer :s 2C ]
+[e ( _UART_write_text (1 &U _buffer ]
+}
 "62
 [; ;main.c: 62:     SPI_init_master();
 [e ( _SPI_init_master ..  ]
@@ -1198,21 +1125,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
 "75
 [; ;main.c: 75:     while (1)
-[e :U 194 ]
+[e :U 188 ]
 "76
 [; ;main.c: 76:     {
 {
 "93
 [; ;main.c: 93:         while (!nrf_data_available())
-[e $U 196  ]
-[e :U 197 ]
+[e $U 190  ]
+[e :U 191 ]
 "94
 [; ;main.c: 94:             ;
-[e :U 196 ]
+[e :U 190 ]
 "93
 [; ;main.c: 93:         while (!nrf_data_available())
-[e $ ! != -> ( _nrf_data_available ..  `i -> 0 `i 197  ]
-[e :U 198 ]
+[e $ ! != -> ( _nrf_data_available ..  `i -> 0 `i 191  ]
+[e :U 192 ]
 "97
 [; ;main.c: 97:         uint8_t data[3];
 [v _data `uc ~T0 @X0 -> 3 `i a ]
@@ -1220,19 +1147,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 98:         nrf_read(data, 3);
 [e ( _nrf_read (2 , &U _data -> -> 3 `i `uc ]
 "99
-[; ;main.c: 99:         UART_printf("RX = %s\n", data);
-[e ( _UART_printf , (. :s 3C &U _data ]
+[; ;main.c: 99:         { char buffer[64]; sprintf(buffer, "Recieved %s\n", data); UART_write_text(buffer); };
+{
+[v _buffer `uc ~T0 @X0 -> 64 `i a ]
+[e ( _sprintf (1 , (. , &U _buffer :s 3C &U _data ]
+[e ( _UART_write_text (1 &U _buffer ]
+}
 "101
 [; ;main.c: 101:     }
 }
-[e :U 193 ]
-[e $U 194  ]
-[e :U 195 ]
+[e :U 187 ]
+[e $U 188  ]
+[e :U 189 ]
 "102
 [; ;main.c: 102: }
-[e :UE 192 ]
+[e :UE 186 ]
 }
-[p f _sprintf 8912896 ]
-[a 3C 82 88 32 61 32 37 115 10 0 ]
+[p f _sprintf 9175040 ]
+[a 3C 82 101 99 105 101 118 101 100 32 37 115 10 0 ]
 [a 1C 37 99 37 99 37 99 37 99 37 99 37 99 37 99 37 99 10 0 ]
 [a 2C 66 79 79 84 69 68 10 0 ]

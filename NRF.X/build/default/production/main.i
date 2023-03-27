@@ -2650,6 +2650,23 @@ extern __bank0 __bit __timeout;
 
 # 1 "./uart.h" 1
 # 16 "./uart.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdarg.h" 1 3
 
 
@@ -2664,20 +2681,7 @@ extern void * __va_start(void);
 
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
-# 16 "./uart.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
-
-
-
-typedef unsigned size_t;
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
-# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
 # 43 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
 struct __prbuf
 {
@@ -2739,7 +2743,8 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 17 "./uart.h" 2
+# 16 "./uart.h" 2
+
 
 
  void UART_init(const long int baudrate, long _XTAL_FREQ)
@@ -2754,6 +2759,8 @@ extern int printf(const char *, ...);
   TXEN = 1;
  }
 
+
+
  void UART_write(char data)
  {
   while (!TRMT)
@@ -2761,33 +2768,18 @@ extern int printf(const char *, ...);
   TXREG = data;
  }
 
+
  void UART_write_text(char *text)
  {
   for (int i = 0; text[i] != '\0'; i++)
    UART_write(text[i]);
  }
-
- void UART_write_array(char *data, int len)
- {
-  for (int i = 0; i < len; i++)
-   UART_write(data[i]);
- }
-
-
- void UART_printf(const char *fmt, ...)
- {
-  char buf[64];
-  va_list args;
-  *args = __va_start();
-  vsnprintf(buf, 64, fmt, args);
-              ;
-  UART_write_text(buf);
- }
-
+# 56 "./uart.h"
  char UART_data_ready()
  {
   return RCIF;
  }
+
 
  char UART_read()
  {
@@ -2802,12 +2794,12 @@ extern int printf(const char *, ...);
     void SPI_init_master()
     {
         SSPCON = 0b01100001;
-        SSPSTAT = 0b00000000;
-        CKE = 1;
+        SSPSTAT = 0b01000000;
         TRISCbits.TRISC5 = 0;
         TRISCbits.TRISC4 = 1;
         TRISCbits.TRISC3 = 0;
     }
+
 
     uint8_t SPI_write(uint8_t data)
     {
@@ -3020,7 +3012,7 @@ int main()
     UART_init(9600, 8000000UL);
 
 
-    UART_write_text("BOOTED\n");
+    { char buffer[64]; sprintf(buffer, "BOOTED\n"); UART_write_text(buffer); };
 
 
     SPI_init_master();
@@ -3045,7 +3037,7 @@ int main()
 
         uint8_t data[3];
         nrf_read(data, 3);
-        UART_printf("RX = %s\n", data);
+        { char buffer[64]; sprintf(buffer, "Recieved %s\n", data); UART_write_text(buffer); };
 
     }
 }

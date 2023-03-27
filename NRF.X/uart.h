@@ -15,6 +15,7 @@ extern "C"
 
 #include <stdio.h>
 
+	// initialize the uart
 	void UART_init(const long int baudrate, long _XTAL_FREQ)
 	{
 		BRGH = 1;												// Setting High Baud Rate
@@ -27,40 +28,37 @@ extern "C"
 		TXEN = 1;												// Enables Transmission
 	}
 
-	//defined macros for UART wrapper around sprintf
-	#define UART_printf(...) \
-	{ \
-		char buffer[100]; \
-		sprintf(buffer, __VA_ARGS__); \
-		UART_write_text(buffer); \
-	}
     
-	/*
+	// write a char to the uart
 	void UART_write(char data)
 	{
 		while (!TRMT)
 			;
 		TXREG = data;
 	}
-
+    
+    // write a string to the uart, null terminated
 	void UART_write_text(char *text)
 	{
 		for (int i = 0; text[i] != '\0'; i++)
 			UART_write(text[i]);
 	}
-
-	void UART_write_array(char *data, int len)
-	{
-		for (int i = 0; i < len; i++)
-			UART_write(data[i]);
+    
+	//defined macros for UART wrapper around sprintf, max 64
+	#define UART_printf(...) \
+	{ \
+		char buffer[64]; \
+		sprintf(buffer, __VA_ARGS__); \
+		UART_write_text(buffer); \
 	}
-	*/
 
+	// check if data is available
 	char UART_data_ready()
 	{
 		return RCIF;
 	}
 
+	// read a char from the uart
 	char UART_read()
 	{
 		while (!RCIF)
