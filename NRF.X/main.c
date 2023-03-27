@@ -5,31 +5,32 @@
  * Created on 26. august 2022, 11:23
  */
 
-#pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
-#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
-#pragma config PWRTE = OFF       // Power-up Timer Enable bit (PWRT enabled)
-#pragma config BOREN = OFF       // Brown-out Reset Enable bit (BOR enabled)
-#pragma config LVP = OFF        // Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit (RB3 is digital I/O, HV on MCLR must be used for programming)
-#pragma config CPD = OFF        // Data EEPROM Memory Code Protection bit (Data EEPROM code protection off)
-#pragma config WRT = OFF        // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
-#pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
+#pragma config FOSC = HS   // Oscillator Selection bits (HS oscillator)
+#pragma config WDTE = OFF  // Watchdog Timer Enable bit (WDT disabled)
+#pragma config PWRTE = OFF // Power-up Timer Enable bit (PWRT enabled)
+#pragma config BOREN = OFF // Brown-out Reset Enable bit (BOR enabled)
+#pragma config LVP = OFF   // Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit (RB3 is digital I/O, HV on MCLR must be used for programming)
+#pragma config CPD = OFF   // Data EEPROM Memory Code Protection bit (Data EEPROM code protection off)
+#pragma config WRT = OFF   // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
+#pragma config CP = OFF    // Flash Program Memory Code Protection bit (Code protection off)
 
 #include <xc.h>
 #include <stdio.h>
 #include "uart.h"
 #include "spi.h"
+#include "stdbool.h"
 
-//https://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
+// https://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
 #define BYTE_TO_BINARY_PATTERN "%c%c%c%c%c%c%c%c"
-#define BYTE_TO_BINARY(byte)  \
-  (byte & 0x80 ? '1' : '0'), \
-  (byte & 0x40 ? '1' : '0'), \
-  (byte & 0x20 ? '1' : '0'), \
-  (byte & 0x10 ? '1' : '0'), \
-  (byte & 0x08 ? '1' : '0'), \
-  (byte & 0x04 ? '1' : '0'), \
-  (byte & 0x02 ? '1' : '0'), \
-  (byte & 0x01 ? '1' : '0') 
+#define BYTE_TO_BINARY(byte)       \
+    (byte & 0x80 ? '1' : '0'),     \
+        (byte & 0x40 ? '1' : '0'), \
+        (byte & 0x20 ? '1' : '0'), \
+        (byte & 0x10 ? '1' : '0'), \
+        (byte & 0x08 ? '1' : '0'), \
+        (byte & 0x04 ? '1' : '0'), \
+        (byte & 0x02 ? '1' : '0'), \
+        (byte & 0x01 ? '1' : '0')
 
 #define _XTAL_FREQ 8000000UL
 
@@ -91,195 +92,261 @@
 #define COMMAND_W_TX_PAYLOAD_NO_ATK 0b10110000
 
 // followed by 0 bytes
-#define COMMAND_NOP 0b11111111 
+#define COMMAND_NOP 0b11111111
 
-#define READ_REGISTER(regi) (COMMAND_R_REGISTER | regi)
-#define WRITE_REGISTER(regi) (COMMAND_W_REGISTER | regi)
 
-#define DELAY_SPI __delay_us(20);
 
-char* char_to_binary_string(char character){
+uint8_t RXTX_ADDR[3] = {0xB5, 0x23, 0xA5}; // Randomly chosen address
+
+
+
+
+
+// convert a char to a binary string
+char *char_to_binary_string(char character)
+{
     static char output[10];
-    
-    sprintf(output, BYTE_TO_BINARY_PATTERN"\n", BYTE_TO_BINARY(character));
-    
+
+    sprintf(output, BYTE_TO_BINARY_PATTERN "\n", BYTE_TO_BINARY(character));
+
     return output;
 }
 
-uint8_t execute_command(uint8_t reg, uint8_t val)
+// copy an array
+void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len)
 {
-    CSN = 0;
-    SPI_write(reg);
-    DELAY_SPI
-    char ret = SPI_write(val);
-    CSN = 1;
-    return ret;
-}
-
-uint8_t write_command(uint8_t command)
-{
-    CSN = 0;
-    uint8_t ret = SPI_write(command);
-    CSN = 1;
-    return ret;
-}
-
-void write_register(uint8_t reg, uint8_t val)
-{
-    execute_command(reg | COMMAND_W_REGISTER, val);
-}
-
-uint8_t read_register(uint8_t reg)
-{
-    return execute_command(reg | COMMAND_R_REGISTER, COMMAND_NOP);
-}
-
-void write_address(uint8_t reg, uint8_t* addr, uint8_t num)
-{
-    CSN = 0;
-    SPI_write(reg | COMMAND_W_REGISTER);
-    for (uint8_t i=0; i<num; i++)
+    for (uint8_t i = 0; i < len; i++)
     {
-      DELAY_SPI
-      SPI_write(addr[i]);
+        dst[i] = src[i];
     }
-    CSN = 1;
 }
 
-void read_address(uint8_t reg, uint8_t* retaddr, uint8_t num)
+
+
+// write a command followed by data, internal only, returns status
+uint8_t nrf_command(uint8_t command, uint8_t *data, uint8_t len)
 {
     CSN = 0;
-    SPI_write(reg);
-    for (uint8_t i=0; i<num; i++)
-        retaddr[i] = SPI_write(0);
-    CSN = 1;   
+
+    uint8_t status = SPI_write(command);
+    for (uint8_t i = 0; i < len; i++)
+        data[i] = SPI_write(data[i]);
+
+    CSN = 1;
+
+    return status;
 }
 
-void flush_TXRX()
+
+// write to a register, internal only, returns status
+uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
 {
-  //Clear: data RX ready, data sent TX, Max TX retransmits
-  write_register(STATUS, 0x70);
-  write_command(COMMAND_FLUSH_RX);
-  write_command(COMMAND_FLUSH_TX);
+    return nrf_command(reg | COMMAND_W_REGISTER, data, len);
 }
 
 
-uint8_t RXTX_ADDR[3] = { 0xB5, 0x23, 0xA5 };
+// read from a register, internal only, returns status
+uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
+{
+    return nrf_command(reg | COMMAND_R_REGISTER, data, len);
+}
 
-void rf_setup(){
+
+// write payload, internal only, returns status
+uint8_t nrf_write_payload(uint8_t *data, uint8_t len)
+{
+    uint8_t status = nrf_write_register(COMMAND_TX_PAYLOAD, data, len);
+    CE = 1;
+    __delay_us(20);
+    CE = 0;
+}
+
+
+// write a command, internal only, returns status
+uint8_t nrf_write_command(uint8_t command)
+{
+    CSN = 0;
+    uint8_t status = SPI_write(command);
+    CSN = 1;
+    return status;
+}
+
+
+// get status register
+#define nrf_get_status() nrf_write_command(COMMAND_NOP)
+
+
+// flush RX and TX FIFOs
+void nrf_flush_rxtx()
+{
+    uint8_t data = 0b01110000; // clear RX_DR, TX_DS, MAX_RT
+    nrf_write_register(REGISTER_STATUS, &data, 1);
+    nrf_write_command(COMMAND_FLUSH_TX);
+    nrf_write_command(COMMAND_FLUSH_RX);
+}
+
+
+#define CONFIG_PRIM_RX 0x01
+
+
+// set as RX mode
+void nrf_set_rx_mode()
+{
+    uint8_t config;
+    nrf_read_register(REGISTER_CONFIG, &config, 1);
+
+    CE = 1; 
+
+    if (config & CONFIG_PRIM_RX)
+        return;
+
+    config |= CONFIG_PRIM_RX;
+    nrf_write_register(REGISTER_CONFIG, &config, 1);
+}
+
+
+// set as TX mode
+void nrf_set_tx_mode()
+{
+    uint8_t config;
+    nrf_read_register(REGISTER_CONFIG, &config, 1);
+
+    if (!(config & CONFIG_PRIM_RX))
+        return;
+
+    config &= ~CONFIG_PRIM_RX;
+    nrf_write_register(REGISTER_CONFIG, &config, 1);
+
+    CE = 0;
+}
+
+
+// check if data is available
+uint8_t nrf_data_available()
+{
+    uint8_t status = nrf_get_status();
+    return (status & 0x40) != 0;
+}
+
+
+// setup the nRF24L01
+void nrf_setup()
+{
     CSN = 1;
     CE = 0;
-    
-    __delay_ms(2);
-        
-    write_register(REGISTER_CONFIG, 0x0B);         //1 BYTE CRC, POWER UP, PRX
-    write_register(REGISTER_EN_AA, 0x00);          //Disable auto ack
-    write_register(REGISTER_EN_RXADDR, 0x01);      //Enable data pipe 0
-    write_register(REGISTER_SETUP_AW, 0x01);       //3 BYTE address
-    write_register(REGISTER_SETUP_RETR, 0x00);     //Retransmit disabled
-    write_register(REGISTER_RF_CH, 0x01);          //Randomly chosen RF channel
-    write_register(REGISTER_RF_SETUP, 0x26);       //250kbps, 0dBm
-    write_register(REGISTER_PX_PW_P0, 0x01);       //RX payload = 1 BYTE
-   
-    write_address(REGISTER_RX_ADDR_P0, RXTX_ADDR, 3);
-    write_address(REGISTER_TX_ADDR, RXTX_ADDR, 3);
 
-    flush_TXRX();
+    // give the nRF24L01 time to set up:
+    __delay_ms(2);
+
+    uint8_t data[5];
+
+    data[0] = 0x0B;
+    nrf_write_register(REGISTER_CONFIG, &data, 1); // 1 byte CRC, POWER UP, PRX
+    data[0] = 0x00;
+    nrf_write_register(REGISTER_EN_AA, &data, 1); // Disable auto ack
+    data[0] = 0x01;
+    nrf_write_register(REGISTER_EN_RXADDR, &data, 1); // Enable data pipe 0
+    data[0] = 0x01;
+    nrf_write_register(REGISTER_SETUP_AW, &data, 1); // 3 byte address
+    data[0] = 0x00;
+    nrf_write_register(REGISTER_SETUP_RETR, &data, 1); // Retransmit disabled
+    data[0] = 0x01;
+    nrf_write_register(REGISTER_RF_CH, &data, 1); // Randomly chosen RF channel
+    data[0] = 0x26;
+    nrf_write_register(REGISTER_RF_SETUP, &data, 1); // 250kbps, 0dBm
+    data[0] = 0x01;
+    nrf_write_register(REGISTER_PX_PW_P0, &data, 1); // RX payload = 1 byte
+
+    arrcpy(data, RXTX_ADDR, sizeof(RXTX_ADDR));
+    nrf_write_register(REGISTER_RX_ADDR_P0, data, sizeof(RXTX_ADDR));
+
+    arrcpy(data, RXTX_ADDR, sizeof(RXTX_ADDR));
+    nrf_write_register(REGISTER_TX_ADDR, data, sizeof(RXTX_ADDR));
+
+    nrf_flush_rxtx();
+
     UART_Write_Text("Init\n");
 }
 
-void RX_mode()
+
+// send a char
+void nrf_tx_char(uint8_t ch)
 {
-    write_register(REGISTER_CONFIG, 0x0B);         //1 byte CRC, POWER UP, PRX
-    CE = 1;
-}
+    nrf_write_payload(&ch, 1);
 
-void TX_mode()
-{
-    CE = 0;
-    write_register(REGISTER_CONFIG, 0x0A);         //1 byte CRC, POWER UP, PTX
-}
-
-void write_tx_payload(uint8_t num, uint8_t* data)
-{
-    write_address(COMMAND_TX_PAYLOAD, data, num);
-
-    CE = 1;
-    __delay_us(11);
-    CE = 0;
-}
-
-uint8_t RXChar()
-{
-    uint8_t data;
-    read_address(COMMAND_RX_PAYLOAD, &data, 1);
-    //Clear status bit
-    write_register(REGISTER_STATUS, 0x40);
-    return data;
-}
-
-void TXChar(uint8_t ch)
-{
-    write_tx_payload(1, &ch);
-
-    //Wait for char to be sent
+    // Wait for char to be sent
     uint8_t stat;
     do
     {
-        stat = write_command(COMMAND_NOP);
+        stat = nrf_get_status();
     } while ((stat & 0x20) == 0);
 
-    //Clear status bit
-    write_register(STATUS, 0x20);
+    // Clear status bit
+    uint8_t data = 0x20;
+    nrf_write_register(REGISTER_STATUS, &data, 1);
 }
 
-uint8_t ReadDataAvailable()
+// receive a char
+uint8_t nrf_rx_char()
 {
-    if (CE == 0)
-        return 0;
-
-    uint8_t stat = write_command(COMMAND_NOP);
-    return (stat & 0x40) != 0;
+    uint8_t data;
+    nrf_read_register(COMMAND_RX_PAYLOAD, &data, 1);
+    // Clear status bit
+    uint8_t clear = 0x40;
+    nrf_write_register(REGISTER_STATUS, &clear, 1);
+    return data;
 }
 
-uint8_t SendChar(char* args)
+
+void SendChar(char *args)
 {
-    uint8_t charReceived = 0;
-    TXChar(args[0]);
-    TX_mode();
-    UART_Write_Text("SENT\n");
-    return charReceived;
+    nrf_set_tx_mode();
+    nrf_tx_char(args[0]);
+    UART_Write_Text("Char sent\n");
 }
 
 void ReceiveChar()
 {
-    RX_mode();  
-    uint8_t ch = RXChar();
+    nrf_set_rx_mode();
+    uint8_t ch = nrf_rx_char();
+    UART_Write_Text("RX = ");
     UART_Write(ch);
-    UART_Write_Text("R\n");
+    UART_Write_Text("\n");
 }
 
-
-
 int main()
-{   
+{
     TRISDbits.TRISD2 = 0;
     TRISDbits.TRISD3 = 0;
 
+    OSCCONbits.IRCF = 111;
+
+    UART_Init(9600, _XTAL_FREQ);
+
     UART_Write_Text("BOOTED\n");
 
-    OSCCONbits.IRCF = 111;
-    
-    UART_Init(9600, _XTAL_FREQ);
- 
     SPI_init_master();
-    
-    rf_setup();
-    
+
+    __delay_ms(10);
+    nrf_setup();
+
     __delay_ms(2);
-    while(1){
-        SendChar("a");
-        //ReceiveChar();
+#define sender
+    while (1)
+    {
+#ifdef sender
+        SendChar("K");
         __delay_ms(500);
+        SendChar("V");
+        __delay_ms(500);
+        SendChar("B");
+        __delay_ms(500);
+        SendChar("L");
+        __delay_ms(500);
+
+#else
+        ReceiveChar();
+        __delay_ms(500);
+#endif
     }
 }

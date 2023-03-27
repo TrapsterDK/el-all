@@ -5,7 +5,6 @@
  * Created on 24. august 2022, 13:27
  */
 
-
 #ifndef SPI_H
 #define	SPI_H
 
