@@ -165,12 +165,8 @@ extern "C"
         TRIS(CSN) = 0;
         TRIS(CE) = 0;
 
-        __delay_ms(2);
-
         PIN(CSN) = 1;
         PIN(CE) = 0;
-
-        __delay_ms(2);
 
         uint8_t data[5];
 

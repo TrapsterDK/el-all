@@ -2885,12 +2885,8 @@ extern int printf(const char *, ...);
         TRISD3 = 0;
         TRISD2 = 0;
 
-        _delay((unsigned long)((2)*(8000000UL/4000.0)));
-
         RD3 = 1;
         RD2 = 0;
-
-        _delay((unsigned long)((2)*(8000000UL/4000.0)));
 
         uint8_t data[5];
 
@@ -3027,7 +3023,6 @@ int main()
 
 
 
-    _delay((unsigned long)((2)*(8000000UL/4000.0)));
     while (1)
     {
 
@@ -3044,6 +3039,6 @@ int main()
             nrf_send(send_data, 3);
             _delay((unsigned long)((500)*(8000000UL/4000.0)));
         }
-# 101 "main.c"
+# 100 "main.c"
     }
 }

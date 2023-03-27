@@ -71,7 +71,6 @@ int main()
     nrf_set_rx_mode();
 #endif
 
-    __delay_ms(2);
     while (1)
     {
         // send data if sender is defined
