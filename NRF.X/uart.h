@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   uart.h
  * Author: marti
  *
@@ -6,56 +6,70 @@
  */
 
 #ifndef UART_H
-#define	UART_H
+#define UART_H
 
-#ifdef	__cplusplus
-extern "C" {
+#ifdef __cplusplus
+extern "C"
+{
 #endif
 
-void UART_init(const long int baudrate, long _XTAL_FREQ)
-{
-    BRGH = 1;                                     //Setting High Baud Rate
-    SPBRG = (_XTAL_FREQ - baudrate*16)/(baudrate*16);                                    //Writing SPBRG Register
-    SYNC = 0;                                     //Setting Asynchronous Mode, ie UART
-    SPEN = 1;                                     //Enables Serial Port
-    TRISC7 = 1;                                   //As Prescribed in Datasheet
-    TRISC6 = 1;                                   //As Prescribed in Datasheet
-    CREN = 1;                                     //Enables Continuous Reception
-    TXEN = 1;                                     //Enables Transmission
-}
+#include <stdio.h>
 
-void UART_write(char data)
-{
-  while(!TRMT);
-  TXREG = data;
-}
+	void UART_init(const long int baudrate, long _XTAL_FREQ)
+	{
+		BRGH = 1;												// Setting High Baud Rate
+		SPBRG = (_XTAL_FREQ - baudrate * 16) / (baudrate * 16); // Writing SPBRG Register
+		SYNC = 0;												// Setting Asynchronous Mode, ie UART
+		SPEN = 1;												// Enables Serial Port
+		TRISC7 = 1;												// As Prescribed in Datasheet
+		TRISC6 = 1;												// As Prescribed in Datasheet
+		CREN = 1;												// Enables Continuous Reception
+		TXEN = 1;												// Enables Transmission
+	}
 
-void UART_write_text(char *text)
-{
-  for(int i=0;text[i]!='\0';i++)
-    UART_write(text[i]);
-}
+	//defined macros for UART wrapper around sprintf
+	#define UART_printf(...) \
+	{ \
+		char buffer[100]; \
+		sprintf(buffer, __VA_ARGS__); \
+		UART_write_text(buffer); \
+	}
+    
+	/*
+	void UART_write(char data)
+	{
+		while (!TRMT)
+			;
+		TXREG = data;
+	}
 
-void UART_write_array(char *data, int len)
-{
-  for(int i=0;i<len;i++)
-    UART_write(data[i]);
-}
+	void UART_write_text(char *text)
+	{
+		for (int i = 0; text[i] != '\0'; i++)
+			UART_write(text[i]);
+	}
 
-char UART_data_ready()
-{
-  return RCIF;
-}
+	void UART_write_array(char *data, int len)
+	{
+		for (int i = 0; i < len; i++)
+			UART_write(data[i]);
+	}
+	*/
 
-char UART_read()
-{
-  while(!RCIF);
-  return RCREG;
-}
+	char UART_data_ready()
+	{
+		return RCIF;
+	}
 
-#ifdef	__cplusplus
+	char UART_read()
+	{
+		while (!RCIF)
+			;
+		return RCREG;
+	}
+
+#ifdef __cplusplus
 }
 #endif
 
-#endif	/* UART_H */
-
+#endif /* UART_H */

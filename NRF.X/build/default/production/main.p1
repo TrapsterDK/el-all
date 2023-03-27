@@ -29,7 +29,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1133
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1133: extern volatile unsigned char TXREG __attribute__((address(0x019)));
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"4179
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdarg.h
+[v ___va_start `(*v ~T0 @X0 0 ef ]
+[p i ___va_start ]
+"56 ./uart.h
+[; ;./uart.h: 56:   vsnprintf(buf, 64, fmt, args);
+[v _vsnprintf `(i ~T0 @X0 0 e? ]
+"4179 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 4179: extern volatile __bit RCIF __attribute__((address(0x65)));
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
 "1140
@@ -44,9 +50,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3834
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3834: extern volatile __bit CKE __attribute__((address(0x4A6)));
 [v _CKE `Vb ~T0 @X0 0 e@1190 ]
-"4260
-[; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 4260: extern volatile __bit SMP __attribute__((address(0x4A7)));
-[v _SMP `Vb ~T0 @X0 0 e@1191 ]
 "1546
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1546:     struct {
 [s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -64,9 +67,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3645
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3645: extern volatile __bit BF __attribute__((address(0x4A0)));
 [v _BF `Vb ~T0 @X0 0 e@1184 ]
-"194 C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"4194 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
+"4194
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 4194: extern volatile __bit RD3 __attribute__((address(0x43)));
 [v _RD3 `Vb ~T0 @X0 0 e@67 ]
 "4191
@@ -82,8 +83,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4482
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 4482: extern volatile __bit TRISD2 __attribute__((address(0x442)));
 [v _TRISD2 `Vb ~T0 @X0 0 e@1090 ]
+"194 C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 [p mainexit ]
-"1868
+"1868 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 1868:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
 [n S70 . SCS LTS HTS OSTS IRCF ]
@@ -348,240 +351,781 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"15 ./uart.h
-[; ;./uart.h: 15: void UART_init(const long int baudrate, long _XTAL_FREQ)
+"19 ./uart.h
+[; ;./uart.h: 19:  void UART_init(const long int baudrate, long _XTAL_FREQ)
 [v _UART_init `(v ~T0 @X0 1 ef2`Cl`l ]
-"16
-[; ;./uart.h: 16: {
+"20
+[; ;./uart.h: 20:  {
 {
 [e :U _UART_init ]
-"15
-[; ;./uart.h: 15: void UART_init(const long int baudrate, long _XTAL_FREQ)
+"19
+[; ;./uart.h: 19:  void UART_init(const long int baudrate, long _XTAL_FREQ)
 [v _baudrate `Cl ~T0 @X0 1 r1 ]
 [v __XTAL_FREQ `l ~T0 @X0 1 r2 ]
-"16
-[; ;./uart.h: 16: {
-[f ]
-"17
-[; ;./uart.h: 17:     BRGH = 1;
-[e = _BRGH -> -> 1 `i `b ]
-"18
-[; ;./uart.h: 18:     SPBRG = (_XTAL_FREQ - baudrate*16)/(baudrate*16);
-[e = _SPBRG -> / - __XTAL_FREQ * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `uc ]
-"19
-[; ;./uart.h: 19:     SYNC = 0;
-[e = _SYNC -> -> 0 `i `b ]
 "20
-[; ;./uart.h: 20:     SPEN = 1;
-[e = _SPEN -> -> 1 `i `b ]
+[; ;./uart.h: 20:  {
+[f ]
 "21
-[; ;./uart.h: 21:     TRISC7 = 1;
-[e = _TRISC7 -> -> 1 `i `b ]
+[; ;./uart.h: 21:   BRGH = 1;
+[e = _BRGH -> -> 1 `i `b ]
 "22
-[; ;./uart.h: 22:     TRISC6 = 1;
-[e = _TRISC6 -> -> 1 `i `b ]
+[; ;./uart.h: 22:   SPBRG = (_XTAL_FREQ - baudrate * 16) / (baudrate * 16);
+[e = _SPBRG -> / - __XTAL_FREQ * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `uc ]
 "23
-[; ;./uart.h: 23:     CREN = 1;
-[e = _CREN -> -> 1 `i `b ]
+[; ;./uart.h: 23:   SYNC = 0;
+[e = _SYNC -> -> 0 `i `b ]
 "24
-[; ;./uart.h: 24:     TXEN = 1;
-[e = _TXEN -> -> 1 `i `b ]
+[; ;./uart.h: 24:   SPEN = 1;
+[e = _SPEN -> -> 1 `i `b ]
 "25
-[; ;./uart.h: 25: }
+[; ;./uart.h: 25:   TRISC7 = 1;
+[e = _TRISC7 -> -> 1 `i `b ]
+"26
+[; ;./uart.h: 26:   TRISC6 = 1;
+[e = _TRISC6 -> -> 1 `i `b ]
+"27
+[; ;./uart.h: 27:   CREN = 1;
+[e = _CREN -> -> 1 `i `b ]
+"28
+[; ;./uart.h: 28:   TXEN = 1;
+[e = _TXEN -> -> 1 `i `b ]
+"29
+[; ;./uart.h: 29:  }
 [e :UE 139 ]
 }
-"27
-[; ;./uart.h: 27: void UART_write(char data)
+"31
+[; ;./uart.h: 31:  void UART_write(char data)
 [v _UART_write `(v ~T0 @X0 1 ef1`uc ]
-"28
-[; ;./uart.h: 28: {
+"32
+[; ;./uart.h: 32:  {
 {
 [e :U _UART_write ]
-"27
-[; ;./uart.h: 27: void UART_write(char data)
+"31
+[; ;./uart.h: 31:  void UART_write(char data)
 [v _data `uc ~T0 @X0 1 r1 ]
-"28
-[; ;./uart.h: 28: {
+"32
+[; ;./uart.h: 32:  {
 [f ]
-"29
-[; ;./uart.h: 29:   while(!TRMT);
+"33
+[; ;./uart.h: 33:   while (!TRMT)
 [e $U 141  ]
 [e :U 142 ]
+"34
+[; ;./uart.h: 34:    ;
 [e :U 141 ]
+"33
+[; ;./uart.h: 33:   while (!TRMT)
 [e $ ! _TRMT 142  ]
 [e :U 143 ]
-"30
-[; ;./uart.h: 30:   TXREG = data;
+"35
+[; ;./uart.h: 35:   TXREG = data;
 [e = _TXREG -> _data `uc ]
-"31
-[; ;./uart.h: 31: }
+"36
+[; ;./uart.h: 36:  }
 [e :UE 140 ]
 }
-"33
-[; ;./uart.h: 33: void UART_write_text(char *text)
+"38
+[; ;./uart.h: 38:  void UART_write_text(char *text)
 [v _UART_write_text `(v ~T0 @X0 1 ef1`*uc ]
-"34
-[; ;./uart.h: 34: {
+"39
+[; ;./uart.h: 39:  {
 {
 [e :U _UART_write_text ]
-"33
-[; ;./uart.h: 33: void UART_write_text(char *text)
+"38
+[; ;./uart.h: 38:  void UART_write_text(char *text)
 [v _text `*uc ~T0 @X0 1 r1 ]
-"34
-[; ;./uart.h: 34: {
+"39
+[; ;./uart.h: 39:  {
 [f ]
-"35
-[; ;./uart.h: 35:   for(int i=0;text[i]!='\0';i++)
+"40
+[; ;./uart.h: 40:   for (int i = 0; text[i] != '\0'; i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 148  ]
 [e :U 145 ]
-"36
-[; ;./uart.h: 36:     UART_write(text[i]);
+"41
+[; ;./uart.h: 41:    UART_write(text[i]);
 [e ( _UART_write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
 [e ++ _i -> 1 `i ]
 [e :U 148 ]
 [e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 145  ]
 [e :U 146 ]
 }
-"37
-[; ;./uart.h: 37: }
+"42
+[; ;./uart.h: 42:  }
 [e :UE 144 ]
 }
-"39
-[; ;./uart.h: 39: void UART_write_array(char *data, int len)
+"44
+[; ;./uart.h: 44:  void UART_write_array(char *data, int len)
 [v _UART_write_array `(v ~T0 @X0 1 ef2`*uc`i ]
-"40
-[; ;./uart.h: 40: {
+"45
+[; ;./uart.h: 45:  {
 {
 [e :U _UART_write_array ]
-"39
-[; ;./uart.h: 39: void UART_write_array(char *data, int len)
+"44
+[; ;./uart.h: 44:  void UART_write_array(char *data, int len)
 [v _data `*uc ~T0 @X0 1 r1 ]
 [v _len `i ~T0 @X0 1 r2 ]
-"40
-[; ;./uart.h: 40: {
+"45
+[; ;./uart.h: 45:  {
 [f ]
-"41
-[; ;./uart.h: 41:   for(int i=0;i<len;i++)
+"46
+[; ;./uart.h: 46:   for (int i = 0; i < len; i++)
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 153  ]
 [e :U 150 ]
-"42
-[; ;./uart.h: 42:     UART_write(data[i]);
+"47
+[; ;./uart.h: 47:    UART_write(data[i]);
 [e ( _UART_write (1 *U + _data * -> _i `x -> -> # *U _data `i `x ]
 [e ++ _i -> 1 `i ]
 [e :U 153 ]
 [e $ < _i _len 150  ]
 [e :U 151 ]
 }
-"43
-[; ;./uart.h: 43: }
+"48
+[; ;./uart.h: 48:  }
 [e :UE 149 ]
 }
-"45
-[; ;./uart.h: 45: char UART_data_ready()
+"51
+[; ;./uart.h: 51:  void UART_printf(const char *fmt, ...)
+[v _UART_printf `(v ~T0 @X0 1 ev`*Cuc ]
+"52
+[; ;./uart.h: 52:  {
+{
+[e :U _UART_printf ]
+"51
+[; ;./uart.h: 51:  void UART_printf(const char *fmt, ...)
+[v _fmt `*Cuc ~T0 @X0 1 r0 ]
+"52
+[; ;./uart.h: 52:  {
+[f ]
+"53
+[; ;./uart.h: 53:   char buf[64];
+[v _buf `uc ~T0 @X0 -> 64 `i a ]
+"54
+[; ;./uart.h: 54:   va_list args;
+[v _args `*v ~T0 @X0 -> -> 1 `i `ux a ]
+"55
+[; ;./uart.h: 55:   *args = __va_start();
+[e = *U &U _args ( ___va_start ..  ]
+"56
+[; ;./uart.h: 56:   vsnprintf(buf, 64, fmt, args);
+[e ( _vsnprintf , , , &U _buf -> 64 `i _fmt &U _args ]
+"58
+[; ;./uart.h: 58:   UART_write_text(buf);
+[e ( _UART_write_text (1 &U _buf ]
+"59
+[; ;./uart.h: 59:  }
+[e :UE 154 ]
+}
+"61
+[; ;./uart.h: 61:  char UART_data_ready()
 [v _UART_data_ready `(uc ~T0 @X0 1 ef ]
-"46
-[; ;./uart.h: 46: {
+"62
+[; ;./uart.h: 62:  {
 {
 [e :U _UART_data_ready ]
 [f ]
-"47
-[; ;./uart.h: 47:   return RCIF;
+"63
+[; ;./uart.h: 63:   return RCIF;
 [e ) -> _RCIF `uc ]
-[e $UE 154  ]
-"48
-[; ;./uart.h: 48: }
-[e :UE 154 ]
+[e $UE 155  ]
+"64
+[; ;./uart.h: 64:  }
+[e :UE 155 ]
 }
-"50
-[; ;./uart.h: 50: char UART_read()
+"66
+[; ;./uart.h: 66:  char UART_read()
 [v _UART_read `(uc ~T0 @X0 1 ef ]
-"51
-[; ;./uart.h: 51: {
+"67
+[; ;./uart.h: 67:  {
 {
 [e :U _UART_read ]
 [f ]
-"52
-[; ;./uart.h: 52:   while(!RCIF);
-[e $U 156  ]
-[e :U 157 ]
-[e :U 156 ]
-[e $ ! _RCIF 157  ]
+"68
+[; ;./uart.h: 68:   while (!RCIF)
+[e $U 157  ]
 [e :U 158 ]
-"53
-[; ;./uart.h: 53:   return RCREG;
+"69
+[; ;./uart.h: 69:    ;
+[e :U 157 ]
+"68
+[; ;./uart.h: 68:   while (!RCIF)
+[e $ ! _RCIF 158  ]
+[e :U 159 ]
+"70
+[; ;./uart.h: 70:   return RCREG;
 [e ) -> _RCREG `uc ]
-[e $UE 155  ]
-"54
-[; ;./uart.h: 54: }
-[e :UE 155 ]
+[e $UE 156  ]
+"71
+[; ;./uart.h: 71:  }
+[e :UE 156 ]
 }
-"15 ./spi.h
-[; ;./spi.h: 15: void SPI_init_master(){
+"16 ./spi.h
+[; ;./spi.h: 16:     void SPI_init_master()
 [v _SPI_init_master `(v ~T0 @X0 1 ef ]
+"17
+[; ;./spi.h: 17:     {
 {
 [e :U _SPI_init_master ]
 [f ]
-"16
-[; ;./spi.h: 16:     SSPCON = 0b01100001;
-[e = _SSPCON -> -> 97 `i `uc ]
-"17
-[; ;./spi.h: 17:     SSPSTAT = 0b00000000;
-[e = _SSPSTAT -> -> 0 `i `uc ]
 "18
-[; ;./spi.h: 18:     CKE = 1;
-[e = _CKE -> -> 1 `i `b ]
+[; ;./spi.h: 18:         SSPCON = 0b01100001;
+[e = _SSPCON -> -> 97 `i `uc ]
 "19
-[; ;./spi.h: 19:     SMP = 1;
-[e = _SMP -> -> 1 `i `b ]
+[; ;./spi.h: 19:         SSPSTAT = 0b00000000;
+[e = _SSPSTAT -> -> 0 `i `uc ]
 "20
-[; ;./spi.h: 20:     TRISCbits.TRISC5 = 0;
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[; ;./spi.h: 20:         CKE = 1;
+[e = _CKE -> -> 1 `i `b ]
 "21
-[; ;./spi.h: 21:     TRISCbits.TRISC4 = 1;
-[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+[; ;./spi.h: 21:         TRISCbits.TRISC5 = 0;
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
 "22
-[; ;./spi.h: 22:     TRISCbits.TRISC3 = 0;
-[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+[; ;./spi.h: 22:         TRISCbits.TRISC4 = 1;
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
 "23
-[; ;./spi.h: 23: }
-[e :UE 159 ]
+[; ;./spi.h: 23:         TRISCbits.TRISC3 = 0;
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+"24
+[; ;./spi.h: 24:     }
+[e :UE 160 ]
 }
-"25
-[; ;./spi.h: 25: uint8_t SPI_write(uint8_t data)
-[v _SPI_write `(uc ~T0 @X0 1 ef1`uc ]
 "26
-[; ;./spi.h: 26: {
+[; ;./spi.h: 26:     uint8_t SPI_write(uint8_t data)
+[v _SPI_write `(uc ~T0 @X0 1 ef1`uc ]
+"27
+[; ;./spi.h: 27:     {
 {
 [e :U _SPI_write ]
-"25
-[; ;./spi.h: 25: uint8_t SPI_write(uint8_t data)
-[v _data `uc ~T0 @X0 1 r1 ]
 "26
-[; ;./spi.h: 26: {
-[f ]
+[; ;./spi.h: 26:     uint8_t SPI_write(uint8_t data)
+[v _data `uc ~T0 @X0 1 r1 ]
 "27
-[; ;./spi.h: 27:     SSPBUF = data;
-[e = _SSPBUF _data ]
+[; ;./spi.h: 27:     {
+[f ]
 "28
-[; ;./spi.h: 28:     while (!BF);
-[e $U 161  ]
-[e :U 162 ]
-[e :U 161 ]
-[e $ ! _BF 162  ]
-[e :U 163 ]
+[; ;./spi.h: 28:         SSPBUF = data;
+[e = _SSPBUF _data ]
 "29
-[; ;./spi.h: 29:     return SSPBUF;
-[e ) _SSPBUF ]
-[e $UE 160  ]
+[; ;./spi.h: 29:         while (!BF)
+[e $U 162  ]
+[e :U 163 ]
 "30
-[; ;./spi.h: 30: }
-[e :UE 160 ]
+[; ;./spi.h: 30:             ;
+[e :U 162 ]
+"29
+[; ;./spi.h: 29:         while (!BF)
+[e $ ! _BF 163  ]
+[e :U 164 ]
+"31
+[; ;./spi.h: 31:         return SSPBUF;
+[e ) _SSPBUF ]
+[e $UE 161  ]
+"32
+[; ;./spi.h: 32:     }
+[e :UE 161 ]
+}
+"95 ./nrf24l01.h
+[; ;./nrf24l01.h: 95:     void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len)
+[v _arrcpy `(v ~T0 @X0 1 ef3`*uc`*uc`uc ]
+"96
+[; ;./nrf24l01.h: 96:     {
+{
+[e :U _arrcpy ]
+"95
+[; ;./nrf24l01.h: 95:     void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len)
+[v _dst `*uc ~T0 @X0 1 r1 ]
+[v _src `*uc ~T0 @X0 1 r2 ]
+[v _len `uc ~T0 @X0 1 r3 ]
+"96
+[; ;./nrf24l01.h: 96:     {
+[f ]
+"97
+[; ;./nrf24l01.h: 97:         for (uint8_t i = 0; i < len; i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 169  ]
+[e :U 166 ]
+"98
+[; ;./nrf24l01.h: 98:         {
+{
+"99
+[; ;./nrf24l01.h: 99:             dst[i] = src[i];
+[e = *U + _dst * -> _i `ux -> -> # *U _dst `ui `ux *U + _src * -> _i `ux -> -> # *U _src `ui `ux ]
+"100
+[; ;./nrf24l01.h: 100:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 169 ]
+[e $ < -> _i `i -> _len `i 166  ]
+[e :U 167 ]
+}
+"101
+[; ;./nrf24l01.h: 101:     }
+[e :UE 165 ]
+}
+"105
+[; ;./nrf24l01.h: 105:     uint8_t nrf_command(uint8_t NRF_command, uint8_t *data, uint8_t len)
+[v _nrf_command `(uc ~T0 @X0 1 ef3`uc`*uc`uc ]
+"106
+[; ;./nrf24l01.h: 106:     {
+{
+[e :U _nrf_command ]
+"105
+[; ;./nrf24l01.h: 105:     uint8_t nrf_command(uint8_t NRF_command, uint8_t *data, uint8_t len)
+[v _NRF_command `uc ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[v _len `uc ~T0 @X0 1 r3 ]
+"106
+[; ;./nrf24l01.h: 106:     {
+[f ]
+"107
+[; ;./nrf24l01.h: 107:         RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"109
+[; ;./nrf24l01.h: 109:         uint8_t status = SPI_write(NRF_command);
+[v _status `uc ~T0 @X0 1 a ]
+[e = _status ( _SPI_write (1 _NRF_command ]
+"110
+[; ;./nrf24l01.h: 110:         for (uint8_t i = 0; i < len; i++)
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 174  ]
+[e :U 171 ]
+"111
+[; ;./nrf24l01.h: 111:             data[i] = SPI_write(data[i]);
+[e = *U + _data * -> _i `ux -> -> # *U _data `ui `ux ( _SPI_write (1 *U + _data * -> _i `ux -> -> # *U _data `ui `ux ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 174 ]
+[e $ < -> _i `i -> _len `i 171  ]
+[e :U 172 ]
+}
+"113
+[; ;./nrf24l01.h: 113:         RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"115
+[; ;./nrf24l01.h: 115:         return status;
+[e ) _status ]
+[e $UE 170  ]
+"116
+[; ;./nrf24l01.h: 116:     }
+[e :UE 170 ]
+}
+"119
+[; ;./nrf24l01.h: 119:     uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
+[v _nrf_write_register `(uc ~T0 @X0 1 ef3`uc`*uc`uc ]
+"120
+[; ;./nrf24l01.h: 120:     {
+{
+[e :U _nrf_write_register ]
+"119
+[; ;./nrf24l01.h: 119:     uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
+[v _reg `uc ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[v _len `uc ~T0 @X0 1 r3 ]
+"120
+[; ;./nrf24l01.h: 120:     {
+[f ]
+"121
+[; ;./nrf24l01.h: 121:         return nrf_command(reg | 0b00100000, data, len);
+[e ) ( _nrf_command (3 , , -> | -> _reg `i -> 32 `i `uc _data _len ]
+[e $UE 175  ]
+"122
+[; ;./nrf24l01.h: 122:     }
+[e :UE 175 ]
+}
+"125
+[; ;./nrf24l01.h: 125:     uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
+[v _nrf_read_register `(uc ~T0 @X0 1 ef3`uc`*uc`uc ]
+"126
+[; ;./nrf24l01.h: 126:     {
+{
+[e :U _nrf_read_register ]
+"125
+[; ;./nrf24l01.h: 125:     uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
+[v _reg `uc ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[v _len `uc ~T0 @X0 1 r3 ]
+"126
+[; ;./nrf24l01.h: 126:     {
+[f ]
+"127
+[; ;./nrf24l01.h: 127:         return nrf_command(reg | 0b00000000, data, len);
+[e ) ( _nrf_command (3 , , -> | -> _reg `i -> 0 `i `uc _data _len ]
+[e $UE 176  ]
+"128
+[; ;./nrf24l01.h: 128:     }
+[e :UE 176 ]
+}
+"131
+[; ;./nrf24l01.h: 131:     uint8_t nrf_write_payload(uint8_t *data, uint8_t len)
+[v _nrf_write_payload `(uc ~T0 @X0 1 ef2`*uc`uc ]
+"132
+[; ;./nrf24l01.h: 132:     {
+{
+[e :U _nrf_write_payload ]
+"131
+[; ;./nrf24l01.h: 131:     uint8_t nrf_write_payload(uint8_t *data, uint8_t len)
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"132
+[; ;./nrf24l01.h: 132:     {
+[f ]
+"133
+[; ;./nrf24l01.h: 133:         uint8_t status = nrf_write_register(0b10100000, data, len);
+[v _status `uc ~T0 @X0 1 a ]
+[e = _status ( _nrf_write_register (3 , , -> -> 160 `i `uc _data _len ]
+"134
+[; ;./nrf24l01.h: 134:         RD2 = 1;
+[e = _RD2 -> -> 1 `i `b ]
+"135
+[; ;./nrf24l01.h: 135:         _delay((unsigned long)((20)*(8000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
+"136
+[; ;./nrf24l01.h: 136:         RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"137
+[; ;./nrf24l01.h: 137:     }
+[e :UE 177 ]
+}
+"140
+[; ;./nrf24l01.h: 140:     uint8_t nrf_write_command(uint8_t NRF_command)
+[v _nrf_write_command `(uc ~T0 @X0 1 ef1`uc ]
+"141
+[; ;./nrf24l01.h: 141:     {
+{
+[e :U _nrf_write_command ]
+"140
+[; ;./nrf24l01.h: 140:     uint8_t nrf_write_command(uint8_t NRF_command)
+[v _NRF_command `uc ~T0 @X0 1 r1 ]
+"141
+[; ;./nrf24l01.h: 141:     {
+[f ]
+"142
+[; ;./nrf24l01.h: 142:         RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"143
+[; ;./nrf24l01.h: 143:         uint8_t status = SPI_write(NRF_command);
+[v _status `uc ~T0 @X0 1 a ]
+[e = _status ( _SPI_write (1 _NRF_command ]
+"144
+[; ;./nrf24l01.h: 144:         RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"145
+[; ;./nrf24l01.h: 145:         return status;
+[e ) _status ]
+[e $UE 178  ]
+"146
+[; ;./nrf24l01.h: 146:     }
+[e :UE 178 ]
+}
+"152
+[; ;./nrf24l01.h: 152:     void nrf_flush_rxtx()
+[v _nrf_flush_rxtx `(v ~T0 @X0 1 ef ]
+"153
+[; ;./nrf24l01.h: 153:     {
+{
+[e :U _nrf_flush_rxtx ]
+[f ]
+"154
+[; ;./nrf24l01.h: 154:         uint8_t data = 0b01110000;
+[v _data `uc ~T0 @X0 1 a ]
+[e = _data -> -> 112 `i `uc ]
+"155
+[; ;./nrf24l01.h: 155:         nrf_write_register(0x07, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 7 `i `uc &U _data -> -> 1 `i `uc ]
+"156
+[; ;./nrf24l01.h: 156:         nrf_write_command(0b11100001);
+[e ( _nrf_write_command (1 -> -> 225 `i `uc ]
+"157
+[; ;./nrf24l01.h: 157:         nrf_write_command(0b11100010);
+[e ( _nrf_write_command (1 -> -> 226 `i `uc ]
+"158
+[; ;./nrf24l01.h: 158:     }
+[e :UE 179 ]
+}
+"162
+[; ;./nrf24l01.h: 162:     void nrf_setup(uint8_t *addr, uint8_t payload_size)
+[v _nrf_setup `(v ~T0 @X0 1 ef2`*uc`uc ]
+"163
+[; ;./nrf24l01.h: 163:     {
+{
+[e :U _nrf_setup ]
+"162
+[; ;./nrf24l01.h: 162:     void nrf_setup(uint8_t *addr, uint8_t payload_size)
+[v _addr `*uc ~T0 @X0 1 r1 ]
+[v _payload_size `uc ~T0 @X0 1 r2 ]
+"163
+[; ;./nrf24l01.h: 163:     {
+[f ]
+"165
+[; ;./nrf24l01.h: 165:         TRISD3 = 0;
+[e = _TRISD3 -> -> 0 `i `b ]
+"166
+[; ;./nrf24l01.h: 166:         TRISD2 = 0;
+[e = _TRISD2 -> -> 0 `i `b ]
+"168
+[; ;./nrf24l01.h: 168:         _delay((unsigned long)((2)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"170
+[; ;./nrf24l01.h: 170:         RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"171
+[; ;./nrf24l01.h: 171:         RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"173
+[; ;./nrf24l01.h: 173:         _delay((unsigned long)((2)*(8000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
+"175
+[; ;./nrf24l01.h: 175:         uint8_t data[5];
+[v _data `uc ~T0 @X0 -> 5 `i a ]
+"177
+[; ;./nrf24l01.h: 177:         data[0] = 0x0B;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 11 `i `uc ]
+"178
+[; ;./nrf24l01.h: 178:         nrf_write_register(0x00, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 0 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
+"179
+[; ;./nrf24l01.h: 179:         data[0] = 0x00;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 0 `i `uc ]
+"180
+[; ;./nrf24l01.h: 180:         nrf_write_register(0x01, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 1 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
+"181
+[; ;./nrf24l01.h: 181:         data[0] = 0x01;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 1 `i `uc ]
+"182
+[; ;./nrf24l01.h: 182:         nrf_write_register(0x02, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 2 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
+"183
+[; ;./nrf24l01.h: 183:         data[0] = 0x01;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 1 `i `uc ]
+"184
+[; ;./nrf24l01.h: 184:         nrf_write_register(0x03, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 3 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
+"185
+[; ;./nrf24l01.h: 185:         data[0] = 0x00;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 0 `i `uc ]
+"186
+[; ;./nrf24l01.h: 186:         nrf_write_register(0x04, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 4 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
+"187
+[; ;./nrf24l01.h: 187:         data[0] = 0x01;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 1 `i `uc ]
+"188
+[; ;./nrf24l01.h: 188:         nrf_write_register(0x05, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 5 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
+"189
+[; ;./nrf24l01.h: 189:         data[0] = 0x26;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 38 `i `uc ]
+"190
+[; ;./nrf24l01.h: 190:         nrf_write_register(0x06, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 6 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
+"191
+[; ;./nrf24l01.h: 191:         data[0] = payload_size;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux _payload_size ]
+"192
+[; ;./nrf24l01.h: 192:         nrf_write_register(0x11, &data, 1);
+[e ( _nrf_write_register (3 , , -> -> 17 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
+"194
+[; ;./nrf24l01.h: 194:         arrcpy(data, addr, sizeof(addr));
+[e ( _arrcpy (3 , , &U _data _addr -> -> # _addr `ui `uc ]
+"195
+[; ;./nrf24l01.h: 195:         nrf_write_register(0x0A, data, sizeof(addr));
+[e ( _nrf_write_register (3 , , -> -> 10 `i `uc &U _data -> -> # _addr `ui `uc ]
+"197
+[; ;./nrf24l01.h: 197:         arrcpy(data, addr, sizeof(addr));
+[e ( _arrcpy (3 , , &U _data _addr -> -> # _addr `ui `uc ]
+"198
+[; ;./nrf24l01.h: 198:         nrf_write_register(0x10, data, sizeof(addr));
+[e ( _nrf_write_register (3 , , -> -> 16 `i `uc &U _data -> -> # _addr `ui `uc ]
+"200
+[; ;./nrf24l01.h: 200:         nrf_flush_rxtx();
+[e ( _nrf_flush_rxtx ..  ]
+"201
+[; ;./nrf24l01.h: 201:     }
+[e :UE 180 ]
+}
+"204
+[; ;./nrf24l01.h: 204:     void nrf_set_rx_mode()
+[v _nrf_set_rx_mode `(v ~T0 @X0 1 ef ]
+"205
+[; ;./nrf24l01.h: 205:     {
+{
+[e :U _nrf_set_rx_mode ]
+[f ]
+"206
+[; ;./nrf24l01.h: 206:         uint8_t config;
+[v _config `uc ~T0 @X0 1 a ]
+"207
+[; ;./nrf24l01.h: 207:         nrf_read_register(0x00, &config, 1);
+[e ( _nrf_read_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
+"209
+[; ;./nrf24l01.h: 209:         RD2 = 1;
+[e = _RD2 -> -> 1 `i `b ]
+"211
+[; ;./nrf24l01.h: 211:         if (config & 0x01)
+[e $ ! != & -> _config `i -> 1 `i -> 0 `i 182  ]
+"212
+[; ;./nrf24l01.h: 212:             return;
+[e $UE 181  ]
+[e :U 182 ]
+"214
+[; ;./nrf24l01.h: 214:         config |= 0x01;
+[e =| _config -> -> 1 `i `uc ]
+"215
+[; ;./nrf24l01.h: 215:         nrf_write_register(0x00, &config, 1);
+[e ( _nrf_write_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
+"216
+[; ;./nrf24l01.h: 216:     }
+[e :UE 181 ]
+}
+"219
+[; ;./nrf24l01.h: 219:     void nrf_set_tx_mode()
+[v _nrf_set_tx_mode `(v ~T0 @X0 1 ef ]
+"220
+[; ;./nrf24l01.h: 220:     {
+{
+[e :U _nrf_set_tx_mode ]
+[f ]
+"221
+[; ;./nrf24l01.h: 221:         uint8_t config;
+[v _config `uc ~T0 @X0 1 a ]
+"222
+[; ;./nrf24l01.h: 222:         nrf_read_register(0x00, &config, 1);
+[e ( _nrf_read_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
+"224
+[; ;./nrf24l01.h: 224:         RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"226
+[; ;./nrf24l01.h: 226:         if (!(config & 0x01))
+[e $ ! ! != & -> _config `i -> 1 `i -> 0 `i 184  ]
+"227
+[; ;./nrf24l01.h: 227:             return;
+[e $UE 183  ]
+[e :U 184 ]
+"229
+[; ;./nrf24l01.h: 229:         config &= ~0x01;
+[e =& _config -> ~ -> 1 `i `uc ]
+"230
+[; ;./nrf24l01.h: 230:         nrf_write_register(0x00, &config, 1);
+[e ( _nrf_write_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
+"232
+[; ;./nrf24l01.h: 232:         RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"233
+[; ;./nrf24l01.h: 233:     }
+[e :UE 183 ]
+}
+"236
+[; ;./nrf24l01.h: 236:     uint8_t nrf_data_available()
+[v _nrf_data_available `(uc ~T0 @X0 1 ef ]
+"237
+[; ;./nrf24l01.h: 237:     {
+{
+[e :U _nrf_data_available ]
+[f ]
+"238
+[; ;./nrf24l01.h: 238:         uint8_t status = nrf_write_command(0b11111111);
+[v _status `uc ~T0 @X0 1 a ]
+[e = _status ( _nrf_write_command (1 -> -> 255 `i `uc ]
+"239
+[; ;./nrf24l01.h: 239:         return (status & 0x40) != 0;
+[e ) -> -> != & -> _status `i -> 64 `i -> 0 `i `i `uc ]
+[e $UE 185  ]
+"240
+[; ;./nrf24l01.h: 240:     }
+[e :UE 185 ]
+}
+"243
+[; ;./nrf24l01.h: 243:     void nrf_send(uint8_t *data, uint8_t len)
+[v _nrf_send `(v ~T0 @X0 1 ef2`*uc`uc ]
+"244
+[; ;./nrf24l01.h: 244:     {
+{
+[e :U _nrf_send ]
+"243
+[; ;./nrf24l01.h: 243:     void nrf_send(uint8_t *data, uint8_t len)
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"244
+[; ;./nrf24l01.h: 244:     {
+[f ]
+"245
+[; ;./nrf24l01.h: 245:         nrf_set_tx_mode();
+[e ( _nrf_set_tx_mode ..  ]
+"246
+[; ;./nrf24l01.h: 246:         nrf_write_payload(data, len);
+[e ( _nrf_write_payload (2 , _data _len ]
+"249
+[; ;./nrf24l01.h: 249:         uint8_t stat;
+[v _stat `uc ~T0 @X0 1 a ]
+"250
+[; ;./nrf24l01.h: 250:         do
+[e :U 189 ]
+"251
+[; ;./nrf24l01.h: 251:         {
+{
+"252
+[; ;./nrf24l01.h: 252:             stat = nrf_write_command(0b11111111);
+[e = _stat ( _nrf_write_command (1 -> -> 255 `i `uc ]
+"253
+[; ;./nrf24l01.h: 253:         } while ((stat & 0x20) == 0);
+}
+[e $ == & -> _stat `i -> 32 `i -> 0 `i 189  ]
+[e :U 188 ]
+"256
+[; ;./nrf24l01.h: 256:         uint8_t clear = 0x20;
+[v _clear `uc ~T0 @X0 1 a ]
+[e = _clear -> -> 32 `i `uc ]
+"257
+[; ;./nrf24l01.h: 257:         nrf_write_register(0x07, &clear, 1);
+[e ( _nrf_write_register (3 , , -> -> 7 `i `uc &U _clear -> -> 1 `i `uc ]
+"258
+[; ;./nrf24l01.h: 258:     }
+[e :UE 186 ]
+}
+"261
+[; ;./nrf24l01.h: 261:     uint8_t nrf_read(uint8_t *data, uint8_t len)
+[v _nrf_read `(uc ~T0 @X0 1 ef2`*uc`uc ]
+"262
+[; ;./nrf24l01.h: 262:     {
+{
+[e :U _nrf_read ]
+"261
+[; ;./nrf24l01.h: 261:     uint8_t nrf_read(uint8_t *data, uint8_t len)
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"262
+[; ;./nrf24l01.h: 262:     {
+[f ]
+"263
+[; ;./nrf24l01.h: 263:         uint8_t status = nrf_read_register(0b01100001, data, len);
+[v _status `uc ~T0 @X0 1 a ]
+[e = _status ( _nrf_read_register (3 , , -> -> 97 `i `uc _data _len ]
+"266
+[; ;./nrf24l01.h: 266:         nrf_write_command(0b11100010);
+[e ( _nrf_write_command (1 -> -> 226 `i `uc ]
+"267
+[; ;./nrf24l01.h: 267:         uint8_t clear = 0x40;
+[v _clear `uc ~T0 @X0 1 a ]
+[e = _clear -> -> 64 `i `uc ]
+"268
+[; ;./nrf24l01.h: 268:         nrf_write_register(0x07, &clear, 1);
+[e ( _nrf_write_register (3 , , -> -> 7 `i `uc &U _clear -> -> 1 `i `uc ]
+"269
+[; ;./nrf24l01.h: 269:         return status;
+[e ) _status ]
+[e $UE 190  ]
+"270
+[; ;./nrf24l01.h: 270:     }
+[e :UE 190 ]
 }
 "37 main.c
 [; ;main.c: 37: char *char_to_binary_string(char character)
@@ -598,600 +1142,97 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "39
 [; ;main.c: 39:     static char output[10];
-[v F1368 `uc ~T0 @X0 -> 10 `i s output ]
+[v F1430 `uc ~T0 @X0 -> 10 `i s output ]
 "41
 [; ;main.c: 41:     sprintf(output, "%c%c%c%c%c%c%c%c" "\n", (character & 0x80 ? '1' : '0'), (character & 0x40 ? '1' : '0'), (character & 0x20 ? '1' : '0'), (character & 0x10 ? '1' : '0'), (character & 0x08 ? '1' : '0'), (character & 0x04 ? '1' : '0'), (character & 0x02 ? '1' : '0'), (character & 0x01 ? '1' : '0'));
-[e ( _sprintf (1 , , , , , , , , (. , &U F1368 :s 1C ? != & -> _character `i -> 128 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 64 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 32 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 16 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 8 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 4 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 2 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 1 `i -> 0 `i : -> 49 `ui -> 48 `ui ]
+[e ( _sprintf (1 , , , , , , , , (. , &U F1430 :s 1C ? != & -> _character `i -> 128 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 64 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 32 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 16 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 8 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 4 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 2 `i -> 0 `i : -> 49 `ui -> 48 `ui ? != & -> _character `i -> 1 `i -> 0 `i : -> 49 `ui -> 48 `ui ]
 "43
 [; ;main.c: 43:     return output;
-[e ) &U F1368 ]
-[e $UE 164  ]
+[e ) &U F1430 ]
+[e $UE 191  ]
 "44
 [; ;main.c: 44: }
-[e :UE 164 ]
+[e :UE 191 ]
 }
 "47
-[; ;main.c: 47: void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len)
-[v _arrcpy `(v ~T0 @X0 1 ef3`*uc`*uc`uc ]
-"48
-[; ;main.c: 48: {
-{
-[e :U _arrcpy ]
-"47
-[; ;main.c: 47: void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len)
-[v _dst `*uc ~T0 @X0 1 r1 ]
-[v _src `*uc ~T0 @X0 1 r2 ]
-[v _len `uc ~T0 @X0 1 r3 ]
-"48
-[; ;main.c: 48: {
-[f ]
-"49
-[; ;main.c: 49:     for (uint8_t i = 0; i < len; i++)
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 169  ]
-[e :U 166 ]
-"50
-[; ;main.c: 50:     {
-{
-"51
-[; ;main.c: 51:         dst[i] = src[i];
-[e = *U + _dst * -> _i `ux -> -> # *U _dst `ui `ux *U + _src * -> _i `ux -> -> # *U _src `ui `ux ]
-"52
-[; ;main.c: 52:     }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 169 ]
-[e $ < -> _i `i -> _len `i 166  ]
-[e :U 167 ]
-}
-"53
-[; ;main.c: 53: }
-[e :UE 165 ]
-}
-"129
-[; ;main.c: 129: uint8_t RXTX_ADDR[3] = {0xB5, 0x23, 0xA5};
-[v _RXTX_ADDR `uc ~T0 @X0 -> 3 `i e ]
-[i _RXTX_ADDR
+[; ;main.c: 47: uint8_t RADIO_ADDR[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
+[v _RADIO_ADDR `uc ~T0 @X0 -> 5 `i e ]
+[i _RADIO_ADDR
 :U ..
--> -> 181 `i `uc
--> -> 35 `i `uc
--> -> 165 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
 ..
 ]
-"134
-[; ;main.c: 134: uint8_t nrf_command(uint8_t NRF_command, uint8_t *data, uint8_t len)
-[v _nrf_command `(uc ~T0 @X0 1 ef3`uc`*uc`uc ]
-"135
-[; ;main.c: 135: {
-{
-[e :U _nrf_command ]
-"134
-[; ;main.c: 134: uint8_t nrf_command(uint8_t NRF_command, uint8_t *data, uint8_t len)
-[v _NRF_command `uc ~T0 @X0 1 r1 ]
-[v _data `*uc ~T0 @X0 1 r2 ]
-[v _len `uc ~T0 @X0 1 r3 ]
-"135
-[; ;main.c: 135: {
-[f ]
-"136
-[; ;main.c: 136:     RD3 = 0;
-[e = _RD3 -> -> 0 `i `b ]
-"138
-[; ;main.c: 138:     uint8_t status = SPI_write(NRF_command);
-[v _status `uc ~T0 @X0 1 a ]
-[e = _status ( _SPI_write (1 _NRF_command ]
-"139
-[; ;main.c: 139:     for (uint8_t i = 0; i < len; i++)
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 174  ]
-[e :U 171 ]
-"140
-[; ;main.c: 140:         data[i] = SPI_write(data[i]);
-[e = *U + _data * -> _i `ux -> -> # *U _data `ui `ux ( _SPI_write (1 *U + _data * -> _i `ux -> -> # *U _data `ui `ux ]
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 174 ]
-[e $ < -> _i `i -> _len `i 171  ]
-[e :U 172 ]
-}
-"142
-[; ;main.c: 142:     RD3 = 1;
-[e = _RD3 -> -> 1 `i `b ]
-"144
-[; ;main.c: 144:     return status;
-[e ) _status ]
-[e $UE 170  ]
-"145
-[; ;main.c: 145: }
-[e :UE 170 ]
-}
-"149
-[; ;main.c: 149: uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
-[v _nrf_write_register `(uc ~T0 @X0 1 ef3`uc`*uc`uc ]
-"150
-[; ;main.c: 150: {
-{
-[e :U _nrf_write_register ]
-"149
-[; ;main.c: 149: uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
-[v _reg `uc ~T0 @X0 1 r1 ]
-[v _data `*uc ~T0 @X0 1 r2 ]
-[v _len `uc ~T0 @X0 1 r3 ]
-"150
-[; ;main.c: 150: {
-[f ]
-"151
-[; ;main.c: 151:     return nrf_command(reg | 0b00100000, data, len);
-[e ) ( _nrf_command (3 , , -> | -> _reg `i -> 32 `i `uc _data _len ]
-[e $UE 175  ]
-"152
-[; ;main.c: 152: }
-[e :UE 175 ]
-}
-"156
-[; ;main.c: 156: uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
-[v _nrf_read_register `(uc ~T0 @X0 1 ef3`uc`*uc`uc ]
-"157
-[; ;main.c: 157: {
-{
-[e :U _nrf_read_register ]
-"156
-[; ;main.c: 156: uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
-[v _reg `uc ~T0 @X0 1 r1 ]
-[v _data `*uc ~T0 @X0 1 r2 ]
-[v _len `uc ~T0 @X0 1 r3 ]
-"157
-[; ;main.c: 157: {
-[f ]
-"158
-[; ;main.c: 158:     return nrf_command(reg | 0b00000000, data, len);
-[e ) ( _nrf_command (3 , , -> | -> _reg `i -> 0 `i `uc _data _len ]
-[e $UE 176  ]
-"159
-[; ;main.c: 159: }
-[e :UE 176 ]
-}
-"163
-[; ;main.c: 163: uint8_t nrf_write_payload(uint8_t *data, uint8_t len)
-[v _nrf_write_payload `(uc ~T0 @X0 1 ef2`*uc`uc ]
-"164
-[; ;main.c: 164: {
-{
-[e :U _nrf_write_payload ]
-"163
-[; ;main.c: 163: uint8_t nrf_write_payload(uint8_t *data, uint8_t len)
-[v _data `*uc ~T0 @X0 1 r1 ]
-[v _len `uc ~T0 @X0 1 r2 ]
-"164
-[; ;main.c: 164: {
-[f ]
-"165
-[; ;main.c: 165:     uint8_t status = nrf_write_register(0b10100000, data, len);
-[v _status `uc ~T0 @X0 1 a ]
-[e = _status ( _nrf_write_register (3 , , -> -> 160 `i `uc _data _len ]
-"166
-[; ;main.c: 166:     RD2 = 1;
-[e = _RD2 -> -> 1 `i `b ]
-"167
-[; ;main.c: 167:     _delay((unsigned long)((20)*(8000000UL/4000000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 8000000 `ul `d .4000000.0 `ul ]
-"168
-[; ;main.c: 168:     RD2 = 0;
-[e = _RD2 -> -> 0 `i `b ]
-"169
-[; ;main.c: 169: }
-[e :UE 177 ]
-}
-"173
-[; ;main.c: 173: uint8_t nrf_write_command(uint8_t NRF_command)
-[v _nrf_write_command `(uc ~T0 @X0 1 ef1`uc ]
-"174
-[; ;main.c: 174: {
-{
-[e :U _nrf_write_command ]
-"173
-[; ;main.c: 173: uint8_t nrf_write_command(uint8_t NRF_command)
-[v _NRF_command `uc ~T0 @X0 1 r1 ]
-"174
-[; ;main.c: 174: {
-[f ]
-"175
-[; ;main.c: 175:     RD3 = 0;
-[e = _RD3 -> -> 0 `i `b ]
-"176
-[; ;main.c: 176:     uint8_t status = SPI_write(NRF_command);
-[v _status `uc ~T0 @X0 1 a ]
-[e = _status ( _SPI_write (1 _NRF_command ]
-"177
-[; ;main.c: 177:     RD3 = 1;
-[e = _RD3 -> -> 1 `i `b ]
-"178
-[; ;main.c: 178:     return status;
-[e ) _status ]
-[e $UE 178  ]
-"179
-[; ;main.c: 179: }
-[e :UE 178 ]
-}
-"187
-[; ;main.c: 187: void nrf_flush_rxtx()
-[v _nrf_flush_rxtx `(v ~T0 @X0 1 ef ]
-"188
-[; ;main.c: 188: {
-{
-[e :U _nrf_flush_rxtx ]
-[f ]
-"189
-[; ;main.c: 189:     uint8_t data = 0b01110000;
-[v _data `uc ~T0 @X0 1 a ]
-[e = _data -> -> 112 `i `uc ]
-"190
-[; ;main.c: 190:     nrf_write_register(0x07, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 7 `i `uc &U _data -> -> 1 `i `uc ]
-"191
-[; ;main.c: 191:     nrf_write_command(0b11100001);
-[e ( _nrf_write_command (1 -> -> 225 `i `uc ]
-"192
-[; ;main.c: 192:     nrf_write_command(0b11100010);
-[e ( _nrf_write_command (1 -> -> 226 `i `uc ]
-"193
-[; ;main.c: 193: }
-[e :UE 179 ]
-}
-"202
-[; ;main.c: 202: void nrf_setup(uint8_t *rxtx_addr, uint8_t payload_size)
-[v _nrf_setup `(v ~T0 @X0 1 ef2`*uc`uc ]
-"203
-[; ;main.c: 203: {
-{
-[e :U _nrf_setup ]
-"202
-[; ;main.c: 202: void nrf_setup(uint8_t *rxtx_addr, uint8_t payload_size)
-[v _rxtx_addr `*uc ~T0 @X0 1 r1 ]
-[v _payload_size `uc ~T0 @X0 1 r2 ]
-"203
-[; ;main.c: 203: {
-[f ]
-"204
-[; ;main.c: 204:     TRISD3 = 0;
-[e = _TRISD3 -> -> 0 `i `b ]
-"205
-[; ;main.c: 205:     TRISD2 = 0;
-[e = _TRISD2 -> -> 0 `i `b ]
-"207
-[; ;main.c: 207:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"209
-[; ;main.c: 209:     RD3 = 1;
-[e = _RD3 -> -> 1 `i `b ]
-"210
-[; ;main.c: 210:     RD2 = 0;
-[e = _RD2 -> -> 0 `i `b ]
-"212
-[; ;main.c: 212:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"214
-[; ;main.c: 214:     uint8_t data[5];
-[v _data `uc ~T0 @X0 -> 5 `i a ]
-"216
-[; ;main.c: 216:     data[0] = 0x0B;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 11 `i `uc ]
-"217
-[; ;main.c: 217:     nrf_write_register(0x00, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 0 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
-"218
-[; ;main.c: 218:     data[0] = 0x00;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 0 `i `uc ]
-"219
-[; ;main.c: 219:     nrf_write_register(0x01, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 1 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
-"220
-[; ;main.c: 220:     data[0] = 0x01;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 1 `i `uc ]
-"221
-[; ;main.c: 221:     nrf_write_register(0x02, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 2 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
-"222
-[; ;main.c: 222:     data[0] = 0x01;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 1 `i `uc ]
-"223
-[; ;main.c: 223:     nrf_write_register(0x03, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 3 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
-"224
-[; ;main.c: 224:     data[0] = 0x00;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 0 `i `uc ]
-"225
-[; ;main.c: 225:     nrf_write_register(0x04, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 4 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
-"226
-[; ;main.c: 226:     data[0] = 0x01;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 1 `i `uc ]
-"227
-[; ;main.c: 227:     nrf_write_register(0x05, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 5 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
-"228
-[; ;main.c: 228:     data[0] = 0x26;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 38 `i `uc ]
-"229
-[; ;main.c: 229:     nrf_write_register(0x06, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 6 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
-"230
-[; ;main.c: 230:     data[0] = 0x05;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 5 `i `uc ]
-"231
-[; ;main.c: 231:     nrf_write_register(0x11, &data, 1);
-[e ( _nrf_write_register (3 , , -> -> 17 `i `uc -> &U _data `*uc -> -> 1 `i `uc ]
-"233
-[; ;main.c: 233:     arrcpy(data, RXTX_ADDR, sizeof(RXTX_ADDR));
-[e ( _arrcpy (3 , , &U _data &U _RXTX_ADDR -> -> # _RXTX_ADDR `ui `uc ]
-"234
-[; ;main.c: 234:     nrf_write_register(0x0A, data, sizeof(RXTX_ADDR));
-[e ( _nrf_write_register (3 , , -> -> 10 `i `uc &U _data -> -> # _RXTX_ADDR `ui `uc ]
-"236
-[; ;main.c: 236:     arrcpy(data, RXTX_ADDR, sizeof(RXTX_ADDR));
-[e ( _arrcpy (3 , , &U _data &U _RXTX_ADDR -> -> # _RXTX_ADDR `ui `uc ]
-"237
-[; ;main.c: 237:     nrf_write_register(0x10, data, sizeof(RXTX_ADDR));
-[e ( _nrf_write_register (3 , , -> -> 16 `i `uc &U _data -> -> # _RXTX_ADDR `ui `uc ]
-"239
-[; ;main.c: 239:     nrf_flush_rxtx();
-[e ( _nrf_flush_rxtx ..  ]
-"240
-[; ;main.c: 240: }
-[e :UE 180 ]
-}
-"244
-[; ;main.c: 244: void nrf_set_rx_mode()
-[v _nrf_set_rx_mode `(v ~T0 @X0 1 ef ]
-"245
-[; ;main.c: 245: {
-{
-[e :U _nrf_set_rx_mode ]
-[f ]
-"246
-[; ;main.c: 246:     uint8_t config;
-[v _config `uc ~T0 @X0 1 a ]
-"247
-[; ;main.c: 247:     nrf_read_register(0x00, &config, 1);
-[e ( _nrf_read_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
-"249
-[; ;main.c: 249:     RD2 = 1;
-[e = _RD2 -> -> 1 `i `b ]
-"251
-[; ;main.c: 251:     if (config & 0x01)
-[e $ ! != & -> _config `i -> 1 `i -> 0 `i 182  ]
-"252
-[; ;main.c: 252:         return;
-[e $UE 181  ]
-[e :U 182 ]
-"254
-[; ;main.c: 254:     config |= 0x01;
-[e =| _config -> -> 1 `i `uc ]
-"255
-[; ;main.c: 255:     nrf_write_register(0x00, &config, 1);
-[e ( _nrf_write_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
-"256
-[; ;main.c: 256: }
-[e :UE 181 ]
-}
-"260
-[; ;main.c: 260: void nrf_set_tx_mode()
-[v _nrf_set_tx_mode `(v ~T0 @X0 1 ef ]
-"261
-[; ;main.c: 261: {
-{
-[e :U _nrf_set_tx_mode ]
-[f ]
-"262
-[; ;main.c: 262:     uint8_t config;
-[v _config `uc ~T0 @X0 1 a ]
-"263
-[; ;main.c: 263:     nrf_read_register(0x00, &config, 1);
-[e ( _nrf_read_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
-"265
-[; ;main.c: 265:     if (!(config & 0x01))
-[e $ ! ! != & -> _config `i -> 1 `i -> 0 `i 184  ]
-"266
-[; ;main.c: 266:         return;
-[e $UE 183  ]
-[e :U 184 ]
-"268
-[; ;main.c: 268:     config &= ~0x01;
-[e =& _config -> ~ -> 1 `i `uc ]
-"269
-[; ;main.c: 269:     nrf_write_register(0x00, &config, 1);
-[e ( _nrf_write_register (3 , , -> -> 0 `i `uc &U _config -> -> 1 `i `uc ]
-"271
-[; ;main.c: 271:     RD2 = 0;
-[e = _RD2 -> -> 0 `i `b ]
-"272
-[; ;main.c: 272: }
-[e :UE 183 ]
-}
-"276
-[; ;main.c: 276: uint8_t nrf_data_available()
-[v _nrf_data_available `(uc ~T0 @X0 1 ef ]
-"277
-[; ;main.c: 277: {
-{
-[e :U _nrf_data_available ]
-[f ]
-"278
-[; ;main.c: 278:     uint8_t status = nrf_write_command(0b11111111);
-[v _status `uc ~T0 @X0 1 a ]
-[e = _status ( _nrf_write_command (1 -> -> 255 `i `uc ]
-"279
-[; ;main.c: 279:     return (status & 0x40) != 0;
-[e ) -> -> != & -> _status `i -> 64 `i -> 0 `i `i `uc ]
-[e $UE 185  ]
-"280
-[; ;main.c: 280: }
-[e :UE 185 ]
-}
-"284
-[; ;main.c: 284: void nrf_send(uint8_t *data, uint8_t len)
-[v _nrf_send `(v ~T0 @X0 1 ef2`*uc`uc ]
-"285
-[; ;main.c: 285: {
-{
-[e :U _nrf_send ]
-"284
-[; ;main.c: 284: void nrf_send(uint8_t *data, uint8_t len)
-[v _data `*uc ~T0 @X0 1 r1 ]
-[v _len `uc ~T0 @X0 1 r2 ]
-"285
-[; ;main.c: 285: {
-[f ]
-"286
-[; ;main.c: 286:     nrf_set_tx_mode();
-[e ( _nrf_set_tx_mode ..  ]
-"287
-[; ;main.c: 287:     nrf_write_payload(data, len);
-[e ( _nrf_write_payload (2 , _data _len ]
-"290
-[; ;main.c: 290:     uint8_t stat;
-[v _stat `uc ~T0 @X0 1 a ]
-"291
-[; ;main.c: 291:     do
-[e :U 189 ]
-"292
-[; ;main.c: 292:     {
-{
-"293
-[; ;main.c: 293:         stat = nrf_write_command(0b11111111);
-[e = _stat ( _nrf_write_command (1 -> -> 255 `i `uc ]
-"294
-[; ;main.c: 294:     } while ((stat & 0x20) == 0);
-}
-[e $ == & -> _stat `i -> 32 `i -> 0 `i 189  ]
-[e :U 188 ]
-"297
-[; ;main.c: 297:     uint8_t clear = 0x20;
-[v _clear `uc ~T0 @X0 1 a ]
-[e = _clear -> -> 32 `i `uc ]
-"298
-[; ;main.c: 298:     nrf_write_register(0x07, &clear, 1);
-[e ( _nrf_write_register (3 , , -> -> 7 `i `uc &U _clear -> -> 1 `i `uc ]
-"299
-[; ;main.c: 299: }
-[e :UE 186 ]
-}
-"302
-[; ;main.c: 302: uint8_t nrf_read_data(uint8_t *data, uint8_t len)
-[v _nrf_read_data `(uc ~T0 @X0 1 ef2`*uc`uc ]
-"303
-[; ;main.c: 303: {
-{
-[e :U _nrf_read_data ]
-"302
-[; ;main.c: 302: uint8_t nrf_read_data(uint8_t *data, uint8_t len)
-[v _data `*uc ~T0 @X0 1 r1 ]
-[v _len `uc ~T0 @X0 1 r2 ]
-"303
-[; ;main.c: 303: {
-[f ]
-"304
-[; ;main.c: 304:     uint8_t status = nrf_read_register(0b01100001, data, len);
-[v _status `uc ~T0 @X0 1 a ]
-[e = _status ( _nrf_read_register (3 , , -> -> 97 `i `uc _data _len ]
-"307
-[; ;main.c: 307:     uint8_t clear = 0x40;
-[v _clear `uc ~T0 @X0 1 a ]
-[e = _clear -> -> 64 `i `uc ]
-"308
-[; ;main.c: 308:     nrf_write_register(0x07, &clear, 1);
-[e ( _nrf_write_register (3 , , -> -> 7 `i `uc &U _clear -> -> 1 `i `uc ]
-"309
-[; ;main.c: 309:     return status;
-[e ) _status ]
-[e $UE 190  ]
-"310
-[; ;main.c: 310: }
-[e :UE 190 ]
-}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"312
-[; ;main.c: 312: int main()
+"50
+[; ;main.c: 50: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"313
-[; ;main.c: 313: {
+"51
+[; ;main.c: 51: {
 {
 [e :U _main ]
 [f ]
-"314
-[; ;main.c: 314:     OSCCONbits.IRCF = 111;
+"53
+[; ;main.c: 53:     OSCCONbits.IRCF = 111;
 [e = . . _OSCCONbits 0 4 -> -> 111 `i `uc ]
-"316
-[; ;main.c: 316:     UART_init(9600, 8000000UL);
+"56
+[; ;main.c: 56:     UART_init(9600, 8000000UL);
 [e ( _UART_init (2 , -> -> 9600 `i `l -> -> 8000000 `ul `l ]
-"318
-[; ;main.c: 318:     UART_write_text("BOOTED\n");
+"59
+[; ;main.c: 59:     UART_write_text("BOOTED\n");
 [e ( _UART_write_text (1 :s 2C ]
-"320
-[; ;main.c: 320:     SPI_init_master();
+"62
+[; ;main.c: 62:     SPI_init_master();
 [e ( _SPI_init_master ..  ]
-"324
-[; ;main.c: 324:     nrf_setup((uint8_t*)"ALDA", 5);
-[e ( _nrf_setup (2 , -> :s 3C `*uc -> -> 5 `i `uc ]
-"326
-[; ;main.c: 326:     nrf_set_tx_mode();
-[e ( _nrf_set_tx_mode ..  ]
-"331
-[; ;main.c: 331:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
+"65
+[; ;main.c: 65:     nrf_setup(RADIO_ADDR, 3);
+[e ( _nrf_setup (2 , &U _RADIO_ADDR -> -> 3 `i `uc ]
+"71
+[; ;main.c: 71:     nrf_set_rx_mode();
+[e ( _nrf_set_rx_mode ..  ]
+"74
+[; ;main.c: 74:     _delay((unsigned long)((2)*(8000000UL/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"332
-[; ;main.c: 332:     while (1)
-[e :U 193 ]
-"333
-[; ;main.c: 333:     {
-{
-"335
-[; ;main.c: 335:         uint8_t data[5];
-[v _data `uc ~T0 @X0 -> 5 `i a ]
-"336
-[; ;main.c: 336:         arrcpy(data, "ALDA", 5);
-[e ( _arrcpy (3 , , &U _data :s 4C -> -> 5 `i `uc ]
-"337
-[; ;main.c: 337:         nrf_send(data, 5);
-[e ( _nrf_send (2 , &U _data -> -> 5 `i `uc ]
-"338
-[; ;main.c: 338:         _delay((unsigned long)((200)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"339
-[; ;main.c: 339:         arrcpy(data, "BUSA", 5);
-[e ( _arrcpy (3 , , &U _data :s 5C -> -> 5 `i `uc ]
-"341
-[; ;main.c: 341:         nrf_send(data, 5);
-[e ( _nrf_send (2 , &U _data -> -> 5 `i `uc ]
-"342
-[; ;main.c: 342:         _delay((unsigned long)((200)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"343
-[; ;main.c: 343:         arrcpy(data, "GFEA", 5);
-[e ( _arrcpy (3 , , &U _data :s 6C -> -> 5 `i `uc ]
-"345
-[; ;main.c: 345:         nrf_send(data, 5);
-[e ( _nrf_send (2 , &U _data -> -> 5 `i `uc ]
-"346
-[; ;main.c: 346:         _delay((unsigned long)((200)*(8000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `ul `d .4000.0 `ul ]
-"356
-[; ;main.c: 356:     }
-}
-[e :U 192 ]
-[e $U 193  ]
+"75
+[; ;main.c: 75:     while (1)
 [e :U 194 ]
-"357
-[; ;main.c: 357: }
-[e :UE 191 ]
+"76
+[; ;main.c: 76:     {
+{
+"93
+[; ;main.c: 93:         while (!nrf_data_available())
+[e $U 196  ]
+[e :U 197 ]
+"94
+[; ;main.c: 94:             ;
+[e :U 196 ]
+"93
+[; ;main.c: 93:         while (!nrf_data_available())
+[e $ ! != -> ( _nrf_data_available ..  `i -> 0 `i 197  ]
+[e :U 198 ]
+"97
+[; ;main.c: 97:         uint8_t data[3];
+[v _data `uc ~T0 @X0 -> 3 `i a ]
+"98
+[; ;main.c: 98:         nrf_read(data, 3);
+[e ( _nrf_read (2 , &U _data -> -> 3 `i `uc ]
+"99
+[; ;main.c: 99:         UART_printf("RX = %s\n", data);
+[e ( _UART_printf , (. :s 3C &U _data ]
+"101
+[; ;main.c: 101:     }
+}
+[e :U 193 ]
+[e $U 194  ]
+[e :U 195 ]
+"102
+[; ;main.c: 102: }
+[e :UE 192 ]
 }
 [p f _sprintf 8912896 ]
-[a 5C 66 85 83 65 0 ]
-[a 6C 71 70 69 65 0 ]
-[a 3C 65 76 68 65 0 ]
-[a 4C 65 76 68 65 0 ]
+[a 3C 82 88 32 61 32 37 115 10 0 ]
 [a 1C 37 99 37 99 37 99 37 99 37 99 37 99 37 99 37 99 10 0 ]
 [a 2C 66 79 79 84 69 68 10 0 ]

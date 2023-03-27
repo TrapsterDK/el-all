@@ -198,14 +198,18 @@ void nrf_flush_rxtx()
 
 // setup the nRF24L01
 // RXTX_ADDR is a pointer to an array of 1 to 5 bytes
-// payload_size is the size of the payload from 1 to 32 bytess
+// payload_size is the size of the payload from 1 to 32 bytes
 void nrf_setup(uint8_t *rxtx_addr, uint8_t payload_size)
 {
     TRIS(CSN) = 0;
     TRIS(CE) = 0;
     
+    __delay_ms(2);
+
     PIN(CSN) = 1;
     PIN(CE) = 0;
+
+    __delay_ms(2);
 
     uint8_t data[5];
 
@@ -315,9 +319,10 @@ int main()
 
     SPI_init_master();
 
-    
-//#define sender
-    nrf_setup((uint8_t*)"ALDA", 5);
+    nrf_setup((uint8_t*)"FLDA", 5);
+
+#define sender
+
 #ifdef sender
     nrf_set_tx_mode();
 #else
@@ -329,17 +334,23 @@ int main()
     {
 #ifdef sender
         uint8_t data[5];
-        arrcpy(data, "ALDA", 5);
+        arrcpy(data, "GAYS", 5);
         nrf_send(data, 5);
-        __delay_ms(200);
-        arrcpy(data, "BUSA", 5);
-        
+        __delay_ms(700);
+
+        arrcpy(data, "SLAY", 5);
         nrf_send(data, 5);
-        __delay_ms(200);
-        arrcpy(data, "GFEA", 5);
-        
+        __delay_ms(700);
+
+        arrcpy(data, "BLAY", 5);
         nrf_send(data, 5);
-        __delay_ms(200);
+        __delay_ms(700);
+
+        arrcpy(data, "NOKE", 5);
+        nrf_send(data, 5);
+        __delay_ms(700);
+
+        UART_write_text("SENT\n");
 #else
         while(!nrf_data_available());
 

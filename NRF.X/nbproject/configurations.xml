@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>spi.h</itemPath>
       <itemPath>uart.h</itemPath>
+      <itemPath>nrf24l01.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

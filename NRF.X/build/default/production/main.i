@@ -2648,23 +2648,8 @@ extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\xc.h" 2 3
 # 17 "main.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
-
-
-
-typedef unsigned size_t;
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
-# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-
-
+# 1 "./uart.h" 1
+# 16 "./uart.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdarg.h" 1 3
 
 
@@ -2679,7 +2664,20 @@ extern void * __va_start(void);
 
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 16 "./uart.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 2 3
 # 43 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdio.h" 3
 struct __prbuf
 {
@@ -2741,70 +2739,263 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
+# 17 "./uart.h" 2
+
+
+ void UART_init(const long int baudrate, long _XTAL_FREQ)
+ {
+  BRGH = 1;
+  SPBRG = (_XTAL_FREQ - baudrate * 16) / (baudrate * 16);
+  SYNC = 0;
+  SPEN = 1;
+  TRISC7 = 1;
+  TRISC6 = 1;
+  CREN = 1;
+  TXEN = 1;
+ }
+
+ void UART_write(char data)
+ {
+  while (!TRMT)
+   ;
+  TXREG = data;
+ }
+
+ void UART_write_text(char *text)
+ {
+  for (int i = 0; text[i] != '\0'; i++)
+   UART_write(text[i]);
+ }
+
+ void UART_write_array(char *data, int len)
+ {
+  for (int i = 0; i < len; i++)
+   UART_write(data[i]);
+ }
+
+
+ void UART_printf(const char *fmt, ...)
+ {
+  char buf[64];
+  va_list args;
+  *args = __va_start();
+  vsnprintf(buf, 64, fmt, args);
+              ;
+  UART_write_text(buf);
+ }
+
+ char UART_data_ready()
+ {
+  return RCIF;
+ }
+
+ char UART_read()
+ {
+  while (!RCIF)
+   ;
+  return RCREG;
+ }
 # 18 "main.c" 2
 
-# 1 "./uart.h" 1
-# 15 "./uart.h"
-void UART_init(const long int baudrate, long _XTAL_FREQ)
-{
-    BRGH = 1;
-    SPBRG = (_XTAL_FREQ - baudrate*16)/(baudrate*16);
-    SYNC = 0;
-    SPEN = 1;
-    TRISC7 = 1;
-    TRISC6 = 1;
-    CREN = 1;
-    TXEN = 1;
-}
+# 1 "./spi.h" 1
+# 16 "./spi.h"
+    void SPI_init_master()
+    {
+        SSPCON = 0b01100001;
+        SSPSTAT = 0b00000000;
+        CKE = 1;
+        TRISCbits.TRISC5 = 0;
+        TRISCbits.TRISC4 = 1;
+        TRISCbits.TRISC3 = 0;
+    }
 
-void UART_write(char data)
-{
-  while(!TRMT);
-  TXREG = data;
-}
-
-void UART_write_text(char *text)
-{
-  for(int i=0;text[i]!='\0';i++)
-    UART_write(text[i]);
-}
-
-void UART_write_array(char *data, int len)
-{
-  for(int i=0;i<len;i++)
-    UART_write(data[i]);
-}
-
-char UART_data_ready()
-{
-  return RCIF;
-}
-
-char UART_read()
-{
-  while(!RCIF);
-  return RCREG;
-}
+    uint8_t SPI_write(uint8_t data)
+    {
+        SSPBUF = data;
+        while (!BF)
+            ;
+        return SSPBUF;
+    }
 # 19 "main.c" 2
 
-# 1 "./spi.h" 1
-# 15 "./spi.h"
-void SPI_init_master(){
-    SSPCON = 0b01100001;
-    SSPSTAT = 0b00000000;
-    CKE = 1;
-    SMP = 1;
-    TRISCbits.TRISC5 = 0;
-    TRISCbits.TRISC4 = 1;
-    TRISCbits.TRISC3 = 0;
-}
+# 1 "./nrf24l01.h" 1
+# 95 "./nrf24l01.h"
+    void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len)
+    {
+        for (uint8_t i = 0; i < len; i++)
+        {
+            dst[i] = src[i];
+        }
+    }
 
-uint8_t SPI_write(uint8_t data)
-{
-    SSPBUF = data;
-    while (!BF);
-    return SSPBUF;
-}
+
+
+    uint8_t nrf_command(uint8_t NRF_command, uint8_t *data, uint8_t len)
+    {
+        RD3 = 0;
+
+        uint8_t status = SPI_write(NRF_command);
+        for (uint8_t i = 0; i < len; i++)
+            data[i] = SPI_write(data[i]);
+
+        RD3 = 1;
+
+        return status;
+    }
+
+
+    uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
+    {
+        return nrf_command(reg | 0b00100000, data, len);
+    }
+
+
+    uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
+    {
+        return nrf_command(reg | 0b00000000, data, len);
+    }
+
+
+    uint8_t nrf_write_payload(uint8_t *data, uint8_t len)
+    {
+        uint8_t status = nrf_write_register(0b10100000, data, len);
+        RD2 = 1;
+        _delay((unsigned long)((20)*(8000000UL/4000000.0)));
+        RD2 = 0;
+    }
+
+
+    uint8_t nrf_write_command(uint8_t NRF_command)
+    {
+        RD3 = 0;
+        uint8_t status = SPI_write(NRF_command);
+        RD3 = 1;
+        return status;
+    }
+
+
+
+
+
+    void nrf_flush_rxtx()
+    {
+        uint8_t data = 0b01110000;
+        nrf_write_register(0x07, &data, 1);
+        nrf_write_command(0b11100001);
+        nrf_write_command(0b11100010);
+    }
+
+
+
+    void nrf_setup(uint8_t *addr, uint8_t payload_size)
+    {
+
+        TRISD3 = 0;
+        TRISD2 = 0;
+
+        _delay((unsigned long)((2)*(8000000UL/4000.0)));
+
+        RD3 = 1;
+        RD2 = 0;
+
+        _delay((unsigned long)((2)*(8000000UL/4000.0)));
+
+        uint8_t data[5];
+
+        data[0] = 0x0B;
+        nrf_write_register(0x00, &data, 1);
+        data[0] = 0x00;
+        nrf_write_register(0x01, &data, 1);
+        data[0] = 0x01;
+        nrf_write_register(0x02, &data, 1);
+        data[0] = 0x01;
+        nrf_write_register(0x03, &data, 1);
+        data[0] = 0x00;
+        nrf_write_register(0x04, &data, 1);
+        data[0] = 0x01;
+        nrf_write_register(0x05, &data, 1);
+        data[0] = 0x26;
+        nrf_write_register(0x06, &data, 1);
+        data[0] = payload_size;
+        nrf_write_register(0x11, &data, 1);
+
+        arrcpy(data, addr, sizeof(addr));
+        nrf_write_register(0x0A, data, sizeof(addr));
+
+        arrcpy(data, addr, sizeof(addr));
+        nrf_write_register(0x10, data, sizeof(addr));
+
+        nrf_flush_rxtx();
+    }
+
+
+    void nrf_set_rx_mode()
+    {
+        uint8_t config;
+        nrf_read_register(0x00, &config, 1);
+
+        RD2 = 1;
+
+        if (config & 0x01)
+            return;
+
+        config |= 0x01;
+        nrf_write_register(0x00, &config, 1);
+    }
+
+
+    void nrf_set_tx_mode()
+    {
+        uint8_t config;
+        nrf_read_register(0x00, &config, 1);
+
+        RD2 = 0;
+
+        if (!(config & 0x01))
+            return;
+
+        config &= ~0x01;
+        nrf_write_register(0x00, &config, 1);
+
+        RD2 = 0;
+    }
+
+
+    uint8_t nrf_data_available()
+    {
+        uint8_t status = nrf_write_command(0b11111111);
+        return (status & 0x40) != 0;
+    }
+
+
+    void nrf_send(uint8_t *data, uint8_t len)
+    {
+        nrf_set_tx_mode();
+        nrf_write_payload(data, len);
+
+
+        uint8_t stat;
+        do
+        {
+            stat = nrf_write_command(0b11111111);
+        } while ((stat & 0x20) == 0);
+
+
+        uint8_t clear = 0x20;
+        nrf_write_register(0x07, &clear, 1);
+    }
+
+
+    uint8_t nrf_read(uint8_t *data, uint8_t len)
+    {
+        uint8_t status = nrf_read_register(0b01100001, data, len);
+
+
+        nrf_write_command(0b11100010);
+        uint8_t clear = 0x40;
+        nrf_write_register(0x07, &clear, 1);
+        return status;
+    }
 # 20 "main.c" 2
 # 37 "main.c"
 char *char_to_binary_string(char character)
@@ -2817,225 +3008,44 @@ char *char_to_binary_string(char character)
 }
 
 
-void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len)
-{
-    for (uint8_t i = 0; i < len; i++)
-    {
-        dst[i] = src[i];
-    }
-}
-# 129 "main.c"
-uint8_t RXTX_ADDR[3] = {0xB5, 0x23, 0xA5};
+uint8_t RADIO_ADDR[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
 
-
-
-
-uint8_t nrf_command(uint8_t NRF_command, uint8_t *data, uint8_t len)
-{
-    RD3 = 0;
-
-    uint8_t status = SPI_write(NRF_command);
-    for (uint8_t i = 0; i < len; i++)
-        data[i] = SPI_write(data[i]);
-
-    RD3 = 1;
-
-    return status;
-}
-
-
-
-uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
-{
-    return nrf_command(reg | 0b00100000, data, len);
-}
-
-
-
-uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
-{
-    return nrf_command(reg | 0b00000000, data, len);
-}
-
-
-
-uint8_t nrf_write_payload(uint8_t *data, uint8_t len)
-{
-    uint8_t status = nrf_write_register(0b10100000, data, len);
-    RD2 = 1;
-    _delay((unsigned long)((20)*(8000000UL/4000000.0)));
-    RD2 = 0;
-}
-
-
-
-uint8_t nrf_write_command(uint8_t NRF_command)
-{
-    RD3 = 0;
-    uint8_t status = SPI_write(NRF_command);
-    RD3 = 1;
-    return status;
-}
-
-
-
-
-
-
-
-void nrf_flush_rxtx()
-{
-    uint8_t data = 0b01110000;
-    nrf_write_register(0x07, &data, 1);
-    nrf_write_command(0b11100001);
-    nrf_write_command(0b11100010);
-}
-# 202 "main.c"
-void nrf_setup(uint8_t *rxtx_addr, uint8_t payload_size)
-{
-    TRISD3 = 0;
-    TRISD2 = 0;
-
-    _delay((unsigned long)((2)*(8000000UL/4000.0)));
-
-    RD3 = 1;
-    RD2 = 0;
-
-    _delay((unsigned long)((2)*(8000000UL/4000.0)));
-
-    uint8_t data[5];
-
-    data[0] = 0x0B;
-    nrf_write_register(0x00, &data, 1);
-    data[0] = 0x00;
-    nrf_write_register(0x01, &data, 1);
-    data[0] = 0x01;
-    nrf_write_register(0x02, &data, 1);
-    data[0] = 0x01;
-    nrf_write_register(0x03, &data, 1);
-    data[0] = 0x00;
-    nrf_write_register(0x04, &data, 1);
-    data[0] = 0x01;
-    nrf_write_register(0x05, &data, 1);
-    data[0] = 0x26;
-    nrf_write_register(0x06, &data, 1);
-    data[0] = 0x05;
-    nrf_write_register(0x11, &data, 1);
-
-    arrcpy(data, RXTX_ADDR, sizeof(RXTX_ADDR));
-    nrf_write_register(0x0A, data, sizeof(RXTX_ADDR));
-
-    arrcpy(data, RXTX_ADDR, sizeof(RXTX_ADDR));
-    nrf_write_register(0x10, data, sizeof(RXTX_ADDR));
-
-    nrf_flush_rxtx();
-}
-
-
-
-void nrf_set_rx_mode()
-{
-    uint8_t config;
-    nrf_read_register(0x00, &config, 1);
-
-    RD2 = 1;
-
-    if (config & 0x01)
-        return;
-
-    config |= 0x01;
-    nrf_write_register(0x00, &config, 1);
-}
-
-
-
-void nrf_set_tx_mode()
-{
-    uint8_t config;
-    nrf_read_register(0x00, &config, 1);
-
-    if (!(config & 0x01))
-        return;
-
-    config &= ~0x01;
-    nrf_write_register(0x00, &config, 1);
-
-    RD2 = 0;
-}
-
-
-
-uint8_t nrf_data_available()
-{
-    uint8_t status = nrf_write_command(0b11111111);
-    return (status & 0x40) != 0;
-}
-
-
-
-void nrf_send(uint8_t *data, uint8_t len)
-{
-    nrf_set_tx_mode();
-    nrf_write_payload(data, len);
-
-
-    uint8_t stat;
-    do
-    {
-        stat = nrf_write_command(0b11111111);
-    } while ((stat & 0x20) == 0);
-
-
-    uint8_t clear = 0x20;
-    nrf_write_register(0x07, &clear, 1);
-}
-
-
-uint8_t nrf_read_data(uint8_t *data, uint8_t len)
-{
-    uint8_t status = nrf_read_register(0b01100001, data, len);
-
-
-    uint8_t clear = 0x40;
-    nrf_write_register(0x07, &clear, 1);
-    return status;
-}
 
 int main()
 {
+
     OSCCONbits.IRCF = 111;
+
 
     UART_init(9600, 8000000UL);
 
+
     UART_write_text("BOOTED\n");
+
 
     SPI_init_master();
 
 
-
-    nrf_setup((uint8_t*)"ALDA", 5);
-
-    nrf_set_tx_mode();
+    nrf_setup(RADIO_ADDR, 3);
 
 
+
+
+
+    nrf_set_rx_mode();
 
 
     _delay((unsigned long)((2)*(8000000UL/4000.0)));
     while (1)
     {
+# 93 "main.c"
+        while (!nrf_data_available())
+            ;
 
-        uint8_t data[5];
-        arrcpy(data, "ALDA", 5);
-        nrf_send(data, 5);
-        _delay((unsigned long)((200)*(8000000UL/4000.0)));
-        arrcpy(data, "BUSA", 5);
 
-        nrf_send(data, 5);
-        _delay((unsigned long)((200)*(8000000UL/4000.0)));
-        arrcpy(data, "GFEA", 5);
+        uint8_t data[3];
+        nrf_read(data, 3);
+        UART_printf("RX = %s\n", data);
 
-        nrf_send(data, 5);
-        _delay((unsigned long)((200)*(8000000UL/4000.0)));
-# 356 "main.c"
     }
 }
