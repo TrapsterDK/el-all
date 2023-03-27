@@ -36,8 +36,6 @@
 
 #define CE RD2
 #define CSN RD3
-#define CE_TRIS TRISDbits.TRISD2
-#define CSN_TRIS TRISDbits.TRISD3
 
 #define REGISTER_CONFIG 0x00
 #define REGISTER_EN_AA 0x01
@@ -234,11 +232,6 @@ uint8_t nrf_data_available()
 // setup the nRF24L01
 void nrf_setup()
 {
-    CSN_TRIS = 0;
-    CE_TRIS = 0;
-    
-    __delay_ms(2);
-    
     CSN = 1;
     CE = 0;
 
@@ -271,41 +264,15 @@ void nrf_setup()
     nrf_write_register(REGISTER_TX_ADDR, data, sizeof(RXTX_ADDR));
 
     nrf_flush_rxtx();
+
+    UART_Write_Text("Init\n");
 }
 
 
-// send
-void nrf_send(uint8_t *data, uint8_t len)
+// send a char
+void nrf_tx_char(uint8_t ch)
 {
-    nrf_write_payload(&data, len);
-
-    // Wait for char to be sent
-    uint8_t stat;
-    do
-    {
-        stat = nrf_get_status();
-    } while ((stat & 0x20) == 0);
-
-    // Clear status bit
-    uint8_t clear = 0x20;
-    nrf_write_register(REGISTER_STATUS, &clear, 1);
-}
-
-// receive 
-uint8_t nrf_recieve(uint8_t *data, uint8_t len)
-{
-    uint8_t status = nrf_read_register(COMMAND_RX_PAYLOAD, &data, len);
-    
-    // Clear status bit
-    uint8_t clear = 0x40;
-    nrf_write_register(REGISTER_STATUS, &clear, 1);
-    return status;
-}
-
-
-void nrf_tx_char(uint8_t *ch)
-{
-    nrf_write_payload(&ch[0], 1);
+    nrf_write_payload(&ch, 1);
 
     // Wait for char to be sent
     uint8_t stat;
@@ -330,45 +297,56 @@ uint8_t nrf_rx_char()
     return data;
 }
 
+
+void SendChar(char *args)
+{
+    nrf_set_tx_mode();
+    nrf_tx_char(args[0]);
+    UART_Write_Text("Char sent\n");
+}
+
+void ReceiveChar()
+{
+    nrf_set_rx_mode();
+    uint8_t ch = nrf_rx_char();
+    UART_Write_Text("RX = ");
+    UART_Write(ch);
+    UART_Write_Text("\n");
+}
+
 int main()
 {
+    TRISDbits.TRISD2 = 0;
+    TRISDbits.TRISD3 = 0;
+
     OSCCONbits.IRCF = 111;
 
-    UART_init(9600, _XTAL_FREQ);
+    UART_Init(9600, _XTAL_FREQ);
 
-    UART_write_text("BOOTED\n");
+    UART_Write_Text("BOOTED\n");
 
     SPI_init_master();
 
-    
-#define sender
+    __delay_ms(10);
     nrf_setup();
-#ifdef sender
-    nrf_set_tx_mode();
-#else
-    nrf_set_rx_mode();
-#endif
 
     __delay_ms(2);
+#define sender
     while (1)
     {
 #ifdef sender
-        UART_write_text("send\n");
-        
-        nrf_tx_char("a");
+        SendChar("K");
         __delay_ms(500);
-        nrf_tx_char("b");
+        SendChar("V");
         __delay_ms(500);
-        nrf_tx_char("c");
+        SendChar("B");
         __delay_ms(500);
-        nrf_tx_char("d");
+        SendChar("L");
         __delay_ms(500);
-#else
-        while(!nrf_data_available());
 
-        uint8_t ch = nrf_rx_char();
-        UART_write(ch);
-        UART_write_text("\n");
+#else
+        ReceiveChar();
+        __delay_ms(500);
 #endif
     }
 }
