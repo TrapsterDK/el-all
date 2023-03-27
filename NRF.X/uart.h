@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-void UART_Init(const long int baudrate, long _XTAL_FREQ)
+void UART_init(const long int baudrate, long _XTAL_FREQ)
 {
     BRGH = 1;                                     //Setting High Baud Rate
     SPBRG = (_XTAL_FREQ - baudrate*16)/(baudrate*16);                                    //Writing SPBRG Register
@@ -24,24 +24,30 @@ void UART_Init(const long int baudrate, long _XTAL_FREQ)
     TXEN = 1;                                     //Enables Transmission
 }
 
-void UART_Write(char data)
+void UART_write(char data)
 {
   while(!TRMT);
   TXREG = data;
 }
 
-void UART_Write_Text(char *text)
+void UART_write_text(char *text)
 {
   for(int i=0;text[i]!='\0';i++)
-    UART_Write(text[i]);
+    UART_write(text[i]);
 }
 
-char UART_Data_Ready()
+void UART_write_array(char *data, int len)
+{
+  for(int i=0;i<len;i++)
+    UART_write(data[i]);
+}
+
+char UART_data_ready()
 {
   return RCIF;
 }
 
-char UART_Read()
+char UART_read()
 {
   while(!RCIF);
   return RCREG;

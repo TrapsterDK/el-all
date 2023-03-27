@@ -3,63 +3,65 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"15 C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+"15 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/spi.h
 [v _SPI_init_master SPI_init_master `(v  1 e 1 0 ]
 "25
 [v _SPI_write SPI_write `(uc  1 e 1 0 ]
-"15 C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-[v _UART_Init UART_Init `(v  1 e 1 0 ]
+"15 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/uart.h
+[v _UART_init UART_init `(v  1 e 1 0 ]
 "27
-[v _UART_Write UART_Write `(v  1 e 1 0 ]
+[v _UART_write UART_write `(v  1 e 1 0 ]
 "33
-[v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+[v _UART_write_text UART_write_text `(v  1 e 1 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"13 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprintf.c
+"13 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
-"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
-"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
+"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"116 C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+"118 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X\main.c
 [v _arrcpy arrcpy `(v  1 e 1 0 ]
-"127
+"129
 [v _nrf_command nrf_command `(uc  1 e 1 0 ]
-"142
+"144
 [v _nrf_write_register nrf_write_register `(uc  1 e 1 0 ]
-"149
+"151
 [v _nrf_read_register nrf_read_register `(uc  1 e 1 0 ]
-"156
+"158
 [v _nrf_write_payload nrf_write_payload `(uc  1 e 1 0 ]
-"166
+"168
 [v _nrf_write_command nrf_write_command `(uc  1 e 1 0 ]
-"180
+"182
 [v _nrf_flush_rxtx nrf_flush_rxtx `(v  1 e 1 0 ]
-"193
+"195
 [v _nrf_set_rx_mode nrf_set_rx_mode `(v  1 e 1 0 ]
-"209
+"211
 [v _nrf_set_tx_mode nrf_set_tx_mode `(v  1 e 1 0 ]
-"233
+"227
+[v _nrf_data_available nrf_data_available `(uc  1 e 1 0 ]
+"235
 [v _nrf_setup nrf_setup `(v  1 e 1 0 ]
-"273
+"278
 [v _nrf_tx_char nrf_tx_char `(v  1 e 1 0 ]
-"290
+"294
+[v _nrf_read_payload nrf_read_payload `(uc  1 e 1 0 ]
+"307
 [v _nrf_rx_char nrf_rx_char `(uc  1 e 1 0 ]
-"301
-[v _SendChar SendChar `(v  1 e 1 0 ]
-"317
+"339
 [v _main main `(i  1 e 2 0 ]
-"843 C:\Program Files\Microchip\xc8\v2.41\pic\include\proc\pic16f887.h
+"844 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f887.h
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
-"850
+"851
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-"1133
+"1134
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
-"1140
+"1141
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
 [s S38 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
@@ -70,7 +72,7 @@
 `uc 1 TRISC6 1 0 :1:6 
 `uc 1 TRISC7 1 0 :1:7 
 ]
-"1557
+"1558
 [u S47 . 1 `S38 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES47  1 e 1 @135 ]
 [s S75 . 1 `uc 1 TRISD0 1 0 :1:0 
@@ -82,7 +84,7 @@
 `uc 1 TRISD6 1 0 :1:6 
 `uc 1 TRISD7 1 0 :1:7 
 ]
-"1619
+"1620
 [u S84 . 1 `S75 1 . 1 0 ]
 [v _TRISDbits TRISDbits `VES84  1 e 1 @136 ]
 [s S96 . 1 `uc 1 SCS 1 0 :1:0 
@@ -91,7 +93,7 @@
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
-"1882
+"1883
 [s S102 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
@@ -99,81 +101,185 @@
 ]
 [u S107 . 1 `S96 1 . 1 0 `S102 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES107  1 e 1 @143 ]
-"2177
+"2178
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-"2642
+"2643
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
-"3645
+"3646
 [v _BF BF `VEb  1 e 0 @1184 ]
-"3699
+"3700
 [v _BRGH BRGH `VEb  1 e 0 @1218 ]
-"3834
+"3835
 [v _CKE CKE `VEb  1 e 0 @1190 ]
-"3840
+"3841
 [v _CREN CREN `VEb  1 e 0 @196 ]
-"4179
+"4180
 [v _RCIF RCIF `VEb  1 e 0 @101 ]
-"4191
+"4192
 [v _RD2 RD2 `VEb  1 e 0 @66 ]
-"4194
+"4195
 [v _RD3 RD3 `VEb  1 e 0 @67 ]
-"4260
+"4261
 [v _SMP SMP `VEb  1 e 0 @1191 ]
-"4263
+"4264
 [v _SPEN SPEN `VEb  1 e 0 @199 ]
-"4317
+"4318
 [v _SYNC SYNC `VEb  1 e 0 @1220 ]
-"4470
+"4471
 [v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
-"4473
+"4474
 [v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
-"4512
+"4513
 [v _TRMT TRMT `VEb  1 e 0 @1217 ]
-"4542
+"4543
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
-"99 C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
+"101 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X\main.c
 [v _RXTX_ADDR RXTX_ADDR `[3]uc  1 e 3 0 ]
-"317
+"339
 [v _main main `(i  1 e 2 0 ]
 {
-"352
+"373
+[v main@ch ch `uc  1 a 1 28 ]
+"378
 } 0
-"233
+"235
 [v _nrf_setup nrf_setup `(v  1 e 1 0 ]
 {
-"241
-[v nrf_setup@data data `[5]uc  1 a 5 0 ]
-"269
+"248
+[v nrf_setup@data data `[5]uc  1 a 5 2 ]
+"274
 } 0
-"180
+"182
 [v _nrf_flush_rxtx nrf_flush_rxtx `(v  1 e 1 0 ]
 {
-"182
-[v nrf_flush_rxtx@data data `uc  1 a 1 11 ]
-"186
+"184
+[v nrf_flush_rxtx@data data `uc  1 a 1 12 ]
+"188
 } 0
-"116
+"118
 [v _arrcpy arrcpy `(v  1 e 1 0 ]
 {
 [v arrcpy@dst dst `*.4uc  1 a 1 wreg ]
+"120
+[v arrcpy@i i `uc  1 a 1 6 ]
 "118
-[v arrcpy@i i `uc  1 a 1 5 ]
-"116
 [v arrcpy@dst dst `*.4uc  1 a 1 wreg ]
 [v arrcpy@src src `*.4uc  1 p 1 0 ]
 [v arrcpy@len len `uc  1 p 1 1 ]
-"118
-[v arrcpy@dst dst `*.4uc  1 a 1 4 ]
-"122
+"120
+[v arrcpy@dst dst `*.4uc  1 a 1 5 ]
+"124
 } 0
-"15 C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-[v _UART_Init UART_Init `(v  1 e 1 0 ]
+"195
+[v _nrf_set_rx_mode nrf_set_rx_mode `(v  1 e 1 0 ]
 {
-[v UART_Init@baudrate baudrate `DCl  1 p 4 6 ]
-[v UART_Init@_XTAL_FREQ _XTAL_FREQ `l  1 p 4 10 ]
+"197
+[v nrf_set_rx_mode@config config `uc  1 a 1 12 ]
+"207
+} 0
+"307
+[v _nrf_rx_char nrf_rx_char `(uc  1 e 1 0 ]
+{
+"309
+[v nrf_rx_char@data data `uc  1 a 1 13 ]
+"312
+[v nrf_rx_char@clear clear `uc  1 a 1 12 ]
+"315
+} 0
+"144
+[v _nrf_write_register nrf_write_register `(uc  1 e 1 0 ]
+{
+[v nrf_write_register@reg reg `uc  1 a 1 wreg ]
+[v nrf_write_register@reg reg `uc  1 a 1 wreg ]
+[v nrf_write_register@data data `*.4uc  1 p 1 9 ]
+[v nrf_write_register@len len `uc  1 p 1 10 ]
+"146
+[v nrf_write_register@reg reg `uc  1 a 1 11 ]
+"147
+} 0
+"151
+[v _nrf_read_register nrf_read_register `(uc  1 e 1 0 ]
+{
+[v nrf_read_register@reg reg `uc  1 a 1 wreg ]
+[v nrf_read_register@reg reg `uc  1 a 1 wreg ]
+[v nrf_read_register@data data `*.1uc  1 p 1 9 ]
+[v nrf_read_register@len len `uc  1 p 1 10 ]
+"153
+[v nrf_read_register@reg reg `uc  1 a 1 11 ]
+"154
+} 0
+"129
+[v _nrf_command nrf_command `(uc  1 e 1 0 ]
+{
+[v nrf_command@command command `uc  1 a 1 wreg ]
+"134
+[v nrf_command@i i `uc  1 a 1 8 ]
+"133
+[v nrf_command@status status `uc  1 a 1 7 ]
+"129
+[v nrf_command@command command `uc  1 a 1 wreg ]
+[v nrf_command@data data `*.4uc  1 p 1 1 ]
+[v nrf_command@len len `uc  1 p 1 2 ]
+"131
+[v nrf_command@command command `uc  1 a 1 6 ]
+"140
+} 0
+"227
+[v _nrf_data_available nrf_data_available `(uc  1 e 1 0 ]
+{
+"229
+[v nrf_data_available@status status `uc  1 a 1 3 ]
+"231
+} 0
+"168
+[v _nrf_write_command nrf_write_command `(uc  1 e 1 0 ]
+{
+[v nrf_write_command@command command `uc  1 a 1 wreg ]
+"171
+[v nrf_write_command@status status `uc  1 a 1 2 ]
+"168
+[v nrf_write_command@command command `uc  1 a 1 wreg ]
+"170
+[v nrf_write_command@command command `uc  1 a 1 1 ]
+"174
+} 0
+"25 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/spi.h
+[v _SPI_write SPI_write `(uc  1 e 1 0 ]
+{
+[v SPI_write@data data `uc  1 a 1 wreg ]
+[v SPI_write@data data `uc  1 a 1 wreg ]
+"27
+[v SPI_write@data data `uc  1 a 1 0 ]
+"30
+} 0
+"33 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/uart.h
+[v _UART_write_text UART_write_text `(v  1 e 1 0 ]
+{
+[v UART_write_text@text text `*.24uc  1 a 1 wreg ]
+"35
+[v UART_write_text@i i `i  1 a 2 1 ]
+"33
+[v UART_write_text@text text `*.24uc  1 a 1 wreg ]
+"35
+[v UART_write_text@text text `*.24uc  1 a 1 3 ]
+"37
+} 0
+"27
+[v _UART_write UART_write `(v  1 e 1 0 ]
+{
+[v UART_write@data data `uc  1 a 1 wreg ]
+[v UART_write@data data `uc  1 a 1 wreg ]
+[v UART_write@data data `uc  1 a 1 0 ]
+"31
+} 0
+"15
+[v _UART_init UART_init `(v  1 e 1 0 ]
+{
+[v UART_init@baudrate baudrate `DCl  1 p 4 6 ]
+[v UART_init@_XTAL_FREQ _XTAL_FREQ `l  1 p 4 10 ]
 "25
 } 0
-"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\aldiv.c
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 {
 "10
@@ -186,126 +292,7 @@
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "41
 } 0
-"301 C:\Users\marti\Desktop\Programming\el-all\NRF.X\main.c
-[v _SendChar SendChar `(v  1 e 1 0 ]
-{
-[v SendChar@args args `*.24uc  1 a 1 wreg ]
-[v SendChar@args args `*.24uc  1 a 1 wreg ]
-"303
-[v SendChar@args args `*.24uc  1 a 1 3 ]
-"306
-} 0
-"273
-[v _nrf_tx_char nrf_tx_char `(v  1 e 1 0 ]
-{
-[v nrf_tx_char@ch ch `uc  1 a 1 wreg ]
-"285
-[v nrf_tx_char@data data `uc  1 a 1 2 ]
-"278
-[v nrf_tx_char@stat stat `uc  1 a 1 0 ]
-"273
-[v nrf_tx_char@ch ch `uc  1 a 1 wreg ]
-"275
-[v nrf_tx_char@ch ch `uc  1 a 1 1 ]
-"287
-} 0
-"156
-[v _nrf_write_payload nrf_write_payload `(uc  1 e 1 0 ]
-{
-[v nrf_write_payload@data data `*.4uc  1 a 1 wreg ]
-[v nrf_write_payload@data data `*.4uc  1 a 1 wreg ]
-[v nrf_write_payload@len len `uc  1 p 1 11 ]
-"158
-[v nrf_write_payload@data data `*.4uc  1 a 1 13 ]
-"162
-} 0
-"166
-[v _nrf_write_command nrf_write_command `(uc  1 e 1 0 ]
-{
-[v nrf_write_command@command command `uc  1 a 1 wreg ]
-"169
-[v nrf_write_command@status status `uc  1 a 1 2 ]
-"166
-[v nrf_write_command@command command `uc  1 a 1 wreg ]
-"168
-[v nrf_write_command@command command `uc  1 a 1 1 ]
-"172
-} 0
-"209
-[v _nrf_set_tx_mode nrf_set_tx_mode `(v  1 e 1 0 ]
-{
-"211
-[v nrf_set_tx_mode@config config `uc  1 a 1 11 ]
-"221
-} 0
-"142
-[v _nrf_write_register nrf_write_register `(uc  1 e 1 0 ]
-{
-[v nrf_write_register@reg reg `uc  1 a 1 wreg ]
-[v nrf_write_register@reg reg `uc  1 a 1 wreg ]
-[v nrf_write_register@data data `*.4uc  1 p 1 8 ]
-[v nrf_write_register@len len `uc  1 p 1 9 ]
-"144
-[v nrf_write_register@reg reg `uc  1 a 1 10 ]
-"145
-} 0
-"149
-[v _nrf_read_register nrf_read_register `(uc  1 e 1 0 ]
-{
-[v nrf_read_register@reg reg `uc  1 a 1 wreg ]
-[v nrf_read_register@reg reg `uc  1 a 1 wreg ]
-[v nrf_read_register@data data `*.1uc  1 p 1 8 ]
-[v nrf_read_register@len len `uc  1 p 1 9 ]
-"151
-[v nrf_read_register@reg reg `uc  1 a 1 10 ]
-"152
-} 0
-"127
-[v _nrf_command nrf_command `(uc  1 e 1 0 ]
-{
-[v nrf_command@command command `uc  1 a 1 wreg ]
-"132
-[v nrf_command@i i `uc  1 a 1 7 ]
-"131
-[v nrf_command@status status `uc  1 a 1 6 ]
-"127
-[v nrf_command@command command `uc  1 a 1 wreg ]
-[v nrf_command@data data `*.4uc  1 p 1 1 ]
-[v nrf_command@len len `uc  1 p 1 2 ]
-"129
-[v nrf_command@command command `uc  1 a 1 5 ]
-"138
-} 0
-"25 C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
-[v _SPI_write SPI_write `(uc  1 e 1 0 ]
-{
-[v SPI_write@data data `uc  1 a 1 wreg ]
-[v SPI_write@data data `uc  1 a 1 wreg ]
-"27
-[v SPI_write@data data `uc  1 a 1 0 ]
-"30
-} 0
-"33 C:\Users\marti\Desktop\Programming\el-all\NRF.X/uart.h
-[v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
-{
-[v UART_Write_Text@text text `*.24uc  1 a 1 wreg ]
-"35
-[v UART_Write_Text@i i `i  1 a 2 1 ]
-"33
-[v UART_Write_Text@text text `*.24uc  1 a 1 wreg ]
-"35
-[v UART_Write_Text@text text `*.24uc  1 a 1 3 ]
-"37
-} 0
-"27
-[v _UART_Write UART_Write `(v  1 e 1 0 ]
-{
-[v UART_Write@data data `uc  1 a 1 wreg ]
-[v UART_Write@data data `uc  1 a 1 wreg ]
-[v UART_Write@data data `uc  1 a 1 0 ]
-"31
-} 0
-"15 C:\Users\marti\Desktop\Programming\el-all\NRF.X/spi.h
+"15 C:\Users\marti\OneDrive\Skrivebord\Programmering\pic\NRF.X/spi.h
 [v _SPI_init_master SPI_init_master `(v  1 e 1 0 ]
 {
 "23

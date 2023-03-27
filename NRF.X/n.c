@@ -261,7 +261,7 @@ void nrf_setup()
     nrf_write_register(REGISTER_RF_CH, &data, 1); // Randomly chosen RF channel
     data[0] = 0x26;
     nrf_write_register(REGISTER_RF_SETUP, &data, 1); // 250kbps, 0dBm
-    data[0] = 0x05;
+    data[0] = 0x01;
     nrf_write_register(REGISTER_PX_PW_P0, &data, 1); // RX payload = 1 byte
 
     arrcpy(data, RXTX_ADDR, sizeof(RXTX_ADDR));
@@ -274,10 +274,38 @@ void nrf_setup()
 }
 
 
+// send
+void nrf_send(uint8_t *data, uint8_t len)
+{
+    nrf_write_payload(&data, len);
+
+    // Wait for char to be sent
+    uint8_t stat;
+    do
+    {
+        stat = nrf_get_status();
+    } while ((stat & 0x20) == 0);
+
+    // Clear status bit
+    uint8_t clear = 0x20;
+    nrf_write_register(REGISTER_STATUS, &clear, 1);
+}
+
+// receive 
+uint8_t nrf_recieve(uint8_t *data, uint8_t len)
+{
+    uint8_t status = nrf_read_register(COMMAND_RX_PAYLOAD, &data, len);
+    
+    // Clear status bit
+    uint8_t clear = 0x40;
+    nrf_write_register(REGISTER_STATUS, &clear, 1);
+    return status;
+}
+
 
 void nrf_tx_char(uint8_t *ch)
 {
-    nrf_write_payload(&ch, 1);
+    nrf_write_payload(&ch[0], 1);
 
     // Wait for char to be sent
     uint8_t stat;
@@ -291,18 +319,6 @@ void nrf_tx_char(uint8_t *ch)
     nrf_write_register(REGISTER_STATUS, &data, 1);
 }
 
-uint8_t nrf_read_payload(uint8_t *data, uint8_t len)
-{
-    CE = 0;
-    uint8_t status = nrf_read_register(COMMAND_RX_PAYLOAD, data, len);
-    CE = 1;
-    
-    // Clear status bit
-    uint8_t clear = 0x40;
-    nrf_write_register(REGISTER_STATUS, &clear, 1);
-    return status;
-}
-
 // receive a char
 uint8_t nrf_rx_char()
 {
@@ -312,28 +328,6 @@ uint8_t nrf_rx_char()
     uint8_t clear = 0x40;
     nrf_write_register(REGISTER_STATUS, &clear, 1);
     return data;
-}
-
-
-void SendChar(char *args)
-{
-    nrf_set_tx_mode();
-    nrf_tx_char(args[0]);
-    UART_write_text("Char sent\n");
-}
-
-void SendCharArray(uint8_t *args, uint8_t len)
-{
-    nrf_set_tx_mode();
-    nrf_write_payload(args, len);
-    UART_write_text("Char sent\n");
-}
-
-void ReadCharArray(uint8_t *args, uint8_t len)
-{
-    nrf_set_rx_mode();
-    nrf_read_payload(args, len);
-    UART_write_text("Char read\n");
 }
 
 int main()
@@ -347,7 +341,7 @@ int main()
     SPI_init_master();
 
     
-//#define sender
+#define sender
     nrf_setup();
 #ifdef sender
     nrf_set_tx_mode();
@@ -359,13 +353,15 @@ int main()
     while (1)
     {
 #ifdef sender
-        nrf_tx_char("a"[0]);
+        UART_write_text("send\n");
+        
+        nrf_tx_char("a");
         __delay_ms(500);
-        nrf_tx_char("b"[0]);
+        nrf_tx_char("b");
         __delay_ms(500);
-        nrf_tx_char("c"[0]);
+        nrf_tx_char("c");
         __delay_ms(500);
-        nrf_tx_char("d"[0]);
+        nrf_tx_char("d");
         __delay_ms(500);
 #else
         while(!nrf_data_available());
