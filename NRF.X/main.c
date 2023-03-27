@@ -197,18 +197,18 @@ void nrf_flush_rxtx()
 
 
 // setup the nRF24L01
-// RXTX_ADDR is a pointer to an array of 1 to 5 bytes
-// payload_size is the size of the payload from 1 to 32 bytess
-void nrf_setup(uint8_t *rxtx_addr, uint8_t payload_size)
+void nrf_setup()
 {
+    //CSN_TRIS = 0;
     TRIS(CSN) = 0;
     TRIS(CE) = 0;
-
+    
     __delay_ms(2);
     
     PIN(CSN) = 1;
     PIN(CE) = 0;
 
+    // give the nRF24L01 time to set up:
     __delay_ms(2);
 
     uint8_t data[5];
@@ -320,8 +320,8 @@ int main()
     SPI_init_master();
 
     
-#define sender
-    nrf_setup((uint8_t*)"ALDA", 5);
+//#define sender
+    nrf_setup();
 #ifdef sender
     nrf_set_tx_mode();
 #else
