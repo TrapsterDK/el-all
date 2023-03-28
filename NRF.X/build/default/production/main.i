@@ -2801,7 +2801,7 @@ extern int printf(const char *, ...);
         SSPSTAT = 0b01000000;
         TRISC4 = 1;
         TRISC5 = 0;
-        TRISC2 = 0;
+        TRISC3 = 0;
     }
 
 
@@ -2886,8 +2886,12 @@ extern int printf(const char *, ...);
         TRISD3 = 0;
         TRISD2 = 0;
 
+        _delay((unsigned long)((2)*(8000000UL/4000.0)));
+
         RD3 = 1;
         RD2 = 0;
+
+        _delay((unsigned long)((2)*(8000000UL/4000.0)));
 
         uint8_t data[5];
 
@@ -3026,7 +3030,7 @@ int main()
 
     while (1)
     {
-# 92 "main.c"
+# 91 "main.c"
         while (!nrf_data_available())
             ;
 

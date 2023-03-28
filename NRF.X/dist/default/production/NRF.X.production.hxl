@@ -10,10 +10,10 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 81h		(dist/default/production\NRF.X.production.hex)
-  73Ch - FFFh		(dist/default/production\NRF.X.production.hex)
+  714h - FFFh		(dist/default/production\NRF.X.production.hex)
   400Eh - 4011h		(dist/default/production\NRF.X.production.hex)
  Unused ranges:
-  82h - 73Bh
+  82h - 713h
   1000h - 400Dh
 
 ### Hex Memory Map ###
@@ -33,7 +33,9 @@
 00000070 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000080 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-00000730 | -- -- -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1
+00000710 | -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000720 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000730 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000740 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000750 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000760 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

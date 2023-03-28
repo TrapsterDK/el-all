@@ -78,14 +78,13 @@ int main()
         uint8_t data[PAYLOAD_SIZE] = "AB";
         for (int i = 0; i < 10; i++)
         {
-            uint8_t send_data[PAYLOAD_SIZE];
-            arrcpy(send_data, data, PAYLOAD_SIZE);
             for (int j = 0; j < PAYLOAD_SIZE-1; j++)
-            {
-                send_data[j] += i;
+            {  
+                data[j] += 1;
             }
-            nrf_send(send_data, PAYLOAD_SIZE);
+            nrf_send(data, PAYLOAD_SIZE);
             __delay_ms(500);
+            UART_printf("Sent\n");
         }
 #else
         // wait for data if sender is not defined

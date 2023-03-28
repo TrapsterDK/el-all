@@ -19,7 +19,7 @@ extern "C"
         SSPSTAT = 0b01000000; // CKE = 1 must be rising edge
         TRISC4 = 1;
         TRISC5 = 0;
-        TRISC2 = 0;
+        TRISC3 = 0;
     }
 
     // write a byte to the spi
