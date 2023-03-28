@@ -17,13 +17,13 @@ extern "C" {
 #define MOSI C5
 #define SCK C3
 
-/* MACROS */
-// work around for X ## Y which would normally be concatenated before expansion
-#define UNWRAP_CONCAT(X, Y) X##Y
+    /* MACROS */
+    // work around for X ## Y which would normally be concatenated before expansion
+    #define UNWRAP_CONCAT(X, Y) X##Y
 
-// macro to get the pin and tris register for a given pin
-#define PIN(PIN) UNWRAP_CONCAT(R, PIN)
-#define TRIS(PIN) UNWRAP_CONCAT(TRIS, PIN)
+    // macro to get the pin and tris register for a given pin
+    #define PIN(PIN) UNWRAP_CONCAT(R, PIN)
+    #define TRIS(PIN) UNWRAP_CONCAT(TRIS, PIN)
 
     void SPI_init_master(){
         // Set pins as output

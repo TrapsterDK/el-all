@@ -44,7 +44,7 @@ extern "C"
 			UART_write(text[i]);
 	}
     
-	//defined macros for UART wrapper around sprintf, max 64
+	// macro printf wrapper, as vsprintf is not available
 	#define UART_printf(...) \
 	{ \
 		char buffer[64]; \

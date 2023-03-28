@@ -13,82 +13,84 @@ extern "C"
 {
 #endif
 
-#include <xc.h>
+    #include <xc.h> 
 
-/* USER CONFIGURATION */
-#define _XTAL_FREQ 8000000UL
+    /* USER CONFIGURATION */
+    #define _XTAL_FREQ 8000000UL
 
-#define CE D2
-#define CSN D3
+    #define CE D2
+    #define CSN D3
 
-/* MACROS */
-// work around for X ## Y which would normally be concatenated before expansion
-#define UNWRAP_CONCAT(X, Y) X##Y
 
-// macro to get the pin and tris register for a given pin
-#define PIN(PIN) UNWRAP_CONCAT(R, PIN)
-#define TRIS(PIN) UNWRAP_CONCAT(TRIS, PIN)
+    /* MACROS */
+    // work around for X ## Y which would normally be concatenated before expansion
+    #define UNWRAP_CONCAT(X, Y) X##Y
 
-/* CONFIGURATION REGISTER */
-#define NRF_REGISTER_CONFIG 0x00
-#define NRF_REGISTER_EN_AA 0x01
-#define NRF_REGISTER_EN_RXADDR 0x02
-#define NRF_REGISTER_SETUP_AW 0x03
-#define NRF_REGISTER_SETUP_RETR 0x04
-#define NRF_REGISTER_RF_CH 0x05
-#define NRF_REGISTER_RF_SETUP 0x06
-#define NRF_REGISTER_STATUS 0x07
-#define NRF_REGISTER_OBSERVE_TX 0x08
-#define NRF_REGISTER_RPD 0x09
-#define NRF_REGISTER_RX_ADDR_P0 0x0A
-#define NRF_REGISTER_RX_ADDR_P1 0x0B
-#define NRF_REGISTER_RX_ADDR_P2 0x0C
-#define NRF_REGISTER_RX_ADDR_P3 0x0D
-#define NRF_REGISTER_RX_ADDR_P4 0x0E
-#define NRF_REGISTER_RX_ADDR_P5 0x0F
-#define NRF_REGISTER_TX_ADDR 0x10
-#define NRF_REGISTER_PX_PW_P0 0x11
-#define NRF_REGISTER_PX_PW_P1 0x12
-#define NRF_REGISTER_PX_PW_P2 0x13
-#define NRF_REGISTER_PX_PW_P3 0x14
-#define NRF_REGISTER_PX_PW_P4 0x15
-#define NRF_REGISTER_PX_PW_P5 0x16
-#define NRF_REGISTER_FIFO_STATUS 0x17
-#define NRF_REGISTER_DYNPD 0x1C
-#define NRF_REGISTER_FEATURE 0x1D
+    // macro to get the pin and tris register for a given pin
+    #define PIN(PIN) UNWRAP_CONCAT(R, PIN)
+    #define TRIS(PIN) UNWRAP_CONCAT(TRIS, PIN)
+    
 
-// follwed by 1 to 5 LSByte
-// 000A AAAA
-#define NRF_COMMAND_R_REGISTER 0b00000000
-#define NRF_COMMAND_W_REGISTER 0b00100000
+    /* CONFIGURATION REGISTER */
+    #define NRF_REGISTER_CONFIG 0x00
+    #define NRF_REGISTER_EN_AA 0x01
+    #define NRF_REGISTER_EN_RXADDR 0x02
+    #define NRF_REGISTER_SETUP_AW 0x03
+    #define NRF_REGISTER_SETUP_RETR 0x04
+    #define NRF_REGISTER_RF_CH 0x05
+    #define NRF_REGISTER_RF_SETUP 0x06
+    #define NRF_REGISTER_STATUS 0x07
+    #define NRF_REGISTER_OBSERVE_TX 0x08
+    #define NRF_REGISTER_RPD 0x09
+    #define NRF_REGISTER_RX_ADDR_P0 0x0A
+    #define NRF_REGISTER_RX_ADDR_P1 0x0B
+    #define NRF_REGISTER_RX_ADDR_P2 0x0C
+    #define NRF_REGISTER_RX_ADDR_P3 0x0D
+    #define NRF_REGISTER_RX_ADDR_P4 0x0E
+    #define NRF_REGISTER_RX_ADDR_P5 0x0F
+    #define NRF_REGISTER_TX_ADDR 0x10
+    #define NRF_REGISTER_PX_PW_P0 0x11
+    #define NRF_REGISTER_PX_PW_P1 0x12
+    #define NRF_REGISTER_PX_PW_P2 0x13
+    #define NRF_REGISTER_PX_PW_P3 0x14
+    #define NRF_REGISTER_PX_PW_P4 0x15
+    #define NRF_REGISTER_PX_PW_P5 0x16
+    #define NRF_REGISTER_FIFO_STATUS 0x17
+    #define NRF_REGISTER_DYNPD 0x1C
+    #define NRF_REGISTER_FEATURE 0x1D
 
-// followed by 1 to 32 LSByte
-#define NRF_COMMAND_RX_PAYLOAD 0b01100001
-#define NRF_COMMAND_TX_PAYLOAD 0b10100000
+    // follwed by 1 to 5 LSByte
+    // 000A AAAA
+    #define NRF_COMMAND_R_REGISTER 0b00000000
+    #define NRF_COMMAND_W_REGISTER 0b00100000
 
-// followed by 0 bytes
-#define NRF_COMMAND_FLUSH_RX 0b11100010
-#define NRF_COMMAND_FLUSH_TX 0b11100001
+    // followed by 1 to 32 LSByte
+    #define NRF_COMMAND_RX_PAYLOAD 0b01100001
+    #define NRF_COMMAND_TX_PAYLOAD 0b10100000
 
-// followed by 0 bytes
-#define NRF_COMMAND_REUSE_TX_PL 0b11100011
-#define NRF_COMMAND_REUSE_TX_PL 0b11100011
+    // followed by 0 bytes
+    #define NRF_COMMAND_FLUSH_RX 0b11100010
+    #define NRF_COMMAND_FLUSH_TX 0b11100001
 
-// followed by 1 byte
-#define NRF_COMMAND_R_RX_PL_WID 0b01100000
+    // followed by 0 bytes
+    #define NRF_COMMAND_REUSE_TX_PL 0b11100011
+    #define NRF_COMMAND_REUSE_TX_PL 0b11100011
 
-// followed by 1 to 32 LSByte
-// 1010 1PPP
-#define NRF_COMMAND_W_ACK_PAYLOAD 0b10101000
+    // followed by 1 byte
+    #define NRF_COMMAND_R_RX_PL_WID 0b01100000
 
-// followed by 1 to 32 LSByte
-#define NRF_COMMAND_W_TX_PAYLOAD_NO_ATK 0b10110000
+    // followed by 1 to 32 LSByte
+    // 1010 1PPP
+    #define NRF_COMMAND_W_ACK_PAYLOAD 0b10101000
 
-// followed by 0 bytes
-#define NRF_COMMAND_NOP 0b11111111
+    // followed by 1 to 32 LSByte
+    #define NRF_COMMAND_W_TX_PAYLOAD_NO_ATK 0b10110000
 
-// CONFIG
-#define NRF_CONFIG_PRIM_RX 0x01
+    // followed by 0 bytes
+    #define NRF_COMMAND_NOP 0b11111111
+
+    // CONFIG
+    #define NRF_CONFIG_PRIM_RX 0x01
 
     /* General functions */
     // copy an array
@@ -101,30 +103,40 @@ extern "C"
     }
 
     /* Internal functions */
-    // write a command followed by data, internal only, returns status, data is overwritten with response
-    uint8_t nrf_command(uint8_t NRF_command, uint8_t *data, uint8_t len)
-    {
-        PIN(CSN) = 0;
-
-        uint8_t status = SPI_write(NRF_command);
-        for (uint8_t i = 0; i < len; i++)
-            data[i] = SPI_write(data[i]);
-
-        PIN(CSN) = 1;
-
+    // write a command followed by data, internal only, returns status
+    #define _NRF_COMMAND(X) \
+        PIN(CSN) = 0; \
+        uint8_t status = SPI_write(command); \
+        for (uint8_t i = 0; i < len; i++) \
+        { \
+            X; \
+        } \
+        PIN(CSN) = 1; \
         return status;
+
+    // write a command followed by data, internal only, returns status, data is overwritten with response
+    uint8_t nrf_command_with_data_overwrite(uint8_t command, uint8_t *data, uint8_t len)
+    {
+        _NRF_COMMAND(data[i] = SPI_write(data[i]))
     }
+
+    // write a command followed by data, internal only, returns status
+    uint8_t nrf_command_with_data(uint8_t command, uint8_t *data, uint8_t len)
+    {
+        _NRF_COMMAND(SPI_write(data[i]))
+    }
+
 
     // write to a register, internal only, returns status
     uint8_t nrf_write_register(uint8_t reg, uint8_t *data, uint8_t len)
     {
-        return nrf_command(reg | NRF_COMMAND_W_REGISTER, data, len);
+        return nrf_command_with_data(reg | NRF_COMMAND_W_REGISTER, data, len);
     }
 
-    // read from a register, internal only, returns status
+    // read from a register, internal only, returns status, data is overwritten with response
     uint8_t nrf_read_register(uint8_t reg, uint8_t *data, uint8_t len)
     {
-        return nrf_command(reg | NRF_COMMAND_R_REGISTER, data, len);
+        return nrf_command_with_data_overwrite(reg | NRF_COMMAND_R_REGISTER, data, len);
     }
 
     // write payload, internal only, returns status
@@ -136,17 +148,17 @@ extern "C"
         PIN(CE) = 0;
     }
 
-    // write a NRF_command, internal only, returns status
-    uint8_t nrf_write_command(uint8_t NRF_command)
+    // write a command, internal only, returns status
+    uint8_t nrf_write_command(uint8_t command)
     {
         PIN(CSN) = 0;
-        uint8_t status = SPI_write(NRF_command);
+        uint8_t status = SPI_write(command);
         PIN(CSN) = 1;
         return status;
     }
 
-// get status register, internal only
-#define nrf_get_status() nrf_write_command(NRF_COMMAND_NOP)
+    // get status register, internal only
+    #define nrf_get_status() nrf_write_command(NRF_COMMAND_NOP)
 
     // flush RX and TX FIFOs, internal only
     void nrf_flush_rxtx()
