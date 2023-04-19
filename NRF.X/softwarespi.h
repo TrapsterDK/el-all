@@ -22,8 +22,8 @@ extern "C" {
     #define UNWRAP_CONCAT(X, Y) X##Y
 
     // macro to get the pin and tris register for a given pin
-    #define PIN(PIN) UNWRAP_CONCAT(R, PIN)
-    #define TRIS(PIN) UNWRAP_CONCAT(TRIS, PIN)
+    #define PIN(X) UNWRAP_CONCAT(R, X)
+    #define TRIS(X) UNWRAP_CONCAT(TRIS, X)
 
     void SPI_init_master(){
         // Set pins as output
@@ -40,20 +40,20 @@ extern "C" {
         uint8_t read = 0;
 
         // Data transmit on rising edge of clock
-        for (uint8_t i = 0; i < 8; i++) {
-            if (data & 0x80) {
+        for(uint8_t i = 0; i < 8; i++){
+            if(data & 0x80){
                 PIN(MOSI) = 1;
-            } else {
+            }else{
                 PIN(MOSI) = 0;
             }
             PIN(SCK) = 1;
             PIN(SCK) = 0;
-            data <<= 1;
+            
             read <<= 1;
-            if (PIN(MISO)) {
-                read |= 1;
-            }
+            read |= PIN(MISO);
+            data <<= 1;
         }
+        read >>= 1;
 
         return read;
     }

@@ -351,29 +351,7 @@ sprintf(char * sp, const char * f, ...)
 
   case 0:
    goto alldone;
-# 754 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\common\\doprnt.c"
-  case 's':
-
-
-
-
-
-    cp = (*(const char * *)__va_arg((*(const char * **)ap), (const char *)0));
-
-
-
-
-
-   if(!cp)
-    cp = "(null)";
-# 803 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\common\\doprnt.c"
-   while(*cp)
-    ((*sp++ = (*cp++)));
-   continue;
-
-
-
-
+# 810 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\common\\doprnt.c"
   case 'c':
 # 825 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c90\\common\\doprnt.c"
    c = (char)(*(int *)__va_arg((*(int **)ap), (int)0));

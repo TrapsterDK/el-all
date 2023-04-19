@@ -27,8 +27,8 @@ extern "C"
     #define UNWRAP_CONCAT(X, Y) X##Y
 
     // macro to get the pin and tris register for a given pin
-    #define PIN(PIN) UNWRAP_CONCAT(R, PIN)
-    #define TRIS(PIN) UNWRAP_CONCAT(TRIS, PIN)
+    #define PIN(X) UNWRAP_CONCAT(R, X)
+    #define TRIS(X) UNWRAP_CONCAT(TRIS, X)
     
 
     /* CONFIGURATION REGISTER */
@@ -146,6 +146,7 @@ extern "C"
         PIN(CE) = 1;
         __delay_us(20);
         PIN(CE) = 0;
+        return status;
     }
 
     // write a command, internal only, returns status
@@ -171,43 +172,53 @@ extern "C"
 
     /* USER FUNCTIONS */
     // setup the nRF24L01
-    void nrf_setup(uint8_t *addr, uint8_t payload_size)
+    void nrf_setup(uint8_t *addr, uint8_t addr_size, uint8_t payload_size)
     {
-        // CSN_TRIS = 0;
         TRIS(CSN) = 0;
         TRIS(CE) = 0;
-
-        __delay_ms(2);    
         
         PIN(CSN) = 1;
         PIN(CE) = 0;
 
-        __delay_ms(2);    
+        __delay_ms(100);    
         
         uint8_t data[5];
 
         data[0] = 0x0B;
-        nrf_write_register(NRF_REGISTER_CONFIG, &data, 1); // 1 byte CRC, POWER UP, PRX
+        nrf_write_register(NRF_REGISTER_CONFIG, (uint8_t *)&data, 1); // 1 byte CRC, POWER UP, PRX
         data[0] = 0x00;
-        nrf_write_register(NRF_REGISTER_EN_AA, &data, 1); // Disable auto ack
+        nrf_write_register(NRF_REGISTER_EN_AA, (uint8_t *)&data, 1); // Disable auto ack
         data[0] = 0x01;
-        nrf_write_register(NRF_REGISTER_EN_RXADDR, &data, 1); // Enable data pipe 0
-        data[0] = 0x01;
-        nrf_write_register(NRF_REGISTER_SETUP_AW, &data, 1); // 3 byte address
+        nrf_write_register(NRF_REGISTER_EN_RXADDR, (uint8_t *)&data, 1); // Enable data pipe 0
+        data[0] = 0b00000011;
+        
+        switch (addr_size){
+            case 3:
+                data[0] = 0x01;
+                break;
+            case 4:
+                data[0] = 0x02  ;
+                break;
+            case 5:
+                data[0] = 0x03;
+                break;
+        }
+        
+        nrf_write_register(NRF_REGISTER_SETUP_AW, (uint8_t *)&data, 1); // 5 byte address
         data[0] = 0x00;
-        nrf_write_register(NRF_REGISTER_SETUP_RETR, &data, 1); // Retransmit disabled
+        nrf_write_register(NRF_REGISTER_SETUP_RETR, (uint8_t *)&data, 1); // Retransmit disabled
         data[0] = 0x01;
-        nrf_write_register(NRF_REGISTER_RF_CH, &data, 1); // Randomly chosen RF channel
+        nrf_write_register(NRF_REGISTER_RF_CH, (uint8_t *)&data, 1); // Randomly chosen RF channel
         data[0] = 0x26;
-        nrf_write_register(NRF_REGISTER_RF_SETUP, &data, 1); // 250kbps, 0dBm
+        nrf_write_register(NRF_REGISTER_RF_SETUP, (uint8_t *)&data, 1); // 250kbps, 0dBm
         data[0] = payload_size;
-        nrf_write_register(NRF_REGISTER_PX_PW_P0, &data, 1); // RX payload = 1 byte
+        nrf_write_register(NRF_REGISTER_PX_PW_P0, (uint8_t *)&data, 1); // RX payload = 1 byte
 
-        arrcpy(data, addr, sizeof(addr));
-        nrf_write_register(NRF_REGISTER_RX_ADDR_P0, data, sizeof(addr));
+        arrcpy(data, addr, addr_size);
+        nrf_write_register(NRF_REGISTER_RX_ADDR_P0, data, addr_size);
 
-        arrcpy(data, addr, sizeof(addr));
-        nrf_write_register(NRF_REGISTER_TX_ADDR, data, sizeof(addr));
+        arrcpy(data, addr, addr_size);
+        nrf_write_register(NRF_REGISTER_TX_ADDR, data, addr_size);
 
         nrf_flush_rxtx();
     }

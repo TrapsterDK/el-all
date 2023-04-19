@@ -24,6 +24,8 @@
 #pragma config CP = OFF
 
 
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2646,7 +2648,49 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\xc.h" 2 3
-# 17 "main.c" 2
+# 19 "main.c" 2
+
+
+
+# 1 "./softwarespi.h" 1
+# 28 "./softwarespi.h"
+    void SPI_init_master(){
+
+        TRISC3 = 0;
+        TRISC5 = 0;
+        TRISC4 = 1;
+
+
+        RC3 = 0;
+        RC5 = 0;
+    }
+
+    uint8_t SPI_write(uint8_t data){
+        uint8_t read = 0;
+
+
+        for(uint8_t i = 0; i < 8; i++){
+            if(data & 0x80){
+                RC5 = 1;
+            }else{
+                RC5 = 0;
+            }
+            RC3 = 1;
+            RC3 = 0;
+
+            read <<= 1;
+            read |= RC4;
+            data <<= 1;
+        }
+        read >>= 1;
+
+        return read;
+    }
+# 22 "main.c" 2
+
+
+
+
 
 # 1 "./uart.h" 1
 # 16 "./uart.h"
@@ -2791,28 +2835,7 @@ extern int printf(const char *, ...);
    ;
   return RCREG;
  }
-# 18 "main.c" 2
-
-# 1 "./spi.h" 1
-# 16 "./spi.h"
-    void SPI_init_master()
-    {
-        SSPCON = 0b01100001;
-        SSPSTAT = 0b01000000;
-        TRISC4 = 1;
-        TRISC5 = 0;
-        TRISC3 = 0;
-    }
-
-
-    uint8_t SPI_write(uint8_t data)
-    {
-        SSPBUF = data;
-        while (!BF)
-            ;
-        return SSPBUF;
-    }
-# 19 "main.c" 2
+# 27 "main.c" 2
 
 # 1 "./nrf24l01.h" 1
 # 97 "./nrf24l01.h"
@@ -2855,6 +2878,7 @@ extern int printf(const char *, ...);
         RD2 = 1;
         _delay((unsigned long)((20)*(8000000UL/4000000.0)));
         RD2 = 0;
+        return status;
     }
 
 
@@ -2880,43 +2904,53 @@ extern int printf(const char *, ...);
 
 
 
-    void nrf_setup(uint8_t *addr, uint8_t payload_size)
+    void nrf_setup(uint8_t *addr, uint8_t addr_size, uint8_t payload_size)
     {
-
         TRISD3 = 0;
         TRISD2 = 0;
-
-        _delay((unsigned long)((2)*(8000000UL/4000.0)));
 
         RD3 = 1;
         RD2 = 0;
 
-        _delay((unsigned long)((2)*(8000000UL/4000.0)));
+        _delay((unsigned long)((100)*(8000000UL/4000.0)));
 
         uint8_t data[5];
 
         data[0] = 0x0B;
-        nrf_write_register(0x00, &data, 1);
+        nrf_write_register(0x00, (uint8_t *)&data, 1);
         data[0] = 0x00;
-        nrf_write_register(0x01, &data, 1);
+        nrf_write_register(0x01, (uint8_t *)&data, 1);
         data[0] = 0x01;
-        nrf_write_register(0x02, &data, 1);
-        data[0] = 0x01;
-        nrf_write_register(0x03, &data, 1);
+        nrf_write_register(0x02, (uint8_t *)&data, 1);
+        data[0] = 0b00000011;
+
+        switch (addr_size){
+            case 3:
+                data[0] = 0x01;
+                break;
+            case 4:
+                data[0] = 0x02 ;
+                break;
+            case 5:
+                data[0] = 0x03;
+                break;
+        }
+
+        nrf_write_register(0x03, (uint8_t *)&data, 1);
         data[0] = 0x00;
-        nrf_write_register(0x04, &data, 1);
+        nrf_write_register(0x04, (uint8_t *)&data, 1);
         data[0] = 0x01;
-        nrf_write_register(0x05, &data, 1);
+        nrf_write_register(0x05, (uint8_t *)&data, 1);
         data[0] = 0x26;
-        nrf_write_register(0x06, &data, 1);
+        nrf_write_register(0x06, (uint8_t *)&data, 1);
         data[0] = payload_size;
-        nrf_write_register(0x11, &data, 1);
+        nrf_write_register(0x11, (uint8_t *)&data, 1);
 
-        arrcpy(data, addr, sizeof(addr));
-        nrf_write_register(0x0A, data, sizeof(addr));
+        arrcpy(data, addr, addr_size);
+        nrf_write_register(0x0A, data, addr_size);
 
-        arrcpy(data, addr, sizeof(addr));
-        nrf_write_register(0x10, data, sizeof(addr));
+        arrcpy(data, addr, addr_size);
+        nrf_write_register(0x10, data, addr_size);
 
         nrf_flush_rxtx();
     }
@@ -2989,8 +3023,8 @@ extern int printf(const char *, ...);
         nrf_write_register(0x07, &clear, 1);
         return status;
     }
-# 20 "main.c" 2
-# 37 "main.c"
+# 28 "main.c" 2
+# 45 "main.c"
 char *char_to_binary_string(char character)
 {
     static char output[10];
@@ -3001,13 +3035,15 @@ char *char_to_binary_string(char character)
 }
 
 
-uint8_t RADIO_ADDR[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
+uint8_t RADIO_ADDR[5] = {0x01, 0x04, 0x06, 0x04, 0x05};
+
+
 
 
 int main()
 {
 
-    OSCCONbits.IRCF = 111;
+    OSCCONbits.IRCF = 0x07;
 
 
     UART_init(9600, 8000000UL);
@@ -3019,25 +3055,31 @@ int main()
     SPI_init_master();
 
 
-    nrf_setup(RADIO_ADDR, 3);
+    nrf_setup(RADIO_ADDR, 5, 3);
 
 
 
+    nrf_set_tx_mode();
 
 
-    nrf_set_rx_mode();
 
 
     while (1)
     {
-# 91 "main.c"
-        while (!nrf_data_available())
-            ;
 
 
-        uint8_t data[3];
-        nrf_read(data, 3);
-        { char buffer[64]; sprintf(buffer, "Recieved %s\n", data); UART_write_text(buffer); };
 
+        uint8_t data[3] = "AB";
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 3 -1; j++)
+            {
+                data[j] += 1;
+            }
+            nrf_send(data, 3);
+            _delay((unsigned long)((500)*(8000000UL/4000.0)));
+            { char buffer[64]; sprintf(buffer, "Sent\n"); UART_write_text(buffer); };
+        }
+# 110 "main.c"
     }
 }
