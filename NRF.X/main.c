@@ -14,9 +14,17 @@
 #pragma config WRT = OFF   // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP = OFF    // Flash Program Memory Code Protection bit (Code protection off)
 
+#define SOFTWARE_SPI
+
 #include <xc.h>
-#include "uart.h"
+
+#ifdef SOFTWARE_SPI
+#include "softwarespi.h"
+#else
 #include "spi.h"
+#endif
+
+#include "uart.h"
 #include "nrf24l01.h"
 
 #define _XTAL_FREQ 8000000UL
@@ -43,14 +51,16 @@ char *char_to_binary_string(char character)
     return output;
 }
 
+#define ADDR_SIZE 5
+uint8_t RADIO_ADDR[ADDR_SIZE] = {0x01, 0x04, 0x06, 0x04, 0x05};
+
 #define sender
-uint8_t RADIO_ADDR[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
 #define PAYLOAD_SIZE 3
 
 int main()
 {
     // set clock to 8MHz
-    OSCCONbits.IRCF = 111;
+    OSCCONbits.IRCF = 0x07;
 
     // start uart
     UART_init(9600, _XTAL_FREQ);
@@ -62,7 +72,7 @@ int main()
     SPI_init_master();
 
     // start nrf with address and payload size
-    nrf_setup(RADIO_ADDR, PAYLOAD_SIZE);
+    nrf_setup(RADIO_ADDR, ADDR_SIZE, PAYLOAD_SIZE);
 
     // set the nrf to tx or rx mode
 #ifdef sender
@@ -75,20 +85,20 @@ int main()
     {
         // send data if sender is defined
 #ifdef sender
+        
         uint8_t data[PAYLOAD_SIZE] = "AB";
         for (int i = 0; i < 10; i++)
         {
-            uint8_t send_data[PAYLOAD_SIZE];
-            arrcpy(send_data, data, PAYLOAD_SIZE);
             for (int j = 0; j < PAYLOAD_SIZE-1; j++)
-            {
-                send_data[j] += i;
+            {  
+                data[j] += 1;
             }
-            nrf_send(send_data, PAYLOAD_SIZE);
+            nrf_send(data, PAYLOAD_SIZE);
             __delay_ms(500);
+            UART_printf("Sent\n");
         }
 #else
-        // wait for data if sender is not defined
+        // wait for data
         while (!nrf_data_available())
             ;
 
