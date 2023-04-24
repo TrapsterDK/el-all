@@ -45,7 +45,7 @@ void main(void)
     // start spi
     SPI_init_master();
 
-    // start nrf with address and payload size
+    // start nrf with address   and payload size
     nrf_setup(RADIO_ADDR, ADDR_SIZE, PAYLOAD_SIZE);
 
     nrf_set_tx_mode();
@@ -53,25 +53,10 @@ void main(void)
     while (1)
     {
         GPIO2 = 1;  
-        uint8_t data[PAYLOAD_SIZE] = "EE";
+        uint8_t data[PAYLOAD_SIZE] = "SS";
         nrf_send(data, PAYLOAD_SIZE);
-        __delay_ms(100);
+        __delay_ms(400);
         GPIO2 = 0;
-        __delay_ms(100);
-
-        
-        //send_data(data);
-        /*
-        uint8_t data[PAYLOAD_SIZE] = "AB";
-        nrf_send(data, PAYLOAD_SIZE);
-        send_data(0b00110011);
-        __delay_ms(200);
-        continue;
-        */
-        
-        /*
-        uint8_t status = nrf_get_status();
-        send_data(status);
-        */
+        __delay_ms(400);
     }
 }

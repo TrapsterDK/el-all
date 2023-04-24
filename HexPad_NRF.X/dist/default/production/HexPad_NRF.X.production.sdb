@@ -1,0 +1,387 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F684 ]
+[d frameptr 0 ]
+"97 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/nrf24l01.h
+[v _arrcpy arrcpy `(v  1 e 1 0 ]
+"118
+[v _nrf_command_with_data_overwrite nrf_command_with_data_overwrite `(uc  1 e 1 0 ]
+"124
+[v _nrf_command_with_data nrf_command_with_data `(uc  1 e 1 0 ]
+"131
+[v _nrf_write_register nrf_write_register `(uc  1 e 1 0 ]
+"137
+[v _nrf_read_register nrf_read_register `(uc  1 e 1 0 ]
+"143
+[v _nrf_write_payload nrf_write_payload `(uc  1 e 1 0 ]
+"153
+[v _nrf_write_command nrf_write_command `(uc  1 e 1 0 ]
+"165
+[v _nrf_flush_rxtx nrf_flush_rxtx `(v  1 e 1 0 ]
+"242
+[v _nrf_set_tx_mode nrf_set_tx_mode `(v  1 e 1 0 ]
+"30 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/softwarei2c.h
+[v _I2C_Write I2C_Write `(uc  1 e 1 0 ]
+"54
+[v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
+"78
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+"89
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+"117
+[v _I2C_Init I2C_Init `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eewrite.c
+[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
+"19 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+[v _SPI_write SPI_write `(uc  1 e 1 0 ]
+"71
+[v _arrequal arrequal `(uc  1 e 1 0 ]
+"82
+[v _eeprom_write_arr eeprom_write_arr `(v  1 e 1 0 ]
+"90
+[v _eeprom_read_arr eeprom_read_arr `(v  1 e 1 0 ]
+"98
+[v _press press `(v  1 e 1 0 ]
+"106
+[v _clear clear `(v  1 e 1 0 ]
+"122
+[v _set_password_sound set_password_sound `(v  1 e 1 0 ]
+"135
+[v _success success `(v  1 e 1 0 ]
+"147
+[v _wrong wrong `(v  1 e 1 0 ]
+"155
+[v _reset reset `(v  1 e 1 0 ]
+"167
+[v _get_key get_key `(uc  1 e 1 0 ]
+"231
+[v _set_password set_password `(v  1 e 1 0 ]
+"262
+[v _check_password check_password `(uc  1 e 1 0 ]
+"298
+[v _main main `(v  1 e 1 0 ]
+[s S299 . 1 `uc 1 C 1 0 :1:0 
+`uc 1 DC 1 0 :1:1 
+`uc 1 Z 1 0 :1:2 
+`uc 1 nPD 1 0 :1:3 
+`uc 1 nTO 1 0 :1:4 
+`uc 1 RP 1 0 :2:5 
+`uc 1 IRP 1 0 :1:7 
+]
+"100 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic16f684.h
+[s S307 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RP0 1 0 :1:5 
+`uc 1 RP1 1 0 :1:6 
+]
+[s S311 . 1 `uc 1 CARRY 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ZERO 1 0 :1:2 
+]
+[u S315 . 1 `S299 1 . 1 0 `S307 1 . 1 0 `S311 1 . 1 0 ]
+[v _STATUSbits STATUSbits `VES315  1 e 1 @3 ]
+[s S336 . 1 `uc 1 RAIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RAIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"310
+[s S345 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S350 . 1 `S336 1 . 1 0 `S345 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES350  1 e 1 @11 ]
+"547
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+"625
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @19 ]
+"639
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @21 ]
+[s S66 . 1 `uc 1 CM 1 0 :3:0 
+`uc 1 CIS 1 0 :1:3 
+`uc 1 C1INV 1 0 :1:4 
+`uc 1 C2INV 1 0 :1:5 
+`uc 1 C1OUT 1 0 :1:6 
+`uc 1 C2OUT 1 0 :1:7 
+]
+"946
+[s S73 . 1 `uc 1 CM0 1 0 :1:0 
+`uc 1 CM1 1 0 :1:1 
+`uc 1 CM2 1 0 :1:2 
+]
+[u S77 . 1 `S66 1 . 1 0 `S73 1 . 1 0 ]
+[v _CMCON0bits CMCON0bits `VES77  1 e 1 @25 ]
+"1189
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1239
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+[s S94 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 OSFIE 1 0 :1:2 
+`uc 1 C1IE 1 0 :1:3 
+`uc 1 C2IE 1 0 :1:4 
+`uc 1 CCP1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 EEIE 1 0 :1:7 
+]
+"1312
+[s S103 . 1 `uc 1 T1IE 1 0 :1:0 
+`uc 1 T2IE 1 0 :1:1 
+`uc 1 . 1 0 :3:2 
+`uc 1 ECCPIE 1 0 :1:5 
+]
+[u S108 . 1 `S94 1 . 1 0 `S103 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES108  1 e 1 @140 ]
+"1543
+[v _ANSEL ANSEL `VEuc  1 e 1 @145 ]
+"1605
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"2005
+[v _EEDATA EEDATA `VEuc  1 e 1 @154 ]
+"2038
+[v _EEADR EEADR `VEuc  1 e 1 @155 ]
+"2045
+[v _EECON1 EECON1 `VEuc  1 e 1 @156 ]
+[s S283 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+]
+"2058
+[u S288 . 1 `S283 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES288  1 e 1 @156 ]
+"2083
+[v _EECON2 EECON2 `VEuc  1 e 1 @157 ]
+"2437
+[v _RA0 RA0 `VEb  1 e 0 @40 ]
+"2440
+[v _RA1 RA1 `VEb  1 e 0 @41 ]
+"2443
+[v _RA2 RA2 `VEb  1 e 0 @42 ]
+"2446
+[v _RA3 RA3 `VEb  1 e 0 @43 ]
+"2449
+[v _RA4 RA4 `VEb  1 e 0 @44 ]
+"2452
+[v _RA5 RA5 `VEb  1 e 0 @45 ]
+"2461
+[v _RC0 RC0 `VEb  1 e 0 @56 ]
+"2464
+[v _RC1 RC1 `VEb  1 e 0 @57 ]
+"2467
+[v _RC2 RC2 `VEb  1 e 0 @58 ]
+"2470
+[v _RC3 RC3 `VEb  1 e 0 @59 ]
+"2473
+[v _RC4 RC4 `VEb  1 e 0 @60 ]
+"2587
+[v _TRISA0 TRISA0 `VEb  1 e 0 @1064 ]
+"2590
+[v _TRISA1 TRISA1 `VEb  1 e 0 @1065 ]
+"2593
+[v _TRISA2 TRISA2 `VEb  1 e 0 @1066 ]
+"2596
+[v _TRISA3 TRISA3 `VEb  1 e 0 @1067 ]
+"2599
+[v _TRISA4 TRISA4 `VEb  1 e 0 @1068 ]
+"2602
+[v _TRISA5 TRISA5 `VEb  1 e 0 @1069 ]
+"2605
+[v _TRISC0 TRISC0 `VEb  1 e 0 @1080 ]
+"2608
+[v _TRISC1 TRISC1 `VEb  1 e 0 @1081 ]
+"2611
+[v _TRISC2 TRISC2 `VEb  1 e 0 @1082 ]
+"2614
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"2617
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"53 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+[v _hexkeys hexkeys `[12]uc  1 e 12 0 ]
+"59
+[v _password password `[4]uc  1 e 4 0 ]
+"298
+[v _main main `(v  1 e 1 0 ]
+{
+"341
+} 0
+"122
+[v _set_password_sound set_password_sound `(v  1 e 1 0 ]
+{
+"133
+} 0
+"231
+[v _set_password set_password `(v  1 e 1 0 ]
+{
+"239
+[v set_password@key key `uc  1 a 1 13 ]
+"234
+[v set_password@old_password old_password `[4]uc  1 a 4 9 ]
+"233
+[v set_password@digit digit `uc  1 a 1 14 ]
+"260
+} 0
+"82
+[v _eeprom_write_arr eeprom_write_arr `(v  1 e 1 0 ]
+{
+[v eeprom_write_arr@adr adr `uc  1 a 1 wreg ]
+"84
+[v eeprom_write_arr@i i `uc  1 a 1 7 ]
+"82
+[v eeprom_write_arr@adr adr `uc  1 a 1 wreg ]
+[v eeprom_write_arr@arr arr `*.4uc  1 p 1 3 ]
+[v eeprom_write_arr@size size `uc  1 p 1 4 ]
+"84
+[v eeprom_write_arr@adr adr `uc  1 a 1 6 ]
+"88
+} 0
+"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eewrite.c
+[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
+{
+[v eeprom_write@addr addr `uc  1 a 1 wreg ]
+[v eeprom_write@addr addr `uc  1 a 1 wreg ]
+[v eeprom_write@value value `uc  1 p 1 0 ]
+[v eeprom_write@addr addr `uc  1 a 1 2 ]
+"9
+} 0
+"97 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/nrf24l01.h
+[v _arrcpy arrcpy `(v  1 e 1 0 ]
+{
+[v arrcpy@dst dst `*.4uc  1 a 1 wreg ]
+"99
+[v arrcpy@i i `uc  1 a 1 6 ]
+"97
+[v arrcpy@dst dst `*.4uc  1 a 1 wreg ]
+[v arrcpy@src src `*.4uc  1 p 1 0 ]
+[v arrcpy@len len `uc  1 p 1 1 ]
+"99
+[v arrcpy@dst dst `*.4uc  1 a 1 5 ]
+"103
+} 0
+"90 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+[v _eeprom_read_arr eeprom_read_arr `(v  1 e 1 0 ]
+{
+[v eeprom_read_arr@adr adr `uc  1 a 1 wreg ]
+"92
+[v eeprom_read_arr@i i `uc  1 a 1 6 ]
+"90
+[v eeprom_read_arr@adr adr `uc  1 a 1 wreg ]
+[v eeprom_read_arr@arr arr `*.4uc  1 p 1 2 ]
+[v eeprom_read_arr@size size `uc  1 p 1 3 ]
+"92
+[v eeprom_read_arr@adr adr `uc  1 a 1 5 ]
+"96
+} 0
+"6 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+{
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+"9
+[v eeprom_read@addr addr `uc  1 a 1 1 ]
+"19
+} 0
+"262 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+[v _check_password check_password `(uc  1 e 1 0 ]
+{
+"269
+[v check_password@key key `uc  1 a 1 13 ]
+"265
+[v check_password@current_password current_password `[4]uc  1 a 4 9 ]
+"264
+[v check_password@digit digit `uc  1 a 1 14 ]
+"293
+} 0
+"147
+[v _wrong wrong `(v  1 e 1 0 ]
+{
+"153
+} 0
+"135
+[v _success success `(v  1 e 1 0 ]
+{
+"145
+} 0
+"167
+[v _get_key get_key `(uc  1 e 1 0 ]
+{
+"219
+[v get_key@tpos tpos `uc  1 a 1 8 ]
+"201
+[v get_key@number number `uc  1 a 1 3 ]
+"216
+[v get_key@checkpos checkpos `uc  1 a 1 2 ]
+"200
+[v get_key@newpos newpos `uc  1 a 1 1 ]
+"199
+[v get_key@xpos xpos `uc  1 a 1 0 ]
+"196
+[v get_key@x3 x3 `uc  1 a 1 6 ]
+"195
+[v get_key@x2 x2 `uc  1 a 1 5 ]
+"194
+[v get_key@x1 x1 `uc  1 a 1 4 ]
+"171
+[v get_key@ypos ypos `uc  1 a 1 7 ]
+"229
+} 0
+"155
+[v _reset reset `(v  1 e 1 0 ]
+{
+"165
+} 0
+"98
+[v _press press `(v  1 e 1 0 ]
+{
+"104
+} 0
+"106
+[v _clear clear `(v  1 e 1 0 ]
+{
+"120
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 2 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 0 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 3 ]
+"51
+} 0
+"71 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+[v _arrequal arrequal `(uc  1 e 1 0 ]
+{
+[v arrequal@arr1 arr1 `*.4uc  1 a 1 wreg ]
+"73
+[v arrequal@i i `uc  1 a 1 6 ]
+"71
+[v arrequal@arr1 arr1 `*.4uc  1 a 1 wreg ]
+[v arrequal@arr2 arr2 `*.4uc  1 p 1 0 ]
+[v arrequal@size size `uc  1 p 1 1 ]
+"73
+[v arrequal@arr1 arr1 `*.4uc  1 a 1 5 ]
+"80
+} 0

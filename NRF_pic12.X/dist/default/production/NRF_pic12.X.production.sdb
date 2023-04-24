@@ -79,10 +79,10 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "56
-[v main@data data `[3]uc  1 a 3 26 ]
+[v main@data data `[3]uc  1 a 3 27 ]
 "55
 [v main@F646 F646 `[3]uc  1 s 3 F646 ]
-"77
+"62
 } 0
 "175 C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\NRF_pic12.X/nrf24l01.h
 [v _nrf_setup nrf_setup `(v  1 e 1 0 ]

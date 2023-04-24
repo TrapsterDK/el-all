@@ -1,0 +1,3124 @@
+
+
+Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
+                                                                                               Fri Apr 21 10:19:03 2023
+
+Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
+     1                           	processor	16F684
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+     5                           	psect	idataBANK0,global,class=CODE,delta=2,noexec
+     6                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     7                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1,noexec
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+    10                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+    11                           	psect	maintext,global,class=CODE,split=1,delta=2
+    12                           	psect	text1,local,class=CODE,merge=1,delta=2
+    13                           	psect	text2,local,class=CODE,merge=1,delta=2
+    14                           	psect	text3,local,class=CODE,merge=1,delta=2
+    15                           	psect	text4,local,class=CODE,merge=1,delta=2
+    16                           	psect	text5,local,class=CODE,merge=1,delta=2
+    17                           	psect	text6,local,class=CODE,merge=1,delta=2
+    18                           	psect	text7,local,class=CODE,merge=1,delta=2
+    19                           	psect	text8,local,class=CODE,merge=1,delta=2
+    20                           	psect	text9,local,class=CODE,merge=1,delta=2
+    21                           	psect	text10,local,class=CODE,merge=1,delta=2
+    22                           	psect	text11,local,class=CODE,merge=1,delta=2
+    23                           	psect	text12,local,class=CODE,merge=1,delta=2
+    24                           	psect	text13,local,class=CODE,merge=1,delta=2
+    25                           	psect	text14,local,class=CODE,merge=1,delta=2
+    26                           	psect	text15,local,class=CODE,merge=1,delta=2,group=1
+    27                           	psect	text16,local,class=CODE,merge=1,delta=2
+    28                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    29                           	dabs	1,0x7E,2
+    30     0000                     
+    31                           ; Version 2.40
+    32                           ; Generated 04/07/2022 GMT
+    33                           ; 
+    34                           ; Copyright © 2022, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    35                           ; All rights reserved.
+    36                           ; 
+    37                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    38                           ; 
+    39                           ; Redistribution and use in source and binary forms, with or without modification, are
+    40                           ; permitted provided that the following conditions are met:
+    41                           ; 
+    42                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    43                           ;        conditions and the following disclaimer.
+    44                           ; 
+    45                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    46                           ;        of conditions and the following disclaimer in the documentation and/or other
+    47                           ;        materials provided with the distribution. Publication is not required when
+    48                           ;        this file is used in an embedded application.
+    49                           ; 
+    50                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    51                           ;        software without specific prior written permission.
+    52                           ; 
+    53                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    54                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    55                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    56                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    57                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    58                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    59                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    60                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    61                           ; 
+    62                           ; 
+    63                           ; Code-generator required, PIC16F684 Definitions
+    64                           ; 
+    65                           ; SFR Addresses
+    66     0000                     	;# 
+    67     0001                     	;# 
+    68     0002                     	;# 
+    69     0003                     	;# 
+    70     0004                     	;# 
+    71     0005                     	;# 
+    72     0007                     	;# 
+    73     000A                     	;# 
+    74     000B                     	;# 
+    75     000C                     	;# 
+    76     000E                     	;# 
+    77     000E                     	;# 
+    78     000F                     	;# 
+    79     0010                     	;# 
+    80     0011                     	;# 
+    81     0012                     	;# 
+    82     0013                     	;# 
+    83     0013                     	;# 
+    84     0014                     	;# 
+    85     0015                     	;# 
+    86     0016                     	;# 
+    87     0017                     	;# 
+    88     0018                     	;# 
+    89     0019                     	;# 
+    90     001A                     	;# 
+    91     001E                     	;# 
+    92     001F                     	;# 
+    93     0081                     	;# 
+    94     0085                     	;# 
+    95     0087                     	;# 
+    96     008C                     	;# 
+    97     008E                     	;# 
+    98     008F                     	;# 
+    99     0090                     	;# 
+   100     0091                     	;# 
+   101     0092                     	;# 
+   102     0095                     	;# 
+   103     0095                     	;# 
+   104     0096                     	;# 
+   105     0096                     	;# 
+   106     0099                     	;# 
+   107     009A                     	;# 
+   108     009A                     	;# 
+   109     009B                     	;# 
+   110     009C                     	;# 
+   111     009D                     	;# 
+   112     009E                     	;# 
+   113     009F                     	;# 
+   114                           
+   115                           	psect	eeprom_data
+   116     0000  0000 0000 0000 0000 0000 0000 0000 0000 	db	0,0,0,0,0,0,0,0	;# 
+   117     0000                     	;# 
+   118     0001                     	;# 
+   119     0002                     	;# 
+   120     0003                     	;# 
+   121     0004                     	;# 
+   122     0005                     	;# 
+   123     0007                     	;# 
+   124     000A                     	;# 
+   125     000B                     	;# 
+   126     000C                     	;# 
+   127     000E                     	;# 
+   128     000E                     	;# 
+   129     000F                     	;# 
+   130     0010                     	;# 
+   131     0011                     	;# 
+   132     0012                     	;# 
+   133     0013                     	;# 
+   134     0013                     	;# 
+   135     0014                     	;# 
+   136     0015                     	;# 
+   137     0016                     	;# 
+   138     0017                     	;# 
+   139     0018                     	;# 
+   140     0019                     	;# 
+   141     001A                     	;# 
+   142     001E                     	;# 
+   143     001F                     	;# 
+   144     0081                     	;# 
+   145     0085                     	;# 
+   146     0087                     	;# 
+   147     008C                     	;# 
+   148     008E                     	;# 
+   149     008F                     	;# 
+   150     0090                     	;# 
+   151     0091                     	;# 
+   152     0092                     	;# 
+   153     0095                     	;# 
+   154     0095                     	;# 
+   155     0096                     	;# 
+   156     0096                     	;# 
+   157     0099                     	;# 
+   158     009A                     	;# 
+   159     009A                     	;# 
+   160     009B                     	;# 
+   161     009C                     	;# 
+   162     009D                     	;# 
+   163     009E                     	;# 
+   164     009F                     	;# 
+   165     0000                     	;# 
+   166     0001                     	;# 
+   167     0002                     	;# 
+   168     0003                     	;# 
+   169     0004                     	;# 
+   170     0005                     	;# 
+   171     0007                     	;# 
+   172     000A                     	;# 
+   173     000B                     	;# 
+   174     000C                     	;# 
+   175     000E                     	;# 
+   176     000E                     	;# 
+   177     000F                     	;# 
+   178     0010                     	;# 
+   179     0011                     	;# 
+   180     0012                     	;# 
+   181     0013                     	;# 
+   182     0013                     	;# 
+   183     0014                     	;# 
+   184     0015                     	;# 
+   185     0016                     	;# 
+   186     0017                     	;# 
+   187     0018                     	;# 
+   188     0019                     	;# 
+   189     001A                     	;# 
+   190     001E                     	;# 
+   191     001F                     	;# 
+   192     0081                     	;# 
+   193     0085                     	;# 
+   194     0087                     	;# 
+   195     008C                     	;# 
+   196     008E                     	;# 
+   197     008F                     	;# 
+   198     0090                     	;# 
+   199     0091                     	;# 
+   200     0092                     	;# 
+   201     0095                     	;# 
+   202     0095                     	;# 
+   203     0096                     	;# 
+   204     0096                     	;# 
+   205     0099                     	;# 
+   206     009A                     	;# 
+   207     009A                     	;# 
+   208     009B                     	;# 
+   209     009C                     	;# 
+   210     009D                     	;# 
+   211     009E                     	;# 
+   212     009F                     	;# 
+   213     0000                     	;# 
+   214     0001                     	;# 
+   215     0002                     	;# 
+   216     0003                     	;# 
+   217     0004                     	;# 
+   218     0005                     	;# 
+   219     0007                     	;# 
+   220     000A                     	;# 
+   221     000B                     	;# 
+   222     000C                     	;# 
+   223     000E                     	;# 
+   224     000E                     	;# 
+   225     000F                     	;# 
+   226     0010                     	;# 
+   227     0011                     	;# 
+   228     0012                     	;# 
+   229     0013                     	;# 
+   230     0013                     	;# 
+   231     0014                     	;# 
+   232     0015                     	;# 
+   233     0016                     	;# 
+   234     0017                     	;# 
+   235     0018                     	;# 
+   236     0019                     	;# 
+   237     001A                     	;# 
+   238     001E                     	;# 
+   239     001F                     	;# 
+   240     0081                     	;# 
+   241     0085                     	;# 
+   242     0087                     	;# 
+   243     008C                     	;# 
+   244     008E                     	;# 
+   245     008F                     	;# 
+   246     0090                     	;# 
+   247     0091                     	;# 
+   248     0092                     	;# 
+   249     0095                     	;# 
+   250     0095                     	;# 
+   251     0096                     	;# 
+   252     0096                     	;# 
+   253     0099                     	;# 
+   254     009A                     	;# 
+   255     009A                     	;# 
+   256     009B                     	;# 
+   257     009C                     	;# 
+   258     009D                     	;# 
+   259     009E                     	;# 
+   260     009F                     	;# 
+   261                           
+   262                           	psect	idataBANK0
+   263     04B6                     __pidataBANK0:
+   264                           
+   265                           ;initializer for _hexkeys
+   266     04B6  3401               	retlw	1
+   267     04B7  3402               	retlw	2
+   268     04B8  3403               	retlw	3
+   269     04B9  3404               	retlw	4
+   270     04BA  3405               	retlw	5
+   271     04BB  3406               	retlw	6
+   272     04BC  3407               	retlw	7
+   273     04BD  3408               	retlw	8
+   274     04BE  3409               	retlw	9
+   275     04BF  340A               	retlw	10
+   276     04C0  3400               	retlw	0
+   277     04C1  340B               	retlw	11
+   278     000B                     _INTCONbits	set	11
+   279     0003                     _STATUSbits	set	3
+   280     0013                     _CCPR1L	set	19
+   281     0015                     _CCP1CON	set	21
+   282     0019                     _CMCON0bits	set	25
+   283     0012                     _T2CON	set	18
+   284     002B                     _RA3	set	43
+   285     0028                     _RA0	set	40
+   286     0029                     _RA1	set	41
+   287     002A                     _RA2	set	42
+   288     0038                     _RC0	set	56
+   289     0039                     _RC1	set	57
+   290     003A                     _RC2	set	58
+   291     003C                     _RC4	set	60
+   292     003B                     _RC3	set	59
+   293     002C                     _RA4	set	44
+   294     002D                     _RA5	set	45
+   295     009D                     _EECON2	set	157
+   296     009A                     _EEDATA	set	154
+   297     009C                     _EECON1	set	156
+   298     009B                     _EEADR	set	155
+   299     009C                     _EECON1bits	set	156
+   300     008C                     _PIE1bits	set	140
+   301     0085                     _TRISA	set	133
+   302     0087                     _TRISC	set	135
+   303     0091                     _ANSEL	set	145
+   304     0092                     _PR2	set	146
+   305     042A                     _TRISA2	set	1066
+   306     0438                     _TRISC0	set	1080
+   307     0439                     _TRISC1	set	1081
+   308     043A                     _TRISC2	set	1082
+   309     042B                     _TRISA3	set	1067
+   310     0428                     _TRISA0	set	1064
+   311     0429                     _TRISA1	set	1065
+   312     043C                     _TRISC4	set	1084
+   313     043B                     _TRISC3	set	1083
+   314     042C                     _TRISA4	set	1068
+   315     042D                     _TRISA5	set	1069
+   316                           
+   317                           	psect	cinit
+   318     07E2                     start_initialization:	
+   319                           ; #config settings
+   320                           
+   321     07E2                     __initialization:
+   322                           
+   323                           ; Initialize objects allocated to BANK0
+   324     07E2  24B6               	fcall	__pidataBANK0	;fetch initializer
+   325     07E3  00AF               	movwf	__pdataBANK0& (0+127)
+   326     07E4  24B7               	fcall	__pidataBANK0+1	;fetch initializer
+   327     07E5  00B0               	movwf	(__pdataBANK0+1)& (0+127)
+   328     07E6  24B8               	fcall	__pidataBANK0+2	;fetch initializer
+   329     07E7  00B1               	movwf	(__pdataBANK0+2)& (0+127)
+   330     07E8  24B9               	fcall	__pidataBANK0+3	;fetch initializer
+   331     07E9  00B2               	movwf	(__pdataBANK0+3)& (0+127)
+   332     07EA  24BA               	fcall	__pidataBANK0+4	;fetch initializer
+   333     07EB  00B3               	movwf	(__pdataBANK0+4)& (0+127)
+   334     07EC  24BB               	fcall	__pidataBANK0+5	;fetch initializer
+   335     07ED  00B4               	movwf	(__pdataBANK0+5)& (0+127)
+   336     07EE  24BC               	fcall	__pidataBANK0+6	;fetch initializer
+   337     07EF  00B5               	movwf	(__pdataBANK0+6)& (0+127)
+   338     07F0  24BD               	fcall	__pidataBANK0+7	;fetch initializer
+   339     07F1  00B6               	movwf	(__pdataBANK0+7)& (0+127)
+   340     07F2  24BE               	fcall	__pidataBANK0+8	;fetch initializer
+   341     07F3  00B7               	movwf	(__pdataBANK0+8)& (0+127)
+   342     07F4  24BF               	fcall	__pidataBANK0+9	;fetch initializer
+   343     07F5  00B8               	movwf	(__pdataBANK0+9)& (0+127)
+   344     07F6  24C0               	fcall	__pidataBANK0+10	;fetch initializer
+   345     07F7  00B9               	movwf	(__pdataBANK0+10)& (0+127)
+   346     07F8  24C1               	fcall	__pidataBANK0+11	;fetch initializer
+   347     07F9  00BA               	movwf	(__pdataBANK0+11)& (0+127)
+   348                           
+   349                           ; Clear objects allocated to BANK0
+   350     07FA  01BB               	clrf	__pbssBANK0& (0+127)
+   351     07FB  01BC               	clrf	(__pbssBANK0+1)& (0+127)
+   352     07FC  01BD               	clrf	(__pbssBANK0+2)& (0+127)
+   353     07FD  01BE               	clrf	(__pbssBANK0+3)& (0+127)
+   354     07FE                     end_of_initialization:	
+   355                           ;End of C runtime variable initialization code
+   356                           
+   357     07FE                     __end_of__initialization:
+   358     07FE  0183               	clrf	3
+   359     07FF  2E36               	ljmp	_main	;jump to C main() function
+   360                           
+   361                           	psect	bssBANK0
+   362     003B                     __pbssBANK0:
+   363     003B                     _password:
+   364     003B                     	ds	4
+   365                           
+   366                           	psect	dataBANK0
+   367     002F                     __pdataBANK0:
+   368     002F                     _hexkeys:
+   369     002F                     	ds	12
+   370                           
+   371                           	psect	cstackCOMMON
+   372     0070                     __pcstackCOMMON:
+   373     0070                     ?_eeprom_write:
+   374     0070                     ?_eeprom_read:	
+   375                           ; 1 bytes @ 0x0
+   376                           
+   377     0070                     ??_eeprom_read:	
+   378                           ; 1 bytes @ 0x0
+   379                           
+   380     0070                     ?_arrcpy:	
+   381                           ; 1 bytes @ 0x0
+   382                           
+   383     0070                     ?_arrequal:	
+   384                           ; 1 bytes @ 0x0
+   385                           
+   386     0070                     ?_press:	
+   387                           ; 1 bytes @ 0x0
+   388                           
+   389     0070                     ??_press:	
+   390                           ; 1 bytes @ 0x0
+   391                           
+   392     0070                     ?_clear:	
+   393                           ; 1 bytes @ 0x0
+   394                           
+   395     0070                     ??_clear:	
+   396                           ; 1 bytes @ 0x0
+   397                           
+   398     0070                     ?_set_password_sound:	
+   399                           ; 1 bytes @ 0x0
+   400                           
+   401     0070                     ??_set_password_sound:	
+   402                           ; 1 bytes @ 0x0
+   403                           
+   404     0070                     ?_success:	
+   405                           ; 1 bytes @ 0x0
+   406                           
+   407     0070                     ??_success:	
+   408                           ; 1 bytes @ 0x0
+   409                           
+   410     0070                     ?_wrong:	
+   411                           ; 1 bytes @ 0x0
+   412                           
+   413     0070                     ??_wrong:	
+   414                           ; 1 bytes @ 0x0
+   415                           
+   416     0070                     ?_reset:	
+   417                           ; 1 bytes @ 0x0
+   418                           
+   419     0070                     ??_reset:	
+   420                           ; 1 bytes @ 0x0
+   421                           
+   422     0070                     ?_get_key:	
+   423                           ; 1 bytes @ 0x0
+   424                           
+   425     0070                     ?_set_password:	
+   426                           ; 1 bytes @ 0x0
+   427                           
+   428     0070                     ?_check_password:	
+   429                           ; 1 bytes @ 0x0
+   430                           
+   431     0070                     ?_main:	
+   432                           ; 1 bytes @ 0x0
+   433                           
+   434     0070                     ?___bmul:	
+   435                           ; 1 bytes @ 0x0
+   436                           
+   437     0070                     arrcpy@src:	
+   438                           ; 1 bytes @ 0x0
+   439                           
+   440     0070                     arrequal@arr2:	
+   441                           ; 1 bytes @ 0x0
+   442                           
+   443     0070                     eeprom_write@value:	
+   444                           ; 1 bytes @ 0x0
+   445                           
+   446     0070                     ___bmul@multiplicand:	
+   447                           ; 1 bytes @ 0x0
+   448                           
+   449                           
+   450                           ; 1 bytes @ 0x0
+   451     0070                     	ds	1
+   452     0071                     ??_eeprom_write:
+   453     0071                     ??___bmul:	
+   454                           ; 1 bytes @ 0x1
+   455                           
+   456     0071                     arrcpy@len:	
+   457                           ; 1 bytes @ 0x1
+   458                           
+   459     0071                     arrequal@size:	
+   460                           ; 1 bytes @ 0x1
+   461                           
+   462     0071                     eeprom_read@addr:	
+   463                           ; 1 bytes @ 0x1
+   464                           
+   465                           
+   466                           ; 1 bytes @ 0x1
+   467     0071                     	ds	1
+   468     0072                     ??_arrcpy:
+   469     0072                     ??_arrequal:	
+   470                           ; 1 bytes @ 0x2
+   471                           
+   472     0072                     ?_eeprom_read_arr:	
+   473                           ; 1 bytes @ 0x2
+   474                           
+   475     0072                     eeprom_read_arr@arr:	
+   476                           ; 1 bytes @ 0x2
+   477                           
+   478     0072                     eeprom_write@addr:	
+   479                           ; 1 bytes @ 0x2
+   480                           
+   481     0072                     ___bmul@product:	
+   482                           ; 1 bytes @ 0x2
+   483                           
+   484                           
+   485                           ; 1 bytes @ 0x2
+   486     0072                     	ds	1
+   487     0073                     ?_eeprom_write_arr:
+   488     0073                     eeprom_write_arr@arr:	
+   489                           ; 1 bytes @ 0x3
+   490                           
+   491     0073                     eeprom_read_arr@size:	
+   492                           ; 1 bytes @ 0x3
+   493                           
+   494     0073                     ___bmul@multiplier:	
+   495                           ; 1 bytes @ 0x3
+   496                           
+   497                           
+   498                           ; 1 bytes @ 0x3
+   499     0073                     	ds	1
+   500     0074                     ??_eeprom_read_arr:
+   501     0074                     ??_get_key:	
+   502                           ; 1 bytes @ 0x4
+   503                           
+   504     0074                     eeprom_write_arr@size:	
+   505                           ; 1 bytes @ 0x4
+   506                           
+   507                           
+   508                           ; 1 bytes @ 0x4
+   509     0074                     	ds	1
+   510     0075                     ??_eeprom_write_arr:
+   511     0075                     arrcpy@dst:	
+   512                           ; 1 bytes @ 0x5
+   513                           
+   514     0075                     arrequal@arr1:	
+   515                           ; 1 bytes @ 0x5
+   516                           
+   517     0075                     eeprom_read_arr@adr:	
+   518                           ; 1 bytes @ 0x5
+   519                           
+   520                           
+   521                           ; 1 bytes @ 0x5
+   522     0075                     	ds	1
+   523     0076                     arrcpy@i:
+   524     0076                     arrequal@i:	
+   525                           ; 1 bytes @ 0x6
+   526                           
+   527     0076                     eeprom_write_arr@adr:	
+   528                           ; 1 bytes @ 0x6
+   529                           
+   530     0076                     eeprom_read_arr@i:	
+   531                           ; 1 bytes @ 0x6
+   532                           
+   533                           
+   534                           ; 1 bytes @ 0x6
+   535     0076                     	ds	1
+   536     0077                     ??_check_password:
+   537     0077                     eeprom_write_arr@i:	
+   538                           ; 1 bytes @ 0x7
+   539                           
+   540                           
+   541                           ; 1 bytes @ 0x7
+   542     0077                     	ds	1
+   543     0078                     ??_set_password:
+   544                           
+   545                           ; 1 bytes @ 0x8
+   546     0078                     	ds	2
+   547     007A                     ??_main:
+   548                           
+   549                           ; 1 bytes @ 0xA
+   550     007A                     	ds	2
+   551                           
+   552                           	psect	cstackBANK0
+   553     0020                     __pcstackBANK0:
+   554     0020                     get_key@xpos:
+   555                           
+   556                           ; 1 bytes @ 0x0
+   557     0020                     	ds	1
+   558     0021                     get_key@newpos:
+   559                           
+   560                           ; 1 bytes @ 0x1
+   561     0021                     	ds	1
+   562     0022                     get_key@checkpos:
+   563                           
+   564                           ; 1 bytes @ 0x2
+   565     0022                     	ds	1
+   566     0023                     get_key@number:
+   567                           
+   568                           ; 1 bytes @ 0x3
+   569     0023                     	ds	1
+   570     0024                     get_key@x1:
+   571                           
+   572                           ; 1 bytes @ 0x4
+   573     0024                     	ds	1
+   574     0025                     get_key@x2:
+   575                           
+   576                           ; 1 bytes @ 0x5
+   577     0025                     	ds	1
+   578     0026                     get_key@x3:
+   579                           
+   580                           ; 1 bytes @ 0x6
+   581     0026                     	ds	1
+   582     0027                     get_key@ypos:
+   583                           
+   584                           ; 1 bytes @ 0x7
+   585     0027                     	ds	1
+   586     0028                     get_key@tpos:
+   587                           
+   588                           ; 1 bytes @ 0x8
+   589     0028                     	ds	1
+   590     0029                     set_password@old_password:
+   591     0029                     check_password@current_password:	
+   592                           ; 4 bytes @ 0x9
+   593                           
+   594                           
+   595                           ; 4 bytes @ 0x9
+   596     0029                     	ds	4
+   597     002D                     set_password@key:
+   598     002D                     check_password@key:	
+   599                           ; 1 bytes @ 0xD
+   600                           
+   601                           
+   602                           ; 1 bytes @ 0xD
+   603     002D                     	ds	1
+   604     002E                     set_password@digit:
+   605     002E                     check_password@digit:	
+   606                           ; 1 bytes @ 0xE
+   607                           
+   608                           
+   609                           ; 1 bytes @ 0xE
+   610     002E                     	ds	1
+   611                           
+   612                           	psect	maintext
+   613     0636                     __pmaintext:	
+   614 ;;
+   615 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   616 ;;
+   617 ;; *************** function _main *****************
+   618 ;; Defined at:
+   619 ;;		line 298 in file "main.c"
+   620 ;; Parameters:    Size  Location     Type
+   621 ;;		None
+   622 ;; Auto vars:     Size  Location     Type
+   623 ;;		None
+   624 ;; Return value:  Size  Location     Type
+   625 ;;                  1    wreg      void 
+   626 ;; Registers used:
+   627 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   628 ;; Tracked objects:
+   629 ;;		On entry : B00/0
+   630 ;;		On exit  : 0/0
+   631 ;;		Unchanged: 0/0
+   632 ;; Data sizes:     COMMON   BANK0   BANK1
+   633 ;;      Params:         0       0       0
+   634 ;;      Locals:         0       0       0
+   635 ;;      Temps:          2       0       0
+   636 ;;      Totals:         2       0       0
+   637 ;;Total ram usage:        2 bytes
+   638 ;; Hardware stack levels required when called: 3
+   639 ;; This function calls:
+   640 ;;		_check_password
+   641 ;;		_eeprom_read_arr
+   642 ;;		_set_password
+   643 ;;		_set_password_sound
+   644 ;; This function is called by:
+   645 ;;		Startup code after reset
+   646 ;; This function uses a non-reentrant model
+   647 ;;
+   648                           
+   649     0636                     _main:	
+   650                           ;psect for function _main
+   651                           
+   652     0636                     l1907:	
+   653                           ;incstack = 0
+   654                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   655                           
+   656                           
+   657                           ;main.c: 300:     ANSEL = 0;
+   658     0636  1683               	bsf	3,5	;RP0=1, select bank1
+   659     0637  0191               	clrf	17	;volatile
+   660                           
+   661                           ;main.c: 302:     TRISC = 0;
+   662     0638  0187               	clrf	7	;volatile
+   663                           
+   664                           ;main.c: 303:     TRISA = 0;
+   665     0639  0185               	clrf	5	;volatile
+   666     063A                     l1909:
+   667                           
+   668                           ;main.c: 305:     TRISA1 = 1;
+   669     063A  1485               	bsf	5,1	;volatile
+   670     063B                     l1911:
+   671                           
+   672                           ;main.c: 306:     TRISA0 = 1;
+   673     063B  1405               	bsf	5,0	;volatile
+   674     063C                     l1913:
+   675                           
+   676                           ;main.c: 307:     TRISA3 = 1;
+   677     063C  1585               	bsf	5,3	;volatile
+   678     063D                     l1915:
+   679                           
+   680                           ;main.c: 309:     TRISC2 = 0;
+   681     063D  1107               	bcf	7,2	;volatile
+   682     063E                     l1917:
+   683                           
+   684                           ;main.c: 310:     TRISC1 = 0;
+   685     063E  1087               	bcf	7,1	;volatile
+   686     063F                     l1919:
+   687                           
+   688                           ;main.c: 311:     TRISC0 = 0;
+   689     063F  1007               	bcf	7,0	;volatile
+   690     0640                     l1921:
+   691                           
+   692                           ;main.c: 312:     TRISA2 = 0;
+   693     0640  1105               	bcf	5,2	;volatile
+   694     0641                     l1923:
+   695                           
+   696                           ;main.c: 314:     RA5 = 1;
+   697     0641  1283               	bcf	3,5	;RP0=0, select bank0
+   698     0642  1685               	bsf	5,5	;volatile
+   699     0643                     l1925:
+   700                           
+   701                           ;main.c: 316:     CMCON0bits.CM = 111;
+   702     0643  3007               	movlw	7
+   703     0644  0499               	iorwf	25,f	;volatile
+   704     0645                     l1927:
+   705                           
+   706                           ;main.c: 317:     CCP1CON = 0b00001100;
+   707     0645  300C               	movlw	12
+   708     0646  0095               	movwf	21	;volatile
+   709     0647                     l1929:
+   710                           
+   711                           ;main.c: 318:     CCPR1L = 0b10000000;
+   712     0647  3080               	movlw	128
+   713     0648  0093               	movwf	19	;volatile
+   714     0649                     l1931:
+   715                           
+   716                           ;main.c: 319:     PIE1bits.TMR2IE = 1;
+   717     0649  1683               	bsf	3,5	;RP0=1, select bank1
+   718     064A  148C               	bsf	12,1	;volatile
+   719     064B                     l1933:
+   720                           
+   721                           ;main.c: 321:     eeprom_read_arr(0, password, 4);
+   722     064B  303B               	movlw	(low (_password| 0))& (0+255)
+   723     064C  00F2               	movwf	eeprom_read_arr@arr
+   724     064D  3004               	movlw	4
+   725     064E  00F3               	movwf	eeprom_read_arr@size
+   726     064F  3000               	movlw	0
+   727     0650  2511               	fcall	_eeprom_read_arr
+   728     0651  2E5B               	goto	l1941
+   729     0652                     l1935:
+   730                           
+   731                           ;main.c: 334:             if (check_password() == 1)
+   732     0652  266F               	fcall	_check_password
+   733     0653  3A01               	xorlw	1
+   734     0654  1D03               	skipz
+   735     0655  2E57               	goto	u621
+   736     0656  2E58               	goto	u620
+   737     0657                     u621:
+   738     0657  2E5B               	goto	l260
+   739     0658                     u620:
+   740     0658                     l1937:
+   741                           
+   742                           ;main.c: 335:             {;main.c: 336:                 set_password_sound();
+   743     0658  2605               	fcall	_set_password_sound
+   744     0659                     l1939:
+   745                           
+   746                           ;main.c: 337:                 set_password();
+   747     0659  26A9               	fcall	_set_password
+   748     065A  2E5B               	goto	l1941
+   749     065B                     l260:
+   750     065B                     l1941:
+   751     065B  266F               	fcall	_check_password
+   752     065C  00FA               	movwf	??_main
+   753     065D  01FB               	clrf	??_main+1
+   754                           
+   755                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   756                           ; Switch size 1, requested type "simple"
+   757                           ; Number of cases is 1, Range of values is 0 to 0
+   758                           ; switch strategies available:
+   759                           ; Name         Instructions Cycles
+   760                           ; simple_byte            4     3 (average)
+   761                           ; direct_byte            7     6 (fixed)
+   762                           ; jumptable            260     6 (fixed)
+   763                           ;	Chosen strategy is simple_byte
+   764     065E  087B               	movf	??_main+1,w
+   765     065F  3A00               	xorlw	0	; case 0
+   766     0660  1903               	skipnz
+   767     0661  2E63               	goto	l2069
+   768     0662  2E5B               	goto	l1941
+   769     0663                     l2069:
+   770                           
+   771                           ; Switch size 1, requested type "simple"
+   772                           ; Number of cases is 3, Range of values is 0 to 2
+   773                           ; switch strategies available:
+   774                           ; Name         Instructions Cycles
+   775                           ; direct_byte            9     6 (fixed)
+   776                           ; simple_byte           10     6 (average)
+   777                           ; jumptable            260     6 (fixed)
+   778                           ;	Chosen strategy is simple_byte
+   779     0663  087A               	movf	??_main,w
+   780     0664  3A00               	xorlw	0	; case 0
+   781     0665  1903               	skipnz
+   782     0666  2E5B               	goto	l260
+   783     0667  3A01               	xorlw	1	; case 1
+   784     0668  1903               	skipnz
+   785     0669  2E5B               	goto	l260
+   786     066A  3A03               	xorlw	3	; case 2
+   787     066B  1903               	skipnz
+   788     066C  2E52               	goto	l1935
+   789     066D  2E5B               	goto	l1941
+   790     066E  2800               	ljmp	start
+   791     066F                     __end_of_main:
+   792                           
+   793                           	psect	text1
+   794     0605                     __ptext1:	
+   795 ;; *************** function _set_password_sound *****************
+   796 ;; Defined at:
+   797 ;;		line 122 in file "main.c"
+   798 ;; Parameters:    Size  Location     Type
+   799 ;;		None
+   800 ;; Auto vars:     Size  Location     Type
+   801 ;;		None
+   802 ;; Return value:  Size  Location     Type
+   803 ;;                  1    wreg      void 
+   804 ;; Registers used:
+   805 ;;		wreg, status,2
+   806 ;; Tracked objects:
+   807 ;;		On entry : 0/0
+   808 ;;		On exit  : 0/0
+   809 ;;		Unchanged: 0/0
+   810 ;; Data sizes:     COMMON   BANK0   BANK1
+   811 ;;      Params:         0       0       0
+   812 ;;      Locals:         0       0       0
+   813 ;;      Temps:          3       0       0
+   814 ;;      Totals:         3       0       0
+   815 ;;Total ram usage:        3 bytes
+   816 ;; Hardware stack levels used: 1
+   817 ;; This function calls:
+   818 ;;		Nothing
+   819 ;; This function is called by:
+   820 ;;		_main
+   821 ;; This function uses a non-reentrant model
+   822 ;;
+   823                           
+   824     0605                     _set_password_sound:	
+   825                           ;psect for function _set_password_sound
+   826                           
+   827     0605                     l1767:	
+   828                           ;incstack = 0
+   829                           ; Regs used in _set_password_sound: [wreg+status,2]
+   830                           
+   831                           
+   832                           ;main.c: 125:     PR2 = 0b11110011;
+   833     0605  30F3               	movlw	243
+   834     0606  1683               	bsf	3,5	;RP0=1, select bank1
+   835     0607  0092               	movwf	18	;volatile
+   836                           
+   837                           ;main.c: 126:     T2CON = 0b00000110;
+   838     0608  3006               	movlw	6
+   839     0609  1283               	bcf	3,5	;RP0=0, select bank0
+   840     060A  0092               	movwf	18	;volatile
+   841                           
+   842                           ;main.c: 127:     _delay((unsigned long)((100)*(8000000UL/4000.0)));
+   843     060B  3002               	movlw	2
+   844     060C  00F2               	movwf	??_set_password_sound+2
+   845     060D  3004               	movlw	4
+   846     060E  00F1               	movwf	??_set_password_sound+1
+   847     060F  30BA               	movlw	186
+   848     0610  00F0               	movwf	??_set_password_sound
+   849     0611                     u637:
+   850     0611  0BF0               	decfsz	??_set_password_sound,f
+   851     0612  2E11               	goto	u637
+   852     0613  0BF1               	decfsz	??_set_password_sound+1,f
+   853     0614  2E11               	goto	u637
+   854     0615  0BF2               	decfsz	??_set_password_sound+2,f
+   855     0616  2E11               	goto	u637
+   856     0617  0000               	nop
+   857     0618                     l1769:
+   858                           
+   859                           ;main.c: 128:     T2CON = 0b00000000;
+   860     0618  1283               	bcf	3,5	;RP0=0, select bank0
+   861     0619  0192               	clrf	18	;volatile
+   862     061A                     l1771:
+   863                           
+   864                           ;main.c: 129:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+   865     061A  3082               	movlw	130
+   866     061B  00F1               	movwf	??_set_password_sound+1
+   867     061C  30DD               	movlw	221
+   868     061D  00F0               	movwf	??_set_password_sound
+   869     061E                     u647:
+   870     061E  0BF0               	decfsz	??_set_password_sound,f
+   871     061F  2E1E               	goto	u647
+   872     0620  0BF1               	decfsz	??_set_password_sound+1,f
+   873     0621  2E1E               	goto	u647
+   874     0622  2E23               	nop2
+   875     0623                     l1773:
+   876                           
+   877                           ;main.c: 130:     T2CON = 0b00000110;
+   878     0623  3006               	movlw	6
+   879     0624  1283               	bcf	3,5	;RP0=0, select bank0
+   880     0625  0092               	movwf	18	;volatile
+   881     0626                     l1775:
+   882                           
+   883                           ;main.c: 131:     _delay((unsigned long)((100)*(8000000UL/4000.0)));
+   884     0626  3002               	movlw	2
+   885     0627  00F2               	movwf	??_set_password_sound+2
+   886     0628  3004               	movlw	4
+   887     0629  00F1               	movwf	??_set_password_sound+1
+   888     062A  30BA               	movlw	186
+   889     062B  00F0               	movwf	??_set_password_sound
+   890     062C                     u657:
+   891     062C  0BF0               	decfsz	??_set_password_sound,f
+   892     062D  2E2C               	goto	u657
+   893     062E  0BF1               	decfsz	??_set_password_sound+1,f
+   894     062F  2E2C               	goto	u657
+   895     0630  0BF2               	decfsz	??_set_password_sound+2,f
+   896     0631  2E2C               	goto	u657
+   897     0632  0000               	nop
+   898                           
+   899                           ;main.c: 132:     T2CON = 0b00000000;
+   900     0633  1283               	bcf	3,5	;RP0=0, select bank0
+   901     0634  0192               	clrf	18	;volatile
+   902     0635                     l192:
+   903     0635  0008               	return
+   904     0636                     __end_of_set_password_sound:
+   905                           
+   906                           	psect	text2
+   907     06A9                     __ptext2:	
+   908 ;; *************** function _set_password *****************
+   909 ;; Defined at:
+   910 ;;		line 231 in file "main.c"
+   911 ;; Parameters:    Size  Location     Type
+   912 ;;		None
+   913 ;; Auto vars:     Size  Location     Type
+   914 ;;  key             1   13[BANK0 ] unsigned char 
+   915 ;;  old_password    4    9[BANK0 ] unsigned char [4]
+   916 ;;  digit           1   14[BANK0 ] unsigned char 
+   917 ;; Return value:  Size  Location     Type
+   918 ;;                  1    wreg      void 
+   919 ;; Registers used:
+   920 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   921 ;; Tracked objects:
+   922 ;;		On entry : 0/0
+   923 ;;		On exit  : 0/0
+   924 ;;		Unchanged: 0/0
+   925 ;; Data sizes:     COMMON   BANK0   BANK1
+   926 ;;      Params:         0       0       0
+   927 ;;      Locals:         0       6       0
+   928 ;;      Temps:          2       0       0
+   929 ;;      Totals:         2       6       0
+   930 ;;Total ram usage:        8 bytes
+   931 ;; Hardware stack levels used: 1
+   932 ;; Hardware stack levels required when called: 2
+   933 ;; This function calls:
+   934 ;;		_arrcpy
+   935 ;;		_eeprom_write_arr
+   936 ;;		_get_key
+   937 ;;		_success
+   938 ;;		_wrong
+   939 ;; This function is called by:
+   940 ;;		_main
+   941 ;; This function uses a non-reentrant model
+   942 ;;
+   943                           
+   944     06A9                     _set_password:	
+   945                           ;psect for function _set_password
+   946                           
+   947     06A9                     l1777:	
+   948                           ;incstack = 0
+   949                           ; Regs used in _set_password: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   950                           
+   951                           
+   952                           ;main.c: 233:     uint8_t digit = 0;
+   953     06A9  1283               	bcf	3,5	;RP0=0, select bank0
+   954     06AA  01AE               	clrf	set_password@digit
+   955     06AB                     l1779:
+   956                           
+   957                           ;main.c: 234:     uint8_t old_password[4];;main.c: 235:     arrcpy(old_password, passwor
+      +                          d, 4);
+   958     06AB  303B               	movlw	(low (_password| 0))& (0+255)
+   959     06AC  00F0               	movwf	arrcpy@src
+   960     06AD  3004               	movlw	4
+   961     06AE  00F1               	movwf	arrcpy@len
+   962     06AF  3029               	movlw	(low (set_password@old_password| 0))& (0+255)
+   963     06B0  2542               	fcall	_arrcpy
+   964     06B1                     l1781:
+   965                           
+   966                           ;main.c: 238:     {;main.c: 239:         uint8_t key = get_key();
+   967     06B1  2728               	fcall	_get_key
+   968     06B2  1283               	bcf	3,5	;RP0=0, select bank0
+   969     06B3  00AD               	movwf	set_password@key
+   970                           
+   971                           ;main.c: 240:         switch (key)
+   972     06B4  2ED7               	goto	l1805
+   973     06B5                     l1783:
+   974                           
+   975                           ;main.c: 243:             digit = 0;
+   976     06B5  01AE               	clrf	set_password@digit
+   977                           
+   978                           ;main.c: 244:             break;
+   979     06B6  2EB1               	goto	l1781
+   980     06B7                     l1785:
+   981                           
+   982                           ;main.c: 246:             arrcpy(password, old_password, 4);
+   983     06B7  3029               	movlw	(low (set_password@old_password| 0))& (0+255)
+   984     06B8  00F0               	movwf	arrcpy@src
+   985     06B9  3004               	movlw	4
+   986     06BA  00F1               	movwf	arrcpy@len
+   987     06BB  303B               	movlw	(low (_password| 0))& (0+255)
+   988     06BC  2542               	fcall	_arrcpy
+   989     06BD                     l1787:
+   990                           
+   991                           ;main.c: 247:             wrong();
+   992     06BD  24FC               	fcall	_wrong
+   993     06BE  2EE7               	goto	l237
+   994     06BF                     l1791:
+   995                           
+   996                           ;main.c: 250:             password[digit++] = key;
+   997     06BF  082E               	movf	set_password@digit,w
+   998     06C0  3E3B               	addlw	(low (_password| 0))& (0+255)
+   999     06C1  0084               	movwf	4
+  1000     06C2  082D               	movf	set_password@key,w
+  1001     06C3  1383               	bcf	3,7	;select IRP bank0
+  1002     06C4  0080               	movwf	0
+  1003     06C5                     l1793:
+  1004     06C5  3001               	movlw	1
+  1005     06C6  00F8               	movwf	??_set_password
+  1006     06C7  0878               	movf	??_set_password,w
+  1007     06C8  07AE               	addwf	set_password@digit,f
+  1008     06C9                     l1795:
+  1009                           
+  1010                           ;main.c: 251:             if (digit >= 4)
+  1011     06C9  3004               	movlw	4
+  1012     06CA  022E               	subwf	set_password@digit,w
+  1013     06CB  1C03               	skipc
+  1014     06CC  2ECE               	goto	u591
+  1015     06CD  2ECF               	goto	u590
+  1016     06CE                     u591:
+  1017     06CE  2EB1               	goto	l1781
+  1018     06CF                     u590:
+  1019     06CF                     l1797:
+  1020                           
+  1021                           ;main.c: 252:             {;main.c: 253:                 eeprom_write_arr(0, password, 4
+      +                          );
+  1022     06CF  303B               	movlw	(low (_password| 0))& (0+255)
+  1023     06D0  00F3               	movwf	eeprom_write_arr@arr
+  1024     06D1  3004               	movlw	4
+  1025     06D2  00F4               	movwf	eeprom_write_arr@size
+  1026     06D3  3000               	movlw	0
+  1027     06D4  2529               	fcall	_eeprom_write_arr
+  1028     06D5                     l1799:
+  1029                           
+  1030                           ;main.c: 254:                 success();
+  1031     06D5  25D4               	fcall	_success
+  1032     06D6  2EE7               	goto	l237
+  1033     06D7                     l1805:
+  1034     06D7  082D               	movf	set_password@key,w
+  1035     06D8  00F8               	movwf	??_set_password
+  1036     06D9  01F9               	clrf	??_set_password+1
+  1037                           
+  1038                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1039                           ; Switch size 1, requested type "simple"
+  1040                           ; Number of cases is 1, Range of values is 0 to 0
+  1041                           ; switch strategies available:
+  1042                           ; Name         Instructions Cycles
+  1043                           ; simple_byte            4     3 (average)
+  1044                           ; direct_byte            7     6 (fixed)
+  1045                           ; jumptable            260     6 (fixed)
+  1046                           ;	Chosen strategy is simple_byte
+  1047     06DA  0879               	movf	??_set_password+1,w
+  1048     06DB  3A00               	xorlw	0	; case 0
+  1049     06DC  1903               	skipnz
+  1050     06DD  2EDF               	goto	l2071
+  1051     06DE  2EBF               	goto	l1791
+  1052     06DF                     l2071:
+  1053                           
+  1054                           ; Switch size 1, requested type "simple"
+  1055                           ; Number of cases is 2, Range of values is 10 to 11
+  1056                           ; switch strategies available:
+  1057                           ; Name         Instructions Cycles
+  1058                           ; simple_byte            7     4 (average)
+  1059                           ; direct_byte           11     9 (fixed)
+  1060                           ; jumptable            263     9 (fixed)
+  1061                           ;	Chosen strategy is simple_byte
+  1062     06DF  0878               	movf	??_set_password,w
+  1063     06E0  3A0A               	xorlw	10	; case 10
+  1064     06E1  1903               	skipnz
+  1065     06E2  2EB7               	goto	l1785
+  1066     06E3  3A01               	xorlw	1	; case 11
+  1067     06E4  1903               	skipnz
+  1068     06E5  2EB5               	goto	l1783
+  1069     06E6  2EBF               	goto	l1791
+  1070     06E7                     l237:
+  1071     06E7  0008               	return
+  1072     06E8                     __end_of_set_password:
+  1073                           
+  1074                           	psect	text3
+  1075     0529                     __ptext3:	
+  1076 ;; *************** function _eeprom_write_arr *****************
+  1077 ;; Defined at:
+  1078 ;;		line 82 in file "main.c"
+  1079 ;; Parameters:    Size  Location     Type
+  1080 ;;  adr             1    wreg     unsigned char 
+  1081 ;;  arr             1    3[COMMON] PTR unsigned char 
+  1082 ;;		 -> password(4), 
+  1083 ;;  size            1    4[COMMON] unsigned char 
+  1084 ;; Auto vars:     Size  Location     Type
+  1085 ;;  adr             1    6[COMMON] unsigned char 
+  1086 ;;  i               1    7[COMMON] unsigned char 
+  1087 ;; Return value:  Size  Location     Type
+  1088 ;;                  1    wreg      void 
+  1089 ;; Registers used:
+  1090 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1091 ;; Tracked objects:
+  1092 ;;		On entry : 0/0
+  1093 ;;		On exit  : 0/0
+  1094 ;;		Unchanged: 0/0
+  1095 ;; Data sizes:     COMMON   BANK0   BANK1
+  1096 ;;      Params:         2       0       0
+  1097 ;;      Locals:         2       0       0
+  1098 ;;      Temps:          1       0       0
+  1099 ;;      Totals:         5       0       0
+  1100 ;;Total ram usage:        5 bytes
+  1101 ;; Hardware stack levels used: 1
+  1102 ;; Hardware stack levels required when called: 1
+  1103 ;; This function calls:
+  1104 ;;		_eeprom_write
+  1105 ;; This function is called by:
+  1106 ;;		_set_password
+  1107 ;; This function uses a non-reentrant model
+  1108 ;;
+  1109                           
+  1110     0529                     _eeprom_write_arr:	
+  1111                           ;psect for function _eeprom_write_arr
+  1112                           
+  1113                           
+  1114                           ;incstack = 0
+  1115                           ; Regs used in _eeprom_write_arr: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1116                           ;eeprom_write_arr@adr stored from wreg
+  1117     0529  00F6               	movwf	eeprom_write_arr@adr
+  1118     052A                     l1671:
+  1119                           
+  1120                           ;main.c: 82: void eeprom_write_arr(uint8_t adr, uint8_t *arr, uint8_t size);main.c: 83: 
+      +                          {;main.c: 84:     for (uint8_t i = 0; i < size; i++)
+  1121     052A  01F7               	clrf	eeprom_write_arr@i
+  1122     052B  2D3B               	goto	l1677
+  1123     052C                     l1673:
+  1124                           
+  1125                           ;main.c: 85:     {;main.c: 86:         eeprom_write(adr + i, arr[i]);
+  1126     052C  0877               	movf	eeprom_write_arr@i,w
+  1127     052D  0773               	addwf	eeprom_write_arr@arr,w
+  1128     052E  00F5               	movwf	??_eeprom_write_arr
+  1129     052F  0875               	movf	??_eeprom_write_arr,w
+  1130     0530  0084               	movwf	4
+  1131     0531  1383               	bcf	3,7	;select IRP bank0
+  1132     0532  0800               	movf	0,w
+  1133     0533  00F0               	movwf	eeprom_write@value
+  1134     0534  0877               	movf	eeprom_write_arr@i,w
+  1135     0535  0776               	addwf	eeprom_write_arr@adr,w
+  1136     0536  2583               	fcall	_eeprom_write
+  1137     0537                     l1675:
+  1138                           
+  1139                           ;main.c: 87:     }
+  1140     0537  3001               	movlw	1
+  1141     0538  00F5               	movwf	??_eeprom_write_arr
+  1142     0539  0875               	movf	??_eeprom_write_arr,w
+  1143     053A  07F7               	addwf	eeprom_write_arr@i,f
+  1144     053B                     l1677:
+  1145     053B  0874               	movf	eeprom_write_arr@size,w
+  1146     053C  0277               	subwf	eeprom_write_arr@i,w
+  1147     053D  1C03               	skipc
+  1148     053E  2D40               	goto	u451
+  1149     053F  2D41               	goto	u450
+  1150     0540                     u451:
+  1151     0540  2D2C               	goto	l1673
+  1152     0541                     u450:
+  1153     0541                     l177:
+  1154     0541  0008               	return
+  1155     0542                     __end_of_eeprom_write_arr:
+  1156                           
+  1157                           	psect	text4
+  1158     0583                     __ptext4:	
+  1159 ;; *************** function _eeprom_write *****************
+  1160 ;; Defined at:
+  1161 ;;		line 6 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eewrite.c"
+  1162 ;; Parameters:    Size  Location     Type
+  1163 ;;  addr            1    wreg     unsigned char 
+  1164 ;;  value           1    0[COMMON] unsigned char 
+  1165 ;; Auto vars:     Size  Location     Type
+  1166 ;;  addr            1    2[COMMON] unsigned char 
+  1167 ;; Return value:  Size  Location     Type
+  1168 ;;                  1    wreg      void 
+  1169 ;; Registers used:
+  1170 ;;		wreg, status,2, status,0
+  1171 ;; Tracked objects:
+  1172 ;;		On entry : 0/0
+  1173 ;;		On exit  : 0/0
+  1174 ;;		Unchanged: 0/0
+  1175 ;; Data sizes:     COMMON   BANK0   BANK1
+  1176 ;;      Params:         1       0       0
+  1177 ;;      Locals:         1       0       0
+  1178 ;;      Temps:          1       0       0
+  1179 ;;      Totals:         3       0       0
+  1180 ;;Total ram usage:        3 bytes
+  1181 ;; Hardware stack levels used: 1
+  1182 ;; This function calls:
+  1183 ;;		Nothing
+  1184 ;; This function is called by:
+  1185 ;;		_eeprom_write_arr
+  1186 ;; This function uses a non-reentrant model
+  1187 ;;
+  1188                           
+  1189     0583                     _eeprom_write:	
+  1190                           ;psect for function _eeprom_write
+  1191                           
+  1192                           
+  1193                           ;incstack = 0
+  1194                           ; Regs used in _eeprom_write: [wreg+status,2+status,0]
+  1195                           ;eeprom_write@addr stored from wreg
+  1196     0583  00F2               	movwf	eeprom_write@addr
+  1197     0584                     l380:	
+  1198                           ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eewrite.c: 6: eeprom_write(u
+      +                          nsigned char addr, unsigned char value);C:\Program Files\Microchip\xc8\v2.40\pic\sources
+      +                          \c90\pic\__eewrite.c: 7: {;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__ee
+      +                          write.c: 8:  do{ while (EECON1bits.WR) { continue; } EEADR = (addr); EEDATA = (value); E
+      +                          ECON1 &= 0x3F; STATUSbits.CARRY = 0; if (INTCONbits.GIE) { STATUSbits.CARRY = 1; } INTCO
+      +                          Nbits.GIE = 0; EECON1bits.WREN = 1; EECON2 = 0x55; EECON2 = 0xAA; EECON1bits.WR = 1; EEC
+      +                          ON1bits.WREN = 0; if (STATUSbits.CARRY) { INTCONbits.GIE = 1; } } while (0);
+  1199                           
+  1200     0584                     l381:
+  1201     0584  1683               	bsf	3,5	;RP0=1, select bank1
+  1202     0585  189C               	btfsc	28,1	;volsfr
+  1203     0586  2D88               	goto	u371
+  1204     0587  2D89               	goto	u370
+  1205     0588                     u371:
+  1206     0588  2D84               	goto	l381
+  1207     0589                     u370:
+  1208     0589                     l1581:
+  1209     0589  0872               	movf	eeprom_write@addr,w
+  1210     058A  009B               	movwf	27	;volatile
+  1211     058B  0870               	movf	eeprom_write@value,w
+  1212     058C  009A               	movwf	26	;volatile
+  1213     058D                     l1583:
+  1214     058D  303F               	movlw	63
+  1215     058E  00F1               	movwf	??_eeprom_write
+  1216     058F  0871               	movf	??_eeprom_write,w
+  1217     0590  059C               	andwf	28,f	;volsfr
+  1218     0591                     l1585:
+  1219     0591  1283               	bcf	3,5	;RP0=0, select bank0
+  1220     0592  1003               	bcf	3,0	;volatile
+  1221     0593                     l1587:
+  1222     0593  1F8B               	btfss	11,7	;volatile
+  1223     0594  2D96               	goto	u381
+  1224     0595  2D97               	goto	u380
+  1225     0596                     u381:
+  1226     0596  2D98               	goto	l384
+  1227     0597                     u380:
+  1228     0597                     l1589:
+  1229     0597  1403               	bsf	3,0	;volatile
+  1230     0598                     l384:
+  1231     0598  138B               	bcf	11,7	;volatile
+  1232     0599  1683               	bsf	3,5	;RP0=1, select bank1
+  1233     059A  151C               	bsf	28,2	;volsfr
+  1234     059B                     l1591:
+  1235     059B  3055               	movlw	85
+  1236     059C  009D               	movwf	29	;volsfr
+  1237     059D  30AA               	movlw	170
+  1238     059E  009D               	movwf	29	;volsfr
+  1239     059F                     l1593:
+  1240     059F  149C               	bsf	28,1	;volsfr
+  1241     05A0                     l1595:
+  1242     05A0  111C               	bcf	28,2	;volsfr
+  1243     05A1                     l1597:
+  1244     05A1  1283               	bcf	3,5	;RP0=0, select bank0
+  1245     05A2  1C03               	btfss	3,0	;volatile
+  1246     05A3  2DA5               	goto	u391
+  1247     05A4  2DA6               	goto	u390
+  1248     05A5                     u391:
+  1249     05A5  2DA7               	goto	l387
+  1250     05A6                     u390:
+  1251     05A6                     l1599:
+  1252     05A6  178B               	bsf	11,7	;volatile
+  1253     05A7                     l387:
+  1254     05A7  0008               	return
+  1255     05A8                     __end_of_eeprom_write:
+  1256                           
+  1257                           	psect	text5
+  1258     0542                     __ptext5:	
+  1259 ;; *************** function _arrcpy *****************
+  1260 ;; Defined at:
+  1261 ;;		line 97 in file "./nrf24l01.h"
+  1262 ;; Parameters:    Size  Location     Type
+  1263 ;;  dst             1    wreg     PTR unsigned char 
+  1264 ;;		 -> password(4), set_password@old_password(4), nrf_setup@data(5), 
+  1265 ;;  src             1    0[COMMON] PTR unsigned char 
+  1266 ;;		 -> password(4), set_password@old_password(4), 
+  1267 ;;  len             1    1[COMMON] unsigned char 
+  1268 ;; Auto vars:     Size  Location     Type
+  1269 ;;  dst             1    5[COMMON] PTR unsigned char 
+  1270 ;;		 -> password(4), set_password@old_password(4), nrf_setup@data(5), 
+  1271 ;;  i               1    6[COMMON] unsigned char 
+  1272 ;; Return value:  Size  Location     Type
+  1273 ;;                  1    wreg      void 
+  1274 ;; Registers used:
+  1275 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1276 ;; Tracked objects:
+  1277 ;;		On entry : 0/0
+  1278 ;;		On exit  : 0/0
+  1279 ;;		Unchanged: 0/0
+  1280 ;; Data sizes:     COMMON   BANK0   BANK1
+  1281 ;;      Params:         2       0       0
+  1282 ;;      Locals:         2       0       0
+  1283 ;;      Temps:          3       0       0
+  1284 ;;      Totals:         7       0       0
+  1285 ;;Total ram usage:        7 bytes
+  1286 ;; Hardware stack levels used: 1
+  1287 ;; This function calls:
+  1288 ;;		Nothing
+  1289 ;; This function is called by:
+  1290 ;;		_set_password
+  1291 ;;		_nrf_setup
+  1292 ;; This function uses a non-reentrant model
+  1293 ;;
+  1294                           
+  1295     0542                     _arrcpy:	
+  1296                           ;psect for function _arrcpy
+  1297                           
+  1298                           
+  1299                           ;incstack = 0
+  1300                           ; Regs used in _arrcpy: [wreg-fsr0h+status,2+status,0]
+  1301                           ;arrcpy@dst stored from wreg
+  1302     0542  00F5               	movwf	arrcpy@dst
+  1303     0543                     l1647:
+  1304                           
+  1305                           ;./nrf24l01.h: 97:     void arrcpy(uint8_t *dst, uint8_t *src, uint8_t len);./nrf24l01.h
+      +                          : 98:     {;./nrf24l01.h: 99:         for (uint8_t i = 0; i < len; i++)
+  1306     0543  01F6               	clrf	arrcpy@i
+  1307     0544  2D58               	goto	l1653
+  1308     0545                     l1649:
+  1309                           
+  1310                           ;./nrf24l01.h: 100:         {;./nrf24l01.h: 101:             dst[i] = src[i];
+  1311     0545  0876               	movf	arrcpy@i,w
+  1312     0546  0770               	addwf	arrcpy@src,w
+  1313     0547  00F2               	movwf	??_arrcpy
+  1314     0548  0872               	movf	??_arrcpy,w
+  1315     0549  0084               	movwf	4
+  1316     054A  1383               	bcf	3,7	;select IRP bank0
+  1317     054B  0800               	movf	0,w
+  1318     054C  00F3               	movwf	??_arrcpy+1
+  1319     054D  0876               	movf	arrcpy@i,w
+  1320     054E  0775               	addwf	arrcpy@dst,w
+  1321     054F  00F4               	movwf	??_arrcpy+2
+  1322     0550  0874               	movf	??_arrcpy+2,w
+  1323     0551  0084               	movwf	4
+  1324     0552  0873               	movf	??_arrcpy+1,w
+  1325     0553  0080               	movwf	0
+  1326     0554                     l1651:
+  1327                           
+  1328                           ;./nrf24l01.h: 102:         }
+  1329     0554  3001               	movlw	1
+  1330     0555  00F2               	movwf	??_arrcpy
+  1331     0556  0872               	movf	??_arrcpy,w
+  1332     0557  07F6               	addwf	arrcpy@i,f
+  1333     0558                     l1653:
+  1334     0558  0871               	movf	arrcpy@len,w
+  1335     0559  0276               	subwf	arrcpy@i,w
+  1336     055A  1C03               	skipc
+  1337     055B  2D5D               	goto	u421
+  1338     055C  2D5E               	goto	u420
+  1339     055D                     u421:
+  1340     055D  2D45               	goto	l1649
+  1341     055E                     u420:
+  1342     055E                     l106:
+  1343     055E  0008               	return
+  1344     055F                     __end_of_arrcpy:
+  1345                           
+  1346                           	psect	text6
+  1347     0511                     __ptext6:	
+  1348 ;; *************** function _eeprom_read_arr *****************
+  1349 ;; Defined at:
+  1350 ;;		line 90 in file "main.c"
+  1351 ;; Parameters:    Size  Location     Type
+  1352 ;;  adr             1    wreg     unsigned char 
+  1353 ;;  arr             1    2[COMMON] PTR unsigned char 
+  1354 ;;		 -> password(4), 
+  1355 ;;  size            1    3[COMMON] unsigned char 
+  1356 ;; Auto vars:     Size  Location     Type
+  1357 ;;  adr             1    5[COMMON] unsigned char 
+  1358 ;;  i               1    6[COMMON] unsigned char 
+  1359 ;; Return value:  Size  Location     Type
+  1360 ;;                  1    wreg      void 
+  1361 ;; Registers used:
+  1362 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1363 ;; Tracked objects:
+  1364 ;;		On entry : 0/0
+  1365 ;;		On exit  : 0/0
+  1366 ;;		Unchanged: 0/0
+  1367 ;; Data sizes:     COMMON   BANK0   BANK1
+  1368 ;;      Params:         2       0       0
+  1369 ;;      Locals:         2       0       0
+  1370 ;;      Temps:          1       0       0
+  1371 ;;      Totals:         5       0       0
+  1372 ;;Total ram usage:        5 bytes
+  1373 ;; Hardware stack levels used: 1
+  1374 ;; Hardware stack levels required when called: 1
+  1375 ;; This function calls:
+  1376 ;;		_eeprom_read
+  1377 ;; This function is called by:
+  1378 ;;		_main
+  1379 ;; This function uses a non-reentrant model
+  1380 ;;
+  1381                           
+  1382     0511                     _eeprom_read_arr:	
+  1383                           ;psect for function _eeprom_read_arr
+  1384                           
+  1385                           
+  1386                           ;incstack = 0
+  1387                           ; Regs used in _eeprom_read_arr: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1388                           ;eeprom_read_arr@adr stored from wreg
+  1389     0511  00F5               	movwf	eeprom_read_arr@adr
+  1390     0512                     l1759:
+  1391                           
+  1392                           ;main.c: 90: void eeprom_read_arr(uint8_t adr, uint8_t *arr, uint8_t size);main.c: 91: {
+      +                          ;main.c: 92:     for (uint8_t i = 0; i < size; i++)
+  1393     0512  01F6               	clrf	eeprom_read_arr@i
+  1394     0513  2D22               	goto	l1765
+  1395     0514                     l1761:
+  1396                           
+  1397                           ;main.c: 93:     {;main.c: 94:         arr[i] = eeprom_read(adr + i);
+  1398     0514  0876               	movf	eeprom_read_arr@i,w
+  1399     0515  0772               	addwf	eeprom_read_arr@arr,w
+  1400     0516  00F4               	movwf	??_eeprom_read_arr
+  1401     0517  0874               	movf	??_eeprom_read_arr,w
+  1402     0518  0084               	movwf	4
+  1403     0519  0876               	movf	eeprom_read_arr@i,w
+  1404     051A  0775               	addwf	eeprom_read_arr@adr,w
+  1405     051B  24C2               	fcall	_eeprom_read
+  1406     051C  1383               	bcf	3,7	;select IRP bank0
+  1407     051D  0080               	movwf	0
+  1408     051E                     l1763:
+  1409                           
+  1410                           ;main.c: 95:     }
+  1411     051E  3001               	movlw	1
+  1412     051F  00F4               	movwf	??_eeprom_read_arr
+  1413     0520  0874               	movf	??_eeprom_read_arr,w
+  1414     0521  07F6               	addwf	eeprom_read_arr@i,f
+  1415     0522                     l1765:
+  1416     0522  0873               	movf	eeprom_read_arr@size,w
+  1417     0523  0276               	subwf	eeprom_read_arr@i,w
+  1418     0524  1C03               	skipc
+  1419     0525  2D27               	goto	u581
+  1420     0526  2D28               	goto	u580
+  1421     0527                     u581:
+  1422     0527  2D14               	goto	l1761
+  1423     0528                     u580:
+  1424     0528                     l183:
+  1425     0528  0008               	return
+  1426     0529                     __end_of_eeprom_read_arr:
+  1427                           
+  1428                           	psect	text7
+  1429     04C2                     __ptext7:	
+  1430 ;; *************** function _eeprom_read *****************
+  1431 ;; Defined at:
+  1432 ;;		line 6 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c"
+  1433 ;; Parameters:    Size  Location     Type
+  1434 ;;  addr            1    wreg     unsigned char 
+  1435 ;; Auto vars:     Size  Location     Type
+  1436 ;;  addr            1    1[COMMON] unsigned char 
+  1437 ;; Return value:  Size  Location     Type
+  1438 ;;                  1    wreg      unsigned char 
+  1439 ;; Registers used:
+  1440 ;;		wreg, status,2, status,0
+  1441 ;; Tracked objects:
+  1442 ;;		On entry : 0/0
+  1443 ;;		On exit  : 0/0
+  1444 ;;		Unchanged: 0/0
+  1445 ;; Data sizes:     COMMON   BANK0   BANK1
+  1446 ;;      Params:         0       0       0
+  1447 ;;      Locals:         1       0       0
+  1448 ;;      Temps:          1       0       0
+  1449 ;;      Totals:         2       0       0
+  1450 ;;Total ram usage:        2 bytes
+  1451 ;; Hardware stack levels used: 1
+  1452 ;; This function calls:
+  1453 ;;		Nothing
+  1454 ;; This function is called by:
+  1455 ;;		_eeprom_read_arr
+  1456 ;; This function uses a non-reentrant model
+  1457 ;;
+  1458                           
+  1459     04C2                     _eeprom_read:	
+  1460                           ;psect for function _eeprom_read
+  1461                           
+  1462                           
+  1463                           ;incstack = 0
+  1464                           ; Regs used in _eeprom_read: [wreg+status,2+status,0]
+  1465                           ;eeprom_read@addr stored from wreg
+  1466     04C2  00F1               	movwf	eeprom_read@addr
+  1467     04C3                     l361:	
+  1468                           ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c: 6: eeprom_read(uns
+      +                          igned char addr);C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c: 7:
+      +                           {;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c: 8:  do
+  1469                           
+  1470     04C3  0064               	clrwdt	;# 
+  1471     04C4  1683               	bsf	3,5	;RP0=1, select bank1
+  1472     04C5  189C               	btfsc	28,1	;volsfr
+  1473     04C6  2CC8               	goto	u461
+  1474     04C7  2CC9               	goto	u460
+  1475     04C8                     u461:
+  1476     04C8  2CC3               	goto	l361
+  1477     04C9                     u460:
+  1478     04C9                     l1679:
+  1479                           
+  1480                           ;C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c: 18:  return ( EEAD
+      +                          R = addr, EECON1 &= 0x3F, EECON1bits.RD = 1, EEDATA);
+  1481     04C9  0871               	movf	eeprom_read@addr,w
+  1482     04CA  009B               	movwf	27	;volatile
+  1483     04CB  303F               	movlw	63
+  1484     04CC  00F0               	movwf	??_eeprom_read
+  1485     04CD  0870               	movf	??_eeprom_read,w
+  1486     04CE  059C               	andwf	28,f	;volsfr
+  1487     04CF  141C               	bsf	28,0	;volsfr
+  1488     04D0  081A               	movf	26,w	;volatile
+  1489     04D1                     l363:
+  1490     04D1  0008               	return
+  1491     04D2                     __end_of_eeprom_read:
+  1492                           
+  1493                           	psect	text8
+  1494     066F                     __ptext8:	
+  1495 ;; *************** function _check_password *****************
+  1496 ;; Defined at:
+  1497 ;;		line 262 in file "main.c"
+  1498 ;; Parameters:    Size  Location     Type
+  1499 ;;		None
+  1500 ;; Auto vars:     Size  Location     Type
+  1501 ;;  key             1   13[BANK0 ] unsigned char 
+  1502 ;;  current_pass    4    9[BANK0 ] unsigned char [4]
+  1503 ;;  digit           1   14[BANK0 ] unsigned char 
+  1504 ;; Return value:  Size  Location     Type
+  1505 ;;                  1    wreg      unsigned char 
+  1506 ;; Registers used:
+  1507 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1508 ;; Tracked objects:
+  1509 ;;		On entry : 0/0
+  1510 ;;		On exit  : 0/0
+  1511 ;;		Unchanged: 0/0
+  1512 ;; Data sizes:     COMMON   BANK0   BANK1
+  1513 ;;      Params:         0       0       0
+  1514 ;;      Locals:         0       6       0
+  1515 ;;      Temps:          2       0       0
+  1516 ;;      Totals:         2       6       0
+  1517 ;;Total ram usage:        8 bytes
+  1518 ;; Hardware stack levels used: 1
+  1519 ;; Hardware stack levels required when called: 2
+  1520 ;; This function calls:
+  1521 ;;		_arrequal
+  1522 ;;		_get_key
+  1523 ;;		_success
+  1524 ;;		_wrong
+  1525 ;; This function is called by:
+  1526 ;;		_main
+  1527 ;; This function uses a non-reentrant model
+  1528 ;;
+  1529                           
+  1530     066F                     _check_password:	
+  1531                           ;psect for function _check_password
+  1532                           
+  1533     066F                     l1811:	
+  1534                           ;incstack = 0
+  1535                           ; Regs used in _check_password: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1536                           
+  1537                           
+  1538                           ;main.c: 264:     uint8_t digit = 0;
+  1539     066F  1283               	bcf	3,5	;RP0=0, select bank0
+  1540     0670  01AE               	clrf	check_password@digit
+  1541     0671                     l1813:
+  1542                           
+  1543                           ;main.c: 268:     {;main.c: 269:         uint8_t key = get_key();
+  1544     0671  2728               	fcall	_get_key
+  1545     0672  1283               	bcf	3,5	;RP0=0, select bank0
+  1546     0673  00AD               	movwf	check_password@key
+  1547                           
+  1548                           ;main.c: 270:         switch (key)
+  1549     0674  2E98               	goto	l1843
+  1550     0675                     l1817:
+  1551                           
+  1552                           ;main.c: 276:             return 2;
+  1553     0675  3002               	movlw	2
+  1554     0676  2EA8               	goto	l249
+  1555     0677                     l1821:
+  1556                           
+  1557                           ;main.c: 278:             current_password[digit++] = key;
+  1558     0677  082E               	movf	check_password@digit,w
+  1559     0678  3E29               	addlw	(low (check_password@current_password| 0))& (0+255)
+  1560     0679  0084               	movwf	4
+  1561     067A  082D               	movf	check_password@key,w
+  1562     067B  1383               	bcf	3,7	;select IRP bank0
+  1563     067C  0080               	movwf	0
+  1564     067D                     l1823:
+  1565     067D  3001               	movlw	1
+  1566     067E  00F7               	movwf	??_check_password
+  1567     067F  0877               	movf	??_check_password,w
+  1568     0680  07AE               	addwf	check_password@digit,f
+  1569     0681                     l1825:
+  1570                           
+  1571                           ;main.c: 279:             if (digit >= 4)
+  1572     0681  3004               	movlw	4
+  1573     0682  022E               	subwf	check_password@digit,w
+  1574     0683  1C03               	skipc
+  1575     0684  2E86               	goto	u601
+  1576     0685  2E87               	goto	u600
+  1577     0686                     u601:
+  1578     0686  2E71               	goto	l1813
+  1579     0687                     u600:
+  1580     0687                     l1827:
+  1581                           
+  1582                           ;main.c: 280:             {;main.c: 281:                 if (arrequal(current_password, 
+      +                          password, 4))
+  1583     0687  303B               	movlw	(low (_password| 0))& (0+255)
+  1584     0688  00F0               	movwf	arrequal@arr2
+  1585     0689  3004               	movlw	4
+  1586     068A  00F1               	movwf	arrequal@size
+  1587     068B  3029               	movlw	(low (check_password@current_password| 0))& (0+255)
+  1588     068C  255F               	fcall	_arrequal
+  1589     068D  3A00               	xorlw	0
+  1590     068E  1903               	skipnz
+  1591     068F  2E91               	goto	u611
+  1592     0690  2E92               	goto	u610
+  1593     0691                     u611:
+  1594     0691  2E95               	goto	l1835
+  1595     0692                     u610:
+  1596     0692                     l1829:
+  1597                           
+  1598                           ;main.c: 282:                 {;main.c: 283:                     success();
+  1599     0692  25D4               	fcall	_success
+  1600     0693                     l1831:
+  1601                           
+  1602                           ;main.c: 284:                     return 1;
+  1603     0693  3001               	movlw	1
+  1604     0694  2EA8               	goto	l249
+  1605     0695                     l1835:
+  1606                           
+  1607                           ;main.c: 287:                 wrong();
+  1608     0695  24FC               	fcall	_wrong
+  1609     0696                     l1837:
+  1610                           
+  1611                           ;main.c: 288:                 return 0;
+  1612     0696  3000               	movlw	0
+  1613     0697  2EA8               	goto	l249
+  1614     0698                     l1843:
+  1615     0698  082D               	movf	check_password@key,w
+  1616     0699  00F7               	movwf	??_check_password
+  1617     069A  01F8               	clrf	??_check_password+1
+  1618                           
+  1619                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1620                           ; Switch size 1, requested type "simple"
+  1621                           ; Number of cases is 1, Range of values is 0 to 0
+  1622                           ; switch strategies available:
+  1623                           ; Name         Instructions Cycles
+  1624                           ; simple_byte            4     3 (average)
+  1625                           ; direct_byte            7     6 (fixed)
+  1626                           ; jumptable            260     6 (fixed)
+  1627                           ;	Chosen strategy is simple_byte
+  1628     069B  0878               	movf	??_check_password+1,w
+  1629     069C  3A00               	xorlw	0	; case 0
+  1630     069D  1903               	skipnz
+  1631     069E  2EA0               	goto	l2073
+  1632     069F  2E77               	goto	l1821
+  1633     06A0                     l2073:
+  1634                           
+  1635                           ; Switch size 1, requested type "simple"
+  1636                           ; Number of cases is 2, Range of values is 10 to 11
+  1637                           ; switch strategies available:
+  1638                           ; Name         Instructions Cycles
+  1639                           ; simple_byte            7     4 (average)
+  1640                           ; direct_byte           11     9 (fixed)
+  1641                           ; jumptable            263     9 (fixed)
+  1642                           ;	Chosen strategy is simple_byte
+  1643     06A0  0877               	movf	??_check_password,w
+  1644     06A1  3A0A               	xorlw	10	; case 10
+  1645     06A2  1903               	skipnz
+  1646     06A3  2E75               	goto	l1817
+  1647     06A4  3A01               	xorlw	1	; case 11
+  1648     06A5  1903               	skipnz
+  1649     06A6  2E6F               	goto	l1811
+  1650     06A7  2E77               	goto	l1821
+  1651     06A8                     l249:
+  1652     06A8  0008               	return
+  1653     06A9                     __end_of_check_password:
+  1654                           
+  1655                           	psect	text9
+  1656     04FC                     __ptext9:	
+  1657 ;; *************** function _wrong *****************
+  1658 ;; Defined at:
+  1659 ;;		line 147 in file "main.c"
+  1660 ;; Parameters:    Size  Location     Type
+  1661 ;;		None
+  1662 ;; Auto vars:     Size  Location     Type
+  1663 ;;		None
+  1664 ;; Return value:  Size  Location     Type
+  1665 ;;                  1    wreg      void 
+  1666 ;; Registers used:
+  1667 ;;		wreg, status,2
+  1668 ;; Tracked objects:
+  1669 ;;		On entry : 0/0
+  1670 ;;		On exit  : 0/0
+  1671 ;;		Unchanged: 0/0
+  1672 ;; Data sizes:     COMMON   BANK0   BANK1
+  1673 ;;      Params:         0       0       0
+  1674 ;;      Locals:         0       0       0
+  1675 ;;      Temps:          3       0       0
+  1676 ;;      Totals:         3       0       0
+  1677 ;;Total ram usage:        3 bytes
+  1678 ;; Hardware stack levels used: 1
+  1679 ;; This function calls:
+  1680 ;;		Nothing
+  1681 ;; This function is called by:
+  1682 ;;		_set_password
+  1683 ;;		_check_password
+  1684 ;; This function uses a non-reentrant model
+  1685 ;;
+  1686                           
+  1687     04FC                     _wrong:	
+  1688                           ;psect for function _wrong
+  1689                           
+  1690     04FC                     l1693:	
+  1691                           ;incstack = 0
+  1692                           ; Regs used in _wrong: [wreg+status,2]
+  1693                           
+  1694                           
+  1695                           ;main.c: 149:     PR2 = 0b11111111;
+  1696     04FC  30FF               	movlw	255
+  1697     04FD  1683               	bsf	3,5	;RP0=1, select bank1
+  1698     04FE  0092               	movwf	18	;volatile
+  1699                           
+  1700                           ;main.c: 150:     T2CON = 0b00000111;
+  1701     04FF  3007               	movlw	7
+  1702     0500  1283               	bcf	3,5	;RP0=0, select bank0
+  1703     0501  0092               	movwf	18	;volatile
+  1704                           
+  1705                           ;main.c: 151:     _delay((unsigned long)((400)*(8000000UL/4000.0)));
+  1706     0502  3005               	movlw	5
+  1707     0503  00F2               	movwf	??_wrong+2
+  1708     0504  300F               	movlw	15
+  1709     0505  00F1               	movwf	??_wrong+1
+  1710     0506  30F1               	movlw	241
+  1711     0507  00F0               	movwf	??_wrong
+  1712     0508                     u667:
+  1713     0508  0BF0               	decfsz	??_wrong,f
+  1714     0509  2D08               	goto	u667
+  1715     050A  0BF1               	decfsz	??_wrong+1,f
+  1716     050B  2D08               	goto	u667
+  1717     050C  0BF2               	decfsz	??_wrong+2,f
+  1718     050D  2D08               	goto	u667
+  1719     050E                     l1695:
+  1720                           
+  1721                           ;main.c: 152:     T2CON = 0b00000000;
+  1722     050E  1283               	bcf	3,5	;RP0=0, select bank0
+  1723     050F  0192               	clrf	18	;volatile
+  1724     0510                     l198:
+  1725     0510  0008               	return
+  1726     0511                     __end_of_wrong:
+  1727                           
+  1728                           	psect	text10
+  1729     05D4                     __ptext10:	
+  1730 ;; *************** function _success *****************
+  1731 ;; Defined at:
+  1732 ;;		line 135 in file "main.c"
+  1733 ;; Parameters:    Size  Location     Type
+  1734 ;;		None
+  1735 ;; Auto vars:     Size  Location     Type
+  1736 ;;		None
+  1737 ;; Return value:  Size  Location     Type
+  1738 ;;                  1    wreg      void 
+  1739 ;; Registers used:
+  1740 ;;		wreg, status,2
+  1741 ;; Tracked objects:
+  1742 ;;		On entry : 0/0
+  1743 ;;		On exit  : 0/0
+  1744 ;;		Unchanged: 0/0
+  1745 ;; Data sizes:     COMMON   BANK0   BANK1
+  1746 ;;      Params:         0       0       0
+  1747 ;;      Locals:         0       0       0
+  1748 ;;      Temps:          3       0       0
+  1749 ;;      Totals:         3       0       0
+  1750 ;;Total ram usage:        3 bytes
+  1751 ;; Hardware stack levels used: 1
+  1752 ;; This function calls:
+  1753 ;;		Nothing
+  1754 ;; This function is called by:
+  1755 ;;		_set_password
+  1756 ;;		_check_password
+  1757 ;; This function uses a non-reentrant model
+  1758 ;;
+  1759                           
+  1760     05D4                     _success:	
+  1761                           ;psect for function _success
+  1762                           
+  1763     05D4                     l1683:	
+  1764                           ;incstack = 0
+  1765                           ; Regs used in _success: [wreg+status,2]
+  1766                           
+  1767                           
+  1768                           ;main.c: 137:     PR2 = 0b11110000;
+  1769     05D4  30F0               	movlw	240
+  1770     05D5  1683               	bsf	3,5	;RP0=1, select bank1
+  1771     05D6  0092               	movwf	18	;volatile
+  1772                           
+  1773                           ;main.c: 138:     T2CON = 0b00000100;
+  1774     05D7  3004               	movlw	4
+  1775     05D8  1283               	bcf	3,5	;RP0=0, select bank0
+  1776     05D9  0092               	movwf	18	;volatile
+  1777                           
+  1778                           ;main.c: 139:     _delay((unsigned long)((100)*(8000000UL/4000.0)));
+  1779     05DA  3002               	movlw	2
+  1780     05DB  00F2               	movwf	??_success+2
+  1781     05DC  3004               	movlw	4
+  1782     05DD  00F1               	movwf	??_success+1
+  1783     05DE  30BA               	movlw	186
+  1784     05DF  00F0               	movwf	??_success
+  1785     05E0                     u677:
+  1786     05E0  0BF0               	decfsz	??_success,f
+  1787     05E1  2DE0               	goto	u677
+  1788     05E2  0BF1               	decfsz	??_success+1,f
+  1789     05E3  2DE0               	goto	u677
+  1790     05E4  0BF2               	decfsz	??_success+2,f
+  1791     05E5  2DE0               	goto	u677
+  1792     05E6  0000               	nop
+  1793     05E7                     l1685:
+  1794                           
+  1795                           ;main.c: 140:     T2CON = 0b00000000;
+  1796     05E7  1283               	bcf	3,5	;RP0=0, select bank0
+  1797     05E8  0192               	clrf	18	;volatile
+  1798     05E9                     l1687:
+  1799                           
+  1800                           ;main.c: 141:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+  1801     05E9  3082               	movlw	130
+  1802     05EA  00F1               	movwf	??_success+1
+  1803     05EB  30DD               	movlw	221
+  1804     05EC  00F0               	movwf	??_success
+  1805     05ED                     u687:
+  1806     05ED  0BF0               	decfsz	??_success,f
+  1807     05EE  2DED               	goto	u687
+  1808     05EF  0BF1               	decfsz	??_success+1,f
+  1809     05F0  2DED               	goto	u687
+  1810     05F1  2DF2               	nop2
+  1811     05F2                     l1689:
+  1812                           
+  1813                           ;main.c: 142:     T2CON = 0b00000100;
+  1814     05F2  3004               	movlw	4
+  1815     05F3  1283               	bcf	3,5	;RP0=0, select bank0
+  1816     05F4  0092               	movwf	18	;volatile
+  1817     05F5                     l1691:
+  1818                           
+  1819                           ;main.c: 143:     _delay((unsigned long)((100)*(8000000UL/4000.0)));
+  1820     05F5  3002               	movlw	2
+  1821     05F6  00F2               	movwf	??_success+2
+  1822     05F7  3004               	movlw	4
+  1823     05F8  00F1               	movwf	??_success+1
+  1824     05F9  30BA               	movlw	186
+  1825     05FA  00F0               	movwf	??_success
+  1826     05FB                     u697:
+  1827     05FB  0BF0               	decfsz	??_success,f
+  1828     05FC  2DFB               	goto	u697
+  1829     05FD  0BF1               	decfsz	??_success+1,f
+  1830     05FE  2DFB               	goto	u697
+  1831     05FF  0BF2               	decfsz	??_success+2,f
+  1832     0600  2DFB               	goto	u697
+  1833     0601  0000               	nop
+  1834                           
+  1835                           ;main.c: 144:     T2CON = 0b00000000;
+  1836     0602  1283               	bcf	3,5	;RP0=0, select bank0
+  1837     0603  0192               	clrf	18	;volatile
+  1838     0604                     l195:
+  1839     0604  0008               	return
+  1840     0605                     __end_of_success:
+  1841                           
+  1842                           	psect	text11
+  1843     0728                     __ptext11:	
+  1844 ;; *************** function _get_key *****************
+  1845 ;; Defined at:
+  1846 ;;		line 167 in file "main.c"
+  1847 ;; Parameters:    Size  Location     Type
+  1848 ;;		None
+  1849 ;; Auto vars:     Size  Location     Type
+  1850 ;;  tpos            1    8[BANK0 ] unsigned char 
+  1851 ;;  number          1    3[BANK0 ] unsigned char 
+  1852 ;;  checkpos        1    2[BANK0 ] unsigned char 
+  1853 ;;  newpos          1    1[BANK0 ] unsigned char 
+  1854 ;;  xpos            1    0[BANK0 ] unsigned char 
+  1855 ;;  x3              1    6[BANK0 ] unsigned char 
+  1856 ;;  x2              1    5[BANK0 ] unsigned char 
+  1857 ;;  x1              1    4[BANK0 ] unsigned char 
+  1858 ;;  ypos            1    7[BANK0 ] unsigned char 
+  1859 ;; Return value:  Size  Location     Type
+  1860 ;;                  1    wreg      unsigned char 
+  1861 ;; Registers used:
+  1862 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1863 ;; Tracked objects:
+  1864 ;;		On entry : 0/0
+  1865 ;;		On exit  : 0/0
+  1866 ;;		Unchanged: 0/0
+  1867 ;; Data sizes:     COMMON   BANK0   BANK1
+  1868 ;;      Params:         0       0       0
+  1869 ;;      Locals:         0       9       0
+  1870 ;;      Temps:          3       0       0
+  1871 ;;      Totals:         3       9       0
+  1872 ;;Total ram usage:       12 bytes
+  1873 ;; Hardware stack levels used: 1
+  1874 ;; Hardware stack levels required when called: 1
+  1875 ;; This function calls:
+  1876 ;;		___bmul
+  1877 ;;		_clear
+  1878 ;;		_press
+  1879 ;;		_reset
+  1880 ;; This function is called by:
+  1881 ;;		_set_password
+  1882 ;;		_check_password
+  1883 ;; This function uses a non-reentrant model
+  1884 ;;
+  1885                           
+  1886     0728                     _get_key:	
+  1887                           ;psect for function _get_key
+  1888                           
+  1889     0728                     l204:	
+  1890                           ;incstack = 0
+  1891                           ; Regs used in _get_key: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1892                           ;main.c: 169:     while (1)
+  1893                           
+  1894     0728                     l1697:
+  1895                           
+  1896                           ;main.c: 170:     {;main.c: 171:         for (uint8_t ypos = 0; ypos < 4; ypos++)
+  1897     0728  1283               	bcf	3,5	;RP0=0, select bank0
+  1898     0729  01A7               	clrf	get_key@ypos
+  1899     072A                     l205:
+  1900                           
+  1901                           ;main.c: 172:         {;main.c: 173:             RC2 = 0;
+  1902     072A  1107               	bcf	7,2	;volatile
+  1903                           
+  1904                           ;main.c: 174:             RC1 = 0;
+  1905     072B  1087               	bcf	7,1	;volatile
+  1906                           
+  1907                           ;main.c: 175:             RC0 = 0;
+  1908     072C  1007               	bcf	7,0	;volatile
+  1909                           
+  1910                           ;main.c: 176:             RA2 = 0;
+  1911     072D  1105               	bcf	5,2	;volatile
+  1912                           
+  1913                           ;main.c: 178:             switch (ypos)
+  1914     072E  2F37               	goto	l1705
+  1915     072F                     l208:	
+  1916                           ;main.c: 179:             {;main.c: 180:             case 0:
+  1917                           
+  1918                           
+  1919                           ;main.c: 181:                 RC2 = 1;
+  1920     072F  1507               	bsf	7,2	;volatile
+  1921                           
+  1922                           ;main.c: 182:                 break;
+  1923     0730  2F4D               	goto	l1707
+  1924     0731                     l210:	
+  1925                           ;main.c: 183:             case 1:
+  1926                           
+  1927                           
+  1928                           ;main.c: 184:                 RC1 = 1;
+  1929     0731  1487               	bsf	7,1	;volatile
+  1930                           
+  1931                           ;main.c: 185:                 break;
+  1932     0732  2F4D               	goto	l1707
+  1933     0733                     l211:	
+  1934                           ;main.c: 186:             case 2:
+  1935                           
+  1936                           
+  1937                           ;main.c: 187:                 RC0 = 1;
+  1938     0733  1407               	bsf	7,0	;volatile
+  1939                           
+  1940                           ;main.c: 188:                 break;
+  1941     0734  2F4D               	goto	l1707
+  1942     0735                     l212:	
+  1943                           ;main.c: 189:             case 3:
+  1944                           
+  1945                           
+  1946                           ;main.c: 190:                 RA2 = 1;
+  1947     0735  1505               	bsf	5,2	;volatile
+  1948                           
+  1949                           ;main.c: 191:                 break;
+  1950     0736  2F4D               	goto	l1707
+  1951     0737                     l1705:
+  1952     0737  0827               	movf	get_key@ypos,w
+  1953     0738  00F4               	movwf	??_get_key
+  1954     0739  01F5               	clrf	??_get_key+1
+  1955                           
+  1956                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1957                           ; Switch size 1, requested type "simple"
+  1958                           ; Number of cases is 1, Range of values is 0 to 0
+  1959                           ; switch strategies available:
+  1960                           ; Name         Instructions Cycles
+  1961                           ; simple_byte            4     3 (average)
+  1962                           ; direct_byte            7     6 (fixed)
+  1963                           ; jumptable            260     6 (fixed)
+  1964                           ;	Chosen strategy is simple_byte
+  1965     073A  0875               	movf	??_get_key+1,w
+  1966     073B  3A00               	xorlw	0	; case 0
+  1967     073C  1903               	skipnz
+  1968     073D  2F3F               	goto	l2075
+  1969     073E  2F4D               	goto	l1707
+  1970     073F                     l2075:
+  1971                           
+  1972                           ; Switch size 1, requested type "simple"
+  1973                           ; Number of cases is 4, Range of values is 0 to 3
+  1974                           ; switch strategies available:
+  1975                           ; Name         Instructions Cycles
+  1976                           ; direct_byte           10     6 (fixed)
+  1977                           ; simple_byte           13     7 (average)
+  1978                           ; jumptable            260     6 (fixed)
+  1979                           ;	Chosen strategy is simple_byte
+  1980     073F  0874               	movf	??_get_key,w
+  1981     0740  3A00               	xorlw	0	; case 0
+  1982     0741  1903               	skipnz
+  1983     0742  2F2F               	goto	l208
+  1984     0743  3A01               	xorlw	1	; case 1
+  1985     0744  1903               	skipnz
+  1986     0745  2F31               	goto	l210
+  1987     0746  3A03               	xorlw	3	; case 2
+  1988     0747  1903               	skipnz
+  1989     0748  2F33               	goto	l211
+  1990     0749  3A01               	xorlw	1	; case 3
+  1991     074A  1903               	skipnz
+  1992     074B  2F35               	goto	l212
+  1993     074C  2F4D               	goto	l1707
+  1994     074D                     l1707:
+  1995                           
+  1996                           ;main.c: 194:             uint8_t x1 = RA1;
+  1997     074D  3000               	movlw	0
+  1998     074E  1885               	btfsc	5,1	;volatile
+  1999     074F  3001               	movlw	1
+  2000     0750  00A4               	movwf	get_key@x1
+  2001                           
+  2002                           ;main.c: 195:             uint8_t x2 = RA0;
+  2003     0751  3000               	movlw	0
+  2004     0752  1805               	btfsc	5,0	;volatile
+  2005     0753  3001               	movlw	1
+  2006     0754  00A5               	movwf	get_key@x2
+  2007                           
+  2008                           ;main.c: 196:             uint8_t x3 = RA3;
+  2009     0755  3000               	movlw	0
+  2010     0756  1985               	btfsc	5,3	;volatile
+  2011     0757  3001               	movlw	1
+  2012     0758  00A6               	movwf	get_key@x3
+  2013     0759                     l1709:
+  2014                           
+  2015                           ;main.c: 197:             if (x1 || x2 || x3)
+  2016     0759  0824               	movf	get_key@x1,w
+  2017     075A  1D03               	btfss	3,2
+  2018     075B  2F5D               	goto	u471
+  2019     075C  2F5E               	goto	u470
+  2020     075D                     u471:
+  2021     075D  2F68               	goto	l1715
+  2022     075E                     u470:
+  2023     075E                     l1711:
+  2024     075E  0825               	movf	get_key@x2,w
+  2025     075F  1D03               	btfss	3,2
+  2026     0760  2F62               	goto	u481
+  2027     0761  2F63               	goto	u480
+  2028     0762                     u481:
+  2029     0762  2F68               	goto	l1715
+  2030     0763                     u480:
+  2031     0763                     l1713:
+  2032     0763  0826               	movf	get_key@x3,w
+  2033     0764  1903               	btfsc	3,2
+  2034     0765  2F67               	goto	u491
+  2035     0766  2F68               	goto	u490
+  2036     0767                     u491:
+  2037     0767  2FD6               	goto	l1747
+  2038     0768                     u490:
+  2039     0768                     l1715:
+  2040                           
+  2041                           ;main.c: 198:             {;main.c: 199:                 uint8_t xpos = x1 * 1 + x2 * 2 
+      +                          + x3 * 3;
+  2042     0768  0825               	movf	get_key@x2,w
+  2043     0769  00F4               	movwf	??_get_key
+  2044     076A  3001               	movlw	1
+  2045     076B                     u505:
+  2046     076B  1003               	clrc
+  2047     076C  0DF4               	rlf	??_get_key,f
+  2048     076D  3EFF               	addlw	-1
+  2049     076E  1D03               	skipz
+  2050     076F  2F6B               	goto	u505
+  2051     0770  3003               	movlw	3
+  2052     0771  00F0               	movwf	___bmul@multiplicand
+  2053     0772  0826               	movf	get_key@x3,w
+  2054     0773  24D2               	fcall	___bmul
+  2055     0774  0774               	addwf	??_get_key,w
+  2056     0775  00F5               	movwf	??_get_key+1
+  2057     0776  1283               	bcf	3,5	;RP0=0, select bank0
+  2058     0777  0824               	movf	get_key@x1,w
+  2059     0778  0775               	addwf	??_get_key+1,w
+  2060     0779  00A0               	movwf	get_key@xpos
+  2061                           
+  2062                           ;main.c: 200:                 uint8_t newpos = ypos * 3 + xpos - 1;
+  2063     077A  3003               	movlw	3
+  2064     077B  00F0               	movwf	___bmul@multiplicand
+  2065     077C  0827               	movf	get_key@ypos,w
+  2066     077D  24D2               	fcall	___bmul
+  2067     077E  1283               	bcf	3,5	;RP0=0, select bank0
+  2068     077F  0720               	addwf	get_key@xpos,w
+  2069     0780  3EFF               	addlw	255
+  2070     0781  00A1               	movwf	get_key@newpos
+  2071     0782                     l1717:
+  2072                           
+  2073                           ;main.c: 201:                 uint8_t number = hexkeys[newpos];
+  2074     0782  0821               	movf	get_key@newpos,w
+  2075     0783  3E2F               	addlw	(low (_hexkeys| 0))& (0+255)
+  2076     0784  0084               	movwf	4
+  2077     0785  1383               	bcf	3,7	;select IRP bank0
+  2078     0786  0800               	movf	0,w
+  2079     0787  00A3               	movwf	get_key@number
+  2080                           
+  2081                           ;main.c: 203:                 switch (number)
+  2082     0788  2F8F               	goto	l1727
+  2083     0789                     l1719:
+  2084                           
+  2085                           ;main.c: 206:                     clear();
+  2086     0789  26E8               	fcall	_clear
+  2087                           
+  2088                           ;main.c: 207:                     break;
+  2089     078A  2F9F               	goto	l1729
+  2090     078B                     l1721:
+  2091                           
+  2092                           ;main.c: 209:                     reset();
+  2093     078B  25A8               	fcall	_reset
+  2094                           
+  2095                           ;main.c: 210:                     break;
+  2096     078C  2F9F               	goto	l1729
+  2097     078D                     l1723:
+  2098                           
+  2099                           ;main.c: 212:                     press();
+  2100     078D  24E7               	fcall	_press
+  2101                           
+  2102                           ;main.c: 213:                     break;
+  2103     078E  2F9F               	goto	l1729
+  2104     078F                     l1727:
+  2105     078F  0823               	movf	get_key@number,w
+  2106     0790  00F4               	movwf	??_get_key
+  2107     0791  01F5               	clrf	??_get_key+1
+  2108                           
+  2109                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  2110                           ; Switch size 1, requested type "simple"
+  2111                           ; Number of cases is 1, Range of values is 0 to 0
+  2112                           ; switch strategies available:
+  2113                           ; Name         Instructions Cycles
+  2114                           ; simple_byte            4     3 (average)
+  2115                           ; direct_byte            7     6 (fixed)
+  2116                           ; jumptable            260     6 (fixed)
+  2117                           ;	Chosen strategy is simple_byte
+  2118     0792  0875               	movf	??_get_key+1,w
+  2119     0793  3A00               	xorlw	0	; case 0
+  2120     0794  1903               	skipnz
+  2121     0795  2F97               	goto	l2077
+  2122     0796  2F8D               	goto	l1723
+  2123     0797                     l2077:
+  2124                           
+  2125                           ; Switch size 1, requested type "simple"
+  2126                           ; Number of cases is 2, Range of values is 10 to 11
+  2127                           ; switch strategies available:
+  2128                           ; Name         Instructions Cycles
+  2129                           ; simple_byte            7     4 (average)
+  2130                           ; direct_byte           11     9 (fixed)
+  2131                           ; jumptable            263     9 (fixed)
+  2132                           ;	Chosen strategy is simple_byte
+  2133     0797  0874               	movf	??_get_key,w
+  2134     0798  3A0A               	xorlw	10	; case 10
+  2135     0799  1903               	skipnz
+  2136     079A  2F8B               	goto	l1721
+  2137     079B  3A01               	xorlw	1	; case 11
+  2138     079C  1903               	skipnz
+  2139     079D  2F89               	goto	l1719
+  2140     079E  2F8D               	goto	l1723
+  2141     079F                     l1729:
+  2142                           
+  2143                           ;main.c: 216:                 uint8_t checkpos = x1 + x2 * 2 + x3 * 4;
+  2144     079F  1283               	bcf	3,5	;RP0=0, select bank0
+  2145     07A0  0826               	movf	get_key@x3,w
+  2146     07A1  00F4               	movwf	??_get_key
+  2147     07A2  3002               	movlw	2
+  2148     07A3                     u515:
+  2149     07A3  1003               	clrc
+  2150     07A4  0DF4               	rlf	??_get_key,f
+  2151     07A5  3EFF               	addlw	-1
+  2152     07A6  1D03               	skipz
+  2153     07A7  2FA3               	goto	u515
+  2154     07A8  0825               	movf	get_key@x2,w
+  2155     07A9  00F5               	movwf	??_get_key+1
+  2156     07AA  0775               	addwf	??_get_key+1,w
+  2157     07AB  0774               	addwf	??_get_key,w
+  2158     07AC  00F6               	movwf	??_get_key+2
+  2159     07AD  0824               	movf	get_key@x1,w
+  2160     07AE  0776               	addwf	??_get_key+2,w
+  2161     07AF  00A2               	movwf	get_key@checkpos
+  2162     07B0                     l1731:
+  2163                           
+  2164                           ;main.c: 218:                 {;main.c: 219:                     uint8_t tpos = RA1 * 1 
+      +                          + RA0 * 2 + RA3 * 4;
+  2165     07B0  3000               	movlw	0
+  2166     07B1  1985               	btfsc	5,3	;volatile
+  2167     07B2  3004               	movlw	4
+  2168     07B3  1805               	btfsc	5,0	;volatile
+  2169     07B4  3E02               	addlw	2
+  2170     07B5  1885               	btfsc	5,1	;volatile
+  2171     07B6  3E01               	addlw	1
+  2172     07B7  00A8               	movwf	get_key@tpos
+  2173     07B8                     l1733:
+  2174                           
+  2175                           ;main.c: 220:                     if (tpos != checkpos &&
+  2176     07B8  0828               	movf	get_key@tpos,w
+  2177     07B9  0622               	xorwf	get_key@checkpos,w
+  2178     07BA  1903               	skipnz
+  2179     07BB  2FBD               	goto	u521
+  2180     07BC  2FBE               	goto	u520
+  2181     07BD                     u521:
+  2182     07BD  2FB0               	goto	l1731
+  2183     07BE                     u520:
+  2184     07BE                     l1735:
+  2185     07BE  0828               	movf	get_key@tpos,w
+  2186     07BF  1903               	btfsc	3,2
+  2187     07C0  2FC2               	goto	u531
+  2188     07C1  2FC3               	goto	u530
+  2189     07C2                     u531:
+  2190     07C2  2FD4               	goto	l1743
+  2191     07C3                     u530:
+  2192     07C3                     l1737:
+  2193     07C3  0328               	decf	get_key@tpos,w
+  2194     07C4  1903               	btfsc	3,2
+  2195     07C5  2FC7               	goto	u541
+  2196     07C6  2FC8               	goto	u540
+  2197     07C7                     u541:
+  2198     07C7  2FD4               	goto	l1743
+  2199     07C8                     u540:
+  2200     07C8                     l1739:
+  2201     07C8  3002               	movlw	2
+  2202     07C9  0628               	xorwf	get_key@tpos,w
+  2203     07CA  1903               	btfsc	3,2
+  2204     07CB  2FCD               	goto	u551
+  2205     07CC  2FCE               	goto	u550
+  2206     07CD                     u551:
+  2207     07CD  2FD4               	goto	l1743
+  2208     07CE                     u550:
+  2209     07CE                     l1741:
+  2210     07CE  3004               	movlw	4
+  2211     07CF  0628               	xorwf	get_key@tpos,w
+  2212     07D0  1D03               	btfss	3,2
+  2213     07D1  2FD3               	goto	u561
+  2214     07D2  2FD4               	goto	u560
+  2215     07D3                     u561:
+  2216     07D3  2FB0               	goto	l1731
+  2217     07D4                     u560:
+  2218     07D4                     l1743:
+  2219                           
+  2220                           ;main.c: 225:                 return number;
+  2221     07D4  0823               	movf	get_key@number,w
+  2222     07D5  2FE1               	goto	l227
+  2223     07D6                     l1747:
+  2224                           
+  2225                           ;main.c: 227:         }
+  2226     07D6  3001               	movlw	1
+  2227     07D7  00F4               	movwf	??_get_key
+  2228     07D8  0874               	movf	??_get_key,w
+  2229     07D9  07A7               	addwf	get_key@ypos,f
+  2230     07DA                     l1749:
+  2231     07DA  3004               	movlw	4
+  2232     07DB  0227               	subwf	get_key@ypos,w
+  2233     07DC  1C03               	skipc
+  2234     07DD  2FDF               	goto	u571
+  2235     07DE  2FE0               	goto	u570
+  2236     07DF                     u571:
+  2237     07DF  2F2A               	goto	l205
+  2238     07E0                     u570:
+  2239     07E0  2F28               	goto	l204
+  2240     07E1                     l227:
+  2241     07E1  0008               	return
+  2242     07E2                     __end_of_get_key:
+  2243                           
+  2244                           	psect	text12
+  2245     05A8                     __ptext12:	
+  2246 ;; *************** function _reset *****************
+  2247 ;; Defined at:
+  2248 ;;		line 155 in file "main.c"
+  2249 ;; Parameters:    Size  Location     Type
+  2250 ;;		None
+  2251 ;; Auto vars:     Size  Location     Type
+  2252 ;;		None
+  2253 ;; Return value:  Size  Location     Type
+  2254 ;;                  1    wreg      void 
+  2255 ;; Registers used:
+  2256 ;;		wreg, status,2
+  2257 ;; Tracked objects:
+  2258 ;;		On entry : 0/0
+  2259 ;;		On exit  : 0/0
+  2260 ;;		Unchanged: 0/0
+  2261 ;; Data sizes:     COMMON   BANK0   BANK1
+  2262 ;;      Params:         0       0       0
+  2263 ;;      Locals:         0       0       0
+  2264 ;;      Temps:          3       0       0
+  2265 ;;      Totals:         3       0       0
+  2266 ;;Total ram usage:        3 bytes
+  2267 ;; Hardware stack levels used: 1
+  2268 ;; This function calls:
+  2269 ;;		Nothing
+  2270 ;; This function is called by:
+  2271 ;;		_get_key
+  2272 ;; This function uses a non-reentrant model
+  2273 ;;
+  2274                           
+  2275     05A8                     _reset:	
+  2276                           ;psect for function _reset
+  2277                           
+  2278     05A8                     l1623:	
+  2279                           ;incstack = 0
+  2280                           ; Regs used in _reset: [wreg+status,2]
+  2281                           
+  2282                           
+  2283                           ;main.c: 157:     PR2 = 0b11111111;
+  2284     05A8  30FF               	movlw	255
+  2285     05A9  1683               	bsf	3,5	;RP0=1, select bank1
+  2286     05AA  0092               	movwf	18	;volatile
+  2287                           
+  2288                           ;main.c: 158:     T2CON = 0b00000101;
+  2289     05AB  3005               	movlw	5
+  2290     05AC  1283               	bcf	3,5	;RP0=0, select bank0
+  2291     05AD  0092               	movwf	18	;volatile
+  2292                           
+  2293                           ;main.c: 159:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+  2294     05AE  3082               	movlw	130
+  2295     05AF  00F1               	movwf	??_reset+1
+  2296     05B0  30DD               	movlw	221
+  2297     05B1  00F0               	movwf	??_reset
+  2298     05B2                     u707:
+  2299     05B2  0BF0               	decfsz	??_reset,f
+  2300     05B3  2DB2               	goto	u707
+  2301     05B4  0BF1               	decfsz	??_reset+1,f
+  2302     05B5  2DB2               	goto	u707
+  2303     05B6  2DB7               	nop2
+  2304     05B7                     l1625:
+  2305                           
+  2306                           ;main.c: 160:     T2CON = 0b00000000;
+  2307     05B7  1283               	bcf	3,5	;RP0=0, select bank0
+  2308     05B8  0192               	clrf	18	;volatile
+  2309     05B9                     l1627:
+  2310                           
+  2311                           ;main.c: 161:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+  2312     05B9  3082               	movlw	130
+  2313     05BA  00F1               	movwf	??_reset+1
+  2314     05BB  30DD               	movlw	221
+  2315     05BC  00F0               	movwf	??_reset
+  2316     05BD                     u717:
+  2317     05BD  0BF0               	decfsz	??_reset,f
+  2318     05BE  2DBD               	goto	u717
+  2319     05BF  0BF1               	decfsz	??_reset+1,f
+  2320     05C0  2DBD               	goto	u717
+  2321     05C1  2DC2               	nop2
+  2322     05C2                     l1629:
+  2323                           
+  2324                           ;main.c: 162:     T2CON = 0b00000101;
+  2325     05C2  3005               	movlw	5
+  2326     05C3  1283               	bcf	3,5	;RP0=0, select bank0
+  2327     05C4  0092               	movwf	18	;volatile
+  2328     05C5                     l1631:
+  2329                           
+  2330                           ;main.c: 163:     _delay((unsigned long)((200)*(8000000UL/4000.0)));
+  2331     05C5  3003               	movlw	3
+  2332     05C6  00F2               	movwf	??_reset+2
+  2333     05C7  3008               	movlw	8
+  2334     05C8  00F1               	movwf	??_reset+1
+  2335     05C9  3077               	movlw	119
+  2336     05CA  00F0               	movwf	??_reset
+  2337     05CB                     u727:
+  2338     05CB  0BF0               	decfsz	??_reset,f
+  2339     05CC  2DCB               	goto	u727
+  2340     05CD  0BF1               	decfsz	??_reset+1,f
+  2341     05CE  2DCB               	goto	u727
+  2342     05CF  0BF2               	decfsz	??_reset+2,f
+  2343     05D0  2DCB               	goto	u727
+  2344                           
+  2345                           ;main.c: 164:     T2CON = 0b00000000;
+  2346     05D1  1283               	bcf	3,5	;RP0=0, select bank0
+  2347     05D2  0192               	clrf	18	;volatile
+  2348     05D3                     l201:
+  2349     05D3  0008               	return
+  2350     05D4                     __end_of_reset:
+  2351                           
+  2352                           	psect	text13
+  2353     04E7                     __ptext13:	
+  2354 ;; *************** function _press *****************
+  2355 ;; Defined at:
+  2356 ;;		line 98 in file "main.c"
+  2357 ;; Parameters:    Size  Location     Type
+  2358 ;;		None
+  2359 ;; Auto vars:     Size  Location     Type
+  2360 ;;		None
+  2361 ;; Return value:  Size  Location     Type
+  2362 ;;                  1    wreg      void 
+  2363 ;; Registers used:
+  2364 ;;		wreg, status,2
+  2365 ;; Tracked objects:
+  2366 ;;		On entry : 0/0
+  2367 ;;		On exit  : 0/0
+  2368 ;;		Unchanged: 0/0
+  2369 ;; Data sizes:     COMMON   BANK0   BANK1
+  2370 ;;      Params:         0       0       0
+  2371 ;;      Locals:         0       0       0
+  2372 ;;      Temps:          3       0       0
+  2373 ;;      Totals:         3       0       0
+  2374 ;;Total ram usage:        3 bytes
+  2375 ;; Hardware stack levels used: 1
+  2376 ;; This function calls:
+  2377 ;;		Nothing
+  2378 ;; This function is called by:
+  2379 ;;		_get_key
+  2380 ;; This function uses a non-reentrant model
+  2381 ;;
+  2382                           
+  2383     04E7                     _press:	
+  2384                           ;psect for function _press
+  2385                           
+  2386     04E7                     l1601:	
+  2387                           ;incstack = 0
+  2388                           ; Regs used in _press: [wreg+status,2]
+  2389                           
+  2390                           
+  2391                           ;main.c: 100:     PR2 = 0b10000000;
+  2392     04E7  3080               	movlw	128
+  2393     04E8  1683               	bsf	3,5	;RP0=1, select bank1
+  2394     04E9  0092               	movwf	18	;volatile
+  2395                           
+  2396                           ;main.c: 101:     T2CON = 0b00000111;
+  2397     04EA  3007               	movlw	7
+  2398     04EB  1283               	bcf	3,5	;RP0=0, select bank0
+  2399     04EC  0092               	movwf	18	;volatile
+  2400                           
+  2401                           ;main.c: 102:     _delay((unsigned long)((200)*(8000000UL/4000.0)));
+  2402     04ED  3003               	movlw	3
+  2403     04EE  00F2               	movwf	??_press+2
+  2404     04EF  3008               	movlw	8
+  2405     04F0  00F1               	movwf	??_press+1
+  2406     04F1  3077               	movlw	119
+  2407     04F2  00F0               	movwf	??_press
+  2408     04F3                     u737:
+  2409     04F3  0BF0               	decfsz	??_press,f
+  2410     04F4  2CF3               	goto	u737
+  2411     04F5  0BF1               	decfsz	??_press+1,f
+  2412     04F6  2CF3               	goto	u737
+  2413     04F7  0BF2               	decfsz	??_press+2,f
+  2414     04F8  2CF3               	goto	u737
+  2415     04F9                     l1603:
+  2416                           
+  2417                           ;main.c: 103:     T2CON = 0b00000000;
+  2418     04F9  1283               	bcf	3,5	;RP0=0, select bank0
+  2419     04FA  0192               	clrf	18	;volatile
+  2420     04FB                     l186:
+  2421     04FB  0008               	return
+  2422     04FC                     __end_of_press:
+  2423                           
+  2424                           	psect	text14
+  2425     06E8                     __ptext14:	
+  2426 ;; *************** function _clear *****************
+  2427 ;; Defined at:
+  2428 ;;		line 106 in file "main.c"
+  2429 ;; Parameters:    Size  Location     Type
+  2430 ;;		None
+  2431 ;; Auto vars:     Size  Location     Type
+  2432 ;;		None
+  2433 ;; Return value:  Size  Location     Type
+  2434 ;;                  1    wreg      void 
+  2435 ;; Registers used:
+  2436 ;;		wreg, status,2
+  2437 ;; Tracked objects:
+  2438 ;;		On entry : 0/0
+  2439 ;;		On exit  : 0/0
+  2440 ;;		Unchanged: 0/0
+  2441 ;; Data sizes:     COMMON   BANK0   BANK1
+  2442 ;;      Params:         0       0       0
+  2443 ;;      Locals:         0       0       0
+  2444 ;;      Temps:          2       0       0
+  2445 ;;      Totals:         2       0       0
+  2446 ;;Total ram usage:        2 bytes
+  2447 ;; Hardware stack levels used: 1
+  2448 ;; This function calls:
+  2449 ;;		Nothing
+  2450 ;; This function is called by:
+  2451 ;;		_get_key
+  2452 ;; This function uses a non-reentrant model
+  2453 ;;
+  2454                           
+  2455     06E8                     _clear:	
+  2456                           ;psect for function _clear
+  2457                           
+  2458     06E8                     l1605:	
+  2459                           ;incstack = 0
+  2460                           ; Regs used in _clear: [wreg+status,2]
+  2461                           
+  2462                           
+  2463                           ;main.c: 108:     PR2 = 0b11111111;
+  2464     06E8  30FF               	movlw	255
+  2465     06E9  1683               	bsf	3,5	;RP0=1, select bank1
+  2466     06EA  0092               	movwf	18	;volatile
+  2467                           
+  2468                           ;main.c: 109:     T2CON = 0b00000100;
+  2469     06EB  3004               	movlw	4
+  2470     06EC  1283               	bcf	3,5	;RP0=0, select bank0
+  2471     06ED  0092               	movwf	18	;volatile
+  2472                           
+  2473                           ;main.c: 110:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+  2474     06EE  3082               	movlw	130
+  2475     06EF  00F1               	movwf	??_clear+1
+  2476     06F0  30DD               	movlw	221
+  2477     06F1  00F0               	movwf	??_clear
+  2478     06F2                     u747:
+  2479     06F2  0BF0               	decfsz	??_clear,f
+  2480     06F3  2EF2               	goto	u747
+  2481     06F4  0BF1               	decfsz	??_clear+1,f
+  2482     06F5  2EF2               	goto	u747
+  2483     06F6  2EF7               	nop2
+  2484     06F7                     l1607:
+  2485                           
+  2486                           ;main.c: 111:     T2CON = 0b00000000;
+  2487     06F7  1283               	bcf	3,5	;RP0=0, select bank0
+  2488     06F8  0192               	clrf	18	;volatile
+  2489     06F9                     l1609:
+  2490                           
+  2491                           ;main.c: 112:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+  2492     06F9  3082               	movlw	130
+  2493     06FA  00F1               	movwf	??_clear+1
+  2494     06FB  30DD               	movlw	221
+  2495     06FC  00F0               	movwf	??_clear
+  2496     06FD                     u757:
+  2497     06FD  0BF0               	decfsz	??_clear,f
+  2498     06FE  2EFD               	goto	u757
+  2499     06FF  0BF1               	decfsz	??_clear+1,f
+  2500     0700  2EFD               	goto	u757
+  2501     0701  2F02               	nop2
+  2502     0702                     l1611:
+  2503                           
+  2504                           ;main.c: 113:     T2CON = 0b00000100;
+  2505     0702  3004               	movlw	4
+  2506     0703  1283               	bcf	3,5	;RP0=0, select bank0
+  2507     0704  0092               	movwf	18	;volatile
+  2508     0705                     l1613:
+  2509                           
+  2510                           ;main.c: 114:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+  2511     0705  3082               	movlw	130
+  2512     0706  00F1               	movwf	??_clear+1
+  2513     0707  30DD               	movlw	221
+  2514     0708  00F0               	movwf	??_clear
+  2515     0709                     u767:
+  2516     0709  0BF0               	decfsz	??_clear,f
+  2517     070A  2F09               	goto	u767
+  2518     070B  0BF1               	decfsz	??_clear+1,f
+  2519     070C  2F09               	goto	u767
+  2520     070D  2F0E               	nop2
+  2521                           
+  2522                           ;main.c: 115:     T2CON = 0b00000000;
+  2523     070E  1283               	bcf	3,5	;RP0=0, select bank0
+  2524     070F  0192               	clrf	18	;volatile
+  2525     0710                     l1615:
+  2526                           
+  2527                           ;main.c: 116:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+  2528     0710  3082               	movlw	130
+  2529     0711  00F1               	movwf	??_clear+1
+  2530     0712  30DD               	movlw	221
+  2531     0713  00F0               	movwf	??_clear
+  2532     0714                     u777:
+  2533     0714  0BF0               	decfsz	??_clear,f
+  2534     0715  2F14               	goto	u777
+  2535     0716  0BF1               	decfsz	??_clear+1,f
+  2536     0717  2F14               	goto	u777
+  2537     0718  2F19               	nop2
+  2538     0719                     l1617:
+  2539                           
+  2540                           ;main.c: 117:     T2CON = 0b00000100;
+  2541     0719  3004               	movlw	4
+  2542     071A  1283               	bcf	3,5	;RP0=0, select bank0
+  2543     071B  0092               	movwf	18	;volatile
+  2544     071C                     l1619:
+  2545                           
+  2546                           ;main.c: 118:     _delay((unsigned long)((50)*(8000000UL/4000.0)));
+  2547     071C  3082               	movlw	130
+  2548     071D  00F1               	movwf	??_clear+1
+  2549     071E  30DD               	movlw	221
+  2550     071F  00F0               	movwf	??_clear
+  2551     0720                     u787:
+  2552     0720  0BF0               	decfsz	??_clear,f
+  2553     0721  2F20               	goto	u787
+  2554     0722  0BF1               	decfsz	??_clear+1,f
+  2555     0723  2F20               	goto	u787
+  2556     0724  2F25               	nop2
+  2557     0725                     l1621:
+  2558                           
+  2559                           ;main.c: 119:     T2CON = 0b00000000;
+  2560     0725  1283               	bcf	3,5	;RP0=0, select bank0
+  2561     0726  0192               	clrf	18	;volatile
+  2562     0727                     l189:
+  2563     0727  0008               	return
+  2564     0728                     __end_of_clear:
+  2565                           
+  2566                           	psect	text15
+  2567     04D2                     __ptext15:	
+  2568 ;; *************** function ___bmul *****************
+  2569 ;; Defined at:
+  2570 ;;		line 4 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c"
+  2571 ;; Parameters:    Size  Location     Type
+  2572 ;;  multiplier      1    wreg     unsigned char 
+  2573 ;;  multiplicand    1    0[COMMON] unsigned char 
+  2574 ;; Auto vars:     Size  Location     Type
+  2575 ;;  multiplier      1    3[COMMON] unsigned char 
+  2576 ;;  product         1    2[COMMON] unsigned char 
+  2577 ;; Return value:  Size  Location     Type
+  2578 ;;                  1    wreg      unsigned char 
+  2579 ;; Registers used:
+  2580 ;;		wreg, status,2, status,0
+  2581 ;; Tracked objects:
+  2582 ;;		On entry : 0/0
+  2583 ;;		On exit  : 0/0
+  2584 ;;		Unchanged: 0/0
+  2585 ;; Data sizes:     COMMON   BANK0   BANK1
+  2586 ;;      Params:         1       0       0
+  2587 ;;      Locals:         2       0       0
+  2588 ;;      Temps:          1       0       0
+  2589 ;;      Totals:         4       0       0
+  2590 ;;Total ram usage:        4 bytes
+  2591 ;; Hardware stack levels used: 1
+  2592 ;; This function calls:
+  2593 ;;		Nothing
+  2594 ;; This function is called by:
+  2595 ;;		_get_key
+  2596 ;; This function uses a non-reentrant model
+  2597 ;;
+  2598                           
+  2599     04D2                     ___bmul:	
+  2600                           ;psect for function ___bmul
+  2601                           
+  2602                           
+  2603                           ;incstack = 0
+  2604                           ; Regs used in ___bmul: [wreg+status,2+status,0]
+  2605                           ;___bmul@multiplier stored from wreg
+  2606     04D2  00F3               	movwf	___bmul@multiplier
+  2607     04D3                     l1633:
+  2608     04D3  01F2               	clrf	___bmul@product
+  2609     04D4                     l1635:
+  2610     04D4  1C73               	btfss	___bmul@multiplier,0
+  2611     04D5  2CD7               	goto	u401
+  2612     04D6  2CD8               	goto	u400
+  2613     04D7                     u401:
+  2614     04D7  2CDC               	goto	l1639
+  2615     04D8                     u400:
+  2616     04D8                     l1637:
+  2617     04D8  0870               	movf	___bmul@multiplicand,w
+  2618     04D9  00F1               	movwf	??___bmul
+  2619     04DA  0871               	movf	??___bmul,w
+  2620     04DB  07F2               	addwf	___bmul@product,f
+  2621     04DC                     l1639:
+  2622     04DC  1003               	clrc
+  2623     04DD  0DF0               	rlf	___bmul@multiplicand,f
+  2624     04DE                     l1641:
+  2625     04DE  1003               	clrc
+  2626     04DF  0CF3               	rrf	___bmul@multiplier,f
+  2627     04E0  0873               	movf	___bmul@multiplier,w
+  2628     04E1  1D03               	btfss	3,2
+  2629     04E2  2CE4               	goto	u411
+  2630     04E3  2CE5               	goto	u410
+  2631     04E4                     u411:
+  2632     04E4  2CD4               	goto	l1635
+  2633     04E5                     u410:
+  2634     04E5                     l1643:
+  2635     04E5  0872               	movf	___bmul@product,w
+  2636     04E6                     l417:
+  2637     04E6  0008               	return
+  2638     04E7                     __end_of___bmul:
+  2639                           
+  2640                           	psect	text16
+  2641     055F                     __ptext16:	
+  2642 ;; *************** function _arrequal *****************
+  2643 ;; Defined at:
+  2644 ;;		line 71 in file "main.c"
+  2645 ;; Parameters:    Size  Location     Type
+  2646 ;;  arr1            1    wreg     PTR unsigned char 
+  2647 ;;		 -> check_password@current_password(4), 
+  2648 ;;  arr2            1    0[COMMON] PTR unsigned char 
+  2649 ;;		 -> password(4), 
+  2650 ;;  size            1    1[COMMON] unsigned char 
+  2651 ;; Auto vars:     Size  Location     Type
+  2652 ;;  arr1            1    5[COMMON] PTR unsigned char 
+  2653 ;;		 -> check_password@current_password(4), 
+  2654 ;;  i               1    6[COMMON] unsigned char 
+  2655 ;; Return value:  Size  Location     Type
+  2656 ;;                  1    wreg      unsigned char 
+  2657 ;; Registers used:
+  2658 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  2659 ;; Tracked objects:
+  2660 ;;		On entry : 0/0
+  2661 ;;		On exit  : 0/0
+  2662 ;;		Unchanged: 0/0
+  2663 ;; Data sizes:     COMMON   BANK0   BANK1
+  2664 ;;      Params:         2       0       0
+  2665 ;;      Locals:         2       0       0
+  2666 ;;      Temps:          3       0       0
+  2667 ;;      Totals:         7       0       0
+  2668 ;;Total ram usage:        7 bytes
+  2669 ;; Hardware stack levels used: 1
+  2670 ;; This function calls:
+  2671 ;;		Nothing
+  2672 ;; This function is called by:
+  2673 ;;		_check_password
+  2674 ;; This function uses a non-reentrant model
+  2675 ;;
+  2676                           
+  2677     055F                     _arrequal:	
+  2678                           ;psect for function _arrequal
+  2679                           
+  2680                           
+  2681                           ;incstack = 0
+  2682                           ; Regs used in _arrequal: [wreg-fsr0h+status,2+status,0]
+  2683                           ;arrequal@arr1 stored from wreg
+  2684     055F  00F5               	movwf	arrequal@arr1
+  2685     0560                     l1655:
+  2686                           
+  2687                           ;main.c: 71: uint8_t arrequal(uint8_t *arr1, uint8_t *arr2, uint8_t size);main.c: 72: {;
+      +                          main.c: 73:     for (uint8_t i = 0; i < size; i++)
+  2688     0560  01F6               	clrf	arrequal@i
+  2689     0561  2D7B               	goto	l1665
+  2690     0562                     l1657:
+  2691                           
+  2692                           ;main.c: 74:     {;main.c: 75:         if (arr1[i] != arr2[i])
+  2693     0562  0876               	movf	arrequal@i,w
+  2694     0563  0770               	addwf	arrequal@arr2,w
+  2695     0564  00F2               	movwf	??_arrequal
+  2696     0565  0872               	movf	??_arrequal,w
+  2697     0566  0084               	movwf	4
+  2698     0567  1383               	bcf	3,7	;select IRP bank0
+  2699     0568  0800               	movf	0,w
+  2700     0569  00F3               	movwf	??_arrequal+1
+  2701     056A  0876               	movf	arrequal@i,w
+  2702     056B  0775               	addwf	arrequal@arr1,w
+  2703     056C  00F4               	movwf	??_arrequal+2
+  2704     056D  0874               	movf	??_arrequal+2,w
+  2705     056E  0084               	movwf	4
+  2706     056F  0800               	movf	0,w
+  2707     0570  0673               	xorwf	??_arrequal+1,w
+  2708     0571  1903               	skipnz
+  2709     0572  2D74               	goto	u431
+  2710     0573  2D75               	goto	u430
+  2711     0574                     u431:
+  2712     0574  2D77               	goto	l1663
+  2713     0575                     u430:
+  2714     0575                     l1659:
+  2715                           
+  2716                           ;main.c: 76:             return 0;
+  2717     0575  3000               	movlw	0
+  2718     0576  2D82               	goto	l170
+  2719     0577                     l1663:
+  2720                           
+  2721                           ;main.c: 77:     }
+  2722     0577  3001               	movlw	1
+  2723     0578  00F2               	movwf	??_arrequal
+  2724     0579  0872               	movf	??_arrequal,w
+  2725     057A  07F6               	addwf	arrequal@i,f
+  2726     057B                     l1665:
+  2727     057B  0871               	movf	arrequal@size,w
+  2728     057C  0276               	subwf	arrequal@i,w
+  2729     057D  1C03               	skipc
+  2730     057E  2D80               	goto	u441
+  2731     057F  2D81               	goto	u440
+  2732     0580                     u441:
+  2733     0580  2D62               	goto	l1657
+  2734     0581                     u440:
+  2735     0581                     l1667:
+  2736                           
+  2737                           ;main.c: 79:     return 1;
+  2738     0581  3001               	movlw	1
+  2739     0582                     l170:
+  2740     0582  0008               	return
+  2741     0583                     __end_of_arrequal:
+  2742     007E                     btemp	set	126	;btemp
+  2743     007E                     wtemp0	set	126
+  2744                           
+  2745                           	psect	config
+  2746                           
+  2747                           ;Config register CONFIG @ 0x2007
+  2748                           ;	Oscillator Selection bits
+  2749                           ;	FOSC = INTOSCIO, INTOSCIO oscillator: I/O function on RA4/OSC2/CLKOUT pin, I/O functio
+      +                          n on RA5/OSC1/CLKIN
+  2750                           ;	Watchdog Timer Enable bit
+  2751                           ;	WDTE = OFF, WDT disabled
+  2752                           ;	Power-up Timer Enable bit
+  2753                           ;	PWRTE = ON, PWRT enabled
+  2754                           ;	MCLR Pin Function Select bit
+  2755                           ;	MCLRE = OFF, MCLR pin function is digital input, MCLR internally tied to VDD
+  2756                           ;	Code Protection bit
+  2757                           ;	CP = OFF, Program memory code protection is disabled
+  2758                           ;	Data Code Protection bit
+  2759                           ;	CPD = OFF, Data memory code protection is disabled
+  2760                           ;	Brown Out Detect
+  2761                           ;	BOREN = OFF, BOR disabled
+  2762                           ;	Internal External Switchover bit
+  2763                           ;	IESO = OFF, Internal External Switchover mode is disabled
+  2764                           ;	Fail-Safe Clock Monitor Enabled bit
+  2765                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  2766     2007                     	org	8199
+  2767     2007  30C4               	dw	12484
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        12
+    BSS         4
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     12      12
+    BANK0            80     15      31
+    BANK1            32      0       0
+
+Pointer List with Targets:
+
+    eeprom_read_arr@arr	PTR unsigned char  size(1) Largest target is 4
+		 -> password(BANK0[4]), 
+
+    eeprom_write_arr@arr	PTR unsigned char  size(1) Largest target is 4
+		 -> password(BANK0[4]), 
+
+    arrequal@arr2	PTR unsigned char  size(1) Largest target is 4
+		 -> password(BANK0[4]), 
+
+    arrequal@arr1	PTR unsigned char  size(1) Largest target is 4
+		 -> check_password@current_password(BANK0[4]), 
+
+    arrcpy@src	PTR unsigned char  size(1) Largest target is 4
+		 -> password(BANK0[4]), set_password@old_password(BANK0[4]), 
+
+    arrcpy@dst	PTR unsigned char  size(1) Largest target is 5
+		 -> password(BANK0[4]), set_password@old_password(BANK0[4]), nrf_setup@data(COMMON[5]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_set_password
+    _set_password->_eeprom_write_arr
+    _eeprom_write_arr->_eeprom_write
+    _eeprom_read_arr->_eeprom_read
+    _check_password->_arrequal
+    _check_password->_get_key
+    _get_key->___bmul
+
+Critical Paths under _main in BANK0
+
+    _main->_check_password
+    _main->_set_password
+    _set_password->_get_key
+    _check_password->_get_key
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0    3705
+                                             10 COMMON     2     2      0
+                     _check_password
+                    _eeprom_read_arr
+                       _set_password
+                 _set_password_sound
+ ---------------------------------------------------------------------------------
+ (1) _set_password_sound                                   3     3      0       0
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ (1) _set_password                                         8     8      0    2179
+                                              8 COMMON     2     2      0
+                                              9 BANK0      6     6      0
+                             _arrcpy
+                   _eeprom_write_arr
+                            _get_key
+                            _success
+                              _wrong
+ ---------------------------------------------------------------------------------
+ (2) _eeprom_write_arr                                     5     3      2     406
+                                              3 COMMON     5     3      2
+                       _eeprom_write
+ ---------------------------------------------------------------------------------
+ (3) _eeprom_write                                         3     2      1     120
+                                              0 COMMON     3     2      1
+ ---------------------------------------------------------------------------------
+ (2) _arrcpy                                               7     5      2     874
+                                              0 COMMON     7     5      2
+ ---------------------------------------------------------------------------------
+ (1) _eeprom_read_arr                                      5     3      2     308
+                                              2 COMMON     5     3      2
+                        _eeprom_read
+ ---------------------------------------------------------------------------------
+ (2) _eeprom_read                                          2     2      0      22
+                                              0 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _check_password                                       8     8      0    1218
+                                              7 COMMON     2     2      0
+                                              9 BANK0      6     6      0
+                           _arrequal
+                            _get_key
+                            _success
+                              _wrong
+ ---------------------------------------------------------------------------------
+ (2) _wrong                                                3     3      0       0
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ (2) _success                                              3     3      0       0
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ (2) _get_key                                             12    12      0     760
+                                              4 COMMON     3     3      0
+                                              0 BANK0      9     9      0
+                             ___bmul
+                              _clear
+                              _press
+                              _reset
+ ---------------------------------------------------------------------------------
+ (3) _reset                                                3     3      0       0
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ (3) _press                                                3     3      0       0
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ (3) _clear                                                2     2      0       0
+                                              0 COMMON     2     2      0
+ ---------------------------------------------------------------------------------
+ (3) ___bmul                                               4     3      1     244
+                                              0 COMMON     4     3      1
+ ---------------------------------------------------------------------------------
+ (2) _arrequal                                             7     5      2     319
+                                              0 COMMON     7     5      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _check_password
+     _arrequal
+     _get_key
+       ___bmul
+       _clear
+       _press
+       _reset
+     _success
+     _wrong
+   _eeprom_read_arr
+     _eeprom_read
+   _set_password
+     _arrcpy
+     _eeprom_write_arr
+       _eeprom_write
+     _get_key
+     _success
+     _wrong
+   _set_password_sound
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BANK1               20      0       0       5        0.0%
+BITBANK1            20      0       0       7        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               50      F      1F       4       38.8%
+BITBANK0            50      0       0       3        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               E      C       C       1       85.7%
+BITCOMMON            E      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0      2B       8        0.0%
+ABS                  0      0      2B       6        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA             100      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.40 build 20220703182018 
+Symbol Table                                                                                   Fri Apr 21 10:19:03 2023
+
+                ___bmul@product 0072                              fsr 0004                             l201 05D3  
+                           l210 0731                             l106 055E                             l211 0733  
+                           l212 0735                             l204 0728                             l205 072A  
+                           l208 072F                             l170 0582                             l227 07E1  
+                           l260 065B                             l237 06E7                             l183 0528  
+                           l192 0635                             l417 04E6                             l249 06A8  
+                           l361 04C3                             l177 0541                             l186 04FB  
+                           l195 0604                             l363 04D1                             l380 0584  
+                           l189 0727                             l381 0584                             l198 0510  
+                           l384 0598                             l387 05A7                             _RA0 0028  
+                           _RA1 0029                             _RA2 002A                             _RA3 002B  
+                           _RA4 002C                             _RC0 0038                             _RA5 002D  
+                           _RC1 0039                             _RC2 003A                             _RC3 003B  
+                           _RC4 003C                             u400 04D8                             u401 04D7  
+                           u410 04E5                             u411 04E4                             u420 055E  
+                           u421 055D                             u430 0575                             _PR2 0092  
+                           u431 0574                             u440 0581                             u520 07BE  
+                           u600 0687                             u441 0580                             u521 07BD  
+                           u505 076B                             u601 0686                             u530 07C3  
+                           u610 0692                             u370 0589                             u450 0541  
+                           u531 07C2                             u515 07A3                             u611 0691  
+                           u371 0588                             u451 0540                             u540 07C8  
+                           u460 04C9                             u380 0597                             u620 0658  
+                           u541 07C7                             u461 04C8                             u381 0596  
+                           u621 0657                             u550 07CE                             u470 075E  
+                           u390 05A6                             u551 07CD                             u471 075D  
+                           u391 05A5                             u560 07D4                             u480 0763  
+                           u561 07D3                             u481 0762                             u570 07E0  
+                           u490 0768                             u707 05B2                             u571 07DF  
+                           u491 0767                             u580 0528                             u717 05BD  
+                           u581 0527                             u637 0611                             u590 06CF  
+                           u727 05CB                             u591 06CE                             u647 061E  
+                           u737 04F3                             u657 062C                             u747 06F2  
+                           u667 0508                             u757 06FD                             u677 05E0  
+                           u767 0709                             u687 05ED                             u777 0714  
+                           u697 05FB                             u787 0720                     get_key@tpos 0028  
+                   get_key@xpos 0020                     get_key@ypos 0027                             fsr0 0004  
+                           indf 0000        set_password@old_password 0029                  _check_password 066F  
+                          l2071 06DF                            l1601 04E7                            l2073 06A0  
+                          l1611 0702                            l1603 04F9                            l2075 073F  
+                          l1621 0725                            l1613 0705                            l1605 06E8  
+                          l2077 0797                            l2069 0663                            l1615 0710  
+                          l1607 06F7                            l1631 05C5                            l1623 05A8  
+                          l1711 075E                            l1641 04DE                            l1633 04D3  
+                          l1617 0719                            l1609 06F9                            l1625 05B7  
+                          l1721 078B                            l1713 0763                            l1705 0737  
+                          l1643 04E5                            l1635 04D4                            l1619 071C  
+                          l1627 05B9                            l1731 07B0                            l1723 078D  
+                          l1715 0768                            l1707 074D                            l1811 066F  
+                          l1651 0554                            l1637 04D8                            l1629 05C2  
+                          l1741 07CE                            l1733 07B8                            l1717 0782  
+                          l1709 0759                            l1821 0677                            l1813 0671  
+                          l1653 0558                            l1581 0589                            l1805 06D7  
+                          l1663 0577                            l1655 0560                            l1639 04DC  
+                          l1743 07D4                            l1735 07BE                            l1719 0789  
+                          l1727 078F                            l1831 0693                            l1823 067D  
+                          l1647 0543                            l1591 059B                            l1583 058D  
+                          l1671 052A                            l1911 063B                            l1657 0562  
+                          l1665 057B                            l1737 07C3                            l1729 079F  
+                          l1825 0681                            l1817 0675                            l1761 0514  
+                          l1649 0545                            l1593 059F                            l1585 0591  
+                          l1673 052C                            l1921 0640                            l1913 063C  
+                          l1667 0581                            l1659 0575                            l1739 07C8  
+                          l1747 07D6                            l1691 05F5                            l1683 05D4  
+                          l1835 0695                            l1827 0687                            l1843 0698  
+                          l1763 051E                            l1595 05A0                            l1587 0593  
+                          l1675 0537                            l1771 061A                            l1931 0649  
+                          l1923 0641                            l1915 063D                            l1907 0636  
+                          l1749 07DA                            l1685 05E7                            l1693 04FC  
+                          l1837 0696                            l1829 0692                            l1765 0522  
+                          l1597 05A1                            l1589 0597                            l1677 053B  
+                          l1781 06B1                            l1773 0623                            l1941 065B  
+                          l1933 064B                            l1925 0643                            l1917 063E  
+                          l1909 063A                            l1687 05E9                            l1695 050E  
+                          l1679 04C9                            l1759 0512                            l1599 05A6  
+                          l1791 06BF                            l1783 06B5                            l1775 0626  
+                          l1767 0605                            l1935 0652                            l1927 0645  
+                          l1919 063F                            l1697 0728                            l1689 05F2  
+                          l1793 06C5                            l1785 06B7                            l1777 06A9  
+                          l1769 0618                            l1937 0658                            l1929 0647  
+                          l1795 06C9                            l1787 06BD                            l1779 06AB  
+                          l1939 0659                            l1797 06CF                            l1799 06D5  
+                ??_eeprom_write 0071                            _main 0636      __end_of_set_password_sound 0636  
+                          btemp 007E                            start 0000               ___bmul@multiplier 0073  
+                         ?_main 0070                           _EEADR 009B                           _ANSEL 0091  
+                         _T2CON 0012                           _TRISA 0085                           _TRISC 0087  
+            eeprom_read_arr@adr 0075              eeprom_read_arr@arr 0072                   get_key@newpos 0021  
+                 get_key@number 0023          __end_of_check_password 06A9                 __end_of_get_key 07E2  
+                         _clear 06E8                           _reset 05A8                           _press 04E7  
+                         _wrong 04FC                 __end_of_success 0605                           status 0003  
+                         wtemp0 007E                 __initialization 07E2                    __end_of_main 066F  
+                  arrequal@arr1 0075                    arrequal@arr2 0070                    arrequal@size 0071  
+                        ??_main 007A                 set_password@key 002D                 ?_check_password 0070  
+                        ?_clear 0070                          _EEDATA 009A                          _CCPR1L 0013  
+                        _EECON1 009C                          _EECON2 009D                          ?_reset 0070  
+                        ?_press 0070                          ?_wrong 0070                          _TRISA0 0428  
+                        _TRISA1 0429                          _TRISA2 042A                          _TRISA3 042B  
+                        _TRISA4 042C                          _TRISC0 0438                          _TRISA5 042D  
+                        _TRISC1 0439                          _TRISC2 043A                          _TRISC3 043B  
+                        _TRISC4 043C             eeprom_read_arr@size 0073                          ___bmul 04D2  
+              __end_of_arrequal 0583                          _arrcpy 0542            __end_of_eeprom_write 05A8  
+                     ??_get_key 0074                       ??_success 0070                _eeprom_write_arr 0529  
+           eeprom_write_arr@adr 0076             eeprom_write_arr@arr 0073         __end_of__initialization 07FE  
+               eeprom_read@addr 0071             ___bmul@multiplicand 0070                  __pcstackCOMMON 0070  
+                  __pidataBANK0 04B6                   __end_of_clear 0728                   __end_of_reset 05D4  
+                 __end_of_press 04FC                   __end_of_wrong 0511               eeprom_write@value 0070  
+                       ??_clear 0070                         ??_reset 0070                         ??_press 0070  
+                       ??_wrong 0070                      __pbssBANK0 003B               eeprom_write_arr@i 0077  
+                    __pmaintext 0636                         ?___bmul 0070                         ?_arrcpy 0070  
+               get_key@checkpos 0022                         _CCP1CON 0015              _set_password_sound 0605  
+             ??_eeprom_read_arr 0074             ?_set_password_sound 0070                       ?_arrequal 0070  
+          ??_set_password_sound 0070                   ?_set_password 0070                         __ptext1 0605  
+                       __ptext2 06A9                         __ptext3 0529                         __ptext4 0583  
+                       __ptext5 0542                         __ptext6 0511                         __ptext7 04C2  
+                       __ptext8 066F                         __ptext9 04FC                ??_check_password 0077  
+                       _get_key 0728                         _hexkeys 002F                         _success 05D4  
+                       arrcpy@i 0076            end_of_initialization 07FE                      ??_arrequal 0072  
+                  _eeprom_write 0583  check_password@current_password 0029                  ??_set_password 0078  
+      __end_of_eeprom_write_arr 0542            eeprom_write_arr@size 0074                   ??_eeprom_read 0070  
+              eeprom_read_arr@i 0076                  __end_of___bmul 04E7                  __end_of_arrcpy 055F  
+           start_initialization 07E2                 _eeprom_read_arr 0511                        ??___bmul 0071  
+           __end_of_eeprom_read 04D2                        ??_arrcpy 0072                     __pdataBANK0 002F  
+                     ___latbits 0000                   __pcstackBANK0 0020            __end_of_set_password 06E8  
+             set_password@digit 002E                eeprom_write@addr 0072                        ?_get_key 0070  
+                      ?_success 0070         __end_of_eeprom_read_arr 0529                     _eeprom_read 04C2  
+                      _PIE1bits 008C               ?_eeprom_write_arr 0073                       get_key@x1 0024  
+                     get_key@x2 0025                       get_key@x3 0026              ??_eeprom_write_arr 0075  
+                     arrcpy@len 0071                       arrcpy@dst 0075                       arrcpy@src 0070  
+                     arrequal@i 0076                      _EECON1bits 009C                      _CMCON0bits 0019  
+                      __ptext10 05D4                        __ptext11 0728                        __ptext12 05A8  
+                      __ptext13 04E7                        __ptext14 06E8                        __ptext15 04D2  
+                      __ptext16 055F                ?_eeprom_read_arr 0072                        _arrequal 055F  
+                      _password 003B                    _set_password 06A9                      _INTCONbits 000B  
+           check_password@digit 002E                   ?_eeprom_write 0070                      _STATUSbits 0003  
+                  ?_eeprom_read 0070               check_password@key 002D  

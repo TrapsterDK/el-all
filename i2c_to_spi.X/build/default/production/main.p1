@@ -1,0 +1,705 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"1614 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1614: extern volatile __bit GPIO0 __attribute__((address(0x28)));
+[v _GPIO0 `Vb ~T0 @X0 0 e@40 ]
+"1620
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1620: extern volatile __bit GPIO2 __attribute__((address(0x2A)));
+[v _GPIO2 `Vb ~T0 @X0 0 e@42 ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.40\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"1752 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1752: extern volatile __bit TRISIO0 __attribute__((address(0x428)));
+[v _TRISIO0 `Vb ~T0 @X0 0 e@1064 ]
+"1758
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1758: extern volatile __bit TRISIO2 __attribute__((address(0x42A)));
+[v _TRISIO2 `Vb ~T0 @X0 0 e@1066 ]
+"1755
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1755: extern volatile __bit TRISIO1 __attribute__((address(0x429)));
+[v _TRISIO1 `Vb ~T0 @X0 0 e@1065 ]
+"1764
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1764: extern volatile __bit TRISIO4 __attribute__((address(0x42C)));
+[v _TRISIO4 `Vb ~T0 @X0 0 e@1068 ]
+"1761
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1761: extern volatile __bit TRISIO3 __attribute__((address(0x42B)));
+[v _TRISIO3 `Vb ~T0 @X0 0 e@1067 ]
+"1617
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1617: extern volatile __bit GPIO1 __attribute__((address(0x29)));
+[v _GPIO1 `Vb ~T0 @X0 0 e@41 ]
+"1626
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1626: extern volatile __bit GPIO4 __attribute__((address(0x2C)));
+[v _GPIO4 `Vb ~T0 @X0 0 e@44 ]
+"1623
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1623: extern volatile __bit GPIO3 __attribute__((address(0x2B)));
+[v _GPIO3 `Vb ~T0 @X0 0 e@43 ]
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"333
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 333:     struct {
+[s S19 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S19 . GPIF INTF T0IF GPIE INTE T0IE PEIE GIE ]
+"343
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 343:     struct {
+[s S20 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S20 . . TMR0IF . TMR0IE ]
+"332
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 332: typedef union {
+[u S18 `S19 1 `S20 1 ]
+[n S18 . . . ]
+"350
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 350: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS18 ~T0 @X0 0 e@11 ]
+[p mainexit ]
+"1405
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1405: extern volatile unsigned char ANSEL __attribute__((address(0x09F)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@159 ]
+"644
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 644: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
+"565
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 565: extern volatile unsigned char CMCON __attribute__((address(0x019)));
+[v _CMCON `Vuc ~T0 @X0 0 e@25 ]
+"1209
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1209: extern volatile unsigned char VRCON __attribute__((address(0x099)));
+[v _VRCON `Vuc ~T0 @X0 0 e@153 ]
+"798
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 798: extern volatile unsigned char TRISIO __attribute__((address(0x085)));
+[v _TRISIO `Vuc ~T0 @X0 0 e@133 ]
+"219
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 219: extern volatile unsigned char GPIO __attribute__((address(0x005)));
+[v _GPIO `Vuc ~T0 @X0 0 e@5 ]
+"734
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 734:     struct {
+[s S42 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S42 . PS PSA T0SE T0CS INTEDG nGPPU ]
+"742
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 742:     struct {
+[s S43 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S43 . PS0 PS1 PS2 ]
+"733
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 733: typedef union {
+[u S41 `S42 1 `S43 1 ]
+[n S41 . . . ]
+"748
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 748: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
+[v _OPTION_REGbits `VS41 ~T0 @X0 0 e@129 ]
+"1 main.c
+[p x FOSC  =  INTRCIO ]
+"2
+[p x WDTE  =  OFF ]
+"3
+[p x MCLRE  =  OFF ]
+"4
+[p x CP  =  OFF ]
+"5
+[p x CPD  =  OFF ]
+"6
+[p x BOREN  =  ON ]
+"7
+[p x PWRTE  =  ON ]
+"55 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"75
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 75: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"95
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 95: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"115
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 115: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"201
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 201: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"221
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 221: __asm("GPIO equ 05h");
+[; <" GPIO equ 05h ;# ">
+"309
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 309: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"329
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 329: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"407
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 407: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"455
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 455: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"462
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 462: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"482
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 482: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"502
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 502: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"567
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 567: __asm("CMCON equ 019h");
+[; <" CMCON equ 019h ;# ">
+"626
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 626: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"646
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 646: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"730
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 730: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"800
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 800: __asm("TRISIO equ 085h");
+[; <" TRISIO equ 085h ;# ">
+"850
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 850: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"898
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 898: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"932
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 932: __asm("OSCCAL equ 090h");
+[; <" OSCCAL equ 090h ;# ">
+"992
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 992: __asm("WPU equ 095h");
+[; <" WPU equ 095h ;# ">
+"1037
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1037: __asm("IOC equ 096h");
+[; <" IOC equ 096h ;# ">
+"1042
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1042: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"1211
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1211: __asm("VRCON equ 099h");
+[; <" VRCON equ 099h ;# ">
+"1271
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1271: __asm("EEDATA equ 09Ah");
+[; <" EEDATA equ 09Ah ;# ">
+"1276
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1276: __asm("EEDAT equ 09Ah");
+[; <" EEDAT equ 09Ah ;# ">
+"1309
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1309: __asm("EEADR equ 09Bh");
+[; <" EEADR equ 09Bh ;# ">
+"1329
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1329: __asm("EECON1 equ 09Ch");
+[; <" EECON1 equ 09Ch ;# ">
+"1367
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1367: __asm("EECON2 equ 09Dh");
+[; <" EECON2 equ 09Dh ;# ">
+"1387
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1387: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"1407
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1407: __asm("ANSEL equ 09Fh");
+[; <" ANSEL equ 09Fh ;# ">
+"30 ./softwarei2c.h
+[; ;./softwarei2c.h: 30:     uint8_t I2C_Write(uint8_t data)
+[v _I2C_Write `(uc ~T0 @X0 1 ef1`uc ]
+"31
+[; ;./softwarei2c.h: 31:     {
+{
+[e :U _I2C_Write ]
+"30
+[; ;./softwarei2c.h: 30:     uint8_t I2C_Write(uint8_t data)
+[v _data `uc ~T0 @X0 1 r1 ]
+"31
+[; ;./softwarei2c.h: 31:     {
+[f ]
+"32
+[; ;./softwarei2c.h: 32:         uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"33
+[; ;./softwarei2c.h: 33:         for (i = 0; i < 8; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 82  ]
+[e $U 83  ]
+[e :U 82 ]
+"34
+[; ;./softwarei2c.h: 34:         {
+{
+"35
+[; ;./softwarei2c.h: 35:             if (data & 0x80)
+[e $ ! != & -> _data `i -> 128 `i -> 0 `i 85  ]
+"36
+[; ;./softwarei2c.h: 36:                 GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+[e $U 86  ]
+"37
+[; ;./softwarei2c.h: 37:             else
+[e :U 85 ]
+"38
+[; ;./softwarei2c.h: 38:                 GPIO0 = 0;
+[e = _GPIO0 -> -> 0 `i `b ]
+[e :U 86 ]
+"39
+[; ;./softwarei2c.h: 39:             data <<= 1;
+[e =<< _data -> -> 1 `i `uc ]
+"40
+[; ;./softwarei2c.h: 40:             GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"41
+[; ;./softwarei2c.h: 41:             _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"42
+[; ;./softwarei2c.h: 42:             GPIO2 = 0;
+[e = _GPIO2 -> -> 0 `i `b ]
+"43
+[; ;./softwarei2c.h: 43:             _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"44
+[; ;./softwarei2c.h: 44:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 82  ]
+[e :U 83 ]
+}
+"45
+[; ;./softwarei2c.h: 45:         GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+"46
+[; ;./softwarei2c.h: 46:         GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"47
+[; ;./softwarei2c.h: 47:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"48
+[; ;./softwarei2c.h: 48:         i = GPIO0;
+[e = _i -> _GPIO0 `uc ]
+"49
+[; ;./softwarei2c.h: 49:         GPIO2 = 0;
+[e = _GPIO2 -> -> 0 `i `b ]
+"50
+[; ;./softwarei2c.h: 50:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"51
+[; ;./softwarei2c.h: 51:         return i;
+[e ) _i ]
+[e $UE 81  ]
+"52
+[; ;./softwarei2c.h: 52:     }
+[e :UE 81 ]
+}
+"54
+[; ;./softwarei2c.h: 54:     uint8_t I2C_Read(uint8_t ack)
+[v _I2C_Read `(uc ~T0 @X0 1 ef1`uc ]
+"55
+[; ;./softwarei2c.h: 55:     {
+{
+[e :U _I2C_Read ]
+"54
+[; ;./softwarei2c.h: 54:     uint8_t I2C_Read(uint8_t ack)
+[v _ack `uc ~T0 @X0 1 r1 ]
+"55
+[; ;./softwarei2c.h: 55:     {
+[f ]
+"56
+[; ;./softwarei2c.h: 56:         uint8_t i, data = 0;
+[v _i `uc ~T0 @X0 1 a ]
+[v _data `uc ~T0 @X0 1 a ]
+[e = _data -> -> 0 `i `uc ]
+"57
+[; ;./softwarei2c.h: 57:         GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+"58
+[; ;./softwarei2c.h: 58:         for (i = 0; i < 8; i++)
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 88  ]
+[e $U 89  ]
+[e :U 88 ]
+"59
+[; ;./softwarei2c.h: 59:         {
+{
+"60
+[; ;./softwarei2c.h: 60:             data <<= 1;
+[e =<< _data -> -> 1 `i `uc ]
+"61
+[; ;./softwarei2c.h: 61:             GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"62
+[; ;./softwarei2c.h: 62:             _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"63
+[; ;./softwarei2c.h: 63:             if (GPIO0)
+[e $ ! _GPIO0 91  ]
+"64
+[; ;./softwarei2c.h: 64:                 data |= 1;
+[e =| _data -> -> 1 `i `uc ]
+[e :U 91 ]
+"65
+[; ;./softwarei2c.h: 65:             GPIO2 = 0;
+[e = _GPIO2 -> -> 0 `i `b ]
+"66
+[; ;./softwarei2c.h: 66:             _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"67
+[; ;./softwarei2c.h: 67:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 88  ]
+[e :U 89 ]
+}
+"68
+[; ;./softwarei2c.h: 68:         if (ack)
+[e $ ! != -> _ack `i -> 0 `i 92  ]
+"69
+[; ;./softwarei2c.h: 69:             GPIO0 = 0;
+[e = _GPIO0 -> -> 0 `i `b ]
+[e :U 92 ]
+"70
+[; ;./softwarei2c.h: 70:         GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"71
+[; ;./softwarei2c.h: 71:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"72
+[; ;./softwarei2c.h: 72:         GPIO2 = 0;
+[e = _GPIO2 -> -> 0 `i `b ]
+"73
+[; ;./softwarei2c.h: 73:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"74
+[; ;./softwarei2c.h: 74:         GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+"75
+[; ;./softwarei2c.h: 75:         return data;
+[e ) _data ]
+[e $UE 87  ]
+"76
+[; ;./softwarei2c.h: 76:     }
+[e :UE 87 ]
+}
+"78
+[; ;./softwarei2c.h: 78:     void I2C_Start()
+[v _I2C_Start `(v ~T0 @X0 1 ef ]
+"79
+[; ;./softwarei2c.h: 79:     {
+{
+[e :U _I2C_Start ]
+[f ]
+"80
+[; ;./softwarei2c.h: 80:         GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+"81
+[; ;./softwarei2c.h: 81:         GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"82
+[; ;./softwarei2c.h: 82:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"83
+[; ;./softwarei2c.h: 83:         GPIO0 = 0;
+[e = _GPIO0 -> -> 0 `i `b ]
+"84
+[; ;./softwarei2c.h: 84:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"85
+[; ;./softwarei2c.h: 85:         GPIO2 = 0;
+[e = _GPIO2 -> -> 0 `i `b ]
+"86
+[; ;./softwarei2c.h: 86:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"87
+[; ;./softwarei2c.h: 87:     }
+[e :UE 93 ]
+}
+"89
+[; ;./softwarei2c.h: 89:     void I2C_Stop()
+[v _I2C_Stop `(v ~T0 @X0 1 ef ]
+"90
+[; ;./softwarei2c.h: 90:     {
+{
+[e :U _I2C_Stop ]
+[f ]
+"91
+[; ;./softwarei2c.h: 91:         GPIO0 = 0;
+[e = _GPIO0 -> -> 0 `i `b ]
+"92
+[; ;./softwarei2c.h: 92:         GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"93
+[; ;./softwarei2c.h: 93:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"94
+[; ;./softwarei2c.h: 94:         GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+"95
+[; ;./softwarei2c.h: 95:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"96
+[; ;./softwarei2c.h: 96:     }
+[e :UE 94 ]
+}
+"98
+[; ;./softwarei2c.h: 98:     void I2C_Ack()
+[v _I2C_Ack `(v ~T0 @X0 1 ef ]
+"99
+[; ;./softwarei2c.h: 99:     {
+{
+[e :U _I2C_Ack ]
+[f ]
+"100
+[; ;./softwarei2c.h: 100:         GPIO0 = 0;
+[e = _GPIO0 -> -> 0 `i `b ]
+"101
+[; ;./softwarei2c.h: 101:         GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"102
+[; ;./softwarei2c.h: 102:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"103
+[; ;./softwarei2c.h: 103:         GPIO2 = 0;
+[e = _GPIO2 -> -> 0 `i `b ]
+"104
+[; ;./softwarei2c.h: 104:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"105
+[; ;./softwarei2c.h: 105:         GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+"106
+[; ;./softwarei2c.h: 106:     }
+[e :UE 95 ]
+}
+"108
+[; ;./softwarei2c.h: 108:     void I2C_Nak()
+[v _I2C_Nak `(v ~T0 @X0 1 ef ]
+"109
+[; ;./softwarei2c.h: 109:     {
+{
+[e :U _I2C_Nak ]
+[f ]
+"110
+[; ;./softwarei2c.h: 110:         GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+"111
+[; ;./softwarei2c.h: 111:         GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"112
+[; ;./softwarei2c.h: 112:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"113
+[; ;./softwarei2c.h: 113:         GPIO2 = 0;
+[e = _GPIO2 -> -> 0 `i `b ]
+"114
+[; ;./softwarei2c.h: 114:         _delay((unsigned long)((1)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"115
+[; ;./softwarei2c.h: 115:     }
+[e :UE 96 ]
+}
+"117
+[; ;./softwarei2c.h: 117:     void I2C_Init()
+[v _I2C_Init `(v ~T0 @X0 1 ef ]
+"118
+[; ;./softwarei2c.h: 118:     {
+{
+[e :U _I2C_Init ]
+[f ]
+"119
+[; ;./softwarei2c.h: 119:         TRISIO0 = 1;
+[e = _TRISIO0 -> -> 1 `i `b ]
+"120
+[; ;./softwarei2c.h: 120:         TRISIO2 = 1;
+[e = _TRISIO2 -> -> 1 `i `b ]
+"121
+[; ;./softwarei2c.h: 121:         GPIO0 = 1;
+[e = _GPIO0 -> -> 1 `i `b ]
+"122
+[; ;./softwarei2c.h: 122:         GPIO2 = 1;
+[e = _GPIO2 -> -> 1 `i `b ]
+"123
+[; ;./softwarei2c.h: 123:     }
+[e :UE 97 ]
+}
+"28 ./softwarespi.h
+[; ;./softwarespi.h: 28:     void SPI_init_master(){
+[v _SPI_init_master `(v ~T0 @X0 1 ef ]
+{
+[e :U _SPI_init_master ]
+[f ]
+"30
+[; ;./softwarespi.h: 30:         TRISIO1 = 0;
+[e = _TRISIO1 -> -> 0 `i `b ]
+"31
+[; ;./softwarespi.h: 31:         TRISIO4 = 0;
+[e = _TRISIO4 -> -> 0 `i `b ]
+"32
+[; ;./softwarespi.h: 32:         TRISIO3 = 1;
+[e = _TRISIO3 -> -> 1 `i `b ]
+"35
+[; ;./softwarespi.h: 35:         GPIO1 = 0;
+[e = _GPIO1 -> -> 0 `i `b ]
+"36
+[; ;./softwarespi.h: 36:         GPIO4 = 0;
+[e = _GPIO4 -> -> 0 `i `b ]
+"37
+[; ;./softwarespi.h: 37:     }
+[e :UE 98 ]
+}
+"39
+[; ;./softwarespi.h: 39:     uint8_t SPI_write(uint8_t data){
+[v _SPI_write `(uc ~T0 @X0 1 ef1`uc ]
+{
+[e :U _SPI_write ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+"40
+[; ;./softwarespi.h: 40:         uint8_t read = 0;
+[v _read `uc ~T0 @X0 1 a ]
+[e = _read -> -> 0 `i `uc ]
+"41
+[; ;./softwarespi.h: 41:         GPIO1 = 0;
+[e = _GPIO1 -> -> 0 `i `b ]
+"44
+[; ;./softwarespi.h: 44:         for(uint8_t i = 0; i < 8; i++){
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 100  ]
+[e $U 101  ]
+[e :U 100 ]
+{
+"45
+[; ;./softwarespi.h: 45:             if(data & 0x80){
+[e $ ! != & -> _data `i -> 128 `i -> 0 `i 103  ]
+{
+"46
+[; ;./softwarespi.h: 46:                 GPIO4 = 1;
+[e = _GPIO4 -> -> 1 `i `b ]
+"47
+[; ;./softwarespi.h: 47:             }else{
+}
+[e $U 104  ]
+[e :U 103 ]
+{
+"48
+[; ;./softwarespi.h: 48:                 GPIO4 = 0;
+[e = _GPIO4 -> -> 0 `i `b ]
+"49
+[; ;./softwarespi.h: 49:             }
+}
+[e :U 104 ]
+"50
+[; ;./softwarespi.h: 50:             GPIO1 = 1;
+[e = _GPIO1 -> -> 1 `i `b ]
+"51
+[; ;./softwarespi.h: 51:             GPIO1 = 0;
+[e = _GPIO1 -> -> 0 `i `b ]
+"53
+[; ;./softwarespi.h: 53:             read <<= 1;
+[e =<< _read -> -> 1 `i `uc ]
+"54
+[; ;./softwarespi.h: 54:             read |= GPIO3;
+[e =| _read -> -> _GPIO3 `i `uc ]
+"55
+[; ;./softwarespi.h: 55:             data <<= 1;
+[e =<< _data -> -> 1 `i `uc ]
+"56
+[; ;./softwarespi.h: 56:         }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 100  ]
+[e :U 101 ]
+}
+"57
+[; ;./softwarespi.h: 57:         read >>= 1;
+[e =>> _read -> -> 1 `i `uc ]
+"59
+[; ;./softwarespi.h: 59:         return read;
+[e ) _read ]
+[e $UE 99  ]
+"60
+[; ;./softwarespi.h: 60:     }
+[e :UE 99 ]
+}
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"15 main.c
+[; ;main.c: 15: void __attribute__((picinterrupt(("")))) ISR(void)
+[v _ISR `(v ~T1 @X0 1 ef ]
+"16
+[; ;main.c: 16: {
+{
+[e :U _ISR ]
+[f ]
+"17
+[; ;main.c: 17:     if (INTCONbits.GPIF)
+[e $ ! != -> . . _INTCONbits 0 0 `i -> 0 `i 106  ]
+"18
+[; ;main.c: 18:     {
+{
+"20
+[; ;main.c: 20:         uint8_t data = I2C_Read(0);
+[v _data `uc ~T0 @X0 1 a ]
+[e = _data ( _I2C_Read (1 -> -> 0 `i `uc ]
+"23
+[; ;main.c: 23:         uint8_t resp = SPI_write(data);
+[v _resp `uc ~T0 @X0 1 a ]
+[e = _resp ( _SPI_write (1 _data ]
+"26
+[; ;main.c: 26:         I2C_Write(resp);
+[e ( _I2C_Write (1 _resp ]
+"28
+[; ;main.c: 28:         INTCONbits.GPIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"29
+[; ;main.c: 29:     }
+}
+[e :U 106 ]
+"30
+[; ;main.c: 30: }
+[e :UE 105 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"32
+[; ;main.c: 32: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"33
+[; ;main.c: 33: {
+{
+[e :U _main ]
+[f ]
+"34
+[; ;main.c: 34:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"35
+[; ;main.c: 35:     ADCON0 = 0;
+[e = _ADCON0 -> -> 0 `i `uc ]
+"36
+[; ;main.c: 36:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"37
+[; ;main.c: 37:     VRCON = 0;
+[e = _VRCON -> -> 0 `i `uc ]
+"39
+[; ;main.c: 39:     TRISIO = 0;
+[e = _TRISIO -> -> 0 `i `uc ]
+"40
+[; ;main.c: 40:     GPIO = 0;
+[e = _GPIO -> -> 0 `i `uc ]
+"42
+[; ;main.c: 42:     SPI_init_master();
+[e ( _SPI_init_master ..  ]
+"44
+[; ;main.c: 44:     INTCONbits.GPIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"45
+[; ;main.c: 45:     OPTION_REGbits.INTEDG = 0;
+[e = . . _OPTION_REGbits 0 4 -> -> 0 `i `uc ]
+"47
+[; ;main.c: 47:     while (1)
+[e :U 109 ]
+"48
+[; ;main.c: 48:     {
+{
+"49
+[; ;main.c: 49:     }
+}
+[e :U 108 ]
+[e $U 109  ]
+[e :U 110 ]
+"50
+[; ;main.c: 50: }
+[e :UE 107 ]
+}

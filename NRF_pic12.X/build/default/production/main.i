@@ -1429,11 +1429,10 @@ void main(void)
     while (1)
     {
         GPIO2 = 1;
-        uint8_t data[3] = "EE";
+        uint8_t data[3] = "SS";
         nrf_send(data, 3);
-        _delay((unsigned long)((100)*(4000000UL/4000.0)));
+        _delay((unsigned long)((400)*(4000000UL/4000.0)));
         GPIO2 = 0;
-        _delay((unsigned long)((100)*(4000000UL/4000.0)));
-# 76 "main.c"
+        _delay((unsigned long)((400)*(4000000UL/4000.0)));
     }
 }

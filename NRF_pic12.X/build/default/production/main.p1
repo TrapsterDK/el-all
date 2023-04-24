@@ -944,9 +944,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i F646
 :U ..
 "56
-[; ;main.c: 56:         uint8_t data[3] = "EE";
--> 69 `c
--> 69 `c
+[; ;main.c: 56:         uint8_t data[3] = "SS";
+-> 83 `c
+-> 83 `c
 -> 0 `c
 ..
 ]
@@ -956,21 +956,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 57:         nrf_send(data, 3);
 [e ( _nrf_send (2 , &U _data -> -> 3 `i `uc ]
 "58
-[; ;main.c: 58:         _delay((unsigned long)((100)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+[; ;main.c: 58:         _delay((unsigned long)((400)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
 "59
 [; ;main.c: 59:         GPIO2 = 0;
 [e = _GPIO2 -> -> 0 `i `b ]
 "60
-[; ;main.c: 60:         _delay((unsigned long)((100)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
-"76
-[; ;main.c: 76:     }
+[; ;main.c: 60:         _delay((unsigned long)((400)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"61
+[; ;main.c: 61:     }
 }
 [e :U 129 ]
 [e $U 130  ]
 [e :U 131 ]
-"77
-[; ;main.c: 77: }
+"62
+[; ;main.c: 62: }
 [e :UE 128 ]
 }

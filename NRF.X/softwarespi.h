@@ -63,4 +63,3 @@ extern "C" {
 #endif
 
 #endif	/* SOFTWARESPI_H */
-

@@ -1,0 +1,617 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+end_init CODE 0 0 0 1 2 1
+config CONFIG 4 2007 2007 1 2 1
+$dist/default/production\HexPad_NRF.X.production.o
+cinit CODE 0 7E2 7E2 1E 2 1
+text1 CODE 0 605 605 31 2 1
+text2 CODE 0 6A9 6A9 3F 2 1
+text3 CODE 0 529 529 19 2 1
+text4 CODE 0 583 583 25 2 1
+text5 CODE 0 542 542 1D 2 1
+text6 CODE 0 511 511 18 2 1
+text7 CODE 0 4C2 4C2 10 2 1
+text8 CODE 0 66F 66F 3A 2 1
+text9 CODE 0 4FC 4FC 15 2 1
+text10 CODE 0 5D4 5D4 31 2 1
+text11 CODE 0 728 728 BA 2 1
+text12 CODE 0 5A8 5A8 2C 2 1
+text13 CODE 0 4E7 4E7 15 2 1
+text14 CODE 0 6E8 6E8 40 2 1
+text15 CODE 0 4D2 4D2 15 2 1
+text16 CODE 0 55F 55F 24 2 1
+maintext CODE 0 636 636 39 2 1
+cstackCOMMON COMMON 1 70 70 C 1 1
+cstackBANK0 BANK0 1 20 20 F 1 1
+bssBANK0 BANK0 1 3B 3B 4 1 1
+idataBANK0 CODE 0 4B6 4B6 C 2 1
+eeprom_data EEDATA 3 0 2100 8 2 1
+dataBANK0 BANK0 1 2F 2F C 1 1
+config CONFIG 4 2007 2007 1 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 3F-6F 1
+RAM A0-BF 1
+BANK0 3F-6F 1
+BANK1 A0-BF 1
+CONST 1-4B5 2
+ENTRY 1-4B5 2
+IDLOC 2000-2003 2
+CODE 1-4B5 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+COMMON 7C-7D 1
+EEDATA 2108-21FF 2
+STRCODE 1-4B5 2
+STRING 1-4B5 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\HexPad_NRF.X.production.o
+7E2 cinit CODE >613:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E2 cinit CODE >616:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E2 cinit CODE >636:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E3 cinit CODE >637:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E4 cinit CODE >638:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E5 cinit CODE >639:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E6 cinit CODE >640:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E7 cinit CODE >641:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E8 cinit CODE >642:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7E9 cinit CODE >643:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7EA cinit CODE >644:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7EB cinit CODE >645:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7EC cinit CODE >646:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7ED cinit CODE >647:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7EE cinit CODE >648:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7EF cinit CODE >649:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F0 cinit CODE >650:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F1 cinit CODE >651:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F2 cinit CODE >652:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F3 cinit CODE >653:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F4 cinit CODE >654:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F5 cinit CODE >655:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F6 cinit CODE >656:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F7 cinit CODE >657:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F8 cinit CODE >658:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7F9 cinit CODE >659:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7FA cinit CODE >663:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7FB cinit CODE >664:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7FC cinit CODE >665:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7FD cinit CODE >666:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7FE cinit CODE >672:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7FE cinit CODE >674:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+7FF cinit CODE >675:C:\Users\marti\AppData\Local\Temp\xcAs58k.s
+55F text16 CODE >71:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+560 text16 CODE >73:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+562 text16 CODE >75:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+571 text16 CODE >75:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+575 text16 CODE >76:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+577 text16 CODE >77:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+57D text16 CODE >77:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+581 text16 CODE >79:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+582 text16 CODE >80:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4D2 text15 CODE >4:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+4D3 text15 CODE >6:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+4D4 text15 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+4D8 text15 CODE >44:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+4DC text15 CODE >45:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+4DE text15 CODE >46:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+4E0 text15 CODE >47:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+4E5 text15 CODE >50:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+4E6 text15 CODE >51:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\common\Umul8.c
+6E8 text14 CODE >106:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6E8 text14 CODE >108:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6EB text14 CODE >109:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6EE text14 CODE >110:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6F7 text14 CODE >111:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6F9 text14 CODE >112:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+702 text14 CODE >113:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+705 text14 CODE >114:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+70E text14 CODE >115:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+710 text14 CODE >116:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+719 text14 CODE >117:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+71C text14 CODE >118:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+725 text14 CODE >119:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+727 text14 CODE >120:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4E7 text13 CODE >98:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4E7 text13 CODE >100:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4EA text13 CODE >101:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4ED text13 CODE >102:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4F9 text13 CODE >103:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4FB text13 CODE >104:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5A8 text12 CODE >155:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5A8 text12 CODE >157:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5AB text12 CODE >158:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5AE text12 CODE >159:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5B7 text12 CODE >160:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5B9 text12 CODE >161:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5C2 text12 CODE >162:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5C5 text12 CODE >163:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5D1 text12 CODE >164:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5D3 text12 CODE >165:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+728 text11 CODE >167:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+728 text11 CODE >169:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+728 text11 CODE >171:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+72A text11 CODE >173:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+72B text11 CODE >174:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+72C text11 CODE >175:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+72D text11 CODE >176:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+72E text11 CODE >178:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+72F text11 CODE >180:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+72F text11 CODE >181:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+730 text11 CODE >182:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+731 text11 CODE >183:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+731 text11 CODE >184:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+732 text11 CODE >185:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+733 text11 CODE >186:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+733 text11 CODE >187:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+734 text11 CODE >188:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+735 text11 CODE >189:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+735 text11 CODE >190:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+736 text11 CODE >191:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+737 text11 CODE >192:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+73C text11 CODE >192:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+741 text11 CODE >192:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+744 text11 CODE >192:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+747 text11 CODE >192:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+74A text11 CODE >192:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+74D text11 CODE >194:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+751 text11 CODE >195:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+755 text11 CODE >196:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+759 text11 CODE >197:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+768 text11 CODE >199:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+76B text11 CODE >199:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+76E text11 CODE >199:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+77A text11 CODE >200:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+782 text11 CODE >201:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+788 text11 CODE >203:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+789 text11 CODE >206:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+78A text11 CODE >207:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+78B text11 CODE >209:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+78C text11 CODE >210:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+78D text11 CODE >212:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+78E text11 CODE >213:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+78F text11 CODE >214:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+794 text11 CODE >214:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+799 text11 CODE >214:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+79C text11 CODE >214:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+79F text11 CODE >216:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7A3 text11 CODE >216:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7A6 text11 CODE >216:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7B0 text11 CODE >219:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7B8 text11 CODE >220:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7BA text11 CODE >220:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7D4 text11 CODE >225:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7D6 text11 CODE >227:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7DC text11 CODE >227:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+7E1 text11 CODE >229:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5D4 text10 CODE >135:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5D4 text10 CODE >137:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5D7 text10 CODE >138:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5DA text10 CODE >139:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5E7 text10 CODE >140:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5E9 text10 CODE >141:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5F2 text10 CODE >142:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+5F5 text10 CODE >143:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+602 text10 CODE >144:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+604 text10 CODE >145:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4FC text9 CODE >147:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4FC text9 CODE >149:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4FF text9 CODE >150:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+502 text9 CODE >151:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+50E text9 CODE >152:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+510 text9 CODE >153:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+66F text8 CODE >262:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+66F text8 CODE >264:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+671 text8 CODE >269:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+674 text8 CODE >270:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+675 text8 CODE >276:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+677 text8 CODE >278:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+681 text8 CODE >279:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+683 text8 CODE >279:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+687 text8 CODE >281:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+68E text8 CODE >281:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+692 text8 CODE >283:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+693 text8 CODE >284:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+695 text8 CODE >287:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+696 text8 CODE >288:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+698 text8 CODE >291:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+69D text8 CODE >291:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6A2 text8 CODE >291:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6A5 text8 CODE >291:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6A8 text8 CODE >293:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+4C2 text7 CODE >6:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c
+4C3 text7 CODE >8:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c
+4C3 text7 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c
+4C9 text7 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c
+4D1 text7 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eeread.c
+511 text6 CODE >90:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+512 text6 CODE >92:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+514 text6 CODE >94:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+51E text6 CODE >95:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+524 text6 CODE >95:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+528 text6 CODE >96:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+542 text5 CODE >97:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/nrf24l01.h
+543 text5 CODE >99:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/nrf24l01.h
+545 text5 CODE >101:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/nrf24l01.h
+554 text5 CODE >102:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/nrf24l01.h
+55A text5 CODE >102:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/nrf24l01.h
+55E text5 CODE >103:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X/nrf24l01.h
+583 text4 CODE >6:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eewrite.c
+584 text4 CODE >8:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eewrite.c
+5A7 text4 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c90\pic\__eewrite.c
+529 text3 CODE >82:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+52A text3 CODE >84:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+52C text3 CODE >86:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+537 text3 CODE >87:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+53D text3 CODE >87:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+541 text3 CODE >88:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6A9 text2 CODE >231:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6A9 text2 CODE >233:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6AB text2 CODE >235:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6B1 text2 CODE >239:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6B4 text2 CODE >240:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6B5 text2 CODE >243:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6B6 text2 CODE >244:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6B7 text2 CODE >246:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6BD text2 CODE >247:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6BF text2 CODE >250:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6C9 text2 CODE >251:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6CB text2 CODE >251:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6CF text2 CODE >253:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6D5 text2 CODE >254:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6D7 text2 CODE >258:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6DC text2 CODE >258:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6E1 text2 CODE >258:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6E4 text2 CODE >258:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+6E7 text2 CODE >260:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+605 text1 CODE >122:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+605 text1 CODE >125:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+608 text1 CODE >126:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+60B text1 CODE >127:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+618 text1 CODE >128:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+61A text1 CODE >129:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+623 text1 CODE >130:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+626 text1 CODE >131:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+633 text1 CODE >132:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+635 text1 CODE >133:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+636 maintext CODE >298:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+636 maintext CODE >300:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+638 maintext CODE >302:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+639 maintext CODE >303:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+63A maintext CODE >305:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+63B maintext CODE >306:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+63C maintext CODE >307:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+63D maintext CODE >309:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+63E maintext CODE >310:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+63F maintext CODE >311:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+640 maintext CODE >312:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+641 maintext CODE >314:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+643 maintext CODE >316:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+645 maintext CODE >317:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+647 maintext CODE >318:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+649 maintext CODE >319:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+64B maintext CODE >321:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+652 maintext CODE >334:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+654 maintext CODE >334:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+658 maintext CODE >336:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+659 maintext CODE >337:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+65B maintext CODE >339:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+660 maintext CODE >339:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+665 maintext CODE >339:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+668 maintext CODE >339:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+66B maintext CODE >339:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\HexPad_NRF.X\main.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 0 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__Hspace_0 800 0 ABS 0 - -
+__Hspace_1 7C 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 8 0 ABS 0 - -
+__Hspace_4 400F 0 ABS 0 - -
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+eeprom_read_arr@i 76 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+check_password@digit 2E 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+__Heeprom_data 10 4200 EEDATA 3 eeprom_data -
+_arrequal ABE 0 CODE 0 text16 dist/default/production\HexPad_NRF.X.production.o
+__Hstrings 0 0 ABS 0 strings -
+___sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+_main C6C 0 CODE 0 maintext dist/default/production\HexPad_NRF.X.production.o
+btemp 7E 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+start 0 0 CODE 0 init C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+get_key@checkpos 22 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+__end_of_arrequal B06 0 CODE 0 text16 dist/default/production\HexPad_NRF.X.production.o
+_get_key E50 0 CODE 0 text11 dist/default/production\HexPad_NRF.X.production.o
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__Hpowerup 0 0 CODE 0 powerup -
+check_password@current_password 29 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+___bmul@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+wtemp0 7E 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__Hfunctab 0 0 ENTRY 0 functab -
+_set_password D52 0 CODE 0 text2 dist/default/production\HexPad_NRF.X.production.o
+__end_of_eeprom_write_arr A84 0 CODE 0 text3 dist/default/production\HexPad_NRF.X.production.o
+__Hclrtext 0 0 ABS 0 clrtext -
+eeprom_read_arr@size 73 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+_EECON1bits 9C 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_CCPR1L 13 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__end_of_set_password_sound C6C 0 CODE 0 text1 dist/default/production\HexPad_NRF.X.production.o
+__end_of___bmul 9CE 0 CODE 0 text15 dist/default/production\HexPad_NRF.X.production.o
+_EECON1 9C 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_EECON2 9D 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_EEDATA 9A 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__Lmaintext 0 0 ABS 0 maintext -
+__end_of_arrcpy ABE 0 CODE 0 text5 dist/default/production\HexPad_NRF.X.production.o
+___bmul@multiplier 73 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+arrequal@i 76 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+eeprom_write@addr 72 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+___stacklo 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+_eeprom_read 984 0 CODE 0 text7 dist/default/production\HexPad_NRF.X.production.o
+_set_password_sound C0A 0 CODE 0 text1 dist/default/production\HexPad_NRF.X.production.o
+set_password@key 2D 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+__end_of_set_password DD0 0 CODE 0 text2 dist/default/production\HexPad_NRF.X.production.o
+start_initialization FC4 0 CODE 0 cinit dist/default/production\HexPad_NRF.X.production.o
+arrcpy@i 76 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+set_password@old_password 29 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+_TRISA0 428 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISA1 429 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISA2 42A 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISA3 42B 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISA4 42C 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISA5 42D 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISC0 438 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISC1 439 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISC2 43A 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISC3 43B 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISC4 43C 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_hexkeys 2F 0 BANK0 1 dataBANK0 dist/default/production\HexPad_NRF.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hcinit 1000 0 CODE 0 cinit -
+__Hstack 0 0 STACK 2 stack -
+get_key@x1 24 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+get_key@x2 25 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+get_key@x3 26 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+eeprom_write_arr@adr 76 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+eeprom_write_arr@arr 73 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+__Hmaintext 0 0 ABS 0 maintext -
+eeprom_read_arr@adr 75 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+eeprom_read_arr@arr 72 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4010 0 CONFIG 4 config -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lcinit FC4 0 CODE 0 cinit -
+__Lstack 0 0 STACK 2 stack -
+get_key@newpos 21 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+_INTCONbits B 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 0 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Htext 0 0 ABS 0 text -
+get_key@number 23 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__end_of_success C0A 0 CODE 0 text10 dist/default/production\HexPad_NRF.X.production.o
+__Linit 0 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Ltext 0 0 ABS 0 text -
+___bmul 9A4 0 CODE 0 text15 dist/default/production\HexPad_NRF.X.production.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_PR2 92 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RA0 28 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RA1 29 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RA2 2A 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RA3 2B 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RA4 2C 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RA5 2D 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RC0 38 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RC1 39 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RC2 3A 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RC3 3B 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_RC4 3C 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__S0 800 0 ABS 0 - -
+__S1 7C 0 ABS 0 - -
+__S3 2108 0 ABS 0 - -
+_arrcpy A84 0 CODE 0 text5 dist/default/production\HexPad_NRF.X.production.o
+eeprom_write@value 70 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+set_password@digit 2E 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+__Lintentry 0 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec C:\Users\marti\AppData\Local\Temp\xcAs58k.o
+_eeprom_write B06 0 CODE 0 text4 dist/default/production\HexPad_NRF.X.production.o
+__pdataBANK0 2F 0 BANK0 1 dataBANK0 dist/default/production\HexPad_NRF.X.production.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+_PIE1bits 8C 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__ptext10 BA8 0 CODE 0 text10 dist/default/production\HexPad_NRF.X.production.o
+__ptext11 E50 0 CODE 0 text11 dist/default/production\HexPad_NRF.X.production.o
+__ptext12 B50 0 CODE 0 text12 dist/default/production\HexPad_NRF.X.production.o
+__ptext13 9CE 0 CODE 0 text13 dist/default/production\HexPad_NRF.X.production.o
+__ptext14 DD0 0 CODE 0 text14 dist/default/production\HexPad_NRF.X.production.o
+__ptext15 9A4 0 CODE 0 text15 dist/default/production\HexPad_NRF.X.production.o
+__ptext16 ABE 0 CODE 0 text16 dist/default/production\HexPad_NRF.X.production.o
+__pmaintext C6C 0 CODE 0 maintext dist/default/production\HexPad_NRF.X.production.o
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+check_password@key 2D 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+arrcpy@dst 75 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+arrcpy@len 71 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+arrcpy@src 70 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+__end_of_eeprom_read 9A4 0 CODE 0 text7 dist/default/production\HexPad_NRF.X.production.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__Lend_init 0 0 CODE 0 end_init -
+__end_of_get_key FC4 0 CODE 0 text11 dist/default/production\HexPad_NRF.X.production.o
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__end_of_eeprom_write B50 0 CODE 0 text4 dist/default/production\HexPad_NRF.X.production.o
+end_of_initialization FFC 0 CODE 0 cinit dist/default/production\HexPad_NRF.X.production.o
+__Hintentry 0 0 CODE 0 intentry -
+__end_of_eeprom_read_arr A52 0 CODE 0 text6 dist/default/production\HexPad_NRF.X.production.o
+__Lstrings 0 0 ABS 0 strings -
+__Hreset_vec 0 0 CODE 0 reset_vec -
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+_check_password CDE 0 CODE 0 text8 dist/default/production\HexPad_NRF.X.production.o
+__ptext1 C0A 0 CODE 0 text1 dist/default/production\HexPad_NRF.X.production.o
+__ptext2 D52 0 CODE 0 text2 dist/default/production\HexPad_NRF.X.production.o
+__ptext3 A52 0 CODE 0 text3 dist/default/production\HexPad_NRF.X.production.o
+__ptext4 B06 0 CODE 0 text4 dist/default/production\HexPad_NRF.X.production.o
+__ptext5 A84 0 CODE 0 text5 dist/default/production\HexPad_NRF.X.production.o
+__ptext6 A22 0 CODE 0 text6 dist/default/production\HexPad_NRF.X.production.o
+__ptext7 984 0 CODE 0 text7 dist/default/production\HexPad_NRF.X.production.o
+__ptext8 CDE 0 CODE 0 text8 dist/default/production\HexPad_NRF.X.production.o
+__ptext9 9F8 0 CODE 0 text9 dist/default/production\HexPad_NRF.X.production.o
+_password 3B 0 BANK0 1 bssBANK0 dist/default/production\HexPad_NRF.X.production.o
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 4200 EEDATA 3 eeprom_data -
+_CMCON0bits 19 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__Lreset_vec 0 0 CODE 0 reset_vec -
+eeprom_write_arr@size 74 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+eeprom_write_arr@i 77 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+_success BA8 0 CODE 0 text10 dist/default/production\HexPad_NRF.X.production.o
+__end_of__initialization FFC 0 CODE 0 cinit dist/default/production\HexPad_NRF.X.production.o
+__Lfunctab 0 0 ENTRY 0 functab -
+arrequal@arr1 75 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+arrequal@arr2 70 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+arrequal@size 71 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+_eeprom_read_arr A22 0 CODE 0 text6 dist/default/production\HexPad_NRF.X.production.o
+__pidataBANK0 96C 0 CODE 0 idataBANK0 dist/default/production\HexPad_NRF.X.production.o
+__Lclrtext 0 0 ABS 0 clrtext -
+__end_of_check_password D52 0 CODE 0 text8 dist/default/production\HexPad_NRF.X.production.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+__Beeprom_data 4200 4200 EEDATA 3 eeprom_data -
+__Hend_init 2 0 CODE 0 end_init -
+__end_of_main CDE 0 CODE 0 maintext dist/default/production\HexPad_NRF.X.production.o
+_ANSEL 91 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_EEADR 9B 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__end_of_clear E50 0 CODE 0 text14 dist/default/production\HexPad_NRF.X.production.o
+_T2CON 12 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISA 85 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_TRISC 87 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__end_of_press 9F8 0 CODE 0 text13 dist/default/production\HexPad_NRF.X.production.o
+__end_of_reset BA8 0 CODE 0 text12 dist/default/production\HexPad_NRF.X.production.o
+__end_of_wrong A22 0 CODE 0 text9 dist/default/production\HexPad_NRF.X.production.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+_clear DD0 0 CODE 0 text14 dist/default/production\HexPad_NRF.X.production.o
+_press 9CE 0 CODE 0 text13 dist/default/production\HexPad_NRF.X.production.o
+_reset B50 0 CODE 0 text12 dist/default/production\HexPad_NRF.X.production.o
+_wrong 9F8 0 CODE 0 text9 dist/default/production\HexPad_NRF.X.production.o
+eeprom_read@addr 71 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+_CCP1CON 15 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+get_key@tpos 28 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+get_key@xpos 20 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+get_key@ypos 27 0 BANK0 1 cstackBANK0 dist/default/production\HexPad_NRF.X.production.o
+__initialization FC4 0 CODE 0 cinit dist/default/production\HexPad_NRF.X.production.o
+___bmul@product 72 0 COMMON 1 cstackCOMMON dist/default/production\HexPad_NRF.X.production.o
+__pbssBANK0 3B 0 BANK0 1 bssBANK0 dist/default/production\HexPad_NRF.X.production.o
+_STATUSbits 3 0 ABS 0 - dist/default/production\HexPad_NRF.X.production.o
+_eeprom_write_arr A52 0 CODE 0 text3 dist/default/production\HexPad_NRF.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7E2 FC4 1E 2
+text1 0 605 C0A 31 2
+text2 0 6A9 D52 3F 2
+text3 0 529 A52 19 2
+text4 0 583 B06 25 2
+text5 0 542 A84 1D 2
+text6 0 511 A22 18 2
+text7 0 4C2 984 10 2
+text8 0 66F CDE 3A 2
+text9 0 4FC 9F8 15 2
+text10 0 5D4 BA8 31 2
+text11 0 728 E50 BA 2
+text12 0 5A8 B50 2C 2
+text13 0 4E7 9CE 15 2
+text14 0 6E8 DD0 40 2
+text15 0 4D2 9A4 15 2
+text16 0 55F ABE 24 2
+maintext 0 636 C6C 39 2
+cstackCOMMON 1 70 70 C 1
+cstackBANK0 1 20 20 1F 1
+reset_vec 0 0 0 1 2
+idataBANK0 0 4B6 96C C 2
+eeprom_data 3 0 4200 8 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

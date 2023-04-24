@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\marti\AppData\Local\Temp\xcAs65c.o
+$C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 2 2 1
 $dist/default/production\NRF.X.production.o
@@ -89,31 +89,31 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\NRF.X.production.o
-7E4 cinit CODE >573:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7E4 cinit CODE >576:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7E4 cinit CODE >629:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7E5 cinit CODE >630:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7E6 cinit CODE >631:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7E7 cinit CODE >632:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7E8 cinit CODE >633:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7E9 cinit CODE >634:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7EA cinit CODE >635:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7EB cinit CODE >636:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7EC cinit CODE >637:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7ED cinit CODE >638:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7F2 cinit CODE >642:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7F3 cinit CODE >643:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7F4 cinit CODE >644:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7F5 cinit CODE >645:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7F6 cinit CODE >646:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7F7 cinit CODE >647:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7F8 cinit CODE >648:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7F9 cinit CODE >649:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7FA cinit CODE >650:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7FB cinit CODE >651:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7FC cinit CODE >657:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7FC cinit CODE >659:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-7FD cinit CODE >660:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
+7E4 cinit CODE >573:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7E4 cinit CODE >576:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7E4 cinit CODE >629:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7E5 cinit CODE >630:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7E6 cinit CODE >631:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7E7 cinit CODE >632:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7E8 cinit CODE >633:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7E9 cinit CODE >634:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7EA cinit CODE >635:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7EB cinit CODE >636:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7EC cinit CODE >637:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7ED cinit CODE >638:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7F2 cinit CODE >642:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7F3 cinit CODE >643:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7F4 cinit CODE >644:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7F5 cinit CODE >645:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7F6 cinit CODE >646:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7F7 cinit CODE >647:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7F8 cinit CODE >648:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7F9 cinit CODE >649:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7FA cinit CODE >650:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7FB cinit CODE >651:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7FC cinit CODE >657:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7FC cinit CODE >659:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+7FD cinit CODE >660:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
 32F text18 CODE >28:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\NRF.X/softwarespi.h
 32F text18 CODE >30:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\NRF.X/softwarespi.h
 332 text18 CODE >31:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\NRF.X/softwarespi.h
@@ -352,23 +352,23 @@ $dist/default/production\NRF.X.production.o
 6F4 maintext CODE >99:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\NRF.X\main.c
 6FD maintext CODE >99:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\NRF.X\main.c
 701 maintext CODE >99:C:\Users\marti\OneDrive\Skrivebord\Programmering\el-all\NRF.X\main.c
-370 inittext CODE >603:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-370 inittext CODE >604:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-371 inittext CODE >605:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-372 inittext CODE >606:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-373 inittext CODE >607:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-374 inittext CODE >614:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-374 inittext CODE >615:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-379 inittext CODE >616:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-37A inittext CODE >617:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-37B inittext CODE >618:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-37C inittext CODE >619:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-37D inittext CODE >620:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-37E inittext CODE >621:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-37F inittext CODE >622:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-380 inittext CODE >623:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-381 inittext CODE >624:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
-382 inittext CODE >625:C:\Users\marti\AppData\Local\Temp\xcAs65c.s
+370 inittext CODE >603:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+370 inittext CODE >604:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+371 inittext CODE >605:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+372 inittext CODE >606:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+373 inittext CODE >607:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+374 inittext CODE >614:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+374 inittext CODE >615:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+379 inittext CODE >616:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+37A inittext CODE >617:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+37B inittext CODE >618:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+37C inittext CODE >619:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+37D inittext CODE >620:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+37E inittext CODE >621:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+37F inittext CODE >622:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+380 inittext CODE >623:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+381 inittext CODE >624:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
+382 inittext CODE >625:C:\Users\marti\AppData\Local\Temp\xcAs9nk.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -403,10 +403,10 @@ _SPEN C7 0 ABS 0 - dist/default/production\NRF.X.production.o
 _SYNC 4C4 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TRMT 4C1 0 ABS 0 - dist/default/production\NRF.X.production.o
 _TXEN 4C5 0 ABS 0 - dist/default/production\NRF.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcAs65c.o
+___sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
 _main C8C 0 CODE 0 maintext dist/default/production\NRF.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\NRF.X.production.o
-start 0 0 CODE 0 init C:\Users\marti\AppData\Local\Temp\xcAs65c.o
+start 0 0 CODE 0 init C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
 nrf_command_with_data@status 78 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 nrf_write_payload@data 21 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 nrf_command_with_data_overwrite@command 79 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
@@ -417,12 +417,12 @@ __end_of_SPI_write 840 0 CODE 0 text13 dist/default/production\NRF.X.production.
 nrf_command_with_data@i 79 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 UART_init@baudrate 26 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs65c.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs65c.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs65c.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs65c.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs65c.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs65c.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
 nrf_send@len 23 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 ___aldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\NRF.X.production.o
@@ -442,8 +442,8 @@ __end_of_arrcpy 7A8 0 CODE 0 text4 dist/default/production\NRF.X.production.o
 __end_of___aldiv C8C 0 CODE 0 text17 dist/default/production\NRF.X.production.o
 __end_of_SPI_init_master 672 0 CODE 0 text18 dist/default/production\NRF.X.production.o
 _nrf_flush_rxtx 706 0 CODE 0 text3 dist/default/production\NRF.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcAs65c.o
-___stacklo 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcAs65c.o
+___stackhi 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
+___stacklo 0 0 ABS 0 - C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
 __end_of_UART_write 68A 0 CODE 0 text15 dist/default/production\NRF.X.production.o
 UART_write@data 70 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 nrf_set_tx_mode@config 22 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
@@ -466,7 +466,7 @@ _SPI_init_master 65E 0 CODE 0 text18 dist/default/production\NRF.X.production.o
 nrf_read_register@len 7D 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X.production.o
 nrf_read_register@reg 20 0 BANK0 1 cstackBANK0 dist/default/production\NRF.X.production.o
 __end_of_nrf_flush_rxtx 738 0 CODE 0 text3 dist/default/production\NRF.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcAs65c.o
+___int_sp 0 0 STACK 2 stack C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -524,7 +524,7 @@ nrf_write_register@data 7A 0 COMMON 1 cstackCOMMON dist/default/production\NRF.X
 _nrf_setup E12 0 CODE 0 text2 dist/default/production\NRF.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 6 0 STRING 0 strings dist/default/production\NRF.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\marti\AppData\Local\Temp\xcAs65c.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\marti\AppData\Local\Temp\xcAs9nk.o
 _nrf_set_tx_mode 7A8 0 CODE 0 text8 dist/default/production\NRF.X.production.o
 __end_of_nrf_write_payload 76E 0 CODE 0 text6 dist/default/production\NRF.X.production.o
 __pdataBANK1 E0 0 BANK1 1 dataBANK1 dist/default/production\NRF.X.production.o

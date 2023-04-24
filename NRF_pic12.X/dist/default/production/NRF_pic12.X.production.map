@@ -6,9 +6,9 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
   -cn -h+dist/default/production\NRF_pic12.X.production.sym \
   --cmf=dist/default/production\NRF_pic12.X.production.cmf -z -Q12F675 \
-  -oC:\Users\marti\AppData\Local\Temp\xcAs54o.5 --fixupoverflow=error \
+  -oC:\Users\marti\AppData\Local\Temp\xcAs2v0.4 --fixupoverflow=error \
   -Mdist/default/production/NRF_pic12.X.production.map \
-  --md=C:\Users\marti\AppData\Local\Temp\xcBs54o.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\marti\AppData\Local\Temp\xcAs2v0.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-03FEh -ASTRCODE=00h-03FEh \
   -ASTRING=00h-0FFhx3,0300h-03FEh -ACONST=00h-0FFhx3,0300h-03FEh \
   -AENTRY=00h-0FFhx3,0300h-03FEh -ABANK0=020h-05Dh -ARAM=020h-05Dh \
@@ -18,7 +18,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -posccal=03FFh -k \
-  C:\Users\marti\AppData\Local\Temp\xcAs54o.o \
+  C:\Users\marti\AppData\Local\Temp\xcAs2v0.o \
   dist/default/production\NRF_pic12.X.production.o 
 
 Object code version is 3.11
@@ -28,49 +28,49 @@ Machine type is 12F675
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\marti\AppData\Local\Temp\xcAs54o.o
+C:\Users\marti\AppData\Local\Temp\xcAs2v0.o
                 end_init                              0        0        1        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\NRF_pic12.X.production.o
                 cinit                               3ED      3ED       12      7DA       0
                 config                             2007     2007        1        0       4
-                text13                              21A      21A        8      434       0
-                text12                              2D8      2D8       26      5B0       0
-                text11                              2FE      2FE       28      5FC       0
-                text10                              22A      22A        9      454       0
-                text9                               2B9      2B9       1F      572       0
-                text8                               233      233        A      466       0
-                text7                               280      280       1B      500       0
-                text6                               23D      23D        A      47A       0
-                text5                               255      255       12      4AA       0
-                text4                               267      267       19      4CE       0
-                text3                               29B      29B       1E      536       0
-                text2                               247      247        E      48E       0
+                text13                              214      214        8      428       0
+                text12                              2D2      2D2       26      5A4       0
+                text11                              2F8      2F8       28      5F0       0
+                text10                              224      224        9      448       0
+                text9                               2B3      2B3       1F      566       0
+                text8                               22D      22D        A      45A       0
+                text7                               27A      27A       1B      4F4       0
+                text6                               237      237        A      46E       0
+                text5                               24F      24F       12      49E       0
+                text4                               261      261       19      4C2       0
+                text3                               295      295       1E      52A       0
+                text2                               241      241        E      482       0
                 text1                               35D      35D       90      6BA       0
-                maintext                            326      326       37      64C       0
-                cstackBANK0                          20       20       1D       20       1
-                dataBANK0                            3D       3D        8       20       1
-                idataBANK0                          222      222        8      444       0
+                maintext                            320      320       3D      640       0
+                cstackBANK0                          20       20       1E       20       1
+                dataBANK0                            3E       3E        8       20       1
+                idataBANK0                          21C      21C        8      438       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 end_init                              0        0        1         0
                 cinit                               3ED      3ED       12         0
-                text13                              21A      21A        8         0
-                text12                              2D8      2D8       26         0
-                text11                              2FE      2FE       28         0
-                text10                              22A      22A        9         0
-                text9                               2B9      2B9       1F         0
-                text8                               233      233        A         0
-                text7                               280      280       1B         0
-                text6                               23D      23D        A         0
-                text5                               255      255       12         0
-                text4                               267      267       19         0
-                text3                               29B      29B       1E         0
-                text2                               247      247        E         0
+                text13                              214      214        8         0
+                text12                              2D2      2D2       26         0
+                text11                              2F8      2F8       28         0
+                text10                              224      224        9         0
+                text9                               2B3      2B3       1F         0
+                text8                               22D      22D        A         0
+                text7                               27A      27A       1B         0
+                text6                               237      237        A         0
+                text5                               24F      24F       12         0
+                text4                               261      261       19         0
+                text3                               295      295       1E         0
+                text2                               241      241        E         0
                 text1                               35D      35D       90         0
-                maintext                            326      326       37         0
-                idataBANK0                          222      222        8         0
+                maintext                            320      320       3D         0
+                idataBANK0                          21C      21C        8         0
 
         CLASS   STRCODE        
 
@@ -81,8 +81,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   BANK0          
-                cstackBANK0                          20       20       1D         1
-                dataBANK0                            3D       3D        8         1
+                cstackBANK0                          20       20       1E         1
+                dataBANK0                            3E       3E        8         1
 
         CLASS   RAM            
 
@@ -111,21 +111,21 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000001  000001         0       0  CODE        2
-                cstackBANK0                    000020  000025  000045        20       1  BANK0       1
-                text13                         00021A  000008  000222       434       0  CODE        2
-                idataBANK0                     000222  000008  00022A       444       0  CODE        2
-                text10                         00022A  000009  000233       454       0  CODE        2
-                text8                          000233  00000A  00023D       466       0  CODE        2
-                text6                          00023D  00000A  000247       47A       0  CODE        2
-                text2                          000247  00000E  000255       48E       0  CODE        2
-                text5                          000255  000012  000267       4AA       0  CODE        2
-                text4                          000267  000019  000280       4CE       0  CODE        2
-                text7                          000280  00001B  00029B       500       0  CODE        2
-                text3                          00029B  00001E  0002B9       536       0  CODE        2
-                text9                          0002B9  00001F  0002D8       572       0  CODE        2
-                text12                         0002D8  000026  0002FE       5B0       0  CODE        2
-                text11                         0002FE  000028  000326       5FC       0  CODE        2
-                maintext                       000326  000037  00035D       64C       0  CODE        2
+                cstackBANK0                    000020  000026  000046        20       1  BANK0       1
+                text13                         000214  000008  00021C       428       0  CODE        2
+                idataBANK0                     00021C  000008  000224       438       0  CODE        2
+                text10                         000224  000009  00022D       448       0  CODE        2
+                text8                          00022D  00000A  000237       45A       0  CODE        2
+                text6                          000237  00000A  000241       46E       0  CODE        2
+                text2                          000241  00000E  00024F       482       0  CODE        2
+                text5                          00024F  000012  000261       49E       0  CODE        2
+                text4                          000261  000019  00027A       4C2       0  CODE        2
+                text7                          00027A  00001B  000295       4F4       0  CODE        2
+                text3                          000295  00001E  0002B3       52A       0  CODE        2
+                text9                          0002B3  00001F  0002D2       566       0  CODE        2
+                text12                         0002D2  000026  0002F8       5A4       0  CODE        2
+                text11                         0002F8  000028  000320       5F0       0  CODE        2
+                maintext                       000320  00003D  00035D       640       0  CODE        2
                 text1                          00035D  000090  0003ED       6BA       0  CODE        2
                 cinit                          0003ED  000012  0003FF       7DA       0  CODE        2
 
@@ -133,17 +133,17 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0045-005D             19           1
-        CODE             0001-0219            219           2
-        CONST            0001-0219            100           2
+        BANK0            0046-005D             18           1
+        CODE             0001-0213            213           2
+        CONST            0001-0213            100           2
         EEDATA           2100-217F             80           2
-        ENTRY            0001-0219            100           2
+        ENTRY            0001-0213            100           2
         IDLOC            2000-2003              4           2
-        RAM              0045-005D             19           1
+        RAM              0046-005D             18           1
         SFR0             0000-001F             20           1
         SFR1             0080-00DD             5E           1
-        STRCODE          0001-0219            219           2
-        STRING           0001-0219            100           2
+        STRCODE          0001-0213            213           2
+        STRING           0001-0213            100           2
 
                                   Symbol Table
 
@@ -160,9 +160,9 @@ _GPIO2                                   (abs)        002A
 _GPIO3                                   (abs)        002B
 _GPIO4                                   (abs)        002C
 _GPIO5                                   (abs)        002D
-_RADIO_ADDR                              dataBANK0    0040
-_SPI_init_master                         text13       021A
-_SPI_write                               text12       02D8
+_RADIO_ADDR                              dataBANK0    0041
+_SPI_init_master                         text13       0214
+_SPI_write                               text12       02D2
 _TRISIO                                  (abs)        0085
 _TRISIO0                                 (abs)        0428
 _TRISIO1                                 (abs)        0429
@@ -235,7 +235,7 @@ __Lstack                                 stack        07FE
 __Lstrings                               strings      07FE
 __Ltext                                  text         07FE
 __S0                                     (abs)        03FF
-__S1                                     (abs)        0045
+__S1                                     (abs)        0046
 __S3                                     (abs)        0000
 ___int_sp                                stack        07FE
 ___latbits                               (abs)        0000
@@ -243,52 +243,52 @@ ___osccal_val                            osccal       03FF
 ___sp                                    stack        07FE
 ___stackhi                               (abs)        0000
 ___stacklo                               (abs)        0000
-__end_of_SPI_init_master                 text13       0222
-__end_of_SPI_write                       text12       02FE
+__end_of_SPI_init_master                 text13       021C
+__end_of_SPI_write                       text12       02F8
 __end_of__initialization                 cinit        03FD
-__end_of_arrcpy                          text3        02B9
+__end_of_arrcpy                          text3        02B3
 __end_of_main                            maintext     035D
-__end_of_nrf_command_with_data           text9        02D8
-__end_of_nrf_command_with_data_overwrite text11       0326
-__end_of_nrf_flush_rxtx                  text2        0255
-__end_of_nrf_read_register               text10       0233
-__end_of_nrf_send                        text4        0280
-__end_of_nrf_set_tx_mode                 text7        029B
+__end_of_nrf_command_with_data           text9        02D2
+__end_of_nrf_command_with_data_overwrite text11       0320
+__end_of_nrf_flush_rxtx                  text2        024F
+__end_of_nrf_read_register               text10       022D
+__end_of_nrf_send                        text4        027A
+__end_of_nrf_set_tx_mode                 text7        0295
 __end_of_nrf_setup                       text1        03ED
-__end_of_nrf_write_command               text6        0247
-__end_of_nrf_write_payload               text5        0267
-__end_of_nrf_write_register              text8        023D
+__end_of_nrf_write_command               text6        0241
+__end_of_nrf_write_payload               text5        0261
+__end_of_nrf_write_register              text8        0237
 __initialization                         cinit        03ED
 __pcstackBANK0                           cstackBANK0  0020
 __pcstackCOMMON                          cstackCOMMON 0000
-__pdataBANK0                             dataBANK0    003D
-__pidataBANK0                            idataBANK0   0222
-__pmaintext                              maintext     0326
+__pdataBANK0                             dataBANK0    003E
+__pidataBANK0                            idataBANK0   021C
+__pmaintext                              maintext     0320
 __ptext1                                 text1        035D
-__ptext10                                text10       022A
-__ptext11                                text11       02FE
-__ptext12                                text12       02D8
-__ptext13                                text13       021A
-__ptext2                                 text2        0247
-__ptext3                                 text3        029B
-__ptext4                                 text4        0267
-__ptext5                                 text5        0255
-__ptext6                                 text6        023D
-__ptext7                                 text7        0280
-__ptext8                                 text8        0233
-__ptext9                                 text9        02B9
-_arrcpy                                  text3        029B
-_main                                    maintext     0326
-_nrf_command_with_data                   text9        02B9
-_nrf_command_with_data_overwrite         text11       02FE
-_nrf_flush_rxtx                          text2        0247
-_nrf_read_register                       text10       022A
-_nrf_send                                text4        0267
-_nrf_set_tx_mode                         text7        0280
+__ptext10                                text10       0224
+__ptext11                                text11       02F8
+__ptext12                                text12       02D2
+__ptext13                                text13       0214
+__ptext2                                 text2        0241
+__ptext3                                 text3        0295
+__ptext4                                 text4        0261
+__ptext5                                 text5        024F
+__ptext6                                 text6        0237
+__ptext7                                 text7        027A
+__ptext8                                 text8        022D
+__ptext9                                 text9        02B3
+_arrcpy                                  text3        0295
+_main                                    maintext     0320
+_nrf_command_with_data                   text9        02B3
+_nrf_command_with_data_overwrite         text11       02F8
+_nrf_flush_rxtx                          text2        0241
+_nrf_read_register                       text10       0224
+_nrf_send                                text4        0261
+_nrf_set_tx_mode                         text7        027A
 _nrf_setup                               text1        035D
-_nrf_write_command                       text6        023D
-_nrf_write_payload                       text5        0255
-_nrf_write_register                      text8        0233
+_nrf_write_command                       text6        0237
+_nrf_write_payload                       text5        024F
+_nrf_write_register                      text8        022D
 arrcpy@dst                               cstackBANK0  0025
 arrcpy@i                                 cstackBANK0  0026
 arrcpy@len                               cstackBANK0  0021
@@ -301,8 +301,8 @@ intlevel2                                functab      0000
 intlevel3                                functab      0000
 intlevel4                                functab      0000
 intlevel5                                functab      0000
-main@F646                                dataBANK0    003D
-main@data                                cstackBANK0  003A
+main@F646                                dataBANK0    003E
+main@data                                cstackBANK0  003B
 nrf_command_with_data@command            cstackBANK0  0027
 nrf_command_with_data@data               cstackBANK0  0024
 nrf_command_with_data@i                  cstackBANK0  0029
@@ -343,17 +343,17 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 ./nrf24l01.h
-		_nrf_set_tx_mode		CODE           	0280	0000	27
-		_nrf_command_with_data_overwrite		CODE           	02FE	0000	40
-		_nrf_write_payload		CODE           	0255	0000	18
-		_nrf_write_command		CODE           	023D	0000	10
-		_nrf_send      		CODE           	0267	0000	25
+		_nrf_set_tx_mode		CODE           	027A	0000	27
+		_nrf_command_with_data_overwrite		CODE           	02F8	0000	40
+		_nrf_write_payload		CODE           	024F	0000	18
+		_nrf_write_command		CODE           	0237	0000	10
+		_nrf_send      		CODE           	0261	0000	25
 		_nrf_setup     		CODE           	035D	0000	144
-		_nrf_command_with_data		CODE           	02B9	0000	31
-		_nrf_read_register		CODE           	022A	0000	9
-		_nrf_flush_rxtx		CODE           	0247	0000	14
-		_arrcpy        		CODE           	029B	0000	30
-		_nrf_write_register		CODE           	0233	0000	10
+		_nrf_command_with_data		CODE           	02B3	0000	31
+		_nrf_read_register		CODE           	0224	0000	9
+		_nrf_flush_rxtx		CODE           	0241	0000	14
+		_arrcpy        		CODE           	0295	0000	30
+		_nrf_write_register		CODE           	022D	0000	10
 
 ./nrf24l01.h estimated size: 358
 
@@ -363,13 +363,13 @@ shared
 shared estimated size: 16
 
 ./softwarespi.h
-		_SPI_init_master		CODE           	021A	0000	8
-		_SPI_write     		CODE           	02D8	0000	38
+		_SPI_init_master		CODE           	0214	0000	8
+		_SPI_write     		CODE           	02D2	0000	38
 
 ./softwarespi.h estimated size: 46
 
 main.c
-		_main          		CODE           	0326	0000	55
+		_main          		CODE           	0320	0000	61
 
-main.c estimated size: 55
+main.c estimated size: 61
 

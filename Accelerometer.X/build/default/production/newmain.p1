@@ -1,0 +1,298 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"644 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 644: extern volatile unsigned char ADCON0 __attribute__((address(0x01F)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@31 ]
+"1584
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1584: extern volatile __bit GO_DONE __attribute__((address(0xF9)));
+[v _GO_DONE `Vb ~T0 @X0 0 e@249 ]
+"624
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 624: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
+[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+[p mainexit ]
+"1405
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1405: extern volatile unsigned char ANSEL __attribute__((address(0x09F)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@159 ]
+"565
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 565: extern volatile unsigned char CMCON __attribute__((address(0x019)));
+[v _CMCON `Vuc ~T0 @X0 0 e@25 ]
+"1209
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1209: extern volatile unsigned char VRCON __attribute__((address(0x099)));
+[v _VRCON `Vuc ~T0 @X0 0 e@153 ]
+"798
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 798: extern volatile unsigned char TRISIO __attribute__((address(0x085)));
+[v _TRISIO `Vuc ~T0 @X0 0 e@133 ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.40\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"1602 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1602: extern volatile __bit GP4 __attribute__((address(0x2C)));
+[v _GP4 `Vb ~T0 @X0 0 e@44 ]
+"1 newmain.c
+[p x FOSC  =  INTRCIO ]
+"2
+[p x WDTE  =  OFF ]
+"3
+[p x MCLRE  =  OFF ]
+"4
+[p x CP  =  OFF ]
+"5
+[p x CPD  =  OFF ]
+"6
+[p x BOREN  =  ON ]
+"7
+[p x PWRTE  =  ON  ]
+"55 C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"75
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 75: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"95
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 95: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"115
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 115: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"201
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 201: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"221
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 221: __asm("GPIO equ 05h");
+[; <" GPIO equ 05h ;# ">
+"309
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 309: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"329
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 329: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"407
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 407: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"455
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 455: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"462
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 462: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"482
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 482: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"502
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 502: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"567
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 567: __asm("CMCON equ 019h");
+[; <" CMCON equ 019h ;# ">
+"626
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 626: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"646
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 646: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"730
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 730: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"800
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 800: __asm("TRISIO equ 085h");
+[; <" TRISIO equ 085h ;# ">
+"850
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 850: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"898
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 898: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"932
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 932: __asm("OSCCAL equ 090h");
+[; <" OSCCAL equ 090h ;# ">
+"992
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 992: __asm("WPU equ 095h");
+[; <" WPU equ 095h ;# ">
+"1037
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1037: __asm("IOC equ 096h");
+[; <" IOC equ 096h ;# ">
+"1042
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1042: __asm("IOCB equ 096h");
+[; <" IOCB equ 096h ;# ">
+"1211
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1211: __asm("VRCON equ 099h");
+[; <" VRCON equ 099h ;# ">
+"1271
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1271: __asm("EEDATA equ 09Ah");
+[; <" EEDATA equ 09Ah ;# ">
+"1276
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1276: __asm("EEDAT equ 09Ah");
+[; <" EEDAT equ 09Ah ;# ">
+"1309
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1309: __asm("EEADR equ 09Bh");
+[; <" EEADR equ 09Bh ;# ">
+"1329
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1329: __asm("EECON1 equ 09Ch");
+[; <" EECON1 equ 09Ch ;# ">
+"1367
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1367: __asm("EECON2 equ 09Dh");
+[; <" EECON2 equ 09Dh ;# ">
+"1387
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1387: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"1407
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic12f675.h: 1407: __asm("ANSEL equ 09Fh");
+[; <" ANSEL equ 09Fh ;# ">
+"12 newmain.c
+[; ;newmain.c: 12: void ADC_Init()
+[v _ADC_Init `(v ~T0 @X0 1 ef ]
+"13
+[; ;newmain.c: 13: {
+{
+[e :U _ADC_Init ]
+[f ]
+"14
+[; ;newmain.c: 14:    ADCON0 = 0b00001001;
+[e = _ADCON0 -> -> 9 `i `uc ]
+"15
+[; ;newmain.c: 15: }
+[e :UE 81 ]
+}
+"18
+[; ;newmain.c: 18: uint8_t ADC_Read()
+[v _ADC_Read `(uc ~T0 @X0 1 ef ]
+"19
+[; ;newmain.c: 19:  {
+{
+[e :U _ADC_Read ]
+[f ]
+"20
+[; ;newmain.c: 20:     GO_DONE = 1;
+[e = _GO_DONE -> -> 1 `i `b ]
+"21
+[; ;newmain.c: 21:     while(GO_DONE == 1);
+[e $U 83  ]
+[e :U 84 ]
+[e :U 83 ]
+[e $ == -> _GO_DONE `i -> 1 `i 84  ]
+[e :U 85 ]
+"22
+[; ;newmain.c: 22:     return(ADRESH);
+[e ) _ADRESH ]
+[e $UE 82  ]
+"23
+[; ;newmain.c: 23:  }
+[e :UE 82 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"26
+[; ;newmain.c: 26: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"27
+[; ;newmain.c: 27:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"28
+[; ;newmain.c: 28:     ADCON0 = 0;
+[e = _ADCON0 -> -> 0 `i `uc ]
+"29
+[; ;newmain.c: 29:     CMCON = 0x07;
+[e = _CMCON -> -> 7 `i `uc ]
+"30
+[; ;newmain.c: 30:     VRCON = 0;
+[e = _VRCON -> -> 0 `i `uc ]
+"32
+[; ;newmain.c: 32:     TRISIO = 0b00000100;
+[e = _TRISIO -> -> 4 `i `uc ]
+"33
+[; ;newmain.c: 33:     ADC_Init();
+[e ( _ADC_Init ..  ]
+"35
+[; ;newmain.c: 35:     _delay((unsigned long)((10)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"37
+[; ;newmain.c: 37:     uint8_t avg = 0;
+[v _avg `uc ~T0 @X0 1 a ]
+[e = _avg -> -> 0 `i `uc ]
+"40
+[; ;newmain.c: 40:     for (int i = 0; i<400; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 400 `i 87  ]
+[e $U 88  ]
+[e :U 87 ]
+{
+"41
+[; ;newmain.c: 41:         uint8_t read = ADC_Read();
+[v _read `uc ~T0 @X0 1 a ]
+[e = _read ( _ADC_Read ..  ]
+"42
+[; ;newmain.c: 42:         if (read > avg) {
+[e $ ! > -> _read `i -> _avg `i 90  ]
+{
+"43
+[; ;newmain.c: 43:             avg++;
+[e ++ _avg -> -> 1 `i `uc ]
+"44
+[; ;newmain.c: 44:         }else{
+}
+[e $U 91  ]
+[e :U 90 ]
+{
+"45
+[; ;newmain.c: 45:             avg--;
+[e -- _avg -> -> 1 `i `uc ]
+"46
+[; ;newmain.c: 46:         }
+}
+[e :U 91 ]
+"47
+[; ;newmain.c: 47:         _delay((unsigned long)((5)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"48
+[; ;newmain.c: 48:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 400 `i 87  ]
+[e :U 88 ]
+}
+"50
+[; ;newmain.c: 50:     avg+=2;
+[e =+ _avg -> -> 2 `i `uc ]
+"52
+[; ;newmain.c: 52:     while(1){
+[e :U 93 ]
+{
+"53
+[; ;newmain.c: 53:         if(ADC_Read()> avg){
+[e $ ! > -> ( _ADC_Read ..  `i -> _avg `i 95  ]
+{
+"54
+[; ;newmain.c: 54:             GP4 = 1;
+[e = _GP4 -> -> 1 `i `b ]
+"55
+[; ;newmain.c: 55:         }
+}
+[e $U 96  ]
+"56
+[; ;newmain.c: 56:         else{
+[e :U 95 ]
+{
+"57
+[; ;newmain.c: 57:             GP4 = 0;
+[e = _GP4 -> -> 0 `i `b ]
+"58
+[; ;newmain.c: 58:         }
+}
+[e :U 96 ]
+"59
+[; ;newmain.c: 59:         _delay((unsigned long)((100)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"61
+[; ;newmain.c: 61:     }
+}
+[e :U 92 ]
+[e $U 93  ]
+[e :U 94 ]
+"63
+[; ;newmain.c: 63: }
+[e :UE 86 ]
+}
